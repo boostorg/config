@@ -26,7 +26,7 @@
 
 #if (_MSC_VER <= 1300) // || !defined(BOOST_STRICT_CONFIG) // VC7 Beta 2 or later
 
-#if !defined(_MSC_EXTENSIONS) && !defined(BOOST_NO_DEPENDENT_TYPES_IN_TEMPLATE_VALUE_PARAMETERS)		// VC7 bug with /Za
+#if !defined(_MSC_EXTENSIONS) && !defined(BOOST_NO_DEPENDENT_TYPES_IN_TEMPLATE_VALUE_PARAMETERS)      // VC7 bug with /Za
 #  define BOOST_NO_DEPENDENT_TYPES_IN_TEMPLATE_VALUE_PARAMETERS
 #endif
 
