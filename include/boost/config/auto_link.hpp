@@ -81,7 +81,10 @@ BOOST_LIB_VERSION:    The Boost version, in the form x_y, for Boost version x.y.
 //
 // Only include what follows for known and supported compilers:
 //
-#if defined(BOOST_MSVC) || defined(__BORLANDC__)
+#if (defined(BOOST_MSVC) && defined(_MSC_EXTENSIONS)) \
+    || defined(__BORLANDC__) \
+    || (defined(__MWERKS__) && defined(_WIN32) && (__MWERKS__ >= 0x3000)) \
+    || (defined(__ICL) && defined(_MSC_EXTENSIONS) && (_MSC_VER >= 1200))
 
 #ifndef BOOST_VERSION_HPP
 #  include <boost/version.hpp>
@@ -122,6 +125,21 @@ BOOST_LIB_VERSION:    The Boost version, in the form x_y, for Boost version x.y.
    // CBuilder 6:
 #  define BOOST_LIB_TOOLSET "bcb"
 
+#elif defined(__ICL)
+
+   // Intel C++, no version number:
+#  define BOOST_LIB_TOOLSET "iw"
+
+#elif defined(__MWERKS__) && (__MWERKS__ <= 0x31FF )
+
+   // Metrowerks CodeWarrior 8.x
+#  define BOOST_LIB_TOOLSET "cw8"
+
+#elif defined(__MWERKS__) && (__MWERKS__ <= 0x32FF )
+
+   // Metrowerks CodeWarrior 9.x
+#  define BOOST_LIB_TOOLSET "cw9"
+
 #endif
 
 //
@@ -133,7 +151,7 @@ BOOST_LIB_VERSION:    The Boost version, in the form x_y, for Boost version x.y.
 #  define BOOST_LIB_THREAD_OPT
 #endif
 
-#ifdef _MSC_VER
+#if defined(_MSC_VER) || defined(__MWERKS__)
 
 #  ifdef _DLL
 
