@@ -31,6 +31,6 @@
 
 int cpp_main( int, char *[] )
 {
-   return ::test();
+   return boost_function_scope_using_declaration_breaks_adl::test();
 }  
    
