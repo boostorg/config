@@ -80,12 +80,6 @@
 #   define BOOST_HAS_MS_INT64
 #endif
 //
-// long long support:
-//
-#if (_MSC_VER >= 1301) && defined(_MSC_EXTENSIONS)
-#   define BOOST_HAS_LONG_LONG
-#endif
-//
 // disable Win32 API's if compiler extentions are
 // turned off:
 //
@@ -112,5 +106,6 @@
 #     pragma message("Unknown compiler version - please run the configure tests and report the results")
 #  endif
 #endif
+
 
 
