@@ -11,12 +11,11 @@
 //  http://www.boost.org/libs/config
 
 //  Revision History (excluding minor changes for specific compilers)
-//    1 Sep 00  BOOST_NO_PRIVATE_IN_AGGREGATE added. (Mark Rodgers)
 //   23 Jul 00  Fixed spelling of BOOST_NO_INCLASS_MEMBER_INITIALIZATION in
 //              comment (Dave Abrahams). 
 //   10 Jul 00  BOOST_NO_POINTER_TO_MEMBER_CONST added (Mark Rodgers)
 //   26 Jun 00  BOOST_NO_STD_ITERATOR, BOOST_MSVC_STD_ITERATOR,
-//              BOOST_NO_STD_ITERATOR_TRAITS, BOOST_NO_USING_TEMPLATE,
+//              BOOST_NO_ITERATOR_TRAITS, BOOST_NO_USING_TEMPLATE,
 //              added (Jeremy Siek)
 //   20 Jun 00  BOOST_MSVC added (Aleksey Gurtovoy)
 //   14 Jun 00  BOOST_NO_DEPENDENT_TYPES_IN_TEMPLATE_VALUE_PARAMETERS (Jens M.)
@@ -52,6 +51,10 @@
 
 //  BOOST_NO_INCLASS_MEMBER_INITIALIZATION: Compiler violates std::9.4.2/4. 
 
+//  BOOST_NO_ITERATOR_TRAITS: The compiler does not provide a standard
+//  compliant implementation of std::iterator_traits. Note that
+//  the compiler may still have a non-standard implementation.
+
 //  BOOST_NO_MEMBER_TEMPLATES: Member template functions not fully supported.
 //  Also see BOOST_MSVC6_MEMBER_TEMPLATES in the Compiler Control section below.
 
@@ -65,17 +68,10 @@
 
 //  BOOST_NO_POINTER_TO_MEMBER_CONST: The compiler does not correctly handle
 //  pointers to const member functions, preventing use of these in overloaded 
-//  function templates.  See boost/functional.hpp for example.
-
-//  BOOST_NO_PRIVATE_IN_AGGREGATE: The compiler misreads 8.5.1, treating classes
-//  as non-aggregate if they contain private or protected member functions. 
+//  function templates.  See boost/functional.hpp for example. 
 
 //  BOOST_NO_STD_ITERATOR: The C++ implementation fails to provide the
 //  std::iterator class.
-
-//  BOOST_NO_STD_ITERATOR_TRAITS: The compiler does not provide a standard
-//  compliant implementation of std::iterator_traits. Note that
-//  the compiler may still have a non-standard implementation.
 
 //  BOOST_NO_STDC_NAMESPACE: The contents of C++ standard headers for C library
 //  functions (the <c...> headers) have not been placed in namespace std.
@@ -156,7 +152,6 @@
 // Borland C++ Builder 4 and 5:
 #   define BOOST_NO_MEMBER_TEMPLATE_FRIENDS
 #   define BOOST_NO_USING_TEMPLATE
-#   define BOOST_NO_PRIVATE_IN_AGGREGATE
 #     if __BORLANDC__ == 0x0550
 // Borland C++ Builder 5, command-line compiler 5.5:
 #       define BOOST_NO_OPERATORS_IN_NAMESPACE
@@ -219,7 +214,6 @@
 #   define BOOST_MSVC _MSC_VER
 #   if _MSC_VER <= 1200  // 1200 == VC++ 6.0
 #     define BOOST_NO_INCLASS_MEMBER_INITIALIZATION
-#     define BOOST_NO_PRIVATE_IN_AGGREGATE
 
 //    VC++ 6.0 has member templates but they have numerous problems including
 //    cases of silent failure, so for safety we define:
@@ -290,7 +284,7 @@
 # ifdef BOOST_NO_STDC_NAMESPACE
 #   include <cstddef>
     namespace std { using ::ptrdiff_t; using ::size_t; }
-    // using ::wchar_t; removed since wchar_t is a C++ built-in type (Ed Brey)
+    // using ::wchar_t; removed to work around old compilers (Ed Brey)
 # endif
 
 
