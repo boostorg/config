@@ -7,7 +7,7 @@
 
 //  See http://www.boost.org for the most recent version.
 
-#include <boost\config.hpp>
+#include <boost/config.hpp>
 #include <iostream>
 
 using std::cout;
@@ -21,10 +21,6 @@ int main()
 
 #   ifdef BOOST_NO_INCLASS_MEMBER_INITIALIZER
         cout << "BOOST_NO_INCLASS_MEMBER_INITIALIZER defined\n";
-#   endif
-
-#   ifdef BOOST_NO_ITERATOR_TRAITS
-        cout << "BOOST_NO_ITERATOR_TRAITS defined\n";
 #   endif
 
 #   ifdef BOOST_NO_MEMBER_TEMPLATES
@@ -41,6 +37,10 @@ int main()
 
 #   ifdef BOOST_NO_STD_ITERATOR
         cout << "BOOST_NO_STD_ITERATOR defined\n";
+#   endif
+
+#   ifdef BOOST_NO_STD_ITERATOR_TRAITS
+        cout << "BOOST_NO_STD_ITERATOR_TRAITS defined\n";
 #   endif
 
 #   ifdef BOOST_NO_STDC_NAMESPACE
