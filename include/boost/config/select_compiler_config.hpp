@@ -10,13 +10,17 @@
 // locate which compiler we are using and define
 // BOOST_COMPILER_CONFIG as needed: 
 
-#if defined __GNUC__
-//  GNU C++:
-#   define BOOST_COMPILER_CONFIG "boost/config/compiler/gcc.hpp"
-
-# elif defined __COMO__
+# if defined __COMO__
 //  Comeau C++
 #   define BOOST_COMPILER_CONFIG "boost/config/compiler/comeau.hpp"
+
+#elif defined(__INTEL_COMPILER) || defined(__ICL) || defined(__ICC) || defined(__ECC)
+//  Intel
+#   define BOOST_COMPILER_CONFIG "boost/config/compiler/intel.hpp"
+
+# elif defined __GNUC__
+//  GNU C++:
+#   define BOOST_COMPILER_CONFIG "boost/config/compiler/gcc.hpp"
 
 #elif defined __KCC
 //  Kai C++
@@ -37,10 +41,6 @@
 #elif defined __BORLANDC__
 //  Borland
 #   define BOOST_COMPILER_CONFIG "boost/config/compiler/borland.hpp"
-
-#elif defined(__ICL) || defined(__ICC)
-//  Intel
-#   define BOOST_COMPILER_CONFIG "boost/config/compiler/intel.hpp"
 
 #elif defined  __MWERKS__
 //  Metrowerks CodeWarrior

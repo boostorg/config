@@ -25,25 +25,14 @@
 #     define BOOST_NO_VOID_RETURNS
 #  endif
 
-
 #endif  // version 4245
 
 //
 // enable __int64 support in VC emulation mode
-// we should also set BOOST_HAS_LONG_LONG when that is
-// supported, but there is no way we can detect it:
 //
 #  if defined(_MSC_VER) && (_MSC_VER >= 1200)
 #     define BOOST_HAS_MS_INT64
 #  endif
-
-//
-// disable win32 support unless we are in VC emulation mode,
-// (what does this do to Como on top of Borland?):
-//
-#if defined(_WIN32) && (_MSC_VER+0 < 1000)
-#  define BOOST_DISABLE_WIN32
-#endif
 
 #define BOOST_COMPILER "Comeau compiler version " BOOST_STRINGIZE(__COMO_VERSION__)
 

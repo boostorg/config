@@ -18,16 +18,14 @@
 #define BOOST_NO_SWPRINTF 
 #define BOOST_NO_CWCTYPE
 
+#ifdef __GNUC__
+   // GNU C on HP-UX does not support threads (checked up to gcc 3.3)
+#  define BOOST_DISABLE_THREADS
+#endif
+
 // boilerplate code:
 #define BOOST_HAS_UNISTD_H
 #include <boost/config/posix_features.hpp>
-
-// HPUX has an incomplete pthreads implementation, so it doesn't
-// define _POSIX_THREADS, but it might be enough to implement
-// Boost.Threads.
-#if !defined(BOOST_HAS_PTHREADS) && defined(_POSIX_THREAD_ATTR_STACKADDR)
-# define BOOST_HAS_PTHREADS 
-#endif
 
 // the following are always available:
 #ifndef BOOST_HAS_GETTIMEOFDAY

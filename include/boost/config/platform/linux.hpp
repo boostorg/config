@@ -25,18 +25,20 @@
 #  endif
 #endif
 
-//
-// como on linux doesn't have std:: c functions:
-//
-#ifdef __COMO__
-#  define BOOST_NO_STDC_NAMESPACE
-#endif
+#if defined(__LIBCOMO__)
+   //
+   // como on linux doesn't have std:: c functions:
+   // NOTE: versions of libcomo prior to beta28 have octal version numbering,
+   // e.g. version 25 is 21 (dec)
+   //
+#  if __LIBCOMO_VERSION__ <= 20
+#    define BOOST_NO_STDC_NAMESPACE
+#  endif
 
-//
-// Intel on linux doesn't have swprintf in std::
-//
-#ifdef  __ICC
-#  define BOOST_NO_STDC_NAMESPACE
+#  if __LIBCOMO_VERSION__ <= 21
+#    define BOOST_NO_SWPRINTF
+#  endif
+
 #endif
 
 //

@@ -9,13 +9,18 @@
 
 #include "boost/config/compiler/common_edg.hpp"
 
-#ifdef __ICL
-#  define BOOST_COMPILER "Intel C++ version " BOOST_STRINGIZE(__ICL)
+#if defined(__INTEL_COMPILER)
+#  define BOOST_INTEL_CXX_VERSION __INTEL_COMPILER
+#elif defined(__ICL)
 #  define BOOST_INTEL_CXX_VERSION __ICL
-#else
-#  define BOOST_COMPILER "Intel C++ version " BOOST_STRINGIZE(__ICC)
+#elif defined(__ICC)
 #  define BOOST_INTEL_CXX_VERSION __ICC
+#elif defined(__ECC)
+#  define BOOST_INTEL_CXX_VERSION __ECC
 #endif
+
+#define BOOST_COMPILER "Intel C++ version " BOOST_STRINGIZE(BOOST_INTEL_CXX_VERSION)
+#define BOOST_INTEL BOOST_INTEL_CXX_VERSION
 
 #if (BOOST_INTEL_CXX_VERSION <= 500) && defined(_MSC_VER)
 #  define BOOST_NO_EXPLICIT_FUNCTION_TEMPLATE_ARGUMENTS
@@ -26,18 +31,17 @@
 
 #  if defined(_MSC_VER) && (_MSC_VER <= 1300) // added check for <= VC 7 (Peter Dimov)
 
-      // Intel C++ 5.0.1 uses EDG 2.45, but fails to activate Koenig lookup
-      // in the frontend even in "strict" mode, unless you use 
-      // -Qoption,cpp,--arg_dep_lookup.  (reported by Kirk Klobe & Thomas Witt)
-      // Similarly, -Qoption,cpp,--new_for_init enables new-style "for" loop
-      // variable scoping. (reported by Thomas Witt)
-      // Intel C++ 6.0 (currently in Beta test) doesn't have any front-end
-      // changes at all.  (reported by Kirk Klobe)
-      // That can't be right, since it supports template template
-      // arguments (reported by Dave Abrahams)
-#     ifndef BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
-#        define BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
-#     endif
+// Boost libraries assume strong standard conformance unless otherwise
+// indicated by a config macro. As configured by Intel, the EDG front-end
+// requires certain compiler options be set to achieve that strong conformance.
+// Particularly /Qoption,c,--arg_dep_lookup (reported by Kirk Klobe & Thomas Witt)
+// and /Zc:wchar_t,forScope. See boost-root/tools/build/intel-win32-tools.jam for
+// details as they apply to particular versions of the compiler. When the
+// compiler does not predefine a macro indicating if an option has been set,
+// this config file simply assumes the option has been set.
+// Thus BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP will not be defined, even if
+// the compiler option is not enabled.
+
 #     define BOOST_NO_SWPRINTF
 #  endif
 
@@ -50,10 +54,18 @@
 
 #endif
 
-#if _MSC_VER+0 >= 1000
-#  ifndef _NATIVE_WCHAR_T_DEFINED
-#     define BOOST_NO_INTRINSIC_WCHAR_T
+// See http://aspn.activestate.com/ASPN/Mail/Message/boost/1614864
+#if BOOST_INTEL_CXX_VERSION < 700
+#  define BOOST_NO_INTRINSIC_WCHAR_T
+#else
+// _WCHAR_T_DEFINED is the Win32 spelling
+// _WCHAR_T is the Linux spelling
+#  if !defined(_WCHAR_T_DEFINED) && !defined(_WCHAR_T)
+#    define BOOST_NO_INTRINSIC_WCHAR_T
 #  endif
+#endif
+
+#if _MSC_VER+0 >= 1000
 #  if _MSC_VER >= 1200
 #     define BOOST_HAS_MS_INT64
 #  endif
@@ -77,7 +89,7 @@
 #endif
 //
 // last known and checked version:
-#if (BOOST_INTEL_CXX_VERSION > 700)
+#if (BOOST_INTEL_CXX_VERSION > 800)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Unknown compiler version - please run the configure tests and report the results"
 #  elif defined(_MSC_VER)
