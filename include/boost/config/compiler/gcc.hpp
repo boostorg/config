@@ -28,12 +28,27 @@
 #     define BOOST_NO_OPERATORS_IN_NAMESPACE
 #   endif
 
+#   if __GNUC__ < 3
+#      define BOOST_NO_USING_DECLARATION_OVERLOADS_FROM_TYPENAME_BASE
+#   endif
+
+#ifndef __EXCEPTIONS
+# define BOOST_NO_EXCEPTIONS
+#endif
+
+//
+// Bug specific to gcc 3.1 and 3.2:
+//
+#if (__GNUC__ == 3) && ((__GNUC_MINOR__ == 1) || (__GNUC_MINOR__ == 2))
+#  define BOOST_NO_EXPLICIT_FUNCTION_TEMPLATE_ARGUMENTS
+#endif
+
 //
 // Threading support: Turn this on unconditionally here (except for
-// MinGW, where we can know for sure). It will get turned off again
+// those platforms where we can know for sure). It will get turned off again
 // later if no threading API is detected.
 //
-#if !defined(__MINGW32__) || defined(_MT)
+#if !defined(__MINGW32__) && !defined(__CYGWIN__) && !defined(linux) && !defined(__linux) && !defined(__linux__)
 # define BOOST_HAS_THREADS
 #endif 
 
@@ -58,11 +73,12 @@
 #  error "Compiler not configured - please reconfigure"
 #endif
 //
-// last known and checked version is 3.2:
-#if (__GNUC__ > 3) || ((__GNUC__ == 3) && (__GNUC_MINOR__ > 2))
+// last known and checked version is 3.3:
+#if (__GNUC__ > 3) || ((__GNUC__ == 3) && (__GNUC_MINOR__ > 3))
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Unknown compiler version - please run the configure tests and report the results"
 #  else
 #     warning "Unknown compiler version - please run the configure tests and report the results"
 #  endif
 #endif
+
