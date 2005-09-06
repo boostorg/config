@@ -27,8 +27,9 @@
 //  number and y is the minor version number.  This is used by 
 //  <config/auto_link.hpp> to select which library version to link to.
 
-#define BOOST_LIB_VERSION "1_33"
+#define BOOST_LIB_VERSION "1_33_1"
 
 #endif
+
 
 
