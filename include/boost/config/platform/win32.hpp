@@ -24,6 +24,12 @@
 #  define __STDC_LIMIT_MACROS
 #endif
 
+#if defined(__MINGW32__) && ((__GNUC__ > 3) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 4)))
+#  define BOOST_HAS_MS_INT64
+#  define BOOST_HAS_DIRENT_H
+#  define BOOST_HAS_UNISTD_H
+#endif
+
 //
 // Win32 will normally be using native Win32 threads,
 // but there is a pthread library avaliable as an option,
