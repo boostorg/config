@@ -890,6 +890,7 @@ void print_boost_macros()
    // then defect and feature macros:
    PRINT_MACRO(BOOST_DISABLE_THREADS);
    PRINT_MACRO(BOOST_DISABLE_WIN32);
+   PRINT_MACRO(BOOST_HAS_THREADS);
 
    // BEGIN GENERATED BLOCK DO NOT EDIT THIS!!!!!!
    PRINT_MACRO(BOOST_BCB_PARTIAL_SPECIALIZATION_BUG);
@@ -1027,6 +1028,7 @@ int main()
 
   return 0;
 }
+
 
 
 
