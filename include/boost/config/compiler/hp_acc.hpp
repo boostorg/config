@@ -30,7 +30,6 @@
 #if (__HP_aCC <= 33900) || !defined(BOOST_STRICT_CONFIG)
 #    define BOOST_NO_UNREACHABLE_RETURN_DETECTION
 #    define BOOST_NO_TEMPLATE_TEMPLATES
-#    define BOOST_NO_SWPRINTF
 #    define BOOST_NO_DEPENDENT_TYPES_IN_TEMPLATE_VALUE_PARAMETERS
 #    define BOOST_NO_IS_ABSTRACT
 //     std lib config should set this one already:
