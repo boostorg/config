@@ -120,7 +120,7 @@
 #   define BOOST_HAS_NRVO
 #endif
 //
-// disable Win32 API's if compiler extentions are
+// disable Win32 API's if compiler extensions are
 // turned off:
 //
 #if !defined(_MSC_EXTENSIONS) && !defined(BOOST_DISABLE_WIN32)
