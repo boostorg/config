@@ -57,11 +57,6 @@
 #  define BOOST_NO_CXX11_VARIADIC_MACROS
 #endif
 
-#if defined(UNDER_CE)
-// Windows CE does not have a conforming signature for swprintf
-#  define BOOST_NO_SWPRINTF
-#endif
-
 #if _MSC_VER < 1500  // 140X == VC++ 8.0
 #  define BOOST_NO_MEMBER_TEMPLATE_FRIENDS
 #endif
@@ -92,6 +87,7 @@
 #endif
 
 #if defined(_WIN32_WCE) || defined(UNDER_CE)
+// Windows CE does not have a conforming signature for swprintf
 #  define BOOST_NO_SWPRINTF
 #endif
 
