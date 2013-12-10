@@ -86,6 +86,7 @@
 #  define BOOST_NO_INTRINSIC_WCHAR_T
 #endif
 
+// Windows CE does not have a conforming signature for swprintf
 #if defined(_WIN32_WCE) || defined(UNDER_CE)
 // Windows CE does not have a conforming signature for swprintf
 #  define BOOST_NO_SWPRINTF
