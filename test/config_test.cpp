@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sun Apr 28 18:36:49 2013
+//  This file was automatically generated on Thu Dec 12 19:09:40 2013
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -122,6 +122,11 @@ namespace boost_no_cxx11_atomic_smart_ptr = empty_boost;
 #else
 namespace boost_no_cxx11_hdr_array = empty_boost;
 #endif
+#ifndef BOOST_NO_CXX11_HDR_ATOMIC
+#include "boost_no_cxx11_hdr_atomic.ipp"
+#else
+namespace boost_no_cxx11_hdr_atomic = empty_boost;
+#endif
 #ifndef BOOST_NO_CXX11_HDR_CHRONO
 #include "boost_no_cxx11_hdr_chrono.ipp"
 #else
@@ -212,11 +217,6 @@ namespace boost_no_cxx11_hdr_unordered_set = empty_boost;
 #else
 namespace boost_no_cxx11_inline_namespaces = empty_boost;
 #endif
-#ifndef BOOST_NO_CXX11_TRAILING_RESULT_TYPES
-#include "boost_no_cxx11_trailing_result_types.ipp"
-#else
-namespace boost_no_cxx11_trailing_result_types = empty_boost;
-#endif
 #ifndef BOOST_NO_CXX11_NUMERIC_LIMITS
 #include "boost_no_cxx11_numeric_limits.ipp"
 #else
@@ -226,6 +226,11 @@ namespace boost_no_cxx11_numeric_limits = empty_boost;
 #include "boost_no_cxx11_smart_ptr.ipp"
 #else
 namespace boost_no_cxx11_smart_ptr = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX11_TRAILING_RESULT_TYPES
+#include "boost_no_cxx11_trailing_result_types.ipp"
+#else
+namespace boost_no_cxx11_trailing_result_types = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX11_USER_DEFINED_LITERALS
 #include "boost_no_cxx11_user_lit.ipp"
@@ -1264,6 +1269,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx11_hdr_array::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX11_HDR_ARRAY at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx11_hdr_atomic::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX11_HDR_ATOMIC at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx11_hdr_chrono::test())

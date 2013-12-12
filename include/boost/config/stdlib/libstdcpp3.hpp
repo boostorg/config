@@ -155,6 +155,7 @@
 // so 4.7.0 is the first truely conforming one.
 #  define BOOST_NO_CXX11_HDR_CHRONO
 #  define BOOST_NO_CXX11_ALLOCATOR
+#  define BOOST_NO_CXX11_HDR_ATOMIC
 #endif
 //  C++0x headers not yet (fully!) implemented
 //
