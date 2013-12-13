@@ -86,17 +86,6 @@
 #  define BOOST_NO_INTRINSIC_WCHAR_T
 #endif
 
-#if defined(_WIN32_WCE) || defined(UNDER_CE)
-// Windows CE does not have a conforming signature for swprintf
-#  define BOOST_NO_SWPRINTF
-#endif
-
-// we have ThreadEx or GetSystemTimeAsFileTime unless we're running WindowsCE
-#if !defined(_WIN32_WCE) && !defined(UNDER_CE)
-#  define BOOST_HAS_THREADEX
-#  define BOOST_HAS_GETSYSTEMTIMEASFILETIME
-#endif
-
 //
 // check for exception handling support:
 #if !defined(_CPPUNWIND) && !defined(BOOST_NO_EXCEPTIONS)
