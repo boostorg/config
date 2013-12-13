@@ -155,6 +155,11 @@
 // so 4.7.0 is the first truely conforming one.
 #  define BOOST_NO_CXX11_HDR_CHRONO
 #  define BOOST_NO_CXX11_ALLOCATOR
+#endif
+//  C++0x features in GCC 4.7.0 and later
+//
+#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 8) || !defined(__GXX_EXPERIMENTAL_CXX0X__)
+// Note that although <atomic> existed prior to gcc 4.8 it was largely unimplemented for many types:
 #  define BOOST_NO_CXX11_HDR_ATOMIC
 #endif
 //  C++0x headers not yet (fully!) implemented
