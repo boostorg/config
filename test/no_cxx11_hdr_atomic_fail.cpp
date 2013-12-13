@@ -10,9 +10,9 @@
 //
 
 
-// Test file for macro BOOST_NO_CXX11_ATOMIC_SMART_PTR
+// Test file for macro BOOST_NO_CXX11_HDR_ATOMIC
 // This file should not compile, if it does then
-// BOOST_NO_CXX11_ATOMIC_SMART_PTR should not be defined.
+// BOOST_NO_CXX11_HDR_ATOMIC should not be defined.
 // See file boost_no_cxx11_hdr_atomic.ipp for details
 
 // Must not have BOOST_ASSERT_CONFIG set; it defeats
