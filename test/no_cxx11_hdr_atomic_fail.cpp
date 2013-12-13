@@ -24,7 +24,7 @@
 #include <boost/config.hpp>
 #include "test.hpp"
 
-#ifdef BOOST_NO_CXX11_ATOMIC_SMART_PTR
+#ifdef BOOST_NO_CXX11_HDR_ATOMIC
 #include "boost_no_cxx11_hdr_atomic.ipp"
 #else
 #error "this file should not compile"
@@ -32,6 +32,6 @@
 
 int main( int, char *[] )
 {
-   return boost_no_cxx11_atomic_smart_ptr::test();
+   return boost_no_cxx11_hdr_atomic::test();
 }
 

@@ -142,11 +142,8 @@
 //
 #if !defined(_CPPLIB_VER) || _CPPLIB_VER < 610
 #  define BOOST_NO_CXX11_HDR_INITIALIZER_LIST
+#  define BOOST_NO_CXX11_HDR_ATOMIC
 #endif
-
-//  Not present in any version:
-//
-#define BOOST_NO_CXX11_HDR_ATOMIC
 
 #ifdef _CPPLIB_VER
 #  define BOOST_DINKUMWARE_STDLIB _CPPLIB_VER

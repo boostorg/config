@@ -24,14 +24,14 @@
 #include <boost/config.hpp>
 #include "test.hpp"
 
-#ifndef BOOST_NO_CXX11_ATOMIC_SMART_PTR
+#ifndef BOOST_NO_CXX11_HDR_ATOMIC
 #include "boost_no_cxx11_hdr_atomic.ipp"
 #else
-namespace boost_no_cxx11_atomic_smart_ptr = empty_boost;
+namespace boost_no_cxx11_hdr_atomic = empty_boost;
 #endif
 
 int main( int, char *[] )
 {
-   return boost_no_cxx11_atomic_smart_ptr::test();
+   return boost_no_cxx11_hdr_atomic::test();
 }
 
