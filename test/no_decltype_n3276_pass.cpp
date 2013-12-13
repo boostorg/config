@@ -27,11 +27,11 @@
 #ifndef BOOST_NO_CXX11_DECLTYPE_N3276
 #include "boost_no_decltype_n3276.ipp"
 #else
-namespace boost_no_decltype_n3276 = empty_boost;
+namespace boost_no_cxx11_decltype_n3276 = empty_boost;
 #endif
 
 int main( int, char *[] )
 {
-   return boost_no_decltype_n3276::test();
+   return boost_no_cxx11_decltype_n3276::test();
 }
 
