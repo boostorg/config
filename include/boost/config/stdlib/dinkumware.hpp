@@ -86,7 +86,7 @@
 #  define BOOST_NO_STD_LOCALE
 #endif
 
-// Fix for VC++ 8.0 on up ( I do not have a previous vesion to test )
+// Fix for VC++ 8.0 on up ( I do not have a previous version to test )
 // or clang-cl. If exceptions are off you must manually include the 
 // <exception> header before including the <typeinfo> header. Admittedly 
 // trying to use Boost libraries or the standard C++ libraries without 
