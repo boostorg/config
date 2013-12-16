@@ -10,6 +10,14 @@
 
 #define BOOST_HAS_PRAGMA_ONCE
 
+// When compiling with clang before __has_extension was defined,
+// even if one writes 'defined(__has_extension) && __has_extension(xxx)',
+// clang reports a compiler error. So the only workaround found is:
+
+#ifndef __has_extension
+#define __has_extension __has_feature
+#endif
+
 #if !__has_feature(cxx_exceptions) && !defined(BOOST_NO_EXCEPTIONS)
 #  define BOOST_NO_EXCEPTIONS
 #endif
