@@ -118,11 +118,21 @@
 //
 // TR1 features:
 //
-#if _MSC_VER >= 1700
-// # define BOOST_HAS_TR1_HASH			// don't know if this is true yet.
-// # define BOOST_HAS_TR1_TYPE_TRAITS	// don't know if this is true yet.
+#if _MSC_VER >= 1600
+# define BOOST_HAS_TR1_ARRAY
+# define BOOST_HAS_TR1_BIND
+# define BOOST_HAS_TR1_FUNCTION
+# define BOOST_HAS_TR1_HASH
+# define BOOST_HAS_TR1_MEM_FN
+# define BOOST_HAS_TR1_RANDOM
+# define BOOST_HAS_TR1_REFERENCE_WRAPPER
+# define BOOST_HAS_TR1_REGEX
+# define BOOST_HAS_TR1_SHARED_PTR
+# define BOOST_HAS_TR1_TUPLE
+# define BOOST_HAS_TR1_TYPE_TRAITS
 # define BOOST_HAS_TR1_UNORDERED_MAP
 # define BOOST_HAS_TR1_UNORDERED_SET
+# define BOOST_HAS_TR1_UTILITY
 #endif
 
 //
