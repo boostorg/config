@@ -89,7 +89,8 @@
 
 #elif defined(__MRC__) || defined(__SC__)
 //  MPW MrCpp or SCpp
-#   error "This compiler is not supported."
+#   define BOOST_COMPILER_CONFIG "boost/config/compiler/mpw.hpp"
+
 #elif defined(__IBMCPP__)
 //  IBM Visual Age
 #   define BOOST_COMPILER_CONFIG "boost/config/compiler/vacpp.hpp"
