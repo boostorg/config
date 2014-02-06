@@ -580,7 +580,8 @@ that are not yet supported by a particular compiler or library.
 
 [[`BOOST_NO_CXX11_ALIGNAS`][The compiler does not support the `alignas` keyword.]]
 [[`BOOST_NO_CXX11_ALLOCATOR`][The standard library does not provide a C++11 version of `std::allocator` in <memory>.]]
-[[`BOOST_NO_CXX11_ATOMIC_SP`][The standard library <memory> does not support atomic smart pointer operations.]]
+[[`BOOST_NO_CXX11_ATOMIC_SMART_PTR`][The standard library <memory> does not support atomic smart pointer operations.]]
+[[`BOOST_NO_CXX11_HDR_ATOMIC`][The standard library does not provide header <atomic>.]]
 [[`BOOST_NO_CXX11_HDR_ARRAY`][The standard library does not provide header <array>.]]
 [[`BOOST_NO_CXX11_HDR_CHRONO`][The standard library does not provide header <chrono>.]]
 [[`BOOST_NO_CXX11_HDR_CODECVT`][The standard library does not provide header <codecvt>.]]

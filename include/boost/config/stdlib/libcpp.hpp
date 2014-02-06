@@ -30,6 +30,7 @@
 #  define BOOST_NO_CXX11_HDR_FUTURE
 #  define BOOST_NO_CXX11_HDR_TYPE_TRAITS
 #  define BOOST_NO_CXX11_ATOMIC_SMART_PTR
+#  define BOOST_NO_CXX11_HDR_ATOMIC
 
 // libc++ uses a non-standard messages_base
 #define BOOST_NO_STD_MESSAGES

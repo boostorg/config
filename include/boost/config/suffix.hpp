@@ -591,7 +591,13 @@ namespace std{ using ::type_info; }
 #    define BOOST_NOINLINE __declspec(noinline)
 #  elif defined(__GNUC__) && __GNUC__ > 3
      // Clang also defines __GNUC__ (as 4)
-#    define BOOST_NOINLINE __attribute__ ((__noinline__))
+#    if defined(__CUDACC__)
+       // nvcc doesn't always parse __noinline__, 
+       // see: https://svn.boost.org/trac/boost/ticket/9392
+#      define BOOST_NOINLINE __attribute__ ((noinline))
+#    else
+#      define BOOST_NOINLINE __attribute__ ((__noinline__))
+#    endif
 #  else
 #    define BOOST_NOINLINE
 #  endif
@@ -937,5 +943,14 @@ namespace std{ using ::type_info; }
 #define BOOST_HAS_VARIADIC_TMPL
 #endif
 
+//
+// Finish off with checks for macros that are depricated / no longer supported,
+// if any of these are set then it's very likely that much of Boost will no
+// longer work.  So stop with a #error for now, but give the user a chance
+// to continue at their own risk if they really want to:
+//
+#if defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) && !defined(BOOST_CONFIG_ALLOW_DEPRECATED)
+#  error "You are using a compiler which lacks features which are now a minimum requirement in order to use Boost, define BOOST_CONFIG_ALLOW_DEPRECATED if you want to continue at your own risk!!!"
+#endif
 
 #endif

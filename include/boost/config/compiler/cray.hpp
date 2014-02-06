@@ -1,4 +1,5 @@
 //  (C) Copyright John Maddock 2011.
+//  (C) Copyright Cray, Inc. 2013
 //  Use, modification and distribution are subject to the
 //  Boost Software License, Version 1.0. (See accompanying file
 //  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -9,8 +10,8 @@
 
 #define BOOST_COMPILER "Cray C version " BOOST_STRINGIZE(_RELEASE)
 
-#if _RELEASE < 7
-#  error "Boost is not configured for Cray compilers prior to version 7, please try the configure script."
+#if _RELEASE < 8
+#  error "Boost is not configured for Cray compilers prior to version 8, please try the configure script."
 #endif
 
 //
@@ -22,11 +23,12 @@
 
 #include "boost/config/compiler/common_edg.hpp"
 
+
 //
 // Cray peculiarities, probably version 7 specific:
 //
-#undef BOOST_NO_CXX11_AUTO_DECLARATIONS
-#undef BOOST_NO_CXX11_AUTO_MULTIDECLARATIONS
+#define BOOST_NO_CXX11_AUTO_DECLARATIONS
+#define BOOST_NO_CXX11_AUTO_MULTIDECLARATIONS
 #define BOOST_HAS_NRVO
 #define BOOST_NO_CXX11_VARIADIC_TEMPLATES
 #define BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX
@@ -55,11 +57,11 @@
 #define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
 #define BOOST_NO_CXX11_CHAR32_T
 #define BOOST_NO_CXX11_CHAR16_T
-#define BOOST_NO_CXX11_ALIGNAS
 //#define BOOST_BCB_PARTIAL_SPECIALIZATION_BUG
 #define BOOST_MATH_DISABLE_STD_FPCLASSIFY
 //#define BOOST_HAS_FPCLASSIFY
 
-#define BOOST_SP_USE_PTHREADS
-#define BOOST_AC_USE_PTHREADS
+#define BOOST_SP_USE_PTHREADS 
+#define BOOST_AC_USE_PTHREADS 
+
 
