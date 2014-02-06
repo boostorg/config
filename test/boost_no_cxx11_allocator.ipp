@@ -28,10 +28,14 @@ int test()
    std::allocator_arg_t aat;
    std::uses_allocator<int, std::allocator<int> > ua;
    std::allocator_traits<std::allocator<int> > at;
+   std::allocator<int> ia;
+   std::allocator_traits<std::allocator<int> >::rebind_alloc<void*> ra(ia);
+   std::allocator<void*>* pva = &ra;
 
    (void)aat;
    (void)ua;
    (void)at;
+   (void)pva;
    return 0;
 }
 
