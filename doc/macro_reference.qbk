@@ -578,6 +578,7 @@ that are not yet supported by a particular compiler or library.
 [table
 [[Macro     ][Description     ]]
 
+[[`BOOST_NO_CXX11_ADDRESSOF`][The standard library header <memory> has no working std::addressof.]]
 [[`BOOST_NO_CXX11_ALIGNAS`][The compiler does not support the `alignas` keyword.]]
 [[`BOOST_NO_CXX11_ALLOCATOR`][The standard library does not provide a C++11 version of `std::allocator` in <memory>.]]
 [[`BOOST_NO_CXX11_ATOMIC_SMART_PTR`][The standard library <memory> does not support atomic smart pointer operations.]]
@@ -603,6 +604,7 @@ that are not yet supported by a particular compiler or library.
 [[`BOOST_NO_CXX11_HDR_UNORDERED_SET`][The standard library does not provide header <unordered_set>.]]
 [[`BOOST_NO_CXX11_INLINE_NAMESPACES`][The compiler does not support inline namespaces.]]
 [[`BOOST_NO_CXX11_SMART_PTR`][The standard library header <memory> has no shared_ptr and unique_ptr.]]
+[[`BOOST_NO_CXX11_STD_ALIGN`][The standard library header <memory> has no working std::align.]]
 
 [[`BOOST_NO_CXX11_AUTO_DECLARATIONS`][The compiler does not support
 type deduction for variables declared with the `auto` keyword (`auto var = ...;`).
