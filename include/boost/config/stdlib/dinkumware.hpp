@@ -135,6 +135,7 @@
 #  define BOOST_NO_CXX11_HDR_RATIO
 #  define BOOST_NO_CXX11_HDR_THREAD
 #  define BOOST_NO_CXX11_ATOMIC_SMART_PTR
+#  define BOOST_NO_CXX11_STD_ALIGN
 #endif
 
 //  C++0x headers implemented in 610 (as shipped by Microsoft)
@@ -144,6 +145,10 @@
 #  define BOOST_NO_CXX11_HDR_ATOMIC
 #  define BOOST_NO_CXX11_ALLOCATOR
 #endif
+
+//  520..610 have std::addressof, but it doesn't support functions
+//
+#  define BOOST_NO_CXX11_ADDRESSOF
 
 #ifdef _CPPLIB_VER
 #  define BOOST_DINKUMWARE_STDLIB _CPPLIB_VER

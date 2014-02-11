@@ -72,6 +72,8 @@
 #  define BOOST_NO_CXX11_SMART_PTR
 #  define BOOST_NO_CXX11_HDR_FUNCTIONAL
 #  define BOOST_NO_CXX11_HDR_ATOMIC
+#  define BOOST_NO_CXX11_STD_ALIGN
+#  define BOOST_NO_CXX11_ADDRESSOF
 
 #define BOOST_STDLIB "Metrowerks Standard Library version " BOOST_STRINGIZE(__MSL_CPP__)
 
