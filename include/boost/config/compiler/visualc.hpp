@@ -66,6 +66,9 @@
 #  define BOOST_NO_ADL_BARRIER
 #endif
 
+#if _MSC_VER < 1700
+#  define BOOST_NO_MEMBER_TEMPLATE_KEYWORD
+#endif
 
 // MSVC (including the latest checked version) has not yet completely
 // implemented value-initialization, as is reported:
