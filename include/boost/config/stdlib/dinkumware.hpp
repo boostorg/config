@@ -135,7 +135,6 @@
 #  define BOOST_NO_CXX11_HDR_RATIO
 #  define BOOST_NO_CXX11_HDR_THREAD
 #  define BOOST_NO_CXX11_ATOMIC_SMART_PTR
-#  define BOOST_NO_CXX11_STD_ALIGN
 #endif
 
 //  C++0x headers implemented in 610 (as shipped by Microsoft)
@@ -144,6 +143,8 @@
 #  define BOOST_NO_CXX11_HDR_INITIALIZER_LIST
 #  define BOOST_NO_CXX11_HDR_ATOMIC
 #  define BOOST_NO_CXX11_ALLOCATOR
+// 540 has std::align but it is not a conforming implementation
+#  define BOOST_NO_CXX11_STD_ALIGN
 #endif
 
 //  520..610 have std::addressof, but it doesn't support functions
