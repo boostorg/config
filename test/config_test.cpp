@@ -1,4 +1,4 @@
-//  This file was automatically generated on Thu Dec 12 19:09:40 2013
+//  This file was automatically generated on Tue Feb 11 17:12:28 2014
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -101,6 +101,11 @@ namespace boost_no_cwchar = empty_boost;
 #include "boost_no_cwctype.ipp"
 #else
 namespace boost_no_cwctype = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX11_ADDRESSOF
+#include "boost_no_cxx11_addressof.ipp"
+#else
+namespace boost_no_cxx11_addressof = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX11_ALIGNAS
 #include "boost_no_cxx11_alignas.ipp"
@@ -226,6 +231,11 @@ namespace boost_no_cxx11_numeric_limits = empty_boost;
 #include "boost_no_cxx11_smart_ptr.ipp"
 #else
 namespace boost_no_cxx11_smart_ptr = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX11_STD_ALIGN
+#include "boost_no_cxx11_std_align.ipp"
+#else
+namespace boost_no_cxx11_std_align = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX11_TRAILING_RESULT_TYPES
 #include "boost_no_cxx11_trailing_result_types.ipp"
@@ -1251,6 +1261,11 @@ int main( int, char *[] )
       std::cerr << "Failed test for BOOST_NO_CWCTYPE at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
+   if(0 != boost_no_cxx11_addressof::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX11_ADDRESSOF at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
    if(0 != boost_no_cxx11_alignas::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX11_ALIGNAS at: " << __FILE__ << ":" << __LINE__ << std::endl;
@@ -1374,6 +1389,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx11_smart_ptr::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX11_SMART_PTR at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx11_std_align::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX11_STD_ALIGN at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx11_trailing_result_types::test())

@@ -143,7 +143,13 @@
 #  define BOOST_NO_CXX11_HDR_INITIALIZER_LIST
 #  define BOOST_NO_CXX11_HDR_ATOMIC
 #  define BOOST_NO_CXX11_ALLOCATOR
+// 540 has std::align but it is not a conforming implementation
+#  define BOOST_NO_CXX11_STD_ALIGN
 #endif
+
+//  520..610 have std::addressof, but it doesn't support functions
+//
+#  define BOOST_NO_CXX11_ADDRESSOF
 
 #ifdef _CPPLIB_VER
 #  define BOOST_DINKUMWARE_STDLIB _CPPLIB_VER
