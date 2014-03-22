@@ -107,7 +107,6 @@
 //
 #if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 3) || !defined(__GXX_EXPERIMENTAL_CXX0X__)
 #  define BOOST_NO_CXX11_HDR_ARRAY
-#  define BOOST_NO_CXX11_HDR_REGEX
 #  define BOOST_NO_CXX11_HDR_TUPLE
 #  define BOOST_NO_CXX11_HDR_UNORDERED_MAP
 #  define BOOST_NO_CXX11_HDR_UNORDERED_SET
@@ -152,7 +151,7 @@
 //  C++0x features in GCC 4.7.0 and later
 //
 #if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 7) || !defined(__GXX_EXPERIMENTAL_CXX0X__)
-// Note that although <chrono> existed prior to 4.7, "stead_clock" is spelled "monotonic_clock"
+// Note that although <chrono> existed prior to 4.7, "steady_clock" is spelled "monotonic_clock"
 // so 4.7.0 is the first truely conforming one.
 #  define BOOST_NO_CXX11_HDR_CHRONO
 #  define BOOST_NO_CXX11_ALLOCATOR
@@ -170,5 +169,8 @@
 #  define BOOST_NO_CXX11_HDR_CODECVT
 #  define BOOST_NO_CXX11_ATOMIC_SMART_PTR
 #  define BOOST_NO_CXX11_STD_ALIGN
+// Although <regex> is present and compilable against, the actual implementation is not functional
+// even for the simplest patterns such as "\d" or "[0-9]". This is the case at least in gcc up to 4.8, inclusively.
+#  define BOOST_NO_CXX11_HDR_REGEX
 
 //  --- end ---
