@@ -162,6 +162,11 @@
 // Note that although <atomic> existed prior to gcc 4.8 it was largely unimplemented for many types:
 #  define BOOST_NO_CXX11_HDR_ATOMIC
 #endif
+#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 9) || !defined(__GXX_EXPERIMENTAL_CXX0X__)
+// Although <regex> is present and compilable against, the actual implementation is not functional
+// even for the simplest patterns such as "\d" or "[0-9]". This is the case at least in gcc up to 4.8, inclusively.
+#  define BOOST_NO_CXX11_HDR_REGEX
+#endif
 //  C++0x headers not yet (fully!) implemented
 //
 #  define BOOST_NO_CXX11_HDR_THREAD
@@ -169,8 +174,5 @@
 #  define BOOST_NO_CXX11_HDR_CODECVT
 #  define BOOST_NO_CXX11_ATOMIC_SMART_PTR
 #  define BOOST_NO_CXX11_STD_ALIGN
-// Although <regex> is present and compilable against, the actual implementation is not functional
-// even for the simplest patterns such as "\d" or "[0-9]". This is the case at least in gcc up to 4.8, inclusively.
-#  define BOOST_NO_CXX11_HDR_REGEX
 
 //  --- end ---
