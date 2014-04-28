@@ -2,6 +2,7 @@
 //  (C) Copyright Bill Kempf 2001. 
 //  (C) Copyright Aleksey Gurtovoy 2003. 
 //  (C) Copyright Rene Rivera 2005.
+//  Copyright (c) Microsoft Corporation.
 //  Use, modification and distribution are subject to the 
 //  Boost Software License, Version 1.0. (See accompanying file 
 //  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -76,5 +77,17 @@
 // WEK: Added
 #define BOOST_HAS_FTIME
 #define BOOST_WINDOWS 1
+
+// BOOST_WINDOWS_FAMILY is only defined for store and phone, but not desktop.
+// This allows libraries to easily just check for banned Win32 APIs.
+// Any APIs specific to only phone or store should be under a 
+// WINAPI_FAMILY_PARITION check.
+#if defined(WINAPI_FAMILY) && WINAPI_FAMILY==WINAPI_FAMILY_APP
+#  define BOOST_WINAPI_FAMILY WINAPI_FAMILY_APP
+#  define BOOST_NO_ANSI_APIS
+#elif defined(WINAPI_FAMILY) && WINAPI_FAMILY==WINAPI_FAMILY_PHONE_APP
+#  define BOOST_WINAPI_FAMILY WINAPI_FAMILY_PHONE_APP
+#  define BOOST_NO_ANSI_APIS
+#endif
 
 #endif
