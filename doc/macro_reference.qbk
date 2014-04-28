@@ -4,6 +4,7 @@
     Copyright (c) 2001 Beman Dawes
     Copyright (c) 2001 Vesa Karvonen
     Copyright (c) 2001 John Maddock
+    Copyright (c) Microsoft Corporation
 
     Distributed under the Boost Software License, Version 1.0.
     (See accompanying file LICENSE_1_0.txt or copy at
@@ -1161,6 +1162,9 @@ Defined to 1 if the compiler is the Clang compiler.
 ]]
 [[`BOOST_WINDOWS`][`<boost/config.hpp>`][
 Defined if the Windows platform API is available.
+]]
+[[`BOOST_WINAPI_FAMILY`][`<boost/config.hpp>`][ 
+Defined if the Windows Runtime (WinRT) is targeted. 
 ]]
 [[`BOOST_DINKUMWARE_STDLIB`][`<boost/config.hpp>`][
 Defined if the dinkumware standard library is in use, takes the same value
