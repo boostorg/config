@@ -31,11 +31,13 @@ int test()
    std::allocator<int> ia;
    std::allocator_traits<std::allocator<int> >::rebind_alloc<void*> ra(ia);
    std::allocator<void*>* pva = &ra;
+   std::allocator_traits<std::allocator<int> >::rebind_traits<void*>::pointer pt;
 
    (void)aat;
    (void)ua;
    (void)at;
    (void)pva;
+   (void)pt;
    return 0;
 }
 
