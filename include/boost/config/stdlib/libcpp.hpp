@@ -23,6 +23,14 @@
 #    define BOOST_NO_CXX11_HDR_TUPLE
 #endif
 
+// BOOST_NO_CXX11_ALLOCATOR should imply no support for the C++11
+// allocator model. The C++11 allocator model requires a conforming
+// std::allocator_traits which is only possible with C++11 template
+// aliases since members rebind_alloc and rebind_traits require it.
+#if defined(_LIBCPP_HAS_NO_TEMPLATE_ALIASES)
+#    define BOOST_NO_CXX11_ALLOCATOR
+#endif
+
 //
 // These appear to be unusable/incomplete so far:
 //
