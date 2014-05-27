@@ -25,11 +25,12 @@
 
 
 //
-// Cray peculiarities, probably version 7 specific:
 //
+#define BOOST_NO_CXX11_STATIC_ASSERT
 #define BOOST_NO_CXX11_AUTO_DECLARATIONS
 #define BOOST_NO_CXX11_AUTO_MULTIDECLARATIONS
 #define BOOST_HAS_NRVO
+#define BOOST_NO_CXX11_VARIADIC_MACROS
 #define BOOST_NO_CXX11_VARIADIC_TEMPLATES
 #define BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX
 #define BOOST_NO_CXX11_UNICODE_LITERALS
@@ -63,5 +64,25 @@
 
 #define BOOST_SP_USE_PTHREADS 
 #define BOOST_AC_USE_PTHREADS 
+
+/* everything that follows is working around what are thought to be
+ * compiler shortcomings.  Revist all of these regularly.
+ */
+
+//#define BOOST_USE_ENUM_STATIC_ASSERT
+//#define BOOST_BUGGY_INTEGRAL_CONSTANT_EXPRESSIONS //(this may be implied by the previous #define
+
+// These constants should be provided by the 
+// compiler, at least when -hgnu is asserted on the command line.
+
+#ifndef __ATOMIC_RELAXED
+#define __ATOMIC_RELAXED 0
+#define __ATOMIC_CONSUME 1
+#define __ATOMIC_ACQUIRE 2
+#define __ATOMIC_RELEASE 3
+#define __ATOMIC_ACQ_REL 4
+#define __ATOMIC_SEQ_CST 5
+#endif
+
 
 
