@@ -20,7 +20,7 @@ int test()
   using std::wregex;
 
   regex e("\\d+");
-  wregex we(L"\\s+");
+  wregex we(L"\\d+");
   std::string s("123456");
   std::wstring ws(L"123456");
   return regex_match(s, e) && regex_match(ws, we) ? 0 : 1;
