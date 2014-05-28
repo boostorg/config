@@ -140,6 +140,10 @@
 #  define BOOST_NO_CXX11_RAW_LITERALS
 #endif
 
+#if !__has_feature(cxx_reference_qualified_functions)
+#  define BOOST_NO_CXX11_REF_QUALIFIERS
+#endif
+
 #if !__has_feature(cxx_generalized_initializers)
 #  define BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX
 #endif

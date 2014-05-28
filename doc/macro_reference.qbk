@@ -664,6 +664,10 @@ range-based for statements.
 [[`BOOST_NO_CXX11_RAW_LITERALS`][The compiler does not support
 raw string literals. 
 ]]
+[[`BOOST_NO_CXX11_REF_QUALIFIERS`][The compiler does not support
+ref-qualifiers on member functions as described in 
+[@http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2439.htm N2439]. 
+]]
 [[`BOOST_NO_CXX11_RVALUE_REFERENCES`][The compiler does not support
 r-value references. 
 ]]
