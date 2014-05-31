@@ -1064,7 +1064,7 @@ used to create a mangled name in combination with a predefined macro such a
 ]]
 [[`BOOST_FORCEINLINE`][
 This macro can be used in place of the `inline` keyword to instruct the compiler
-that a function should always be inlined.
+that the function should always be inlined.
 Overuse of this macro can lead to significant bloat, while good use can increase
 performance in certain cases, such as computation-intensive code built through
 generative programming techniques.
@@ -1084,7 +1084,7 @@ able to debug errors more easily.
 ]]
 [[`BOOST_NOINLINE`][
 This macro can be used in place of the `inline` keyword to instruct the compiler
-that a function should never be inlined. One should typically use this macro
+that the function should never be inlined. One should typically use this macro
 to mark functions that are unlikely to be called, such as error handling routines.
 
 Usage example:
@@ -1094,6 +1094,26 @@ Usage example:
       // ...
   }
 ``
+]]
+[[`BOOST_NORETURN`][
+This macro can be used before the function declaration or definition to instruct the compiler
+that the function does not return normally (i.e. with a `return` statement or by leaving
+the function scope, if the function return type is `void`). The macro can be used to mark
+functions that always throw exceptions or terminate the application. Compilers that support
+this markup may use this information to specifically organize the code surrounding calls to
+this function and suppress warnings about missing `return` statements in the functions
+enclosing such calls.
+
+Usage example:
+``
+  BOOST_NORETURN void on_error_occurred(const char* descr)
+  {
+      throw std::runtime_error(descr);
+  }
+``
+
+If the compiler does not support this markup, `BOOST_NORETURN` is defined empty and an
+additional macro `BOOST_NO_NORETURN` is defined.
 ]]
 [[`BOOST_LIKELY(X)`
   `BOOST_UNLIKELY(X)`][

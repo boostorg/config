@@ -603,6 +603,21 @@ namespace std{ using ::type_info; }
 #  endif
 #endif
 
+// BOOST_NORETURN ---------------------------------------------//
+// Macro to use before a function declaration/definition to designate
+// the function as not returning normally (i.e. with a return statement
+// or by leaving the function scope, if the function return type is void).
+#if !defined(BOOST_NORETURN)
+#  if defined(_MSC_VER)
+#    define BOOST_NORETURN __declspec(noreturn)
+#  elif defined(__GNUC__)
+#    define BOOST_NORETURN __attribute__ ((__noreturn__))
+#  else
+#    define BOOST_NO_NORETURN
+#    define BOOST_NORETURN
+#  endif
+#endif
+
 // Branch prediction hints
 // These macros are intended to wrap conditional expressions that yield true or false
 //
