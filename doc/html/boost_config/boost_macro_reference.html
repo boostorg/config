@@ -3798,7 +3798,7 @@
 <td>
                 <p>
                   This macro can be used in place of the <code class="computeroutput"><span class="keyword">inline</span></code>
-                  keyword to instruct the compiler that a function should always
+                  keyword to instruct the compiler that the function should always
                   be inlined. Overuse of this macro can lead to significant bloat,
                   while good use can increase performance in certain cases, such
                   as computation-intensive code built through generative programming
@@ -3832,8 +3832,8 @@
 <td>
                 <p>
                   This macro can be used in place of the <code class="computeroutput"><span class="keyword">inline</span></code>
-                  keyword to instruct the compiler that a function should never be
-                  inlined. One should typically use this macro to mark functions
+                  keyword to instruct the compiler that the function should never
+                  be inlined. One should typically use this macro to mark functions
                   that are unlikely to be called, such as error handling routines.
                 </p>
                 <p>
@@ -3845,6 +3845,42 @@
 <span class="special">}</span>
 </pre>
 <p>
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NORETURN</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  This macro can be used before the function declaration or definition
+                  to instruct the compiler that the function does not return normally
+                  (i.e. with a <code class="computeroutput"><span class="keyword">return</span></code>
+                  statement or by leaving the function scope, if the function return
+                  type is <code class="computeroutput"><span class="keyword">void</span></code>). The
+                  macro can be used to mark functions that always throw exceptions
+                  or terminate the application. Compilers that support this markup
+                  may use this information to specifically organize the code surrounding
+                  calls to this function and suppress warnings about missing <code class="computeroutput"><span class="keyword">return</span></code> statements in the functions
+                  enclosing such calls.
+                </p>
+                <p>
+                  Usage example:
+</p>
+<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="identifier">BOOST_NORETURN</span> <span class="keyword">void</span> <span class="identifier">on_error_occurred</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">char</span><span class="special">*</span> <span class="identifier">descr</span><span class="special">)</span>
+<span class="special">{</span>
+    <span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">(</span><span class="identifier">descr</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<p>
+                </p>
+                <p>
+                  If the compiler does not support this markup, <code class="computeroutput"><span class="identifier">BOOST_NORETURN</span></code>
+                  is defined empty and an additional macro <code class="computeroutput"><span class="identifier">BOOST_NO_NORETURN</span></code>
+                  is defined.
                 </p>
               </td>
 </tr>
