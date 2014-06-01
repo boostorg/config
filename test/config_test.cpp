@@ -1,4 +1,4 @@
-//  This file was automatically generated on Tue Feb 11 17:12:28 2014
+//  This file was automatically generated on Wed May 28 17:13:04 2014
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -226,6 +226,11 @@ namespace boost_no_cxx11_inline_namespaces = empty_boost;
 #include "boost_no_cxx11_numeric_limits.ipp"
 #else
 namespace boost_no_cxx11_numeric_limits = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX11_REF_QUALIFIERS
+#include "boost_no_cxx11_ref_qualifiers.ipp"
+#else
+namespace boost_no_cxx11_ref_qualifiers = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX11_SMART_PTR
 #include "boost_no_cxx11_smart_ptr.ipp"
@@ -1384,6 +1389,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx11_numeric_limits::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX11_NUMERIC_LIMITS at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx11_ref_qualifiers::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX11_REF_QUALIFIERS at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx11_smart_ptr::test())
