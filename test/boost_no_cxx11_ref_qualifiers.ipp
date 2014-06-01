@@ -22,7 +22,7 @@ struct G
 int test()
 {
    G m;
-   const G c;
+   const G c = G();
    
    if (m.get() != 'l') return 1;
    if (c.get() != 'c') return 1;
