@@ -15,6 +15,7 @@ project
 
 
 import modules ;
+import ../checks/config : requires ;
 
 local is_unix = [ modules.peek : UNIX ] ;
 
@@ -69,6 +70,7 @@ test-suite config
     [ run cstdint_test.cpp : : : <warnings>all <toolset>gcc:<cxxflags>"-Wno-long-long -Wextra" <toolset>darwin:<cxxflags>-Wno-long-long ]
     [ run cstdint_test2.cpp : : : <warnings>all <toolset>gcc:<cxxflags>"-Wno-long-long -Wextra" <toolset>darwin:<cxxflags>-Wno-long-long ]
     [ compile cstdint_include_test.cpp : <warnings>all <toolset>gcc:<cxxflags>-Wextra ]
+    [ run config_build_check.cpp : : : [ requires int128 cxx11_constexpr cxx11_user_defined_literals ] ]
   ;
 
 obj has_clang_implicit_fallthrough : cmd_line_check.cpp :
