@@ -168,9 +168,11 @@
 #  define BOOST_NO_CXX11_DECLTYPE_N3276
 #endif
 
-// C++11 features supported by VC++ 14 CTP1.
+// C++11 features supported by VC++ 14 CTP1
+// Because the CTP is unsupported, unrelease, and only alpha quality,
+// it is only supported if BOOST_MSVC_ENABLE_2014_JUN_CTP is defined.
 //
-#if _MSC_FULL_VER < 190021730
+#if (_MSC_FULL_VER < 190021730) || !defined(BOOST_MSVC_ENABLE_2014_JUN_CTP)
 #  define BOOST_NO_CXX11_NOEXCEPT
 #  define BOOST_NO_CXX11_REF_QUALIFIERS
 #  define BOOST_NO_CXX11_USER_DEFINED_LITERALS
