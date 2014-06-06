@@ -168,18 +168,25 @@
 #  define BOOST_NO_CXX11_DECLTYPE_N3276
 #endif
 
+// C++11 features supported by VC++ 14 CTP1
+// Because the CTP is unsupported, unrelease, and only alpha quality,
+// it is only supported if BOOST_MSVC_ENABLE_2014_JUN_CTP is defined.
+//
+#if (_MSC_FULL_VER < 190021730) || !defined(BOOST_MSVC_ENABLE_2014_JUN_CTP)
+#  define BOOST_NO_CXX11_NOEXCEPT
+#  define BOOST_NO_CXX11_REF_QUALIFIERS
+#  define BOOST_NO_CXX11_USER_DEFINED_LITERALS
+#  define BOOST_NO_CXX11_ALIGNAS
+#  define BOOST_NO_CXX11_INLINE_NAMESPACES
+#endif
+
 // C++11 features not supported by any versions
 #define BOOST_NO_CXX11_CHAR16_T
 #define BOOST_NO_CXX11_CHAR32_T
 #define BOOST_NO_CXX11_CONSTEXPR
-#define BOOST_NO_CXX11_NOEXCEPT
-#define BOOST_NO_CXX11_REF_QUALIFIERS
 #define BOOST_NO_CXX11_UNICODE_LITERALS
 #define BOOST_NO_SFINAE_EXPR
 #define BOOST_NO_TWO_PHASE_NAME_LOOKUP
-#define BOOST_NO_CXX11_USER_DEFINED_LITERALS
-#define BOOST_NO_CXX11_ALIGNAS
-#define BOOST_NO_CXX11_INLINE_NAMESPACES
 
 //
 // prefix and suffix headers:
@@ -243,6 +250,8 @@
 #     define BOOST_COMPILER_VERSION 11.0
 #   elif _MSC_VER < 1900
 #     define BOOST_COMPILER_VERSION 12.0
+#   elif _MSC_VER < 2000
+#     define BOOST_COMPILER_VERSION 14.0
 #   else
 #     define BOOST_COMPILER_VERSION _MSC_VER
 #   endif
@@ -252,8 +261,8 @@
 #endif
 
 //
-// last known and checked version is 18.00.20827.3 (VC12 RC, aka 2013 RC):
-#if (_MSC_VER > 1800 && _MSC_FULL_VER > 180020827)
+// last known and checked version is 18.00.21730.1 (VC14 CTP1):
+#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190021730)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Unknown compiler version - please run the configure tests and report the results"
 #  else
