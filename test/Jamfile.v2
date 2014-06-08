@@ -49,8 +49,24 @@ test-suite config
           <target-os>linux:<linkflags>-lrt
           <toolset>gcc:<linkflags>$(OTHERFLAGS)
     ]
+    [ run config_test.cpp
+          : #args
+          : #input-files
+          : #requirements
+          <rtti>off
+          : config_test_no_rtti
+    ]
+    [ run config_test.cpp
+          : #args
+          : #input-files
+          : #requirements
+          <exception-handling>off
+          : config_test_no_except
+    ]
      [ run config_info.cpp : : : <test-info>always_show_run_output <threading>single <toolset>msvc:<runtime-link>static <toolset>msvc:<link>static ]
      [ run config_info.cpp : : : <test-info>always_show_run_output <threading>multi : config_info_threaded ]
+     [ run config_info.cpp : : : <test-info>always_show_run_output <rtti>off : config_info_no_rtti ]
+     [ run config_info.cpp : : : <test-info>always_show_run_output <exception-handling>off : config_info_no_except ]
      [ run math_info.cpp : : : <test-info>always_show_run_output <toolset>borland:<runtime-link>static <toolset>borland:<link>static ]
      [ run abi/abi_test.cpp abi/main.cpp ]
      [ run limits_test.cpp ../../test/build//boost_test_exec_monitor ]
