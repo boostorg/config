@@ -54,6 +54,9 @@ test-suite config
           : #input-files
           : #requirements
           <rtti>off
+          <target-os>linux:<linkflags>-lpthread
+          <target-os>linux:<linkflags>-lrt
+          <toolset>gcc:<linkflags>$(OTHERFLAGS)
           : config_test_no_rtti
     ]
     [ run config_test.cpp
@@ -61,6 +64,9 @@ test-suite config
           : #input-files
           : #requirements
           <exception-handling>off
+          <target-os>linux:<linkflags>-lpthread
+          <target-os>linux:<linkflags>-lrt
+          <toolset>gcc:<linkflags>$(OTHERFLAGS)
           : config_test_no_except
     ]
      [ run config_info.cpp : : : <test-info>always_show_run_output <threading>single <toolset>msvc:<runtime-link>static <toolset>msvc:<link>static ]
