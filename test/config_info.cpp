@@ -192,6 +192,7 @@ void print_compiler_macros()
   PRINT_MACRO(__hppa);
   PRINT_MACRO(__CYGWIN__);
   PRINT_MACRO(__MINGW32__);
+  PRINT_MACRO(__GXX_RTTI);
   // HP aCC:
   PRINT_MACRO(__HP_aCC);
   PRINT_MACRO(_HPACC_);
@@ -293,6 +294,8 @@ void print_compiler_macros()
   PRINT_MACRO(_OPENMPT);
   PRINT_MACRO(_PGO_INSTRUMENT);
   PRINT_MACRO(__QMSPP_); 
+  PRINT_MACRO(__INTEL_RTTI__);
+  PRINT_MACRO(__INTEL_CXX11_MODE__);
 
   // Cray options:
   PRINT_MACRO(_CRAYC); 
