@@ -157,6 +157,24 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #define BOOST_UNLIKELY(x) __builtin_expect(x, 0)
 #endif
 
+// RTTI
+// __RTTI is the EDG macro
+// __INTEL_RTTI__ is the Intel macro
+// __GXX_RTTI is the g++ macro
+// _CPPRTTI is the MSVC++ macro
+#if !defined(__RTTI) && !defined(__INTEL_RTTI__) && !defined(__GXX_RTTI) && !defined(_CPPRTTI)
+
+#if !defined(BOOST_NO_RTTI)
+# define BOOST_NO_RTTI
+#endif
+
+// in MS mode, static typeid works even when RTTI is off
+#if !defined(_MSC_VER) && !defined(BOOST_NO_TYPEID)
+# define BOOST_NO_TYPEID
+#endif
+
+#endif
+
 //
 // versions check:
 // we don't support Intel prior to version 6.0:
@@ -265,6 +283,7 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  undef BOOST_NO_CXX11_HDR_THREAD 
 #  undef BOOST_NO_CXX11_CHAR32_T 
 #  undef BOOST_NO_CXX11_CHAR16_T
+#  undef BOOST_NO_CXX11_REF_QUALIFIERS
 #endif
 
 #if defined(BOOST_INTEL_STDCXX0X) && (BOOST_INTEL_CXX_VERSION <= 1310)
