@@ -2,11 +2,14 @@
 //  (C) Copyright Bill Kempf 2001. 
 //  (C) Copyright Aleksey Gurtovoy 2003. 
 //  (C) Copyright Rene Rivera 2005.
+//  (C) Copyright Microsoft Corporation 2014.
 //  Use, modification and distribution are subject to the 
 //  Boost Software License, Version 1.0. (See accompanying file 
 //  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 //  See http://www.boost.org for most recent version.
+
+#include <boost/predef/platform.h>
 
 //  Win32 specific config options:
 
@@ -70,6 +73,11 @@
 #  define BOOST_HAS_GETSYSTEMTIMEASFILETIME
 #  define BOOST_HAS_THREADEX
 #  define BOOST_HAS_GETSYSTEMTIMEASFILETIME
+#endif
+
+// The Windows Runtime only allows UTF-16 APIs.
+#if BOOST_PLAT_WINDOWS_RUNTIME
+#  define BOOST_NO_ANSI_APIS
 #endif
 
 #ifndef BOOST_DISABLE_WIN32
