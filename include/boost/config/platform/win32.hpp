@@ -9,7 +9,7 @@
 
 //  See http://www.boost.org for most recent version.
 
-#include <boost/predef.h>
+#include <boost/predef/platform.h>
 
 //  Win32 specific config options:
 
