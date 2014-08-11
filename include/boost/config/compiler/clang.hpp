@@ -9,6 +9,7 @@
 // Clang compiler setup.
 
 #define BOOST_HAS_PRAGMA_ONCE
+#define BOOST_HAS_PRAGMA_DETECT_MISSMATCH
 
 // When compiling with clang before __has_extension was defined,
 // even if one writes 'defined(__has_extension) && __has_extension(xxx)',
