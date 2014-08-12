@@ -168,7 +168,7 @@
 #  define BOOST_NO_CXX11_DECLTYPE_N3276
 #endif
 
-// C++11 features supported by VC++ 14 CTP1
+// C++11 features supported by VC++ 14 (aka 2014) CTP1
 // Because the CTP is unsupported, unrelease, and only alpha quality,
 // it is only supported if BOOST_MSVC_ENABLE_2014_JUN_CTP is defined.
 //
@@ -261,8 +261,8 @@
 #endif
 
 //
-// last known and checked version is 18.00.21730.1 (VC14 CTP1):
-#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190021730)
+// last known and checked version is 19.00.21901.1 (VC14 CTP2):
+#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190021901)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Unknown compiler version - please run the configure tests and report the results"
 #  else
