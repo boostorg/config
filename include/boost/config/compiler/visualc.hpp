@@ -149,6 +149,7 @@
 // C++11 features supported by VC++ 11 (aka 2012)
 //
 #if _MSC_VER < 1700
+#  define BOOST_NO_CXX11_FINAL
 #  define BOOST_NO_CXX11_RANGE_BASED_FOR
 #  define BOOST_NO_CXX11_SCOPED_ENUMS
 #endif // _MSC_VER < 1700

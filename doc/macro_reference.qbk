@@ -642,6 +642,8 @@ explicit conversion operators (`explicit operator T()`).
 [[`BOOST_NO_CXX11_EXTERN_TEMPLATE`][The compiler does not support 
 explicit instantiation forward declarations for templates (`extern template ...`).
 ]]
+[[`BOOST_NO_CXX11_FINAL`][The compiler does not support the C++ class-virt-specifier final.
+]]
 [[`BOOST_NO_CXX11_FUNCTION_TEMPLATE_DEFAULT_ARGS`][The compiler does not support
 default template arguments for function templates.
 ]]

@@ -1,4 +1,4 @@
-//  This file was automatically generated on Thu Jun 12 13:21:03 2014
+//  This file was automatically generated on Fri Aug 15 15:51:00 2014
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -121,6 +121,11 @@ namespace boost_no_cxx11_allocator = empty_boost;
 #include "boost_no_cxx11_atomic_sp.ipp"
 #else
 namespace boost_no_cxx11_atomic_smart_ptr = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX11_FINAL
+#include "boost_no_cxx11_final.ipp"
+#else
+namespace boost_no_cxx11_final = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX11_HDR_ARRAY
 #include "boost_no_cxx11_hdr_array.ipp"
@@ -1284,6 +1289,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx11_atomic_smart_ptr::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX11_ATOMIC_SMART_PTR at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx11_final::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX11_FINAL at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx11_hdr_array::test())
