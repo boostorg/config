@@ -36,9 +36,6 @@
 
 #define BOOST_HAS_PRAGMA_ONCE
 
-// Will be undefined for old compilers lower in this file
-#define BOOST_HAS_PRAGMA_DETECT_MISSMATCH
-
 //
 // versions check:
 // we don't support Visual C++ prior to version 7.1:
@@ -62,7 +59,6 @@
 
 #if _MSC_VER < 1500  // 140X == VC++ 8.0
 #  define BOOST_NO_MEMBER_TEMPLATE_FRIENDS
-#  undef BOOST_HAS_PRAGMA_DETECT_MISSMATCH
 #endif
 
 #if _MSC_VER < 1600  // 150X == VC++ 9.0
@@ -107,6 +103,9 @@
 #endif
 #if (_MSC_VER >= 1400) && !defined(_DEBUG)
 #   define BOOST_HAS_NRVO
+#endif
+#if _MSC_VER >= 1500  // 150X == VC++ 9.0
+#  define BOOST_HAS_PRAGMA_DETECT_MISSMATCH
 #endif
 //
 // disable Win32 API's if compiler extensions are
