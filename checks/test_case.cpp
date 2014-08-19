@@ -1,4 +1,4 @@
-//  This file was automatically generated on Thu Jun 12 13:21:03 2014
+//  This file was automatically generated on Fri Aug 15 15:51:00 2014
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -296,6 +296,10 @@ namespace test = boost_no_cxx11_allocator;
 #ifdef TEST_BOOST_NO_CXX11_ATOMIC_SMART_PTR
 #  include "../test/boost_no_cxx11_atomic_sp.ipp"
 namespace test = boost_no_cxx11_atomic_smart_ptr;
+#endif
+#ifdef TEST_BOOST_NO_CXX11_FINAL
+#  include "../test/boost_no_cxx11_final.ipp"
+namespace test = boost_no_cxx11_final;
 #endif
 #ifdef TEST_BOOST_NO_CXX11_HDR_ARRAY
 #  include "../test/boost_no_cxx11_hdr_array.ipp"
