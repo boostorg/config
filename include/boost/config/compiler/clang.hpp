@@ -193,6 +193,10 @@
 #  define BOOST_NO_CXX11_INLINE_NAMESPACES
 #endif
 
+#if !__has_feature(cxx_override_control)
+#  define BOOST_NO_CXX11_FINAL
+#endif
+
 // Clang always supports variadic macros
 // Clang always supports extern templates
 

@@ -269,6 +269,7 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  undef BOOST_NO_CXX11_RANGE_BASED_FOR
 #  undef BOOST_NO_CXX11_SCOPED_ENUMS
 #  undef BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX
+#  undef BOOST_NO_CXX11_FINAL
 #endif
 #if (BOOST_INTEL_CXX_VERSION >= 1310)
 #  undef  BOOST_NO_SFINAE_EXPR
@@ -320,6 +321,7 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1600)
 #  define BOOST_HAS_STDINT_H
+#  undef BOOST_NO_CXX11_FINAL
 #endif
 
 #if defined(__LP64__) && defined(__GNUC__) && (BOOST_INTEL_CXX_VERSION >= 1310)

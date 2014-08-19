@@ -14,9 +14,28 @@ namespace boost_no_cxx11_final {
 
 struct X final {};
 
+struct abstract
+{
+   virtual int f() = 0;
+};
+
+struct derived : public abstract
+{
+   virtual int f() final
+   {
+      return 0;
+   }
+};
+
+int check(abstract* pa)
+{
+   return pa->f();
+}
+
 int test()
 {
-    return 0;
+    derived d;
+    return check(&d);
 }
 
 }
