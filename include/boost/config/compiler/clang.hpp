@@ -12,11 +12,7 @@
 
 // Detecting `-fms-extension` compiler flag assuming that _MSC_VER defined when that flag is used.
 #if defined (_MSC_VER) && (__clang_major__ > 3 || (__clang_major__ == 3 && __clang_minor__ >= 4))
-    // Ignoring the checks on APPLE platform because someone made __clang_major__ equal to
-    // LLVM version rather than compiler version.
-#   ifndef __APPLE__
-#       define BOOST_HAS_PRAGMA_DETECT_MISSMATCH
-#   endif
+#   define BOOST_HAS_PRAGMA_DETECT_MISSMATCH
 #endif
 
 // When compiling with clang before __has_extension was defined,
