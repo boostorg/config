@@ -64,7 +64,6 @@
 #if _MSC_VER < 1600  // 150X == VC++ 9.0
    // A bug in VC9:
 #  define BOOST_NO_ADL_BARRIER
-#  define BOOST_NO_CXX11_FINAL
 #endif
 
 
