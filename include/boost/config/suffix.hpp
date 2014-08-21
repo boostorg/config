@@ -1,5 +1,5 @@
 //  Boost config.hpp configuration header file  ------------------------------//
-//	boostinspect:ndprecated_macros	-- tell the inspect tool to ignore this file
+//  boostinspect:ndprecated_macros -- tell the inspect tool to ignore this file
 
 //  Copyright (c) 2001-2003 John Maddock
 //  Copyright (c) 2001 Darin Adler
@@ -646,6 +646,11 @@ namespace std{ using ::type_info; }
 #  define BOOST_ALIGNMENT(x)
 #endif
 
+// Lack of non-public defaulted functions is implied by the lack of any defaulted functions
+#if !defined(BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS) && defined(BOOST_NO_CXX11_DEFAULTED_FUNCTIONS)
+#  define BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS
+#endif
+
 // Defaulted and deleted function declaration helpers
 // These macros are intended to be inside a class definition.
 // BOOST_DEFAULTED_FUNCTION accepts the function declaration and its
@@ -681,7 +686,7 @@ namespace std{ using ::type_info; }
 // Set BOOST_NO_DECLTYPE_N3276 when BOOST_NO_DECLTYPE is defined
 //
 #if defined(BOOST_NO_CXX11_DECLTYPE) && !defined(BOOST_NO_CXX11_DECLTYPE_N3276)
-#define	BOOST_NO_CXX11_DECLTYPE_N3276 BOOST_NO_CXX11_DECLTYPE
+#define BOOST_NO_CXX11_DECLTYPE_N3276 BOOST_NO_CXX11_DECLTYPE
 #endif
 
 //  -------------------- Deprecated macros for 1.50 ---------------------------

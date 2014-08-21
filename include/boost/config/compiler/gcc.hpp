@@ -183,7 +183,7 @@
 #endif
 
 // GCC 4.5 forbids declaration of defaulted functions in private or protected sections
-#if !defined(BOOST_NO_CXX11_DEFAULTED_FUNCTIONS) && (__GNUC__ == 4 && __GNUC_MINOR__ <= 5)
+#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ <= 5) || !defined(__GXX_EXPERIMENTAL_CXX0X__)
 #  define BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS
 #endif
 
