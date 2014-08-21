@@ -637,10 +637,16 @@ type `char32_t`.
 `decltype` described in [@http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3276.pdf N3276],
 accepted in Madrid, March 2011.
 ]]
-[[`BOOST_NO_CXX11_DEFAULTED_FUNCTIONS`][The compiler does not support 
+[[`BOOST_NO_CXX11_DEFAULTED_FUNCTIONS`][The compiler does not support
 defaulted (`= default`) functions.
 ]]
-[[`BOOST_NO_CXX11_DELETED_FUNCTIONS`][The compiler does not support 
+[[`BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS`][The compiler does not support
+defaulted (`= default`) functions in access control sections other than `public`. Public defaulted
+functions may still be supported, as indicated by `BOOST_NO_CXX11_DEFAULTED_FUNCTIONS`. Some
+compilers implementing an early draft of the C++11 standard (in particular, incorporating
+[@http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#906 DR906]) are susceptible to this problem.
+]]
+[[`BOOST_NO_CXX11_DELETED_FUNCTIONS`][The compiler does not support
 deleted (`= delete`) functions.
 ]]
 [[`BOOST_NO_CXX11_EXPLICIT_CONVERSION_OPERATORS`][The compiler does not support 

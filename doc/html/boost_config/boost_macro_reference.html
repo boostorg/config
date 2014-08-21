@@ -1665,6 +1665,29 @@
 <tr>
 <td>
                 <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_HAS_PRAGMA_DETECT_MISSMATCH</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Compiler
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler recognizes the <code class="computeroutput"><span class="preprocessor">#pragma</span>
+                  <span class="identifier">detect_mismatch</span><span class="special">(</span><span class="string">"name"</span><span class="special">,</span>
+                  <span class="string">"value"</span><span class="special">)</span></code>
+                  directive which tells that the link stage should be terminated
+                  with error if values for provided <code class="computeroutput"><span class="string">"name"</span></code>
+                  missmatch. This pragma may be a help in preventing ODR violations
+                  and ensuring that different modules are compiled with same flags.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <code class="computeroutput"><span class="identifier">BOOST_HAS_PTHREAD_DELAY_NP</span></code>
                 </p>
               </td>
@@ -2820,6 +2843,25 @@
                 <p>
                   The compiler does not support defaulted (<code class="computeroutput"><span class="special">=</span>
                   <span class="keyword">default</span></code>) functions.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support defaulted (<code class="computeroutput"><span class="special">=</span>
+                  <span class="keyword">default</span></code>) functions in access
+                  control sections other than <code class="computeroutput"><span class="keyword">public</span></code>.
+                  Public defaulted functions may still be supported, as indicated
+                  by <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_DEFAULTED_FUNCTIONS</span></code>.
+                  Some compilers implementing an early draft of the C++11 standard
+                  (in particular, incorporating <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#906" target="_top">DR906</a>)
+                  are susceptible to this problem.
                 </p>
               </td>
 </tr>
