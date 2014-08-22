@@ -319,6 +319,13 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  define BOOST_NO_FENV_H
 #endif
 
+// Intel 13.10 fails to access defaulted functions of a base class declared in private or protected sections,
+// producing the following errors:
+// error #453: protected function "..." (declared at ...") is not accessible through a "..." pointer or object
+#if (BOOST_INTEL_CXX_VERSION <= 1310)
+#  define BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS
+#endif
+
 #if defined(_MSC_VER) && (_MSC_VER >= 1600)
 #  define BOOST_HAS_STDINT_H
 #  undef BOOST_NO_CXX11_FINAL
