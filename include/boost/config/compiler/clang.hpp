@@ -12,7 +12,7 @@
 
 // Detecting `-fms-extension` compiler flag assuming that _MSC_VER defined when that flag is used.
 #if defined (_MSC_VER) && (__clang_major__ > 3 || (__clang_major__ == 3 && __clang_minor__ >= 4))
-#   define BOOST_HAS_PRAGMA_DETECT_MISSMATCH
+#   define BOOST_HAS_PRAGMA_DETECT_MISMATCH
 #endif
 
 // When compiling with clang before __has_extension was defined,
