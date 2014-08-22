@@ -1,4 +1,4 @@
-//  This file was automatically generated on Fri Aug 15 15:51:00 2014
+//  This file was automatically generated on Fri Aug 22 18:33:21 2014
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -226,6 +226,11 @@ namespace boost_no_cxx11_hdr_unordered_set = empty_boost;
 #include "boost_no_cxx11_inline_namespaces.ipp"
 #else
 namespace boost_no_cxx11_inline_namespaces = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS
+#include "boost_no_cxx11_non_pub_def_fun.ipp"
+#else
+namespace boost_no_cxx11_non_public_defaulted_functions = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX11_NUMERIC_LIMITS
 #include "boost_no_cxx11_numeric_limits.ipp"
@@ -1394,6 +1399,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx11_inline_namespaces::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX11_INLINE_NAMESPACES at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx11_non_public_defaulted_functions::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx11_numeric_limits::test())

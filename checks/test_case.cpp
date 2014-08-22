@@ -1,4 +1,4 @@
-//  This file was automatically generated on Fri Aug 15 15:51:00 2014
+//  This file was automatically generated on Fri Aug 22 18:33:21 2014
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -380,6 +380,10 @@ namespace test = boost_no_cxx11_hdr_unordered_set;
 #ifdef TEST_BOOST_NO_CXX11_INLINE_NAMESPACES
 #  include "../test/boost_no_cxx11_inline_namespaces.ipp"
 namespace test = boost_no_cxx11_inline_namespaces;
+#endif
+#ifdef TEST_BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS
+#  include "../test/boost_no_cxx11_non_pub_def_fun.ipp"
+namespace test = boost_no_cxx11_non_public_defaulted_functions;
 #endif
 #ifdef TEST_BOOST_NO_CXX11_NUMERIC_LIMITS
 #  include "../test/boost_no_cxx11_numeric_limits.ipp"
