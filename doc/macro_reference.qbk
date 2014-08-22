@@ -399,7 +399,7 @@ containing header should be included only once while preprocessing the
 current translation unit. The pragma may improve compile times of large projects
 with some compilers.
 ]]
-[[`BOOST_HAS_PRAGMA_DETECT_MISSMATCH`][Compiler][
+[[`BOOST_HAS_PRAGMA_DETECT_MISMATCH`][Compiler][
 The compiler recognizes the `#pragma detect_mismatch("name", "value")` directive which tells that the
 link stage should be terminated with error if values for provided `"name"` missmatch.
 This pragma may be a help in preventing ODR violations and ensuring that different modules
