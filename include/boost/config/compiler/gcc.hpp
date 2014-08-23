@@ -154,14 +154,6 @@
 #  define BOOST_NO_CXX11_FUNCTION_TEMPLATE_DEFAULT_ARGS
 #  define BOOST_NO_CXX11_RVALUE_REFERENCES
 #  define BOOST_NO_CXX11_STATIC_ASSERT
-
-// Variadic templates compiler:
-//   http://www.generic-programming.org/~dgregor/cpp/variadic-templates.html
-#  if defined(__VARIADIC_TEMPLATES) || (__GNUC__ > 4) || ((__GNUC__ == 4) && (__GNUC_MINOR__ >= 4) && defined(__GXX_EXPERIMENTAL_CXX0X__))
-#    define BOOST_HAS_VARIADIC_TMPL
-#  else
-#    define BOOST_NO_CXX11_VARIADIC_TEMPLATES
-#  endif
 #endif
 
 // C++0x features in 4.4.n and later
@@ -176,6 +168,7 @@
 #  define BOOST_NO_CXX11_DELETED_FUNCTIONS
 #  define BOOST_NO_CXX11_TRAILING_RESULT_TYPES
 #  define BOOST_NO_CXX11_INLINE_NAMESPACES
+#  define BOOST_NO_CXX11_VARIADIC_TEMPLATES
 #endif
 
 #if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 5)
