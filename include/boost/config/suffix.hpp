@@ -962,6 +962,13 @@ namespace std{ using ::type_info; }
 #if !defined(BOOST_NO_CXX11_VARIADIC_TEMPLATES) && !defined(BOOST_HAS_VARIADIC_TMPL)
 #define BOOST_HAS_VARIADIC_TMPL
 #endif
+//
+// Set BOOST_NO_CXX11_FIXED_LENGTH_VARIADIC_TEMPLATE_EXPANSION_PACKS when
+// BOOST_NO_CXX11_VARIADIC_TEMPLATES is set:
+//
+#if defined(BOOST_NO_CXX11_VARIADIC_TEMPLATES) && !defined(BOOST_NO_CXX11_FIXED_LENGTH_VARIADIC_TEMPLATE_EXPANSION_PACKS)
+#  define BOOST_NO_CXX11_FIXED_LENGTH_VARIADIC_TEMPLATE_EXPANSION_PACKS
+#endif
 
 //
 // Finish off with checks for macros that are depricated / no longer supported,

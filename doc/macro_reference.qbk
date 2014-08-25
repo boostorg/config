@@ -640,6 +640,9 @@ accepted in Madrid, March 2011.
 [[`BOOST_NO_CXX11_DEFAULTED_FUNCTIONS`][The compiler does not support
 defaulted (`= default`) functions.
 ]]
+[[BOOST_NO_CXX11_FIXED_LENGTH_VARIADIC_TEMPLATE_EXPANSION_PACKS][The compiler does not support
+expanding a variadic template parameter pack into a template containing one or more
+fixed arguments]]
 [[`BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS`][The compiler does not support
 defaulted (`= default`) functions in access control sections other than `public`. Public defaulted
 functions may still be supported, as indicated by `BOOST_NO_CXX11_DEFAULTED_FUNCTIONS`. Some
