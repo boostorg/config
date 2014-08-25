@@ -870,6 +870,41 @@ release supports the CTP features.
 
 [endsect]
 
+[section Macros that describe C++14 features not supported]
+
+The following macros describe features in the 2014 ISO C++ standard, formerly known as C++0y,
+that are not yet supported by a particular compiler or library.
+
+[table
+[[Macro     ][Description     ]]
+
+[[`BOOST_NO_CXX14_BINARY_LITERALS`][The compiler does not binary literals (e.g. `0b1010`).]]
+[[`BOOST_NO_CXX14_RETURN_TYPE_DEDUCTION`][The compiler does not support return type deduction for normal functions (e.g. `auto f() { return val; }`).]]
+[[`BOOST_NO_CXX14_DECLTYPE_AUTO`][The compiler does not support `decltype(auto)`.]]
+[[`BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURE`][The compiler does not support initialized lambda capture (e.g. `[foo = 42]{ }`).]]
+[[`BOOST_NO_CXX14_GENERIC_LAMBDAS`][The compiler does not support generic lambda (e.g. `[](auto v){ }`).]]
+[[`BOOST_NO_CXX14_DEPRECATED_ATTRIBUTES`][The compiler does not support `[[deprecated]]`.]]
+[[`BOOST_NO_CXX14_DIGIT_SEPARATOR`][The compiler does not support digit separators (e.g. `1'000'000`).]]
+[[`BOOST_NO_CXX14_VARIABLE_TEMPLATES`][The compiler does not support variable template (e.g. `template <class T> T kibi = T(1024);`).]]
+[[`BOOST_NO_CXX14_RELAXED_CONSTEXPR`][The compiler does not support relaxed `constexpr`.]]
+[[`BOOST_NO_CXX14_MEMBER_INITIALIZERS_AND_AGGREGATES`][The compiler does not support member initializer for aggregates like following.
+[:
+``
+  struct Foo
+  {
+      int x, y = 42;
+  };
+
+  Foo foo = { 0 };
+``
+]
+]]
+[[`BOOST_NO_CXX14_SIZED_DEALLOCATION`][The compiler does not support sized deallocator (e.g. `operator delete(void *, std::size_t) noexcept`).]]
+
+]
+
+[endsect]
+
 [#config_helpers]
 
 [section Boost Helper Macros]
