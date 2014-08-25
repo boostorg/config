@@ -298,6 +298,10 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  define BOOST_NO_CXX11_HDR_TUPLE
 #endif
 
+#if BOOST_INTEL_CXX_VERSION <= 1400
+#  define BOOST_NO_CXX11_FIXED_LENGTH_VARIADIC_TEMPLATE_EXPANSION_PACKS
+#endif
+
 #if defined(_MSC_VER) && (_MSC_VER <= 1700)
 //
 // Although the Intel compiler is capable of supporting these, it appears not to in MSVC compatibility mode:
