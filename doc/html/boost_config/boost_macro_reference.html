@@ -1665,7 +1665,7 @@
 <tr>
 <td>
                 <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_HAS_PRAGMA_DETECT_MISSMATCH</span></code>
+                  <code class="computeroutput"><span class="identifier">BOOST_HAS_PRAGMA_DETECT_MISMATCH</span></code>
                 </p>
               </td>
 <td>
@@ -2452,6 +2452,190 @@
 <tr>
 <td>
                 <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_AUTO_DECLARATIONS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support type deduction for variables declared
+                  with the <code class="computeroutput"><span class="keyword">auto</span></code> keyword
+                  (<code class="computeroutput"><span class="keyword">auto</span> <span class="identifier">var</span>
+                  <span class="special">=</span> <span class="special">...;</span></code>).
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_AUTO_MULTIDECLARATIONS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support type deduction for multiple variables
+                  declared with the <code class="computeroutput"><span class="keyword">auto</span></code>
+                  keyword (<code class="computeroutput"><span class="keyword">auto</span> <span class="identifier">var</span>
+                  <span class="special">=</span> <span class="special">...,</span>
+                  <span class="special">*</span><span class="identifier">ptr</span>
+                  <span class="special">=</span> <span class="special">...;</span></code>).
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_CHAR16_T</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support type <code class="computeroutput"><span class="keyword">char16_t</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_CHAR32_T</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support type <code class="computeroutput"><span class="keyword">char32_t</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_CONSTEXPR</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support <code class="computeroutput"><span class="keyword">constexpr</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_DECLTYPE</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support <code class="computeroutput"><span class="keyword">decltype</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_DECLTYPE_N3276</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the extension to <code class="computeroutput"><span class="keyword">decltype</span></code>
+                  described in <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3276.pdf" target="_top">N3276</a>,
+                  accepted in Madrid, March 2011.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_DELETED_FUNCTIONS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support deleted (<code class="computeroutput"><span class="special">=</span>
+                  <span class="keyword">delete</span></code>) functions.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_DEFAULTED_FUNCTIONS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support defaulted (<code class="computeroutput"><span class="special">=</span>
+                  <span class="keyword">default</span></code>) functions.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_EXPLICIT_CONVERSION_OPERATORS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support explicit conversion operators (<code class="computeroutput"><span class="keyword">explicit</span> <span class="keyword">operator</span>
+                  <span class="identifier">T</span><span class="special">()</span></code>).
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_EXTERN_TEMPLATE</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support explicit instantiation forward declarations
+                  for templates (<code class="computeroutput"><span class="keyword">extern</span> <span class="keyword">template</span> <span class="special">...</span></code>).
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_FINAL</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the C++ class-virt-specifier final.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_FIXED_LENGTH_VARIADIC_TEMPLATE_EXPANSION_PACKS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support expanding a variadic template parameter
+                  pack into a template containing one or more fixed arguments
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_FUNCTION_TEMPLATE_DEFAULT_ARGS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support default template arguments for function
+                  templates.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_HDR_ATOMIC</span></code>
                 </p>
               </td>
@@ -2705,233 +2889,6 @@
 <tr>
 <td>
                 <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_SMART_PTR</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The standard library header &lt;memory&gt; has no shared_ptr and
-                  unique_ptr.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_STD_ALIGN</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The standard library header &lt;memory&gt; has no working std::align.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_AUTO_DECLARATIONS</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The compiler does not support type deduction for variables declared
-                  with the <code class="computeroutput"><span class="keyword">auto</span></code> keyword
-                  (<code class="computeroutput"><span class="keyword">auto</span> <span class="identifier">var</span>
-                  <span class="special">=</span> <span class="special">...;</span></code>).
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_AUTO_MULTIDECLARATIONS</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The compiler does not support type deduction for multiple variables
-                  declared with the <code class="computeroutput"><span class="keyword">auto</span></code>
-                  keyword (<code class="computeroutput"><span class="keyword">auto</span> <span class="identifier">var</span>
-                  <span class="special">=</span> <span class="special">...,</span>
-                  <span class="special">*</span><span class="identifier">ptr</span>
-                  <span class="special">=</span> <span class="special">...;</span></code>).
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_CHAR16_T</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The compiler does not support type <code class="computeroutput"><span class="keyword">char16_t</span></code>.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_CHAR32_T</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The compiler does not support type <code class="computeroutput"><span class="keyword">char32_t</span></code>.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_TEMPLATE_ALIASES</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The compiler does not support template aliases.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_CONSTEXPR</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The compiler does not support <code class="computeroutput"><span class="keyword">constexpr</span></code>.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_DECLTYPE</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The compiler does not support <code class="computeroutput"><span class="keyword">decltype</span></code>.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_DECLTYPE_N3276</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The compiler does not support the extension to <code class="computeroutput"><span class="keyword">decltype</span></code>
-                  described in <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3276.pdf" target="_top">N3276</a>,
-                  accepted in Madrid, March 2011.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_DEFAULTED_FUNCTIONS</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The compiler does not support defaulted (<code class="computeroutput"><span class="special">=</span>
-                  <span class="keyword">default</span></code>) functions.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The compiler does not support defaulted (<code class="computeroutput"><span class="special">=</span>
-                  <span class="keyword">default</span></code>) functions in access
-                  control sections other than <code class="computeroutput"><span class="keyword">public</span></code>.
-                  Public defaulted functions may still be supported, as indicated
-                  by <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_DEFAULTED_FUNCTIONS</span></code>.
-                  Some compilers implementing an early draft of the C++11 standard
-                  (in particular, incorporating <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#906" target="_top">DR906</a>)
-                  are susceptible to this problem.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_DELETED_FUNCTIONS</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The compiler does not support deleted (<code class="computeroutput"><span class="special">=</span>
-                  <span class="keyword">delete</span></code>) functions.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_EXPLICIT_CONVERSION_OPERATORS</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The compiler does not support explicit conversion operators (<code class="computeroutput"><span class="keyword">explicit</span> <span class="keyword">operator</span>
-                  <span class="identifier">T</span><span class="special">()</span></code>).
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_EXTERN_TEMPLATE</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The compiler does not support explicit instantiation forward declarations
-                  for templates (<code class="computeroutput"><span class="keyword">extern</span> <span class="keyword">template</span> <span class="special">...</span></code>).
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_FINAL</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The compiler does not support the C++ class-virt-specifier final.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_FUNCTION_TEMPLATE_DEFAULT_ARGS</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The compiler does not support default template arguments for function
-                  templates.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
                   <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_LAMBDAS</span></code>
                 </p>
               </td>
@@ -2958,13 +2915,19 @@
 <tr>
 <td>
                 <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_LONG_LONG</span></code>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS</span></code>
                 </p>
               </td>
 <td>
                 <p>
-                  The compiler does not support <code class="computeroutput"><span class="keyword">long</span>
-                  <span class="keyword">long</span></code>.
+                  The compiler does not support defaulted (<code class="computeroutput"><span class="special">=</span>
+                  <span class="keyword">default</span></code>) functions in access
+                  control sections other than <code class="computeroutput"><span class="keyword">public</span></code>.
+                  Public defaulted functions may still be supported, as indicated
+                  by <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_DEFAULTED_FUNCTIONS</span></code>.
+                  Some compilers implementing an early draft of the C++11 standard
+                  (in particular, incorporating <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#906" target="_top">DR906</a>)
+                  are susceptible to this problem.
                 </p>
               </td>
 </tr>
@@ -3056,12 +3019,37 @@
 <tr>
 <td>
                 <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_SMART_PTR</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The standard library header &lt;memory&gt; has no shared_ptr and
+                  unique_ptr.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_STATIC_ASSERT</span></code>
                 </p>
               </td>
 <td>
                 <p>
                   The compiler does not support <code class="computeroutput"><span class="keyword">static_assert</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_STD_ALIGN</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The standard library header &lt;memory&gt; has no working std::align.
                 </p>
               </td>
 </tr>
@@ -3075,6 +3063,18 @@
                 <p>
                   The standard library does not support &lt;unordered_map&gt; and
                   &lt;unordered_set&gt;.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_TEMPLATE_ALIASES</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support template aliases.
                 </p>
               </td>
 </tr>
@@ -3151,6 +3151,19 @@
 <td>
                 <p>
                   The compiler does not support variadic macros.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_LONG_LONG</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support <code class="computeroutput"><span class="keyword">long</span>
+                  <span class="keyword">long</span></code>.
                 </p>
               </td>
 </tr>
