@@ -81,6 +81,7 @@
 #define BOOST_NO_CXX11_TRAILING_RESULT_TYPES
 #define BOOST_NO_CXX11_INLINE_NAMESPACES
 #define BOOST_NO_CXX11_REF_QUALIFIERS
+#define BOOST_NO_CXX11_FINAL
 
 #if (__DMC__ <= 0x840)
 #error "Compiler not supported or configured - please reconfigure"
