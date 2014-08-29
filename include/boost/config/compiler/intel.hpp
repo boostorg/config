@@ -34,11 +34,15 @@
 #  define BOOST_INTEL_STDCXX0X
 #endif
 
-#ifdef BOOST_INTEL_STDCXX0X
-#define BOOST_COMPILER "Intel C++ C++0x mode version " BOOST_STRINGIZE(BOOST_INTEL_CXX_VERSION)
-#else
-#define BOOST_COMPILER "Intel C++ version " BOOST_STRINGIZE(BOOST_INTEL_CXX_VERSION)
+
+#if !defined(BOOST_COMPILER)
+#  if defined(BOOST_INTEL_STDCXX0X)
+#    define BOOST_COMPILER "Intel C++ C++0x mode version " BOOST_STRINGIZE(BOOST_INTEL_CXX_VERSION)
+#  else
+#    define BOOST_COMPILER "Intel C++ version " BOOST_STRINGIZE(BOOST_INTEL_CXX_VERSION)
+#  endif
 #endif
+
 #define BOOST_INTEL BOOST_INTEL_CXX_VERSION
 
 #if defined(_WIN32) || defined(_WIN64)
