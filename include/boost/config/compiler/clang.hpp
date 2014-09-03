@@ -10,6 +10,11 @@
 
 #define BOOST_HAS_PRAGMA_ONCE
 
+// Detecting `-fms-extension` compiler flag assuming that _MSC_VER defined when that flag is used.
+#if defined (_MSC_VER) && (__clang_major__ > 3 || (__clang_major__ == 3 && __clang_minor__ >= 4))
+#   define BOOST_HAS_PRAGMA_DETECT_MISMATCH
+#endif
+
 // When compiling with clang before __has_extension was defined,
 // even if one writes 'defined(__has_extension) && __has_extension(xxx)',
 // clang reports a compiler error. So the only workaround found is:
@@ -186,6 +191,10 @@
 
 #if !__has_feature(cxx_inline_namespaces)
 #  define BOOST_NO_CXX11_INLINE_NAMESPACES
+#endif
+
+#if !__has_feature(cxx_override_control)
+#  define BOOST_NO_CXX11_FINAL
 #endif
 
 // Clang always supports variadic macros

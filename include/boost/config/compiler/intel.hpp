@@ -34,11 +34,14 @@
 #  define BOOST_INTEL_STDCXX0X
 #endif
 
-#ifdef BOOST_INTEL_STDCXX0X
-#define BOOST_COMPILER "Intel C++ C++0x mode version " BOOST_STRINGIZE(BOOST_INTEL_CXX_VERSION)
-#else
-#define BOOST_COMPILER "Intel C++ version " BOOST_STRINGIZE(BOOST_INTEL_CXX_VERSION)
+#if !defined(BOOST_COMPILER)
+#  if defined(BOOST_INTEL_STDCXX0X)
+#    define BOOST_COMPILER "Intel C++ C++0x mode version " BOOST_STRINGIZE(BOOST_INTEL_CXX_VERSION)
+#  else
+#    define BOOST_COMPILER "Intel C++ version " BOOST_STRINGIZE(BOOST_INTEL_CXX_VERSION)
+#  endif
 #endif
+
 #define BOOST_INTEL BOOST_INTEL_CXX_VERSION
 
 #if defined(_WIN32) || defined(_WIN64)
@@ -269,6 +272,7 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  undef BOOST_NO_CXX11_RANGE_BASED_FOR
 #  undef BOOST_NO_CXX11_SCOPED_ENUMS
 #  undef BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX
+#  undef BOOST_NO_CXX11_FINAL
 #endif
 #if (BOOST_INTEL_CXX_VERSION >= 1310)
 #  undef  BOOST_NO_SFINAE_EXPR
@@ -297,6 +301,10 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  define BOOST_NO_CXX11_HDR_TUPLE
 #endif
 
+#if BOOST_INTEL_CXX_VERSION <= 1400
+#  define BOOST_NO_CXX11_FIXED_LENGTH_VARIADIC_TEMPLATE_EXPANSION_PACKS
+#endif
+
 #if defined(_MSC_VER) && (_MSC_VER <= 1700)
 //
 // Although the Intel compiler is capable of supporting these, it appears not to in MSVC compatibility mode:
@@ -318,11 +326,19 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  define BOOST_NO_FENV_H
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1600)
-#  define BOOST_HAS_STDINT_H
+// Intel 13.10 fails to access defaulted functions of a base class declared in private or protected sections,
+// producing the following errors:
+// error #453: protected function "..." (declared at ...") is not accessible through a "..." pointer or object
+#if (BOOST_INTEL_CXX_VERSION <= 1310)
+#  define BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS
 #endif
 
-#if defined(__LP64__) && defined(__GNUC__) && (BOOST_INTEL_CXX_VERSION >= 1310)
+#if defined(_MSC_VER) && (_MSC_VER >= 1600)
+#  define BOOST_HAS_STDINT_H
+#  undef BOOST_NO_CXX11_FINAL
+#endif
+
+#if defined(__LP64__) && defined(__GNUC__) && (BOOST_INTEL_CXX_VERSION >= 1310) && !defined(__CUDACC__)
 #  define BOOST_HAS_INT128
 #endif
 

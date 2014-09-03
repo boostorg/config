@@ -154,14 +154,6 @@
 #  define BOOST_NO_CXX11_FUNCTION_TEMPLATE_DEFAULT_ARGS
 #  define BOOST_NO_CXX11_RVALUE_REFERENCES
 #  define BOOST_NO_CXX11_STATIC_ASSERT
-
-// Variadic templates compiler:
-//   http://www.generic-programming.org/~dgregor/cpp/variadic-templates.html
-#  if defined(__VARIADIC_TEMPLATES) || (__GNUC__ > 4) || ((__GNUC__ == 4) && (__GNUC_MINOR__ >= 4) && defined(__GXX_EXPERIMENTAL_CXX0X__))
-#    define BOOST_HAS_VARIADIC_TMPL
-#  else
-#    define BOOST_NO_CXX11_VARIADIC_TEMPLATES
-#  endif
 #endif
 
 // C++0x features in 4.4.n and later
@@ -176,6 +168,7 @@
 #  define BOOST_NO_CXX11_DELETED_FUNCTIONS
 #  define BOOST_NO_CXX11_TRAILING_RESULT_TYPES
 #  define BOOST_NO_CXX11_INLINE_NAMESPACES
+#  define BOOST_NO_CXX11_VARIADIC_TEMPLATES
 #endif
 
 #if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 5)
@@ -183,7 +176,7 @@
 #endif
 
 // GCC 4.5 forbids declaration of defaulted functions in private or protected sections
-#if !defined(BOOST_NO_CXX11_DEFAULTED_FUNCTIONS) && (__GNUC__ == 4 && __GNUC_MINOR__ <= 5)
+#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ == 5) || !defined(__GXX_EXPERIMENTAL_CXX0X__)
 #  define BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS
 #endif
 
@@ -218,8 +211,10 @@
 // C++0x features in 4.7.n and later
 //
 #if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 7) || !defined(__GXX_EXPERIMENTAL_CXX0X__)
+#  define BOOST_NO_CXX11_FINAL
 #  define BOOST_NO_CXX11_TEMPLATE_ALIASES
 #  define BOOST_NO_CXX11_USER_DEFINED_LITERALS
+#  define BOOST_NO_CXX11_FIXED_LENGTH_VARIADIC_TEMPLATE_EXPANSION_PACKS
 #endif
 
 // C++0x features in 4.8.n and later

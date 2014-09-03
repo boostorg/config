@@ -104,6 +104,9 @@
 #if (_MSC_VER >= 1400) && !defined(_DEBUG)
 #   define BOOST_HAS_NRVO
 #endif
+#if _MSC_VER >= 1500  // 150X == VC++ 9.0
+#  define BOOST_HAS_PRAGMA_DETECT_MISMATCH
+#endif
 //
 // disable Win32 API's if compiler extensions are
 // turned off:
@@ -149,6 +152,7 @@
 // C++11 features supported by VC++ 11 (aka 2012)
 //
 #if _MSC_VER < 1700
+#  define BOOST_NO_CXX11_FINAL
 #  define BOOST_NO_CXX11_RANGE_BASED_FOR
 #  define BOOST_NO_CXX11_SCOPED_ENUMS
 #endif // _MSC_VER < 1700
@@ -168,7 +172,7 @@
 #  define BOOST_NO_CXX11_DECLTYPE_N3276
 #endif
 
-// C++11 features supported by VC++ 14 CTP1
+// C++11 features supported by VC++ 14 (aka 2014) CTP1
 // Because the CTP is unsupported, unrelease, and only alpha quality,
 // it is only supported if BOOST_MSVC_ENABLE_2014_JUN_CTP is defined.
 //
@@ -261,8 +265,8 @@
 #endif
 
 //
-// last known and checked version is 18.00.21730.1 (VC14 CTP1):
-#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190021730)
+// last known and checked version is 19.00.21901.1 (VC14 CTP2):
+#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190021901)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Unknown compiler version - please run the configure tests and report the results"
 #  else
