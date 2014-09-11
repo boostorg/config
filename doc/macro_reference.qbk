@@ -905,6 +905,20 @@ that are not yet supported by a particular compiler or library.
 
 [endsect]
 
+[#config_14_for_11]
+
+[section Macros that allow use of C++14 features with C++11 or earlier compilers]
+
+The following macros allow use of C++14 features even with compilers that do not yet
+provide compliant C++14 support.
+
+[table
+[[Macro        ][ Description          ]]
+[[`BOOST_RELAXED_CONSTEXPR`][This macro works similar to BOOST_CONSTEXPR, but expands to `constexpr` only if relaxed `constexpr` is available.]]
+]
+
+[endsect]
+
 [#config_helpers]
 
 [section Boost Helper Macros]

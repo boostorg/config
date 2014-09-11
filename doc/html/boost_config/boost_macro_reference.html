@@ -39,6 +39,8 @@
       that allow use of C++11 features with C++03 compilers</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__14_features_not_supported">Macros
       that describe C++14 features not supported</a></span></dt>
+<dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_allow_use_of_c__14_features_with_c__11_or_earlier_compilers">Macros
+      that allow use of C++14 features with C++11 or earlier compilers</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.boost_helper_macros">Boost
       Helper Macros</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.boost_informational_macros">Boost
@@ -3636,6 +3638,46 @@
               </td>
 </tr>
 </tbody>
+</table></div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="boost_config.boost_macro_reference.macros_that_allow_use_of_c__14_features_with_c__11_or_earlier_compilers"></a><a name="config_14_for_11"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_allow_use_of_c__14_features_with_c__11_or_earlier_compilers" title="Macros that allow use of C++14 features with C++11 or earlier compilers">Macros
+      that allow use of C++14 features with C++11 or earlier compilers</a>
+</h3></div></div></div>
+<p>
+        The following macros allow use of C++14 features even with compilers that
+        do not yet provide compliant C++14 support.
+      </p>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Macro
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_RELAXED_CONSTEXPR</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  This macro works similar to BOOST_CONSTEXPR, but expands to <code class="computeroutput"><span class="keyword">constexpr</span></code> only if relaxed <code class="computeroutput"><span class="keyword">constexpr</span></code> is available.
+                </p>
+              </td>
+</tr></tbody>
 </table></div>
 </div>
 <div class="section">
