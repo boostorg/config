@@ -205,7 +205,7 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 // (Niels Dekker, LKEB, May 2010)
 // Apparently Intel 12.1 (compiler version number 9999 !!) has the same issue (compiler regression).
 #if defined(__INTEL_COMPILER)
-#  if (__INTEL_COMPILER <= 1110) || (__INTEL_COMPILER == 9999) || (defined(_WIN32) && (__INTEL_COMPILER < 1500))
+#  if (__INTEL_COMPILER <= 1110) || (__INTEL_COMPILER == 9999) || (defined(_WIN32) && (__INTEL_COMPILER < 1600))
 #    define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
 #  endif
 #endif
@@ -290,6 +290,15 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  undef BOOST_NO_CXX11_REF_QUALIFIERS
 #endif
 
+#if defined(BOOST_INTEL_STDCXX0X) && (BOOST_INTEL_CXX_VERSION >= 1500) && (!defined(_MSC_VER) || (_MSC_VER >= 1800))
+#  undef BOOST_NO_CXX11_ADDRESSOF
+#  undef BOOST_NO_CXX11_DECLTYPE_N3276
+#  undef BOOST_NO_CXX11_EXPLICIT_CONVERSION_OPERATORS
+#  undef BOOST_NO_CXX11_RANGE_BASED_FOR
+#  undef BOOST_NO_CXX11_RAW_LITERALS
+#  undef BOOST_NO_CXX11_SCOPED_ENUMS
+#endif
+
 #if defined(BOOST_INTEL_STDCXX0X) && (BOOST_INTEL_CXX_VERSION <= 1310)
 #  define BOOST_NO_CXX11_HDR_FUTURE
 #  define BOOST_NO_CXX11_HDR_INITIALIZER_LIST
@@ -301,7 +310,7 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  define BOOST_NO_CXX11_HDR_TUPLE
 #endif
 
-#if BOOST_INTEL_CXX_VERSION <= 1400
+#if BOOST_INTEL_CXX_VERSION <= 1500
 #  define BOOST_NO_CXX11_FIXED_LENGTH_VARIADIC_TEMPLATE_EXPANSION_PACKS
 #endif
 
