@@ -298,6 +298,12 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  undef BOOST_NO_CXX11_RAW_LITERALS
 #  undef BOOST_NO_CXX11_SCOPED_ENUMS
 #endif
+#if defined(BOOST_INTEL_STDCXX0X) && (BOOST_INTEL_CXX_VERSION >= 1500) && !defined(_MSC_VER)
+#  undef BOOST_NO_CXX11_ALIGNAS
+#  undef BOOST_NO_CXX11_CONSTEXPR
+#  undef BOOST_NO_CXX11_NOEXCEPT
+#  undef BOOST_NO_CXX11_USER_DEFINED_LITERALS
+#endif
 
 #if defined(BOOST_INTEL_STDCXX0X) && (BOOST_INTEL_CXX_VERSION <= 1310)
 #  define BOOST_NO_CXX11_HDR_FUTURE
