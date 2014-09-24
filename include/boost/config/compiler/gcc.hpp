@@ -235,6 +235,30 @@
 #  define BOOST_NO_CXX11_REF_QUALIFIERS
 #endif
 
+// C++14 features in 4.9.n and later
+//
+#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 9) || __cplusplus < 201300L
+#  define BOOST_NO_CXX14_BINARY_LITERALS
+// GCC 4.8 implements n3386-based return type deduction, however n3638-based
+// (c++14's) one implemented at GCC 4.9.
+#  define BOOST_NO_CXX14_RETURN_TYPE_DEDUCTION
+#  define BOOST_NO_CXX14_DECLTYPE_AUTO
+#  define BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURES
+#  define BOOST_NO_CXX14_GENERIC_LAMBDAS
+#  define BOOST_NO_CXX14_DEPRECATED_ATTRIBUTES
+#  define BOOST_NO_CXX14_DIGIT_SEPARATOR
+#endif
+
+// C++14 features in 5.n and later
+//
+#if __GNUC__ < 5 || __cplusplus < 201402L
+#  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
+#endif
+
+#define BOOST_NO_CXX14_RELAXED_CONSTEXPR
+#define BOOST_NO_CXX14_MEMBER_INITIALIZERS_AND_AGGREGATES
+#define BOOST_NO_CXX14_SIZED_DEALLOCATION
+
 #ifndef BOOST_COMPILER
 #  define BOOST_COMPILER "GNU C++ version " __VERSION__
 #endif
