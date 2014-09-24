@@ -16,8 +16,13 @@
 //
 // Define BOOST_GCC so we know this is "real" GCC and not some pretender:
 //
+#define BOOST_GCC_VERSION (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)
 #if !defined(__CUDACC__)
-#define BOOST_GCC (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)
+#define BOOST_GCC BOOST_GCC_VERSION
+#endif
+
+#if defined(__GXX_EXPERIMENTAL_CXX0X__) || (__cplusplus >= 201103L)
+#  define BOOST_GCC_CXX11
 #endif
 
 #if __GNUC__ == 3
@@ -42,11 +47,11 @@
 #endif
 
 // GCC prior to 3.4 had #pragma once too but it didn't work well with filesystem links
-#if __GNUC__ > 3 || (__GNUC__ == 3 && __GNUC_MINOR__ >= 4)
+#if BOOST_GCC_VERSION >= 30400
 #define BOOST_HAS_PRAGMA_ONCE
 #endif
 
-#if __GNUC__ < 4 || ( __GNUC__ == 4 && __GNUC_MINOR__ < 4 )
+#if BOOST_GCC_VERSION < 40400
 // Previous versions of GCC did not completely implement value-initialization:
 // GCC Bug 30111, "Value-initialization of POD base class doesn't initialize
 // members", reported by Jonathan Wakely in 2006,
@@ -114,7 +119,7 @@
 //
 // RTTI and typeinfo detection is possible post gcc-4.3:
 //
-#if __GNUC__ * 100 + __GNUC_MINOR__ >= 403
+#if BOOST_GCC_VERSION > 40300
 #  ifndef __GXX_RTTI
 #     ifndef BOOST_NO_TYPEID
 #        define BOOST_NO_TYPEID
@@ -141,7 +146,7 @@
 
 // C++0x features in 4.3.n and later
 //
-#if (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ > 2)) && defined(__GXX_EXPERIMENTAL_CXX0X__)
+#if (BOOST_GCC_VERSION >= 40300) && defined(BOOST_GCC_CXX11)
 // C++0x features are only enabled when -std=c++0x or -std=gnu++0x are
 // passed on the command line, which in turn defines
 // __GXX_EXPERIMENTAL_CXX0X__.
@@ -158,7 +163,7 @@
 
 // C++0x features in 4.4.n and later
 //
-#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 4) || !defined(__GXX_EXPERIMENTAL_CXX0X__)
+#if (BOOST_GCC_VERSION < 40400) || !defined(BOOST_GCC_CXX11)
 #  define BOOST_NO_CXX11_AUTO_DECLARATIONS
 #  define BOOST_NO_CXX11_AUTO_MULTIDECLARATIONS
 #  define BOOST_NO_CXX11_CHAR16_T
@@ -171,18 +176,18 @@
 #  define BOOST_NO_CXX11_VARIADIC_TEMPLATES
 #endif
 
-#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 5)
+#if BOOST_GCC_VERSION < 40500
 #  define BOOST_NO_SFINAE_EXPR
 #endif
 
 // GCC 4.5 forbids declaration of defaulted functions in private or protected sections
-#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ == 5) || !defined(__GXX_EXPERIMENTAL_CXX0X__)
+#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ == 5) || !defined(BOOST_GCC_CXX11)
 #  define BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS
 #endif
 
 // C++0x features in 4.5.0 and later
 //
-#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 5) || !defined(__GXX_EXPERIMENTAL_CXX0X__)
+#if (BOOST_GCC_VERSION < 40500) || !defined(BOOST_GCC_CXX11)
 #  define BOOST_NO_CXX11_EXPLICIT_CONVERSION_OPERATORS
 #  define BOOST_NO_CXX11_LAMBDAS
 #  define BOOST_NO_CXX11_LOCAL_CLASS_TEMPLATE_PARAMETERS
@@ -192,7 +197,7 @@
 
 // C++0x features in 4.5.1 and later
 //
-#if (__GNUC__*10000 + __GNUC_MINOR__*100 + __GNUC_PATCHLEVEL__ < 40501) || !defined(__GXX_EXPERIMENTAL_CXX0X__)
+#if (BOOST_GCC_VERSION < 40501) || !defined(BOOST_GCC_CXX11)
 // scoped enums have a serious bug in 4.4.0, so define BOOST_NO_CXX11_SCOPED_ENUMS before 4.5.1
 // See http://gcc.gnu.org/bugzilla/show_bug.cgi?id=38064
 #  define BOOST_NO_CXX11_SCOPED_ENUMS
@@ -200,7 +205,7 @@
 
 // C++0x features in 4.6.n and later
 //
-#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 6) || !defined(__GXX_EXPERIMENTAL_CXX0X__)
+#if (BOOST_GCC_VERSION < 40600) || !defined(BOOST_GCC_CXX11)
 #define BOOST_NO_CXX11_CONSTEXPR
 #define BOOST_NO_CXX11_NOEXCEPT
 #define BOOST_NO_CXX11_NULLPTR
@@ -210,7 +215,7 @@
 
 // C++0x features in 4.7.n and later
 //
-#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 7) || !defined(__GXX_EXPERIMENTAL_CXX0X__)
+#if (BOOST_GCC_VERSION < 40700) || !defined(BOOST_GCC_CXX11)
 #  define BOOST_NO_CXX11_FINAL
 #  define BOOST_NO_CXX11_TEMPLATE_ALIASES
 #  define BOOST_NO_CXX11_USER_DEFINED_LITERALS
@@ -219,13 +224,13 @@
 
 // C++0x features in 4.8.n and later
 //
-#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 8) || !defined(__GXX_EXPERIMENTAL_CXX0X__)
+#if (BOOST_GCC_VERSION < 40800) || !defined(BOOST_GCC_CXX11)
 #  define BOOST_NO_CXX11_ALIGNAS
 #endif
 
 // C++0x features in 4.8.1 and later
 //
-#if (__GNUC__*10000 + __GNUC_MINOR__*100 + __GNUC_PATCHLEVEL__ < 40801) || !defined(__GXX_EXPERIMENTAL_CXX0X__)
+#if (BOOST_GCC_VERSION < 40801) || !defined(BOOST_GCC_CXX11)
 #  define BOOST_NO_CXX11_DECLTYPE_N3276
 #  define BOOST_NO_CXX11_REF_QUALIFIERS
 #endif
@@ -243,12 +248,12 @@
 
 // versions check:
 // we don't know gcc prior to version 3.30:
-#if (__GNUC__ < 3) || (__GNUC__ == 3 && (__GNUC_MINOR__ < 3))
+#if (BOOST_GCC_VERSION< 30300)
 #  error "Compiler not configured - please reconfigure"
 #endif
 //
-// last known and checked version is 4.6 (Pre-release):
-#if (__GNUC__ > 4) || ((__GNUC__ == 4) && (__GNUC_MINOR__ > 6))
+// last known and checked version is 4.9:
+#if (BOOST_GCC_VERSION > 40900)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Unknown compiler version - please run the configure tests and report the results"
 #  else
@@ -257,5 +262,4 @@
 //#     warning "Unknown compiler version - please run the configure tests and report the results"
 #  endif
 #endif
-
 
