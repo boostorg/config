@@ -34,11 +34,14 @@
 #  define BOOST_INTEL_STDCXX0X
 #endif
 
-#ifdef BOOST_INTEL_STDCXX0X
-#define BOOST_COMPILER "Intel C++ C++0x mode version " BOOST_STRINGIZE(BOOST_INTEL_CXX_VERSION)
-#else
-#define BOOST_COMPILER "Intel C++ version " BOOST_STRINGIZE(BOOST_INTEL_CXX_VERSION)
+#if !defined(BOOST_COMPILER)
+#  if defined(BOOST_INTEL_STDCXX0X)
+#    define BOOST_COMPILER "Intel C++ C++0x mode version " BOOST_STRINGIZE(BOOST_INTEL_CXX_VERSION)
+#  else
+#    define BOOST_COMPILER "Intel C++ version " BOOST_STRINGIZE(BOOST_INTEL_CXX_VERSION)
+#  endif
 #endif
+
 #define BOOST_INTEL BOOST_INTEL_CXX_VERSION
 
 #if defined(_WIN32) || defined(_WIN64)
@@ -157,6 +160,24 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #define BOOST_UNLIKELY(x) __builtin_expect(x, 0)
 #endif
 
+// RTTI
+// __RTTI is the EDG macro
+// __INTEL_RTTI__ is the Intel macro
+// __GXX_RTTI is the g++ macro
+// _CPPRTTI is the MSVC++ macro
+#if !defined(__RTTI) && !defined(__INTEL_RTTI__) && !defined(__GXX_RTTI) && !defined(_CPPRTTI)
+
+#if !defined(BOOST_NO_RTTI)
+# define BOOST_NO_RTTI
+#endif
+
+// in MS mode, static typeid works even when RTTI is off
+#if !defined(_MSC_VER) && !defined(BOOST_NO_TYPEID)
+# define BOOST_NO_TYPEID
+#endif
+
+#endif
+
 //
 // versions check:
 // we don't support Intel prior to version 6.0:
@@ -184,7 +205,7 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 // (Niels Dekker, LKEB, May 2010)
 // Apparently Intel 12.1 (compiler version number 9999 !!) has the same issue (compiler regression).
 #if defined(__INTEL_COMPILER)
-#  if (__INTEL_COMPILER <= 1110) || (__INTEL_COMPILER == 9999) || (defined(_WIN32) && (__INTEL_COMPILER < 1500))
+#  if (__INTEL_COMPILER <= 1110) || (__INTEL_COMPILER == 9999) || (defined(_WIN32) && (__INTEL_COMPILER < 1600))
 #    define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
 #  endif
 #endif
@@ -251,6 +272,7 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  undef BOOST_NO_CXX11_RANGE_BASED_FOR
 #  undef BOOST_NO_CXX11_SCOPED_ENUMS
 #  undef BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX
+#  undef BOOST_NO_CXX11_FINAL
 #endif
 #if (BOOST_INTEL_CXX_VERSION >= 1310)
 #  undef  BOOST_NO_SFINAE_EXPR
@@ -268,6 +290,21 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  undef BOOST_NO_CXX11_REF_QUALIFIERS
 #endif
 
+#if defined(BOOST_INTEL_STDCXX0X) && (BOOST_INTEL_CXX_VERSION >= 1500) && (!defined(_MSC_VER) || (_MSC_VER >= 1800))
+#  undef BOOST_NO_CXX11_ADDRESSOF
+#  undef BOOST_NO_CXX11_DECLTYPE_N3276
+#  undef BOOST_NO_CXX11_EXPLICIT_CONVERSION_OPERATORS
+#  undef BOOST_NO_CXX11_RANGE_BASED_FOR
+#  undef BOOST_NO_CXX11_RAW_LITERALS
+#  undef BOOST_NO_CXX11_SCOPED_ENUMS
+#endif
+#if defined(BOOST_INTEL_STDCXX0X) && (BOOST_INTEL_CXX_VERSION >= 1500) && !defined(_MSC_VER)
+#  undef BOOST_NO_CXX11_ALIGNAS
+#  undef BOOST_NO_CXX11_CONSTEXPR
+#  undef BOOST_NO_CXX11_NOEXCEPT
+#  undef BOOST_NO_CXX11_USER_DEFINED_LITERALS
+#endif
+
 #if defined(BOOST_INTEL_STDCXX0X) && (BOOST_INTEL_CXX_VERSION <= 1310)
 #  define BOOST_NO_CXX11_HDR_FUTURE
 #  define BOOST_NO_CXX11_HDR_INITIALIZER_LIST
@@ -277,6 +314,10 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 // A regression in Intel's compiler means that <tuple> seems to be broken in this release as well as <future> :
 #  define BOOST_NO_CXX11_HDR_FUTURE
 #  define BOOST_NO_CXX11_HDR_TUPLE
+#endif
+
+#if BOOST_INTEL_CXX_VERSION <= 1500
+#  define BOOST_NO_CXX11_FIXED_LENGTH_VARIADIC_TEMPLATE_EXPANSION_PACKS
 #endif
 
 #if defined(_MSC_VER) && (_MSC_VER <= 1700)
@@ -300,11 +341,19 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  define BOOST_NO_FENV_H
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1600)
-#  define BOOST_HAS_STDINT_H
+// Intel 13.10 fails to access defaulted functions of a base class declared in private or protected sections,
+// producing the following errors:
+// error #453: protected function "..." (declared at ...") is not accessible through a "..." pointer or object
+#if (BOOST_INTEL_CXX_VERSION <= 1310)
+#  define BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS
 #endif
 
-#if defined(__LP64__) && defined(__GNUC__) && (BOOST_INTEL_CXX_VERSION >= 1310)
+#if defined(_MSC_VER) && (_MSC_VER >= 1600)
+#  define BOOST_HAS_STDINT_H
+#  undef BOOST_NO_CXX11_FINAL
+#endif
+
+#if defined(__LP64__) && defined(__GNUC__) && (BOOST_INTEL_CXX_VERSION >= 1310) && !defined(__CUDACC__)
 #  define BOOST_HAS_INT128
 #endif
 
