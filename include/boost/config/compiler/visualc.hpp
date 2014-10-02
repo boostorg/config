@@ -227,6 +227,8 @@
 #     define BOOST_COMPILER_VERSION evc11 
 #   elif _MSC_VER < 1900 
 #     define BOOST_COMPILER_VERSION evc12
+#   elif _MSC_VER < 2000  
+#     define BOOST_COMPILER_VERSION evc14
 #   else
 #      if defined(BOOST_ASSERT_CONFIG)
 #         error "Unknown EVC++ compiler version - please run the configure tests and report the results"
@@ -265,8 +267,8 @@
 #endif
 
 //
-// last known and checked version is 19.00.21901.1 (VC14 CTP2):
-#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190021901)
+// last known and checked version is 19.00.21901.1 (VC14 CTP3):
+#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190022013)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Unknown compiler version - please run the configure tests and report the results"
 #  else
