@@ -31,7 +31,7 @@
 #    define BOOST_NO_CXX11_ALLOCATOR
 #endif
 
-#if __cpluplus < 201103
+#if __cplusplus < 201103
 #  define BOOST_NO_CXX11_HDR_ARRAY
 #  define BOOST_NO_CXX11_HDR_CODECVT
 #  define BOOST_NO_CXX11_HDR_CONDITION_VARIABLE
