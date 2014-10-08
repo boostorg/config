@@ -121,20 +121,22 @@
 //
 #ifdef __clang__
 
-#if __has_include(<array>)
-#  define BOOST_LIBSTDCXX_VERSION 40300
-#endif
-#if __has_include(<ratio>)
-#  define BOOST_LIBSTDCXX_VERSION 40400
-#endif
-#if __has_include(<future>)
-#  define BOOST_LIBSTDCXX_VERSION 40500
-#endif
-#if __has_include(<typeindex>)
-#  define BOOST_LIBSTDCXX_VERSION 40600
-#endif
-#if __has_include(<chrono>)
+#if __has_include(<experimental/any>)
+#  define BOOST_LIBSTDCXX_VERSION 50000
+#elif __has_include(<shared_mutex>)
+#  define BOOST_LIBSTDCXX_VERSION 40900
+#elif __has_include(<ext/cmath>)
+#  define BOOST_LIBSTDCXX_VERSION 40800
+#elif __has_include(chrono)
 #  define BOOST_LIBSTDCXX_VERSION 40700
+#elif __has_include(typeindex)
+#  define BOOST_LIBSTDCXX_VERSION 40600
+#elif __has_include(future)
+#  define BOOST_LIBSTDCXX_VERSION 40500
+#elif  __has_include(ratio)
+#  define BOOST_LIBSTDCXX_VERSION 40400
+#elif __has_include(array)
+#  define BOOST_LIBSTDCXX_VERSION 40300
 #endif
 //
 //  GCC 4.8 and 9 add working versions of <atomic> and <regex> respectively.
