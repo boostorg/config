@@ -174,11 +174,6 @@
 #  define BOOST_HAS_TR1_COMPLEX_OVERLOADS 
 #endif
 
-#if (!defined(_GLIBCXX_HAS_GTHREADS) || !defined(_GLIBCXX_USE_C99_STDINT_TR1)) && (!defined(BOOST_NO_CXX11_HDR_CONDITION_VARIABLE) || !defined(BOOST_NO_CXX11_HDR_MUTEX))
-#  define BOOST_NO_CXX11_HDR_CONDITION_VARIABLE
-#  define BOOST_NO_CXX11_HDR_MUTEX
-#endif
-
 //  C++0x features in GCC 4.5.0 and later
 //
 #if (BOOST_LIBSTDCXX_VERSION < 40500) || !defined(BOOST_LIBSTDCXX11)
@@ -207,6 +202,7 @@
 #if (BOOST_LIBSTDCXX_VERSION < 40800) || !defined(BOOST_LIBSTDCXX11)
 // Note that although <atomic> existed prior to gcc 4.8 it was largely unimplemented for many types:
 #  define BOOST_NO_CXX11_HDR_ATOMIC
+#  define BOOST_NO_CXX11_HDR_THREAD
 #endif
 #if (BOOST_LIBSTDCXX_VERSION < 40900) || !defined(BOOST_LIBSTDCXX11)
 // Although <regex> is present and compilable against, the actual implementation is not functional
@@ -215,10 +211,27 @@
 #endif
 //  C++0x headers not yet (fully!) implemented
 //
-#  define BOOST_NO_CXX11_HDR_THREAD
 #  define BOOST_NO_CXX11_HDR_TYPE_TRAITS
 #  define BOOST_NO_CXX11_HDR_CODECVT
 #  define BOOST_NO_CXX11_ATOMIC_SMART_PTR
 #  define BOOST_NO_CXX11_STD_ALIGN
+
+#if (!defined(_GLIBCXX_HAS_GTHREADS) || !defined(_GLIBCXX_USE_C99_STDINT_TR1))
+   // Headers not always available:
+#  ifndef BOOST_NO_CXX11_HDR_CONDITION_VARIABLE
+#     define BOOST_NO_CXX11_HDR_CONDITION_VARIABLE
+#  endif
+#  ifndef BOOST_NO_CXX11_HDR_MUTEX
+#     define BOOST_NO_CXX11_HDR_MUTEX
+#  endif
+#  ifndef BOOST_NO_CXX11_HDR_THREAD
+#     define BOOST_NO_CXX11_HDR_THREAD
+#  endif
+#endif
+
+#if (!defined(_GTHREAD_USE_MUTEX_TIMEDLOCK) || (_GTHREAD_USE_MUTEX_TIMEDLOCK == 0)) && !defined(BOOST_NO_CXX11_HDR_MUTEX)
+// Timed mutexes are not always available:
+#  define BOOST_NO_CXX11_HDR_MUTEX
+#endif
 
 //  --- end ---
