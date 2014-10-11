@@ -940,6 +940,13 @@ namespace std{ using ::type_info; }
 #define BOOST_CONSTEXPR_OR_CONST constexpr
 #endif
 
+//
+// Unused variable/typedef workarounds:
+//
+#ifndef BOOST_ATTRIBUTE_UNUSED
+#  define BOOST_ATTRIBUTE_UNUSED
+#endif
+
 #define BOOST_STATIC_CONSTEXPR  static BOOST_CONSTEXPR_OR_CONST
 
 //

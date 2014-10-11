@@ -205,8 +205,10 @@
 #  define BOOST_NO_CXX11_FINAL
 #endif
 
-// Clang always supports variadic macros
-// Clang always supports extern templates
+// Unused attribute:
+#if defined(__GNUC__) && (__GNUC__ >= 4)
+#  define BOOST_ATTRIBUTE_UNUSED __attribute__((unused))
+#endif
 
 #ifndef BOOST_COMPILER
 #  define BOOST_COMPILER "Clang version " __clang_version__

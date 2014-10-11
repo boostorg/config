@@ -1152,6 +1152,8 @@ Usage example:
     handle_error("ptr is NULL");
 ``
 ]]
+[[`BOOST_ATTRIBUTE_UNUSED`][Expands to `__attribute__((unused))` when this is available - 
+can be used to disable compiler warnings relating to unused types or variables.]]
 ]
 
 [endsect]

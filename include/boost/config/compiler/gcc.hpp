@@ -235,6 +235,12 @@
 #  define BOOST_NO_CXX11_REF_QUALIFIERS
 #endif
 
+//
+// Unused attribute:
+#if __GNUC__ >= 4
+#  define BOOST_ATTRIBUTE_UNUSED __attribute__((unused))
+#endif
+
 #ifndef BOOST_COMPILER
 #  define BOOST_COMPILER "GNU C++ version " __VERSION__
 #endif
