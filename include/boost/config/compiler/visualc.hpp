@@ -212,7 +212,7 @@
 #  define BOOST_NO_CXX14_GENERIC_LAMBDAS
 #endif
 #if !defined(__cpp_init_captures) || (__cpp_init_captures < 201304)
-#  define BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURE
+#  define BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURES
 #endif
 #if !defined(__cpp_return_type_deduction) || (__cpp_return_type_deduction < 201304)
 #  define BOOST_NO_CXX14_RETURN_TYPE_DEDUCTION
