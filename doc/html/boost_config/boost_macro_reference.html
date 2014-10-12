@@ -37,6 +37,10 @@
       that describe C++11 features not supported</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_allow_use_of_c__11_features_with_c__03_compilers">Macros
       that allow use of C++11 features with C++03 compilers</a></span></dt>
+<dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__14_features_not_supported">Macros
+      that describe C++14 features not supported</a></span></dt>
+<dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_allow_use_of_c__14_features_with_c__11_or_earlier_compilers">Macros
+      that allow use of C++14 features with C++11 or earlier compilers</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.boost_helper_macros">Boost
       Helper Macros</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.boost_informational_macros">Boost
@@ -3447,6 +3451,209 @@
               </td>
 </tr>
 </tbody>
+</table></div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="boost_config.boost_macro_reference.macros_that_describe_c__14_features_not_supported"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__14_features_not_supported" title="Macros that describe C++14 features not supported">Macros
+      that describe C++14 features not supported</a>
+</h3></div></div></div>
+<p>
+        The following macros describe features in the 2014 ISO C++ standard, formerly
+        known as C++0y, that are not yet supported by a particular compiler or library.
+      </p>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Macro
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX14_AGGREGATE_NSDMI</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support member initializer for aggregates
+                  as in the following example:
+                </p>
+                <div class="blockquote"><blockquote class="blockquote">
+<p>
+</p>
+<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">Foo</span>
+<span class="special">{</span>
+  <span class="keyword">int</span> <span class="identifier">x</span><span class="special">,</span> <span class="identifier">y</span> <span class="special">=</span> <span class="number">42</span><span class="special">;</span>
+<span class="special">};</span>
+
+<span class="identifier">Foo</span> <span class="identifier">foo</span> <span class="special">=</span> <span class="special">{</span> <span class="number">0</span> <span class="special">};</span>
+</pre>
+<p>
+                  </p>
+</blockquote></div>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX14_BINARY_LITERALS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not binary literals (e.g. <code class="computeroutput"><span class="number">0</span><span class="identifier">b1010</span></code>).
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX14_CONSTEXPR</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support relaxed <code class="computeroutput"><span class="keyword">constexpr</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX14_DECLTYPE_AUTO</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support <code class="computeroutput"><span class="keyword">decltype</span><span class="special">(</span><span class="keyword">auto</span><span class="special">)</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX14_DIGIT_SEPARATOR</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support digit separators (e.g. <code class="computeroutput"><span class="number">1</span><span class="char">'000'</span><span class="number">000</span></code>).
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX14_GENERIC_LAMBDAS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support generic lambda (e.g. <code class="computeroutput"><span class="special">[](</span><span class="keyword">auto</span>
+                  <span class="identifier">v</span><span class="special">){</span>
+                  <span class="special">}</span></code>).
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURE</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support initialized lambda capture (e.g.
+                  <code class="computeroutput"><span class="special">[</span><span class="identifier">foo</span>
+                  <span class="special">=</span> <span class="number">42</span><span class="special">]{</span> <span class="special">}</span></code>).
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX14_RETURN_TYPE_DEDUCTION</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support return type deduction for normal
+                  functions (e.g. <code class="computeroutput"><span class="keyword">auto</span> <span class="identifier">f</span><span class="special">()</span>
+                  <span class="special">{</span> <span class="keyword">return</span>
+                  <span class="identifier">val</span><span class="special">;</span>
+                  <span class="special">}</span></code>).
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX14_VARIABLE_TEMPLATES</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support variable template (e.g. <code class="computeroutput"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span> <span class="identifier">T</span>
+                  <span class="identifier">kibi</span> <span class="special">=</span>
+                  <span class="identifier">T</span><span class="special">(</span><span class="number">1024</span><span class="special">);</span></code>).
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="boost_config.boost_macro_reference.macros_that_allow_use_of_c__14_features_with_c__11_or_earlier_compilers"></a><a name="config_14_for_11"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_allow_use_of_c__14_features_with_c__11_or_earlier_compilers" title="Macros that allow use of C++14 features with C++11 or earlier compilers">Macros
+      that allow use of C++14 features with C++11 or earlier compilers</a>
+</h3></div></div></div>
+<p>
+        The following macros allow use of C++14 features even with compilers that
+        do not yet provide compliant C++14 support.
+      </p>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Macro
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_CXX14_CONSTEXPR</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  This macro works similar to BOOST_CONSTEXPR, but expands to <code class="computeroutput"><span class="keyword">constexpr</span></code> only if the C++14 "relaxed"
+                  <code class="computeroutput"><span class="keyword">constexpr</span></code> is available.
+                </p>
+              </td>
+</tr></tbody>
 </table></div>
 </div>
 <div class="section">
