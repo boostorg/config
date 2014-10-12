@@ -939,6 +939,11 @@ namespace std{ using ::type_info; }
 #define BOOST_CONSTEXPR constexpr
 #define BOOST_CONSTEXPR_OR_CONST constexpr
 #endif
+#if defined(BOOST_NO_CXX14_CONSTEXPR)
+#define BOOST_CXX14_CONSTEXPR
+#else
+#define BOOST_CXX14_CONSTEXPR constexpr
+#endif
 
 //
 // Unused variable/typedef workarounds:
