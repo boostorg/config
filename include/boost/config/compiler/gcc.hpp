@@ -233,32 +233,28 @@
 #if (BOOST_GCC_VERSION < 40801) || !defined(BOOST_GCC_CXX11)
 #  define BOOST_NO_CXX11_DECLTYPE_N3276
 #  define BOOST_NO_CXX11_REF_QUALIFIERS
+#  define BOOST_NO_CXX14_BINARY_LITERALS
 #endif
+
+// C++14 features in 4.9.0 and later
+//
+#if (BOOST_GCC_VERSION < 40900) || (__cplusplus < 201300)
+#  define BOOST_NO_CXX14_RETURN_TYPE_DEDUCTION
+#  define BOOST_NO_CXX14_GENERIC_LAMBDAS
+#  define BOOST_NO_CXX14_DIGIT_SEPARATOR
+#  define BOOST_NO_CXX14_DECLTYPE_AUTO
+#  if !((BOOST_GCC_VERSION >= 40801) && (BOOST_GCC_VERSION < 40900) && defined(BOOST_GCC_CXX11))
+#     define BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURES
+#  endif
+#endif
+
 
 // C++ 14:
 #if !defined(__cpp_aggregate_nsdmi) || (__cpp_aggregate_nsdmi < 201304)
 #  define BOOST_NO_CXX14_AGGREGATE_NSDMI
 #endif
-#if !defined(__cpp_binary_literals) || (__cpp_binary_literals < 201304)
-#  define BOOST_NO_CXX14_BINARY_LITERALS
-#endif
 #if !defined(__cpp_constexpr) || (__cpp_constexpr < 201304)
 #  define BOOST_NO_CXX14_CONSTEXPR
-#endif
-#if !defined(__cpp_decltype_auto) || (__cpp_decltype_auto < 201304)
-#  define BOOST_NO_CXX14_DECLTYPE_AUTO
-#endif
-#if (__cplusplus < 201304) // There's no SD6 check for this....
-#  define BOOST_NO_CXX14_DIGIT_SEPARATOR
-#endif
-#if !defined(__cpp_generic_lambdas) || (__cpp_generic_lambdas < 201304)
-#  define BOOST_NO_CXX14_GENERIC_LAMBDAS
-#endif
-#if !defined(__cpp_init_captures) || (__cpp_init_captures < 201304)
-#  define BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURES
-#endif
-#if !defined(__cpp_return_type_deduction) || (__cpp_return_type_deduction < 201304)
-#  define BOOST_NO_CXX14_RETURN_TYPE_DEDUCTION
 #endif
 #if !defined(__cpp_variable_templates) || (__cpp_variable_templates < 201304)
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
