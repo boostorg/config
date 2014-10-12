@@ -209,6 +209,12 @@
 // even for the simplest patterns such as "\d" or "[0-9]". This is the case at least in gcc up to 4.8, inclusively.
 #  define BOOST_NO_CXX11_HDR_REGEX
 #endif
+
+#if defined(__clang_major__) && ((__clang_major__ < 3) || ((__clang_major__ == 3) && (__clang_minor__ < 7)))
+// As of clang-3.6, libstdc++ header <atomic> throws up errors with clang:
+#  define BOOST_NO_CXX11_HDR_ATOMIC
+#endif
+
 //  C++0x headers not yet (fully!) implemented
 //
 #  define BOOST_NO_CXX11_HDR_TYPE_TRAITS

@@ -237,7 +237,7 @@
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #endif
 
-#if __clang_major__ < 3 || (__clang_major__ == 3 && __clang_minor__ < 4)
+#if ((__clang_major__ < 3) || (__clang_major__ == 3 && __clang_minor__ < 4)) || (__cplusplus < 201400)
 #  define BOOST_NO_CXX14_DIGIT_SEPARATOR
 #endif
 
