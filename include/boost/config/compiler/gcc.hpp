@@ -233,6 +233,31 @@
 #if (BOOST_GCC_VERSION < 40801) || !defined(BOOST_GCC_CXX11)
 #  define BOOST_NO_CXX11_DECLTYPE_N3276
 #  define BOOST_NO_CXX11_REF_QUALIFIERS
+#  define BOOST_NO_CXX14_BINARY_LITERALS
+#endif
+
+// C++14 features in 4.9.0 and later
+//
+#if (BOOST_GCC_VERSION < 40900) || (__cplusplus < 201300)
+#  define BOOST_NO_CXX14_RETURN_TYPE_DEDUCTION
+#  define BOOST_NO_CXX14_GENERIC_LAMBDAS
+#  define BOOST_NO_CXX14_DIGIT_SEPARATOR
+#  define BOOST_NO_CXX14_DECLTYPE_AUTO
+#  if !((BOOST_GCC_VERSION >= 40801) && (BOOST_GCC_VERSION < 40900) && defined(BOOST_GCC_CXX11))
+#     define BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURES
+#  endif
+#endif
+
+
+// C++ 14:
+#if !defined(__cpp_aggregate_nsdmi) || (__cpp_aggregate_nsdmi < 201304)
+#  define BOOST_NO_CXX14_AGGREGATE_NSDMI
+#endif
+#if !defined(__cpp_constexpr) || (__cpp_constexpr < 201304)
+#  define BOOST_NO_CXX14_CONSTEXPR
+#endif
+#if !defined(__cpp_variable_templates) || (__cpp_variable_templates < 201304)
+#  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #endif
 
 //
