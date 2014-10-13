@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sat Oct 11 19:26:21 2014
+//  This file was automatically generated on Mon Oct 13 13:09:13 2014
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -81,10 +81,6 @@ namespace test = boost_has_nrvo;
 #  include "../test/boost_has_part_alloc.ipp"
 namespace test = boost_has_partial_std_allocator;
 #endif
-#ifdef TEST_BOOST_HAS_PTHREADS
-#  include "../test/boost_has_pthreads.ipp"
-namespace test = boost_has_pthreads;
-#endif
 #ifdef TEST_BOOST_HAS_PTHREAD_DELAY_NP
 #  include "../test/boost_has_pthread_delay_np.ipp"
 namespace test = boost_has_pthread_delay_np;
@@ -96,6 +92,10 @@ namespace test = boost_has_pthread_mutexattr_settype;
 #ifdef TEST_BOOST_HAS_PTHREAD_YIELD
 #  include "../test/boost_has_pthread_yield.ipp"
 namespace test = boost_has_pthread_yield;
+#endif
+#ifdef TEST_BOOST_HAS_PTHREADS
+#  include "../test/boost_has_pthreads.ipp"
+namespace test = boost_has_pthreads;
 #endif
 #ifdef TEST_BOOST_HAS_RVALUE_REFS
 #  include "../test/boost_has_rvalue_refs.ipp"
@@ -361,13 +361,13 @@ namespace test = boost_no_cxx11_hdr_thread;
 #  include "../test/boost_no_cxx11_hdr_tuple.ipp"
 namespace test = boost_no_cxx11_hdr_tuple;
 #endif
-#ifdef TEST_BOOST_NO_CXX11_HDR_TYPEINDEX
-#  include "../test/boost_no_cxx11_hdr_typeindex.ipp"
-namespace test = boost_no_cxx11_hdr_typeindex;
-#endif
 #ifdef TEST_BOOST_NO_CXX11_HDR_TYPE_TRAITS
 #  include "../test/boost_no_cxx11_hdr_type_traits.ipp"
 namespace test = boost_no_cxx11_hdr_type_traits;
+#endif
+#ifdef TEST_BOOST_NO_CXX11_HDR_TYPEINDEX
+#  include "../test/boost_no_cxx11_hdr_typeindex.ipp"
+namespace test = boost_no_cxx11_hdr_typeindex;
 #endif
 #ifdef TEST_BOOST_NO_CXX11_HDR_UNORDERED_MAP
 #  include "../test/boost_no_cxx11_hdr_unordered_map.ipp"
@@ -477,21 +477,21 @@ namespace test = boost_no_dependent_nested_derivations;
 #  include "../test/boost_no_dep_val_param.ipp"
 namespace test = boost_no_dependent_types_in_template_value_parameters;
 #endif
-#ifdef TEST_BOOST_NO_EXCEPTIONS
-#  include "../test/boost_no_exceptions.ipp"
-namespace test = boost_no_exceptions;
-#endif
 #ifdef TEST_BOOST_NO_EXCEPTION_STD_NAMESPACE
 #  include "../test/boost_no_excep_std.ipp"
 namespace test = boost_no_exception_std_namespace;
 #endif
-#ifdef TEST_BOOST_NO_CXX11_EXPLICIT_CONVERSION_OPERATORS
-#  include "../test/boost_no_explicit_cvt_ops.ipp"
-namespace test = boost_no_cxx11_explicit_conversion_operators;
+#ifdef TEST_BOOST_NO_EXCEPTIONS
+#  include "../test/boost_no_exceptions.ipp"
+namespace test = boost_no_exceptions;
 #endif
 #ifdef TEST_BOOST_NO_EXPLICIT_FUNCTION_TEMPLATE_ARGUMENTS
 #  include "../test/boost_no_exp_func_tem_arg.ipp"
 namespace test = boost_no_explicit_function_template_arguments;
+#endif
+#ifdef TEST_BOOST_NO_CXX11_EXPLICIT_CONVERSION_OPERATORS
+#  include "../test/boost_no_explicit_cvt_ops.ipp"
+namespace test = boost_no_cxx11_explicit_conversion_operators;
 #endif
 #ifdef TEST_BOOST_NO_CXX11_EXTERN_TEMPLATE
 #  include "../test/boost_no_extern_template.ipp"
@@ -505,6 +505,10 @@ namespace test = boost_no_fenv_h;
 #  include "../test/boost_no_fixed_len_variadic_templates.ipp"
 namespace test = boost_no_cxx11_fixed_length_variadic_template_expansion_packs;
 #endif
+#ifdef TEST_BOOST_NO_FUNCTION_TEMPLATE_ORDERING
+#  include "../test/boost_no_func_tmp_order.ipp"
+namespace test = boost_no_function_template_ordering;
+#endif
 #ifdef TEST_BOOST_NO_CXX11_FUNCTION_TEMPLATE_DEFAULT_ARGS
 #  include "../test/boost_no_function_template_default_args.ipp"
 namespace test = boost_no_cxx11_function_template_default_args;
@@ -512,10 +516,6 @@ namespace test = boost_no_cxx11_function_template_default_args;
 #ifdef TEST_BOOST_NO_FUNCTION_TYPE_SPECIALIZATIONS
 #  include "../test/boost_no_function_type_spec.ipp"
 namespace test = boost_no_function_type_specializations;
-#endif
-#ifdef TEST_BOOST_NO_FUNCTION_TEMPLATE_ORDERING
-#  include "../test/boost_no_func_tmp_order.ipp"
-namespace test = boost_no_function_template_ordering;
 #endif
 #ifdef TEST_BOOST_NO_MS_INT64_NUMERIC_LIMITS
 #  include "../test/boost_no_i64_limits.ipp"
@@ -569,14 +569,6 @@ namespace test = boost_no_long_long;
 #  include "../test/boost_no_mem_func_spec.ipp"
 namespace test = boost_no_member_function_specializations;
 #endif
-#ifdef TEST_BOOST_NO_MEMBER_TEMPLATES
-#  include "../test/boost_no_mem_templates.ipp"
-namespace test = boost_no_member_templates;
-#endif
-#ifdef TEST_BOOST_NO_MEMBER_TEMPLATE_FRIENDS
-#  include "../test/boost_no_mem_templ_frnds.ipp"
-namespace test = boost_no_member_template_friends;
-#endif
 #ifdef TEST_BOOST_NO_MEMBER_TEMPLATE_KEYWORD
 #  include "../test/boost_no_mem_tem_keyword.ipp"
 namespace test = boost_no_member_template_keyword;
@@ -584,6 +576,14 @@ namespace test = boost_no_member_template_keyword;
 #ifdef TEST_BOOST_NO_POINTER_TO_MEMBER_TEMPLATE_PARAMETERS
 #  include "../test/boost_no_mem_tem_pnts.ipp"
 namespace test = boost_no_pointer_to_member_template_parameters;
+#endif
+#ifdef TEST_BOOST_NO_MEMBER_TEMPLATE_FRIENDS
+#  include "../test/boost_no_mem_templ_frnds.ipp"
+namespace test = boost_no_member_template_friends;
+#endif
+#ifdef TEST_BOOST_NO_MEMBER_TEMPLATES
+#  include "../test/boost_no_mem_templates.ipp"
+namespace test = boost_no_member_templates;
 #endif
 #ifdef TEST_BOOST_NO_NESTED_FRIENDSHIP
 #  include "../test/boost_no_nested_friendship.ipp"
@@ -601,13 +601,13 @@ namespace test = boost_no_cxx11_nullptr;
 #  include "../test/boost_no_ops_in_namespace.ipp"
 namespace test = boost_no_operators_in_namespace;
 #endif
-#ifdef TEST_BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
-#  include "../test/boost_no_partial_spec.ipp"
-namespace test = boost_no_template_partial_specialization;
-#endif
 #ifdef TEST_BOOST_NO_PARTIAL_SPECIALIZATION_IMPLICIT_DEFAULT_ARGS
 #  include "../test/boost_no_part_spec_def_args.ipp"
 namespace test = boost_no_partial_specialization_implicit_default_args;
+#endif
+#ifdef TEST_BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
+#  include "../test/boost_no_partial_spec.ipp"
+namespace test = boost_no_template_partial_specialization;
 #endif
 #ifdef TEST_BOOST_NO_PRIVATE_IN_AGGREGATE
 #  include "../test/boost_no_priv_aggregate.ipp"
@@ -657,10 +657,6 @@ namespace test = boost_no_stringstream;
 #  include "../test/boost_no_static_assert.ipp"
 namespace test = boost_no_cxx11_static_assert;
 #endif
-#ifdef TEST_BOOST_NO_STDC_NAMESPACE
-#  include "../test/boost_no_stdc_namespace.ipp"
-namespace test = boost_no_stdc_namespace;
-#endif
 #ifdef TEST_BOOST_NO_STD_ALLOCATOR
 #  include "../test/boost_no_std_allocator.ipp"
 namespace test = boost_no_std_allocator;
@@ -669,13 +665,13 @@ namespace test = boost_no_std_allocator;
 #  include "../test/boost_no_std_distance.ipp"
 namespace test = boost_no_std_distance;
 #endif
-#ifdef TEST_BOOST_NO_STD_ITERATOR
-#  include "../test/boost_no_std_iterator.ipp"
-namespace test = boost_no_std_iterator;
-#endif
 #ifdef TEST_BOOST_NO_STD_ITERATOR_TRAITS
 #  include "../test/boost_no_std_iter_traits.ipp"
 namespace test = boost_no_std_iterator_traits;
+#endif
+#ifdef TEST_BOOST_NO_STD_ITERATOR
+#  include "../test/boost_no_std_iterator.ipp"
+namespace test = boost_no_std_iterator;
 #endif
 #ifdef TEST_BOOST_NO_STD_LOCALE
 #  include "../test/boost_no_std_locale.ipp"
@@ -709,9 +705,17 @@ namespace test = boost_no_std_wstreambuf;
 #  include "../test/boost_no_std_wstring.ipp"
 namespace test = boost_no_std_wstring;
 #endif
+#ifdef TEST_BOOST_NO_STDC_NAMESPACE
+#  include "../test/boost_no_stdc_namespace.ipp"
+namespace test = boost_no_stdc_namespace;
+#endif
 #ifdef TEST_BOOST_NO_SWPRINTF
 #  include "../test/boost_no_swprintf.ipp"
 namespace test = boost_no_swprintf;
+#endif
+#ifdef TEST_BOOST_NO_CXX11_LOCAL_CLASS_TEMPLATE_PARAMETERS
+#  include "../test/boost_no_tem_local_classes.ipp"
+namespace test = boost_no_cxx11_local_class_template_parameters;
 #endif
 #ifdef TEST_BOOST_NO_CXX11_TEMPLATE_ALIASES
 #  include "../test/boost_no_template_aliases.ipp"
@@ -724,10 +728,6 @@ namespace test = boost_no_templated_iostreams;
 #ifdef TEST_BOOST_NO_TEMPLATE_TEMPLATES
 #  include "../test/boost_no_template_template.ipp"
 namespace test = boost_no_template_templates;
-#endif
-#ifdef TEST_BOOST_NO_CXX11_LOCAL_CLASS_TEMPLATE_PARAMETERS
-#  include "../test/boost_no_tem_local_classes.ipp"
-namespace test = boost_no_cxx11_local_class_template_parameters;
 #endif
 #ifdef TEST_BOOST_NO_TWO_PHASE_NAME_LOOKUP
 #  include "../test/boost_no_two_phase_lookup.ipp"
