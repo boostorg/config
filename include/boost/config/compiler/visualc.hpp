@@ -192,6 +192,35 @@
 #define BOOST_NO_SFINAE_EXPR
 #define BOOST_NO_TWO_PHASE_NAME_LOOKUP
 
+// C++ 14:
+#if !defined(__cpp_aggregate_nsdmi) || (__cpp_aggregate_nsdmi < 201304)
+#  define BOOST_NO_CXX14_AGGREGATE_NSDMI
+#endif
+#if !defined(__cpp_binary_literals) || (__cpp_binary_literals < 201304)
+#  define BOOST_NO_CXX14_BINARY_LITERALS
+#endif
+#if !defined(__cpp_constexpr) || (__cpp_constexpr < 201304)
+#  define BOOST_NO_CXX14_CONSTEXPR
+#endif
+#if !defined(__cpp_decltype_auto) || (__cpp_decltype_auto < 201304)
+#  define BOOST_NO_CXX14_DECLTYPE_AUTO
+#endif
+#if (__cplusplus < 201304) // There's no SD6 check for this....
+#  define BOOST_NO_CXX14_DIGIT_SEPARATOR
+#endif
+#if !defined(__cpp_generic_lambdas) || (__cpp_generic_lambdas < 201304)
+#  define BOOST_NO_CXX14_GENERIC_LAMBDAS
+#endif
+#if !defined(__cpp_init_captures) || (__cpp_init_captures < 201304)
+#  define BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURES
+#endif
+#if !defined(__cpp_return_type_deduction) || (__cpp_return_type_deduction < 201304)
+#  define BOOST_NO_CXX14_RETURN_TYPE_DEDUCTION
+#endif
+#if !defined(__cpp_variable_templates) || (__cpp_variable_templates < 201304)
+#  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
+#endif
+
 //
 // prefix and suffix headers:
 //
@@ -227,6 +256,8 @@
 #     define BOOST_COMPILER_VERSION evc11 
 #   elif _MSC_VER < 1900 
 #     define BOOST_COMPILER_VERSION evc12
+#   elif _MSC_VER < 2000  
+#     define BOOST_COMPILER_VERSION evc14
 #   else
 #      if defined(BOOST_ASSERT_CONFIG)
 #         error "Unknown EVC++ compiler version - please run the configure tests and report the results"
@@ -265,8 +296,8 @@
 #endif
 
 //
-// last known and checked version is 19.00.21901.1 (VC14 CTP2):
-#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190021901)
+// last known and checked version is 19.00.21901.1 (VC14 CTP3):
+#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190022013)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Unknown compiler version - please run the configure tests and report the results"
 #  else

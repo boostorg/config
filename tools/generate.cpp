@@ -324,17 +324,25 @@ int cpp_main(int argc, char* argv[])
    }
    std::cout << "Info: Boost.Config test path set as: " << config_path.string() << std::endl;
 
-   // enumerate *.ipp files:
+   // enumerate *.ipp files and store them in a map for now:
    boost::regex ipp_mask("boost_(?:(has)|no).*\\.ipp");
    boost::smatch ipp_match;
    fs::directory_iterator i(config_path), j;
+   std::map<fs::path, bool> files_to_process;
    while(i != j)
    {
       if(boost::regex_match(i->path().leaf().string(), ipp_match, ipp_mask))
       {
-         process_ipp_file(*i, ipp_match[1].matched);
+         files_to_process[*i] = ipp_match[1].matched;
       }
       ++i;
+   }
+   // Enumerate the files and process them, by defering this until now
+   // the results are always alphabetized which reduces churn in the
+   // generated files.
+   for(std::map<fs::path, bool>::const_iterator pos = files_to_process.begin(); pos != files_to_process.end(); ++pos)
+   {
+      process_ipp_file(pos->first, pos->second);
    }
    write_config_test();
    write_jamfile_v2();
