@@ -184,6 +184,7 @@
 #  define BOOST_NO_CXX11_INLINE_NAMESPACES
 #  define BOOST_NO_CXX14_DECLTYPE_AUTO
 #  define BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURES
+#  define BOOST_NO_CXX14_RETURN_TYPE_DEDUCTION
 #endif
 
 // C++11 features not supported by any versions
@@ -209,9 +210,6 @@
 #endif
 #if !defined(__cpp_generic_lambdas) || (__cpp_generic_lambdas < 201304)
 #  define BOOST_NO_CXX14_GENERIC_LAMBDAS
-#endif
-#if !defined(__cpp_return_type_deduction) || (__cpp_return_type_deduction < 201304)
-#  define BOOST_NO_CXX14_RETURN_TYPE_DEDUCTION
 #endif
 #if !defined(__cpp_variable_templates) || (__cpp_variable_templates < 201304)
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
