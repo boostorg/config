@@ -225,7 +225,16 @@
 #  define BOOST_NO_CXX14_GENERIC_LAMBDAS
 #endif
 
-#if !(__has_feature(cxx_relaxed_constexpr) || __has_extension(cxx_relaxed_constexpr))
+// clang < 3.5 has a defect with dependent type, like following.
+//
+//  template <class T>
+//  constexpr typename enable_if<pred<T> >::type foo(T &)
+//  { } // error: no return statement in constexpr function
+//
+// This issue also affects C++11 mode, but C++11 constexpr requires return stmt.
+// Therefore we don't care such case.
+#if (__clang_major__ == 3 && __clang_minor__ < 5) \
+  || !(__has_feature(cxx_relaxed_constexpr) || __has_extension(cxx_relaxed_constexpr))
 #  define BOOST_NO_CXX14_CONSTEXPR
 #endif
 

@@ -14,7 +14,15 @@
 namespace boost_no_cxx14_constexpr
 {
 
-constexpr void decrement(int &value)
+namespace detail
+{
+    template <class> struct void_ { typedef void type; };
+}
+
+// Test relaxed constexpr with dependent type; for more details, see comment of
+// BOOST_CXX14_CONSTEXPR definition in boost/config/compiler/clang.hpp .
+template <class T>
+constexpr typename detail::void_<T>::type decrement(T &value)
 {
     --value;
 }
