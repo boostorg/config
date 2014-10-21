@@ -7,7 +7,7 @@
 
 //  See http://www.boost.org/libs/config for more information.
 
-//  MACRO:         BOOST_NO_CXX14_DIGIT_SEPARATOR
+//  MACRO:         BOOST_NO_CXX14_DIGIT_SEPARATORS
 //  TITLE:         C++14 digit separator unavailable
 //  DESCRIPTION:   The compiler does not support C++14 digit separator
 

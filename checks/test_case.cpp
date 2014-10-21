@@ -421,7 +421,7 @@ namespace test = boost_no_cxx14_constexpr;
 #  include "../test/boost_no_cxx14_decltype_auto.ipp"
 namespace test = boost_no_cxx14_decltype_auto;
 #endif
-#ifdef TEST_BOOST_NO_CXX14_DIGIT_SEPARATOR
+#ifdef TEST_BOOST_NO_CXX14_DIGIT_SEPARATORS
 #  include "../test/boost_no_cxx14_digit_separator.ipp"
 namespace test = boost_no_cxx14_digit_separator;
 #endif

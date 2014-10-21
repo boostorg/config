@@ -10,9 +10,9 @@
 //
 
 
-// Test file for macro BOOST_NO_CXX14_DIGIT_SEPARATOR
+// Test file for macro BOOST_NO_CXX14_DIGIT_SEPARATORS
 // This file should compile, if it does not then
-// BOOST_NO_CXX14_DIGIT_SEPARATOR should be defined.
+// BOOST_NO_CXX14_DIGIT_SEPARATORS should be defined.
 // See file boost_no_cxx14_digit_separator.ipp for details
 
 // Must not have BOOST_ASSERT_CONFIG set; it defeats
@@ -24,7 +24,7 @@
 #include <boost/config.hpp>
 #include "test.hpp"
 
-#ifndef BOOST_NO_CXX14_DIGIT_SEPARATOR
+#ifndef BOOST_NO_CXX14_DIGIT_SEPARATORS
 #include "boost_no_cxx14_digit_separator.ipp"
 #else
 namespace boost_no_cxx14_digit_separator = empty_boost;
