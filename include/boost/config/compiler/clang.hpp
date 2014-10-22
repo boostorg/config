@@ -233,7 +233,13 @@
 //
 // This issue also affects C++11 mode, but C++11 constexpr requires return stmt.
 // Therefore we don't care such case.
-#if (__clang_major__ == 3 && __clang_minor__ < 5) \
+//
+// Note that we can't check Clang version directly as the numbering system changes depending who's
+// creating the Clang release (see https://github.com/boostorg/config/pull/39#issuecomment-59927873)
+// so instead verify that we have a feature that was introduced at the same time as working C++14
+// constexpr (generic lambda's in this case):
+//
+#if !__has_feature(cxx_generic_lambdas) \
   || !(__has_feature(cxx_relaxed_constexpr) || __has_extension(cxx_relaxed_constexpr))
 #  define BOOST_NO_CXX14_CONSTEXPR
 #endif
@@ -246,7 +252,8 @@
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #endif
 
-#if ((__clang_major__ < 3) || (__clang_major__ == 3 && __clang_minor__ < 4)) || (__cplusplus < 201400)
+#if __cplusplus < 201400
+// All versions with __cplusplus above this value seem to support this:
 #  define BOOST_NO_CXX14_DIGIT_SEPARATORS
 #endif
 
