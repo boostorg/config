@@ -137,7 +137,7 @@
 #  define BOOST_NO_CXX14_DECLTYPE_AUTO
 #endif
 #if (__cplusplus < 201304) // There's no SD6 check for this....
-#  define BOOST_NO_CXX14_DIGIT_SEPARATOR
+#  define BOOST_NO_CXX14_DIGIT_SEPARATORS
 #endif
 #if !defined(__cpp_generic_lambdas) || (__cpp_generic_lambdas < 201304)
 #  define BOOST_NO_CXX14_GENERIC_LAMBDAS

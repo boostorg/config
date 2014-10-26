@@ -182,6 +182,9 @@
 #  define BOOST_NO_CXX11_USER_DEFINED_LITERALS
 #  define BOOST_NO_CXX11_ALIGNAS
 #  define BOOST_NO_CXX11_INLINE_NAMESPACES
+#  define BOOST_NO_CXX14_DECLTYPE_AUTO
+#  define BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURES
+#  define BOOST_NO_CXX14_RETURN_TYPE_DEDUCTION
 #endif
 
 // C++11 features not supported by any versions
@@ -202,20 +205,11 @@
 #if !defined(__cpp_constexpr) || (__cpp_constexpr < 201304)
 #  define BOOST_NO_CXX14_CONSTEXPR
 #endif
-#if !defined(__cpp_decltype_auto) || (__cpp_decltype_auto < 201304)
-#  define BOOST_NO_CXX14_DECLTYPE_AUTO
-#endif
 #if (__cplusplus < 201304) // There's no SD6 check for this....
-#  define BOOST_NO_CXX14_DIGIT_SEPARATOR
+#  define BOOST_NO_CXX14_DIGIT_SEPARATORS
 #endif
 #if !defined(__cpp_generic_lambdas) || (__cpp_generic_lambdas < 201304)
 #  define BOOST_NO_CXX14_GENERIC_LAMBDAS
-#endif
-#if !defined(__cpp_init_captures) || (__cpp_init_captures < 201304)
-#  define BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURES
-#endif
-#if !defined(__cpp_return_type_deduction) || (__cpp_return_type_deduction < 201304)
-#  define BOOST_NO_CXX14_RETURN_TYPE_DEDUCTION
 #endif
 #if !defined(__cpp_variable_templates) || (__cpp_variable_templates < 201304)
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
@@ -296,8 +290,8 @@
 #endif
 
 //
-// last known and checked version is 19.00.21901.1 (VC14 CTP3):
-#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190022013)
+// last known and checked version is 19.00.22129 (VC14 CTP4):
+#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190022129)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Unknown compiler version - please run the configure tests and report the results"
 #  else
