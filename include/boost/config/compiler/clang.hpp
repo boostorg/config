@@ -217,7 +217,7 @@
 #  define BOOST_NO_CXX14_AGGREGATE_NSDMI
 #endif
 
-#if !(__has_feature(cxx_init_captures) || __has_extension(cxx_init_captures))
+#if !__has_feature(cxx_init_captures)
 #  define BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURES
 #endif
 
@@ -248,7 +248,7 @@
 #  define BOOST_NO_CXX14_RETURN_TYPE_DEDUCTION
 #endif
 
-#if !(__has_feature(cxx_variable_templates) || __has_extension(cxx_variable_templates))
+#if !__has_feature(cxx_variable_templates)
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #endif
 
