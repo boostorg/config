@@ -104,7 +104,7 @@
 #if (_MSC_VER >= 1400) && !defined(_DEBUG)
 #   define BOOST_HAS_NRVO
 #endif
-#if _MSC_VER >= 1500  // 150X == VC++ 9.0
+#if _MSC_VER >= 1600  // 160X == VC++ 10.0
 #  define BOOST_HAS_PRAGMA_DETECT_MISMATCH
 #endif
 //
