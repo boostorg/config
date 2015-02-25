@@ -501,8 +501,8 @@ INT#_C macros if they're not already defined (John Maddock).
 #    elif (defined(ULLONG_MAX) && ULLONG_MAX == 18446744073709551615ULL) ||  \
         (defined(ULONG_LONG_MAX) && ULONG_LONG_MAX == 18446744073709551615ULL) ||  \
         (defined(ULONGLONG_MAX) && ULONGLONG_MAX == 18446744073709551615ULL) || \
-        (defined(_ULLONG_MAX) && _ULLONG_MAX == 18446744073709551615ULL) || \ 
-        (defined(_LLONG_MAX) && _LLONG_MAX == 9223372036854775807LL) 
+        (defined(_ULLONG_MAX) && _ULLONG_MAX == 18446744073709551615ULL) || \
+        (defined(_LLONG_MAX) && _LLONG_MAX == 9223372036854775807LL)
 
 #       define INT64_C(value) value##LL
 #       define UINT64_C(value) value##uLL
