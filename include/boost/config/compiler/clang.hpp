@@ -8,6 +8,9 @@
 
 // Clang compiler setup.
 
+// __cpp_lib_integer_sequence is defined in header <utility>
+#include <utility>
+
 #define BOOST_HAS_PRAGMA_ONCE
 
 // Detecting `-fms-extension` compiler flag assuming that _MSC_VER defined when that flag is used.
@@ -250,6 +253,11 @@
 #if !__has_feature(__cxx_variable_templates__)
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #endif
+
+#if !defined(__cpp_lib_integer_sequence) || (__cpp_lib_integer_sequence < 201304)
+#  define BOOST_NO_CXX14_INTEGER_SEQUENCE
+#endif
+
 
 #if __cplusplus < 201400
 // All versions with __cplusplus above this value seem to support this:
