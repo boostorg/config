@@ -259,6 +259,10 @@
 #if !defined(__cpp_variable_templates) || (__cpp_variable_templates < 201304)
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #endif
+#if !defined(__cpp_lib_integer_sequence) || (__cpp_lib_integer_sequence < 201304)
+#  define BOOST_NO_CXX14_INTEGER_SEQUENCE
+#endif
+
 
 //
 // Unused attribute:
