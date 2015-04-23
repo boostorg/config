@@ -64,6 +64,12 @@
 #  define BOOST_NO_CXX11_ATOMIC_SMART_PTR
 #  define BOOST_NO_CXX11_HDR_ATOMIC
 
+// C++14 features: useing SD-6 test macros
+#include <utility>
+#if !defined(__cpp_lib_integer_sequence) || (__cpp_lib_integer_sequence < 201304)
+#  define BOOST_NO_CXX14_INTEGER_SEQUENCE
+#endif
+
 // libc++ uses a non-standard messages_base
 #define BOOST_NO_STD_MESSAGES
 

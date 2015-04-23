@@ -157,6 +157,12 @@
 //
 #  define BOOST_NO_CXX11_ADDRESSOF
 
+// C++14 features: useing SD-6 test macros
+#include <utility>
+#if !defined(__cpp_lib_integer_sequence) || (__cpp_lib_integer_sequence < 201304)
+#  define BOOST_NO_CXX14_INTEGER_SEQUENCE
+#endif
+
 #ifdef _CPPLIB_VER
 #  define BOOST_DINKUMWARE_STDLIB _CPPLIB_VER
 #else

@@ -62,6 +62,12 @@
 #  define BOOST_NO_CXX11_STD_ALIGN
 #  define BOOST_NO_CXX11_ADDRESSOF
 
+// C++14 features: useing SD-6 test macros
+#include <utility>
+#if !defined(__cpp_lib_integer_sequence) || (__cpp_lib_integer_sequence < 201304)
+#  define BOOST_NO_CXX14_INTEGER_SEQUENCE
+#endif
+
 //
 // Intrinsic type_traits support.
 // The SGI STL has it's own __type_traits class, which
