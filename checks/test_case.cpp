@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon Oct 13 13:09:13 2014
+//  This file was automatically generated on Thu Apr 23 08:48:45 2015
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -423,11 +423,15 @@ namespace test = boost_no_cxx14_decltype_auto;
 #endif
 #ifdef TEST_BOOST_NO_CXX14_DIGIT_SEPARATORS
 #  include "../test/boost_no_cxx14_digit_separator.ipp"
-namespace test = boost_no_cxx14_digit_separator;
+namespace test = boost_no_cxx14_digit_separators;
 #endif
 #ifdef TEST_BOOST_NO_CXX14_GENERIC_LAMBDAS
 #  include "../test/boost_no_cxx14_generic_lambda.ipp"
 namespace test = boost_no_cxx14_generic_lambdas;
+#endif
+#ifdef TEST_BOOST_NO_CXX14_INTEGER_SEQUENCE
+#  include "../test/boost_no_cxx14_integer_sequence.ipp"
+namespace test = boost_no_cxx14_integer_sequence;
 #endif
 #ifdef TEST_BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURES
 #  include "../test/boost_no_cxx14_lambda_capture.ipp"
