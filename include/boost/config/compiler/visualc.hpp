@@ -284,8 +284,8 @@
 #endif
 
 //
-// last known and checked version is 19.00.22609 (VC14 CTP 6):
-#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190022609)
+// last known and checked version is 19.00.22816 (VC++ 2015 RC):
+#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190022816)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Unknown compiler version - please run the configure tests and report the results"
 #  else
