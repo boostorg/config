@@ -670,6 +670,9 @@ compilers implementing an early draft of the C++11 standard (in particular, inco
 ]]
 [[`BOOST_NO_CXX11_NULLPTR`][The compiler does not support `nullptr`. 
 ]]
+[[`BOOST_NO_CXX11_NUMERIC_LIMITS`][The standard library `<limits>` header does
+not support the C++11 version of `numeric_limits`. 
+]]
 [[`BOOST_NO_CXX11_RANGE_BASED_FOR`][The compiler does not support
 range-based for statements. 
 ]]

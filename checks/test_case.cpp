@@ -423,7 +423,7 @@ namespace test = boost_no_cxx14_decltype_auto;
 #endif
 #ifdef TEST_BOOST_NO_CXX14_DIGIT_SEPARATORS
 #  include "../test/boost_no_cxx14_digit_separator.ipp"
-namespace test = boost_no_cxx14_digit_separator;
+namespace test = boost_no_cxx14_digit_separators;
 #endif
 #ifdef TEST_BOOST_NO_CXX14_GENERIC_LAMBDAS
 #  include "../test/boost_no_cxx14_generic_lambda.ipp"

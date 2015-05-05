@@ -335,7 +335,7 @@ explicit cxx14_constexpr ;
 run-simple test_case.cpp : : : <define>TEST_BOOST_NO_CXX14_DECLTYPE_AUTO : cxx14_decltype_auto ;
 alias cxx14_decltype_auto : cxx14_decltype_auto.output ;
 explicit cxx14_decltype_auto ;
-run-simple test_case.cpp : : : <define>TEST_BOOST_NO_CXX14_DIGIT_SEPARATOR : cxx14_digit_separator ;
+run-simple test_case.cpp : : : <define>TEST_BOOST_NO_CXX14_DIGIT_SEPARATORS : cxx14_digit_separators ;
 alias cxx14_digit_separator : cxx14_digit_separator.output ;
 explicit cxx14_digit_separator ;
 run-simple test_case.cpp : : : <define>TEST_BOOST_NO_CXX14_GENERIC_LAMBDAS : cxx14_generic_lambdas ;

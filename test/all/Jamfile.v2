@@ -331,7 +331,7 @@ test-suite "BOOST_NO_CXX14_CONSTEXPR" :
 test-suite "BOOST_NO_CXX14_DECLTYPE_AUTO" : 
 [ run ../no_cxx14_decltype_auto_pass.cpp ]
 [ compile-fail ../no_cxx14_decltype_auto_fail.cpp ] ;
-test-suite "BOOST_NO_CXX14_DIGIT_SEPARATOR" : 
+test-suite "BOOST_NO_CXX14_DIGIT_SEPARATORS" : 
 [ run ../no_cxx14_digit_separator_pass.cpp ]
 [ compile-fail ../no_cxx14_digit_separator_fail.cpp ] ;
 test-suite "BOOST_NO_CXX14_GENERIC_LAMBDAS" : 

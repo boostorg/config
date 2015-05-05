@@ -280,7 +280,7 @@ namespace boost_no_cxx14_decltype_auto = empty_boost;
 #ifndef BOOST_NO_CXX14_DIGIT_SEPARATORS
 #include "boost_no_cxx14_digit_separator.ipp"
 #else
-namespace boost_no_cxx14_digit_separator = empty_boost;
+namespace boost_no_cxx14_digit_separators = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX14_GENERIC_LAMBDAS
 #include "boost_no_cxx14_generic_lambda.ipp"
@@ -1501,7 +1501,7 @@ int main( int, char *[] )
       std::cerr << "Failed test for BOOST_NO_CXX14_DECLTYPE_AUTO at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
-   if(0 != boost_no_cxx14_digit_separator::test())
+   if(0 != boost_no_cxx14_digit_separators::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX14_DIGIT_SEPARATORS at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;

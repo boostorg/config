@@ -67,7 +67,7 @@
 #endif
 
 
-// MSVC (including the latest checked version) has not yet completely
+// MSVC before version 14 has not yet completely
 // implemented value-initialization, as is reported:
 // "VC++ does not value-initialize members of derived classes without
 // user-declared constructor", reported in 2009 by Sylvester Hesp:
@@ -80,7 +80,9 @@
 // https://connect.microsoft.com/VisualStudio/feedback/details/100744
 // See also: http://www.boost.org/libs/utility/value_init.htm#compiler_issues
 // (Niels Dekker, LKEB, May 2010)
+#if _MSC_VER < 1900
 #  define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
+#endif
 
 #ifndef _NATIVE_WCHAR_T_DEFINED
 #  define BOOST_NO_INTRINSIC_WCHAR_T
@@ -172,9 +174,9 @@
 #  define BOOST_NO_CXX11_DECLTYPE_N3276
 #endif
 
-// C++11 features supported by VC++ 14 (aka 2015) Preview
+// C++11 features supported by VC++ 14 (aka 2015) CTP 5
 //
-#if (_MSC_FULL_VER < 190022310)
+#if (_MSC_FULL_VER < 190022512)
 #  define BOOST_NO_CXX11_NOEXCEPT
 #  define BOOST_NO_CXX11_REF_QUALIFIERS
 #  define BOOST_NO_CXX11_USER_DEFINED_LITERALS
@@ -188,6 +190,7 @@
 #  define BOOST_NO_CXX14_RETURN_TYPE_DEDUCTION
 #  define BOOST_NO_CXX14_BINARY_LITERALS
 #  define BOOST_NO_CXX14_GENERIC_LAMBDAS
+#  define BOOST_NO_CXX14_DIGIT_SEPARATORS
 #endif
 
 // C++11 features not supported by any versions
@@ -201,9 +204,6 @@
 #endif
 #if !defined(__cpp_constexpr) || (__cpp_constexpr < 201304)
 #  define BOOST_NO_CXX14_CONSTEXPR
-#endif
-#if (__cplusplus < 201304) // There's no SD6 check for this....
-#  define BOOST_NO_CXX14_DIGIT_SEPARATORS
 #endif
 #if !defined(__cpp_variable_templates) || (__cpp_variable_templates < 201304)
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
@@ -284,8 +284,8 @@
 #endif
 
 //
-// last known and checked version is 19.00.22129 (VC14 Preview):
-#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190022310)
+// last known and checked version is 19.00.22816 (VC++ 2015 RC):
+#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190022816)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Unknown compiler version - please run the configure tests and report the results"
 #  else
