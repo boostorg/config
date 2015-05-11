@@ -21,7 +21,7 @@ local is_unix = [ modules.peek : UNIX ] ;
 
 lib atomic ;
 
-link config_info.cpp atomic :  : has_atomic_lib ;
+exe has_atomic_lib : config_info.cpp atomic ;
 explicit has_atomic_lib ;
 
 if $(is_unix)
