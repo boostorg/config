@@ -865,6 +865,19 @@ If `BOOST_NO_CXX11_NOEXCEPT` is not defined (i.e. C++11 compliant compilers) the
 ``
 ]
 ]]
+[[`BOOST_NOTHROW_LITE`][
+A nothrow declaration that does not require insertion of runtime correctness checks (otherwise
+required by the standard).
+MSVC __declspec( nothrow )
+GCC __attribute(( nothrow ))
+others BOOST_NOEXCEPT_OR_NOTHROW
+}}
+[[`BOOST_OVERRIDE`][
+C++11 override
+}}
+[[`BOOST_FINAL`][
+C++11 final/MSVC sealed
+}}
 [[`BOOST_MSVC_ENABLE_2012_NOV_CTP`][
 For Microsoft Visual C++ 2012, enable the C++11 features supplied by the
 November 2012 Community Technology Preview. These features are not automatically
@@ -1138,6 +1151,12 @@ the arguments is itself a macro (see 16.3.1 in C++ standard). This is normally
 used to create a mangled name in combination with a predefined macro such a
 \_\_LINE__.
 ]]
+
+[endsect]
+
+[#config_optimisation_macros]
+
+[section Compiler optimisation control and hints]
 [[`BOOST_FORCEINLINE`][
 This macro can be used in place of the `inline` keyword to instruct the compiler
 that the function should always be inlined.
@@ -1209,6 +1228,106 @@ Usage example:
 [[`BOOST_ATTRIBUTE_UNUSED`][Expands to `__attribute__((unused))` when this is available - 
 can be used to disable compiler warnings relating to unused types or variables.]]
 ]
+
+[[`BOOST_ASSUME(X)``BOOST_ASSUME_UNCHECKED(X)`][
+MSVC's __assume(X)
+Clang's __builtin_assume(X)
+]]
+[[`BOOST_UNREACHABLE(X)``BOOST_UNREACHABLE_UNCHECKED(X)`][
+MSVC's __assume(X)
+Clang's __builtin_assume(X)
+]]
+[[`BOOST_NOVTABLE`][
+MSVC/Clang+ms_extensions __declspec( novtable )
+]]
+
+[[`BOOST_ATTRIBUTES( ... )`][
+GCC __attribute__(( __VA_ARGS__ ))
+MSVC __declspec( __VA_ARGS__ )
+]]
+
+[[`BOOST_RESTRICTED_FUNCTION_L1``BOOST_RESTRICTED_FUNCTION_L2``BOOST_RESTRICTED_FUNCTION_L3`][
+(function attributes)
+L1 - MSVC noalias - parameters, first level parameter indirections (read & write), no global references
+L2 - GCC pure - parameters, first level parameter indirections (read only), global reads
+L3 - GCC const - parameters (no indirections and global references)
+https://msdn.microsoft.com/en-us/library/k649tyc7.aspx
+http://stackoverflow.com/questions/2798188/pure-const-function-attributes-in-different-compilers
+https://lwn.net/Articles/285332
+https://pimiddy.wordpress.com/2012/04/20/pure-functions-in-cc
+]]
+[[`BOOST_RESTRICTED_FUNCTION_RETURN`][
+(function attribute)
+MSVC restrict
+GCC malloc
+https://msdn.microsoft.com/en-us/library/8bcxafdh.aspx
+]]
+[[`BOOST_HOT`][
+(function attribute)
+hot function - optimise for speed and/or group appropriately
+}}
+[[`BOOST_COLD`][
+(function attribute)
+cold function - optimise for size and/or group appropriately
+]]
+
+[[`BOOST_OPTIMIZE_FOR_SPEED_BEGIN()`
+  `BOOST_OPTIMIZE_FOR_SPEED_END()`
+  `BOOST_OPTIMIZE_FOR_SIZE_BEGIN()`
+  `BOOST_OPTIMIZE_FOR_SIZE_END()`][
+Mark a group of functions as hot or cold
+]]
+
+[[`BOOST_FAST_MATH_ON_BEGIN()`
+  `BOOST_FAST_MATH_ON_END()`
+  `BOOST_FAST_MATH_OFF_BEGIN()`
+  `BOOST_FAST_MATH_OFF_END()`][
+Mark a group of functions as using relaxed ("fast") or strict
+("slow") floating point semantics
+]]
+
+[[`BOOST_CC_CDECL`
+  `BOOST_CC_STDCALL`
+  `BOOST_CC_FASTCALL`
+  `BOOST_CC_VECTORCALL`
+  `BOOST_CC_STACK`
+  `BOOST_CC_REG`
+  `BOOST_CC_REG_ABI`
+  `BOOST_CC_PP_LIST`][
+Function calling conventions
+CDECL -> __cdecl
+STCALL -> __stdcall
+FASTCALL -> __fastcall
+VECTORCALL -> __vectorcall
+STACK -> stack based
+REG -> register based
+REG_ABI -> 'minimal' register based cc supported by all compilers and/or architectures for a given target (e.g. sseregparm is supported by GCC but not Clang or __vectorcall is supported only by MSVC12 or later and with at least SSE2 enabled), IOW a cc safe to use on ABI boundaries
+PP_LIST -> a Boost.PP list of all calling conventions supported by the current compiler in the current compilation context (useful for automatic generation of template specialisations)s
+]]
+
+[[`BOOST_RESTRICTED`
+  `BOOST_RESTRICTED_PTR`
+  `BOOST_RESTRICTED_REF`
+][
+Some compilers support the restrict keyword only on pointers (e.g MSVC prior to Visual Studio 2015). If BOOST_RESTRICTED is defined then the compiler supports both (and the said macro can be used for both references and pointers). BOOST_RESTRICTED_PTR and BOOST_RESTRICTED_REF are defined in any case.
+]]
+
+[[`BOOST_HAS_MAY_ALIAS`
+  `BOOST_MAY_ALIAS`
+  `BOOST_HAS_UNION_TYPE_PUNNING_TRICK`
+  `BOOST_NO_STRICT_ALIASING`
+][
+If BOOST_HAS_MAY_ALIAS is defined, BOOST_MAY_ALIAS has a non-empty definition (i.e. the compiler provides a special attribute to mark types and/or variables as possibly aliasing other objects which it otherwise should not alias according to the standard aliasing rules).
+BOOST_HAS_UNION_TYPE_PUNNING_TRICK -> compiler provides (the expected) defined semantics for type punning through a union
+BOOST_NO_STRICT_ALIASING -> compiler does not use the strict aliasing rules at all (and thus allows any form of type punning)
+]]
+
+[[`BOOST_OVERRIDABLE_SYMBOL`
+  `BOOST_OVERRIDABLE_FUNCTION`
+][
+MSVC __declspec( selectany ) for data, __declspec( noinline ) inline for functions
+GCC __attribute(( weak ))
+]]
 
 [endsect]
 
