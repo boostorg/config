@@ -647,19 +647,14 @@ namespace std{ using ::type_info; }
 
 #ifndef BOOST_ASSUME_UNCHECKED
 #   ifdef BOOST_UNREACHABLE_UNCHECKED
-#      define BOOST_ASSUME_UNCHECKED( condition ) do { if ( !( condition ) ) BOOST_UNREACHABLE_UNCHECKED(); } while ( 0 )
+#		define BOOST_ASSUME_UNCHECKED( condition ) do { if ( !( condition ) ) BOOST_UNREACHABLE_UNCHECKED(); } while ( 0 )
+#	else
+#		define BOOST_ASSUME_UNCHECKED( condition )
 #   endif
-#else
-#   define BOOST_ASSUME_UNCHECKED()
 #endif
 
 #ifndef BOOST_UNREACHABLE_UNCHECKED
-#   ifdef BOOST_ASSUME_UNCHECKED
-#      define BOOST_UNREACHABLE_UNCHECKED() BOOST_ASSUME_UNCHECKED( false )
-#   endif
-#else
-#   define BOOST_ASSUME_UNCHECKED()
-#   define BOOST_UNREACHABLE_UNCHECKED
+#	define BOOST_UNREACHABLE_UNCHECKED() BOOST_ASSUME_UNCHECKED( false )
 #endif // BOOST_UNREACHABLE_UNCHECKED
 
 
