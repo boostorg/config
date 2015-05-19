@@ -108,6 +108,11 @@
 #   define BOOST_NO_STRICT_ALIASING
 #endif // BOOST_NO_STRICT_ALIASING
 
+#define BOOST_RESTRICTED_PTR __restrict
+#if _MSC_VER >= 1900
+#	define BOOST_RESTRICTED_REF __restrict
+#endif
+
 #define BOOST_CC_CDECL    __cdecl
 #define BOOST_CC_FASTCALL __fastcall
 #define BOOST_CC_STDCALL  __stdcall

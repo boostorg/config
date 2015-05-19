@@ -1308,8 +1308,10 @@ PP_LIST -> a Boost.PP list of all calling conventions supported by the current c
 [[`BOOST_RESTRICTED`
   `BOOST_RESTRICTED_PTR`
   `BOOST_RESTRICTED_REF`
+  `BOOST_RESTRICTED_THIS`
 ][
-Some compilers support the restrict keyword only on pointers (e.g MSVC prior to Visual Studio 2015). If BOOST_RESTRICTED is defined then the compiler supports both (and the said macro can be used for both references and pointers). BOOST_RESTRICTED_PTR and BOOST_RESTRICTED_REF are defined in any case.
+Some compilers support the restrict keyword only on pointers (e.g MSVC prior to Visual Studio 2015) while some even support restricted this pointers (for member functions) as well as restricted references (e.g. GCC and Clang).
+If BOOST_RESTRICTED is defined then the compiler supports all of the aboce (and the said macro can be used in all circumstances). BOOST_RESTRICTED_PTR, BOOST_RESTRICTED_REF and BOOST_RESTRICTED_THIS are defined in any case.
 ]]
 
 [[`BOOST_HAS_MAY_ALIAS`
