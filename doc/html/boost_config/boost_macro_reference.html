@@ -4273,7 +4273,18 @@
 </tbody>
 </table></div>
 </div>
-<br class="table-break"><h5>
+<br class="table-break"><p>
+        Not mentioned or listed above is a macro of the form BOOST_CPP_XXX_MACRO,
+        which is only defined for a library XXX which has equivalent macro names
+        between the C++ standard library version and the Boost library version. This
+        macro is used in the form of BOOST_CPP_XXX_MACRO(MACRO_NAME) to produce the
+        correct macro name for the equivalent macro no matter which implementation
+        is being used. Currently, among the libraries listed above, the only library
+        which uses this form is the 'atomic' library. It's name therefore is BOOST_CPP_ATOMIC_MACRO
+        and it can be used in the form of BOOST_CPP_ATOMIC_MACRO(AN_ATOMIC_MACRO)
+        to produce the correct equivalent macro name for the 'atomic' library.
+      </p>
+<h5>
 <a name="boost_config.boost_macro_reference.macros_that_choose_standard_or_boost_libraries.h0"></a>
         <span class="phrase"><a name="boost_config.boost_macro_reference.macros_that_choose_standard_or_boost_libraries.using_the_macros_"></a></span><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_choose_standard_or_boost_libraries.using_the_macros_">Using
         the macros </a>

@@ -66,6 +66,15 @@ The following table lists the libraries and the appropriate information for each
 [[unordered_set][<boost/config/cpp/unordered_set.hpp>][BOOST_CPP_UNORDERED_SET_HDR][BOOST_CPP_UNORDERED_SET_NS][BOOST_CPP_HAS_UNORDERED_SET]]
 ]
 
+Not mentioned or listed above is a macro of the form BOOST_CPP_XXX_MACRO, which is only 
+defined for a library XXX which has equivalent macro names between the C++ standard library 
+version and the Boost library version. This macro is used in the form of 
+BOOST_CPP_XXX_MACRO(MACRO_NAME) to produce the correct macro name for the equivalent macro no 
+matter which implementation is being used. Currently, among the libraries listed above, the only 
+library which uses this form is the 'atomic' library. It's name therefore is BOOST_CPP_ATOMIC_MACRO 
+and it can be used in the form of BOOST_CPP_ATOMIC_MACRO(AN_ATOMIC_MACRO) to produce the correct 
+equivalent macro name for the 'atomic' library.
+
 [heading Using the macros ]
 
 The general form of using these macros in a translation unit will now be given, 
