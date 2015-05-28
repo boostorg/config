@@ -918,6 +918,8 @@ provide compliant C++14 support.
 
 [endsect]
 
+[include choosing.qbk]
+
 [#config_helpers]
 
 [section Boost Helper Macros]

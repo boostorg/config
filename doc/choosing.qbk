@@ -21,7 +21,7 @@ is included as a header file. Instead the programmer includes the
 appropriate header file for a particular library from within the 
 boost/config/cpp subdirectory, and then makes use of macros in that header
 file to automatically use either the C++ standard version of that
-library, if it is available for the particulat compiler implementation,
+library, if it is available for the particular compiler implementation,
 or the Boost version of that library, if the C++ standard version is not 
 available for the particular compiler implementation.
 
@@ -42,8 +42,7 @@ for code that depends only on the Boost version of the library
 
 The following table lists the libraries and the appropriate information for each one:
 
-[
-table:cpp_libs Libraries
+[table Libraries
 [[Library][Header file][Include macro][Namespace macro][Check C++ standard version macro]]
 [[array][<boost/config/cpp/array.hpp>][BOOST_CPP_ARRAY_HDR][BOOST_CPP_ARRAY_NS][BOOST_CPP_HAS_ARRAY]]
 [[atomic][<boost/config/cpp/atomic.hpp>][BOOST_CPP_ATOMIC_HDR][BOOST_CPP_ATOMIC_NS][BOOST_CPP_HAS_ATOMIC]]
@@ -91,7 +90,9 @@ The BOOST_CPP_HAS_ macro for any given library is a more understandable form of 
 Boost.config already has for determining whether the compiler supports certain C++ libraries.
 Most of these macros are taken from whether or not a given BOOST_NO_CXX11_HDR_ is defined.
 You can use a BOOST_CPP_HAS_ macro to discover whether a Boost library is also supported
-by an equivalent C++ standard library. You may decide you need the C++ standard version of
+by an equivalent C++ standard library. 
+
+You may decide you need the C++ standard version of
 a particular library, rather than the Boost version, or else you do not want your code to
 compile. As an example let's say that you want to create a compile error if the compiler
 does not support the C++ standard library type_traits library, even though the Boost type_traits
