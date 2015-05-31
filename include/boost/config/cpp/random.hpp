@@ -11,7 +11,7 @@
 #include <boost/config.hpp>
 #if defined(BOOST_NO_CXX11_HDR_RANDOM)
 #define BOOST_CPP_HAS_RANDOM 0
-#define BOOST_CPP_RANDOM_NS boost
+#define BOOST_CPP_RANDOM_NS boost::random
 #define BOOST_CPP_RANDOM_HDR <boost/random.hpp>
 #else
 #define BOOST_CPP_HAS_RANDOM 1
