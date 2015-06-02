@@ -92,8 +92,12 @@
 //  MPW MrCpp or SCpp
 #   define BOOST_COMPILER_CONFIG "boost/config/compiler/mpw.hpp"
 
+#elif defined(__ibmxl__)
+// IBM XL C/C++ for Linux (Little Endian)
+#   define BOOST_COMPILER_CONFIG "boost/config/compiler/xlcpp.hpp"
+
 #elif defined(__IBMCPP__)
-//  IBM Visual Age
+//  IBM Visual Age or IBM XL C/C++ for Linux (Big Endian)
 #   define BOOST_COMPILER_CONFIG "boost/config/compiler/vacpp.hpp"
 
 #elif defined(__PGI)
