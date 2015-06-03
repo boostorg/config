@@ -129,7 +129,10 @@
 
 #define BOOST_NOVTABLE __declspec( novtable )
 
-#define BOOST_OVERRIDABLE_SYMBOL __declspec( selectany )
+#define BOOST_THREAD_LOCAL_POD __declspec( thread )
+
+#define BOOST_OVERRIDABLE_SYMBOL extern __declspec( selectany )
+#define BOOST_OVERRIDABLE_MEMBER_SYMBOL __declspec( selectany )
 // http://blogs.msdn.com/b/freik/archive/2005/10/26/485276.aspx
 #define BOOST_OVERRIDABLE_FUNCTION extern __declspec( noinline ) inline
 
@@ -138,10 +141,13 @@
 #define BOOST_ATTRIBUTES( ... ) __declspec( __VA_ARGS__ )
 #define BOOST_RESTRICTED_FUNCTION_L1     noalias
 #define BOOST_RESTRICTED_FUNCTION_L2     BOOST_RESTRICTED_FUNCTION_L1
-#define BOOST_RESTRICTED_FUNCTION_L3     BOOST_RESTRICTED_FUNCTION_L3
+#define BOOST_RESTRICTED_FUNCTION_L3     BOOST_RESTRICTED_FUNCTION_L2
 #define BOOST_RESTRICTED_FUNCTION_RETURN restrict
 #define BOOST_HOT
 #define BOOST_COLD
+#define BOOST_EXCEPTIONLESS              nothrow
+#define BOOST_DOES_NOT_RETURN            noreturn
+#define BOOST_WARN_UNUSED_RESULT         "SAL_mustInspect"
 
 #define BOOST_OPTIMIZE_FOR_SPEED_BEGIN()     \
     __pragma( optimize        ( "t", on ) )  \

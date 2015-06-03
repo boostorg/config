@@ -1270,6 +1270,22 @@ hot function - optimise for speed and/or group appropriately
 (function attribute)
 cold function - optimise for size and/or group appropriately
 ]]
+[[`BOOST_EXCEPTIONLESS`][
+(function attribute)
+BOOST_NOTHROW_LITE as an attribute.
+]]
+[[`BOOST_DOES_NOT_RETURN`][
+(function attribute)
+BOOST_NORETURN as an attribute.
+]]
+[[`BOOST_WARN_UNUSED_RESULT`][
+(function attribute)
+Make the compiler issue a warning if the result of a call to the decorated function is not examined.
+]]
+
+[[`BOOST_THREAD_LOCAL_POD`][
+Compiler specific keyword for pre-C++11 'thread local' POD-only values/objects.
+]]
 
 [[`BOOST_OPTIMIZE_FOR_SPEED_BEGIN()`
   `BOOST_OPTIMIZE_FOR_SPEED_END()`
@@ -1325,6 +1341,7 @@ BOOST_NO_STRICT_ALIASING -> compiler does not use the strict aliasing rules at a
 ]]
 
 [[`BOOST_OVERRIDABLE_SYMBOL`
+  `BOOST_OVERRIDABLE_MEMBER_SYMBOL`
   `BOOST_OVERRIDABLE_FUNCTION`
 ][
 MSVC __declspec( selectany ) for data, __declspec( noinline ) inline for functions

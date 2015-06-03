@@ -29,6 +29,9 @@
 #define BOOST_RESTRICTED_FUNCTION_RETURN malloc
 #define BOOST_HOT                        hot
 #define BOOST_COLD                       cold
+#define BOOST_EXCEPTIONLESS              nothrow
+#define BOOST_DOES_NOT_RETURN            noreturn
+#define BOOST_WARN_UNUSED_RESULT         warn_unused_result
 
 #ifdef __i386__
 #   define BOOST_CC_CDECL    __attribute__(( cdecl    ))
@@ -41,12 +44,16 @@
 
 #define BOOST_NOTHROW_LITE __attribute__(( nothrow ))
 
+#define BOOST_THREAD_LOCAL_POD __thread
+
 #define BOOST_RESTRICTED __restrict__
 
 #define BOOST_MAY_ALIAS __attribute__(( may_alias ))
 
 #define BOOST_HAS_UNION_TYPE_PUNNING_TRICK
 
-#define BOOST_OVERRIDABLE_SYMBOL __attribute__(( weak ))
+#define BOOST_OVERRIDABLE_SYMBOL        __attribute__(( weak ))
+#define BOOST_OVERRIDABLE_MEMBER_SYMBOL BOOST_OVERRIDABLE_SYMBOL
+#define BOOST_OVERRIDABLE_FUNCTION      BOOST_OVERRIDABLE_SYMBOL
 
 //------------------------------------------------------------------------------
