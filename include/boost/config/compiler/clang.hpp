@@ -23,7 +23,11 @@
 // clang reports a compiler error. So the only workaround found is:
 
 #ifndef __has_extension
-#define __has_extension __has_feature
+#   define __has_extension __has_feature
+#endif
+
+#ifndef __has_declspec_attribute
+#   define __has_declspec_attribute(x) 0
 #endif
 
 #ifndef __has_attribute
