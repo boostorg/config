@@ -689,6 +689,25 @@ namespace std{ using ::type_info; }
 #   define BOOST_FAST_MATH_OFF_END()
 #endif // BOOST_FAST_MATH_ON
 
+#ifndef BOOST_CC_CDECL
+#   define BOOST_CC_CDECL
+#endif // BOOST_CC_CDECL
+#ifndef BOOST_CC_FASTCALL
+#   define BOOST_CC_FASTCALL
+#endif // BOOST_CC_FASTCALL
+#ifndef BOOST_CC_STDCALL
+#   define BOOST_CC_STDCALL
+#endif // BOOST_CC_STDCALL
+#ifndef BOOST_CC_STACK
+#   define BOOST_CC_STACK
+#endif // BOOST_CC_STACK
+#ifndef BOOST_CC_REG_ABI
+#   define BOOST_CC_REG_ABI BOOST_CC_FASTCALL
+#endif // BOOST_CC_REG_ABI
+#ifndef BOOST_CC_REG
+#   define BOOST_CC_REG BOOST_CC_REG_ABI
+#endif // BOOST_CC_REG
+
 
 #ifdef BOOST_RESTRICTED
 #   define BOOST_RESTRICTED_PTR  BOOST_RESTRICTED
@@ -706,6 +725,9 @@ namespace std{ using ::type_info; }
 #   endif // BOOST_RESTRICTED_THIS
 #endif // BOOST_RESTRICTED
 
+#ifndef BOOST_ATTRIBUTES
+#   define BOOST_ATTRIBUTES( attribs )
+#endif // BOOST_ATTRIBUTES
 
 #ifdef BOOST_MAY_ALIAS
 #   define BOOST_HAS_MAY_ALIAS
