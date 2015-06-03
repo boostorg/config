@@ -11,7 +11,7 @@
 #include <boost/config.hpp>
 #if defined(BOOST_NO_CXX11_HDR_TYPEINDEX)
 #define BOOST_CPP_HAS_TYPE_INDEX 0
-#define BOOST_CPP_TYPE_INDEX_NS boost::type_index
+#define BOOST_CPP_TYPE_INDEX_NS boost::typeindex
 #define BOOST_CPP_TYPE_INDEX_HDR <boost/type_index.hpp>
 #else
 #define BOOST_CPP_HAS_TYPE_INDEX 1
