@@ -121,6 +121,10 @@
 #define BOOST_NO_CXX11_REF_QUALIFIERS
 #define BOOST_NO_CXX11_FINAL
 
+//  C++0y headers not yet implemented
+//
+#  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+
 // C++ 14:
 #if !defined(__cpp_aggregate_nsdmi) || (__cpp_aggregate_nsdmi < 201304)
 #  define BOOST_NO_CXX14_AGGREGATE_NSDMI

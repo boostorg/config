@@ -62,6 +62,10 @@
 #  define BOOST_NO_CXX11_STD_ALIGN
 #  define BOOST_NO_CXX11_ADDRESSOF
 
+//  C++0y headers not yet implemented
+//
+#  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+
 //
 // Intrinsic type_traits support.
 // The SGI STL has it's own __type_traits class, which
