@@ -67,4 +67,12 @@
 // libc++ uses a non-standard messages_base
 #define BOOST_NO_STD_MESSAGES
 
+#if defined(__has_include) && !__has_include(<shared_mutex>)
+#  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#elif defined(__clang__) && (__clang_major__ < 3 || (__clang_major__ == 3 && __clang_minor__ < 4))
+#  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#elif __cplusplus < 201402
+#  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#endif
+
 //  --- end ---
