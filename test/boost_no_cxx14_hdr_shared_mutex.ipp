@@ -16,8 +16,11 @@ namespace boost_no_cxx14_hdr_shared_mutex {
 
 int test()
 {
-  using std::shared_mutex;
+#if defined(__cpp_lib_shared_timed_mutex) && __cpp_lib_shared_timed_mutex == 201402
   using std::shared_timed_mutex;
+#else
+  using std::shared_mutex;
+#endif
   return 0;
 }
 
