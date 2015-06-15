@@ -153,14 +153,20 @@
 // about what version of Dinkumware supports C++14.
 // The Dinkumware website says that they now support
 // C++14 but they give no further information about
-// their standard library. So I will mark the shared_mutex
-// header as unsupported until someone finds a version
+// their standard library. So I will use SD-6 or mark it
+// as unsupported until someone finds a version
 // of a compiler that uses the Dinkumware standard library
 // and they can see that shared_ptr is distributed in that
 // version and they can see the value of _CPPLIB_VER in rhat
 // version's yvals.h header file.
 //
+#if defined(__has_include)
+#if !__has_include(<shared_mutex>)
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#endif
+#else
+#  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#endif
 
 #if defined(BOOST_INTEL) && (BOOST_INTEL <= 1400)
 // Intel's compiler can't handle this header yet:

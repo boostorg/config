@@ -189,4 +189,10 @@
 
 //  C++0y headers not yet implemented
 //
+#if defined(__has_include)
+#if !__has_include(<shared_mutex>)
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#endif
+#else
+#  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#endif
