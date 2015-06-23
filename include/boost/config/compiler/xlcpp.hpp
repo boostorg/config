@@ -53,19 +53,6 @@
 #define BOOST_HAS_LONG_LONG
 
 //
-// We disable this if the compiler is really nvcc as it
-// doesn't actually support __int128 as of CUDA_VERSION=5000
-// even though it defines __SIZEOF_INT128__.
-// See https://svn.boost.org/trac/boost/ticket/10418
-// Only re-enable this for nvcc if you're absolutely sure
-// of the circumstances under which it's supported:
-//
-#if defined(__SIZEOF_INT128__) && !defined(__CUDACC__)
-#  define BOOST_HAS_INT128
-#endif
-
-
-//
 // Dynamic shared object (DSO) and dynamic-link library (DLL) support
 //
 #if !defined(_WIN32) && !defined(__WIN32__) && !defined(WIN32)
