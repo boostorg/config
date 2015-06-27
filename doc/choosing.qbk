@@ -1,0 +1,171 @@
+
+[section Macros that choose standard or Boost libraries]
+
+A number of Boost libraries are also represented in the C++ standard with 
+corresponding C++ standard libraries. While the Boost and corresponding 
+C++ standard library do not necessarily have exactly the same functionality 
+they are often close enough in their functionality so that either can be used
+for particular programming tasks.
+
+A programmer may want to use the C++ standard version of such a library, 
+if it has been made available by the compiler implementation, rather than the
+Boost version of the library, in order to remove a dependency in code on
+the Boost version of such a library.
+
+Boost.config offers macros which allow the programmer to automatically
+include and use the appropriate version of the library, whether C++ standard
+or Boost. 
+
+These macros are not included automatically when <boost/config.h>
+is included as a header file. Instead the programmer includes the
+appropriate header file for a particular library from within the 
+boost/config/cpp subdirectory, and then makes use of macros in that header
+file to automatically use either the C++ standard version of that
+library, if it is available for the particular compiler implementation,
+or the Boost version of that library, if the C++ standard version is not 
+available for the particular compiler implementation.
+
+For a give library 'XXX' which exists as a Boost version and may exist
+as a C++ standard library version, the user will:
+
+* #include <boost/config/cpp/XXX.hpp>
+* Use BOOST_CPP_XXX_HDR in order to include the header file for that library,
+ie. #include BOOST_CPP_XXX_HDR
+* Use the macro BOOST_CPP_XXX_NS as the namespace for that library when using the 
+functionality of that library, ie. BOOST_CPP_XXX_NS::some_library_functionality
+* If necessary use the macro BOOST_CPP_HAS_XXX to determine whether the C++ standard
+version of the library is available or not. If BOOST_CPP_HAS_XXX is 1 the C++ standard
+version of the library is available for use and if BOOST_CPP_HAS_XXX is 0 only the
+Boost version of the library is available for use, ie. #if BOOST_CPP_HAS_XXX for code
+that depends only on the C++ standard version of the library or #if !BOOST_CPP_HAS_XXX
+for code that depends only on the Boost version of the library
+
+The following table lists the libraries and the appropriate information for each one:
+
+[table Libraries
+[[Library][Header file][Include macro][Namespace macro][Check C++ standard version macro]]
+[[array][<boost/config/cpp/array.hpp>][BOOST_CPP_ARRAY_HDR][BOOST_CPP_ARRAY_NS][BOOST_CPP_HAS_ARRAY]]
+[[atomic][<boost/config/cpp/atomic.hpp>][BOOST_CPP_ATOMIC_HDR][BOOST_CPP_ATOMIC_NS][BOOST_CPP_HAS_ATOMIC]]
+[[bind][<boost/config/cpp/bind.hpp>][BOOST_CPP_BIND_HDR][BOOST_CPP_BIND_NS][BOOST_CPP_HAS_BIND]]
+[[chrono][<boost/config/cpp/chrono.hpp>][BOOST_CPP_CHRONO_HDR][BOOST_CPP_CHRONO_NS][BOOST_CPP_HAS_CHRONO]]
+[[function][<boost/config/cpp/function.hpp>][BOOST_CPP_FUNCTION_HDR][BOOST_CPP_FUNCTION_NS][BOOST_CPP_HAS_FUNCTION]]
+[[hash][<boost/config/cpp/hash.hpp>][BOOST_CPP_HASH_HDR][BOOST_CPP_HASH_NS][BOOST_CPP_HAS_HASH]]
+[[mem_fn][<boost/config/cpp/mem_fn.hpp>][BOOST_CPP_MEM_FN_HDR][BOOST_CPP_MEM_FN_NS][BOOST_CPP_HAS_MEM_FN]]
+[[random][<boost/config/cpp/random.hpp>][BOOST_CPP_RANDOM_HDR][BOOST_CPP_RANDOM_NS][BOOST_CPP_HAS_RANDOM]]
+[[ratio][<boost/config/cpp/ratio.hpp>][BOOST_CPP_RATIO_HDR][BOOST_CPP_RATIO_NS][BOOST_CPP_HAS_RATIO]]
+[[ref][<boost/config/cpp/ref.hpp>][BOOST_CPP_REF_HDR][BOOST_CPP_REF_NS][BOOST_CPP_HAS_REF]]
+[[regex][<boost/config/cpp/regex.hpp>][BOOST_CPP_REGEX_HDR][BOOST_CPP_REGEX_NS][BOOST_CPP_HAS_REGEX]]
+[[shared_ptr][<boost/config/cpp/shared_ptr.hpp>][BOOST_CPP_SHARED_PTR_HDR][BOOST_CPP_SHARED_PTR_NS][BOOST_CPP_HAS_SHARED_PTR]]
+[[thread][<boost/config/cpp/thread.hpp>][BOOST_CPP_THREAD_HDR][BOOST_CPP_THREAD_NS][BOOST_CPP_HAS_THREAD]]
+[[tuple][<boost/config/cpp/tuple.hpp>][BOOST_CPP_TUPLE_HDR][BOOST_CPP_TUPLE_NS][BOOST_CPP_HAS_TUPLE]]
+[[type_index][<boost/config/cpp/type_index.hpp>][BOOST_CPP_TYPE_INDEX_HDR][BOOST_CPP_TYPE_INDEX_NS][BOOST_CPP_HAS_TYPE_INDEX]]
+[[type_traits][<boost/config/cpp/type_traits.hpp>][BOOST_CPP_TYPE_TRAITS_HDR][BOOST_CPP_TYPE_TRAITS_NS][BOOST_CPP_HAS_TYPE_TRAITS]]
+[[unordered_map][<boost/config/cpp/unordered_map.hpp>][BOOST_CPP_UNORDERED_MAP_HDR][BOOST_CPP_UNORDERED_MAP_NS][BOOST_CPP_HAS_UNORDERED_MAP]]
+[[unordered_multimap][<boost/config/cpp/unordered_multimap.hpp>][BOOST_CPP_UNORDERED_MULTIMAP_HDR][BOOST_CPP_UNORDERED_MULTIMAP_NS][BOOST_CPP_HAS_UNORDERED_MULTIMAP]]
+[[unordered_multiset][<boost/config/cpp/unordered_multiset.hpp>][BOOST_CPP_UNORDERED_MULTISET_HDR][BOOST_CPP_UNORDERED_MULTISET_NS][BOOST_CPP_HAS_UNORDERED_MULTISET]]
+[[unordered_set][<boost/config/cpp/unordered_set.hpp>][BOOST_CPP_UNORDERED_SET_HDR][BOOST_CPP_UNORDERED_SET_NS][BOOST_CPP_HAS_UNORDERED_SET]]
+]
+
+Not mentioned or listed above is a macro of the form BOOST_CPP_XXX_MACRO, which is only 
+defined for a library XXX which has equivalent macro names between the C++ standard library 
+version and the Boost library version. This macro is used in the form of 
+BOOST_CPP_XXX_MACRO(MACRO_NAME) to produce the correct macro name for the equivalent macro no 
+matter which implementation is being used. Currently, among the libraries listed above, the only 
+library which uses this form is the 'atomic' library. It's name therefore is BOOST_CPP_ATOMIC_MACRO 
+and it can be used in the form of BOOST_CPP_ATOMIC_MACRO(AN_ATOMIC_MACRO) to produce the correct 
+equivalent macro name for the 'atomic' library.
+
+[heading Using the macros ]
+
+The general form of using these macros in a translation unit will now be given, 
+choosing the regex library as an example.
+
+  #include <boost/config/cpp/regex.hpp>
+  #include BOOST_CPP_REGEX_HDR
+  
+  void SomeFunction()
+    {
+    BOOST_CPP_REGEX_NS::regex re("A regular expression etc.");
+    bool result(BOOST_CPP_REGEX_NS::regex_match("Some string...",re));
+    // etc.
+    }
+    
+In the example the code will work whether we are using the C++ standard regex library
+or the Boost regex library.
+
+[heading Using the BOOST_CPP_HAS_... macro ]
+
+The BOOST_CPP_HAS_ macro for any given library is a more understandable form of macro than
+Boost.config already has for determining whether the compiler supports certain C++ libraries.
+Most of these macros are taken from whether or not a given BOOST_NO_CXX11_HDR_ is defined.
+You can use a BOOST_CPP_HAS_ macro to discover whether a Boost library is also supported
+by an equivalent C++ standard library. 
+
+You may decide you need the C++ standard version of
+a particular library, rather than the Boost version, or else you do not want your code to
+compile. As an example let's say that you want to create a compile error if the compiler
+does not support the C++ standard library type_traits library, even though the Boost type_traits
+library could also normally be used.
+
+  #include <boost/config/cpp/type_traits.hpp>
+  #if !BOOST_CPP_HAS_TYPE_TRAITS
+  #error C++ standard type_traits library needed and not present.
+  #endif
+  
+  // Further code
+  
+Another use for the BOOST_CPP_HAS_ macro is to include particular header files
+rather than a main header file, for some given library functionality. This is
+more prevalent with Boost than with the C++ standard library, the latter almost
+always having a single header file which includes library functionality for
+all parts of a library. 
+    
+  #include <boost/config/cpp/type_traits.hpp>
+  #if BOOST_CPP_HAS_TYPE_TRAITS
+  #include BOOST_CPP_TYPE_TRAITS_HDR
+  #else
+  #include <boost/type_traits/add_const.hpp>
+  #endif
+  
+  // Further code using BOOST_CPP_TYPE_TRAITS_NS::add_const
+  
+You can also use the BOOST_CPP_HAS_ macro to provide specific functionality
+depending on whether or not a particular library is using the C++ standard
+or Boost version. Of course you hope to minimize these situations but occasionally
+they happen:
+  
+  #include <boost/config/cpp/thread.hpp>
+  #include BOOST_CPP_THREAD_HDR
+  
+  // Code...
+  
+  #if BOOST_CPP_HAS_THREAD
+  
+  // Functionality available if the C++ standard version of the thread library is being used
+  
+  #else
+  
+  // Functionality available if the Boost version of the thread library is being used
+  
+  #endif
+  
+[heading Library header file dependency ]
+
+When the programmer includes the appropriate header file for a particular 
+library from within the boost/config/cpp subdirectory there is no dependency
+being established on the library itself. Any one of the library header files 
+merely defines macros which the programmer may choose to use or not.
+
+It is only when using a particular include macro, along with a particular namespace
+macro, from any given library that a dependency is established.
+
+Because of this it has been made possible to include all library headers with a
+single include:
+
+  #include <boost/config/cpp.h>
+  
+This includes macros for each library, starting with BOOST_CPP_, but as long 
+as the prefix BOOST_CPP_ does not conflict with macros from any other software 
+library in the translation unit there should be no problems.
+
+[endsect]

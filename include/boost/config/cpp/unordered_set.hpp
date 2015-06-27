@@ -1,0 +1,22 @@
+//  boost/config/cpp/unordered_set.hpp  ---------------------------------------------------//
+
+//  (C) Copyright Edward Diener 2015. 
+//  Use, modification and distribution are subject to the 
+//  Boost Software License, Version 1.0. (See accompanying file 
+//  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+
+#if !defined(BOOST_CONFIG_CPP_UNORDERED_SET_HPP)
+#define BOOST_CONFIG_CPP_UNORDERED_SET_HPP
+
+#include <boost/config.hpp>
+#if defined(BOOST_NO_CXX11_HDR_UNORDERED_SET)
+#define BOOST_CPP_HAS_UNORDERED_SET 0
+#define BOOST_CPP_UNORDERED_SET_NS boost
+#define BOOST_CPP_UNORDERED_SET_HDR <boost/unordered_set.hpp>
+#else
+#define BOOST_CPP_HAS_UNORDERED_SET 1
+#define BOOST_CPP_UNORDERED_SET_NS std
+#define BOOST_CPP_UNORDERED_SET_HDR <unordered_set>
+#endif
+
+#endif // !defined(BOOST_CONFIG_CPP_UNORDERED_SET_HPP)

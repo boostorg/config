@@ -1,5 +1,6 @@
-[article Boost.Config
-    [quickbook 1.4]
+[library Boost.Config
+    [quickbook 1.6]
+    [compatibility-mode 1.4]
     [authors [Beman Dawes, Vesa Karvonen, John Maddock] ]
     [copyright 2001-2007 Beman Dawes, Vesa Karvonen, John Maddock]
     [category broken compiler workarounds]
@@ -55,8 +56,3 @@ Distributed under the Boost Software License, Version 1.0.
 [include guidelines.qbk]
 [include rationale.qbk]
 [include acknowledgements.qbk]
-
-
-
-
-
