@@ -66,6 +66,13 @@ int test()
 {
   int i = square(5);
   quiet_warning(i);
+
+  switch (i)
+  {
+  case a:
+    break;
+  }
+
   return 0;
 }
 
