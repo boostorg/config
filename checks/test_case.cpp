@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon Oct 13 13:09:13 2014
+//  This file was automatically generated on Fri Jun 26 21:48:00 2015
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -428,6 +428,10 @@ namespace test = boost_no_cxx14_digit_separators;
 #ifdef TEST_BOOST_NO_CXX14_GENERIC_LAMBDAS
 #  include "../test/boost_no_cxx14_generic_lambda.ipp"
 namespace test = boost_no_cxx14_generic_lambdas;
+#endif
+#ifdef TEST_BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#  include "../test/boost_no_cxx14_hdr_shared_mutex.ipp"
+namespace test = boost_no_cxx14_hdr_shared_mutex;
 #endif
 #ifdef TEST_BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURES
 #  include "../test/boost_no_cxx14_lambda_capture.ipp"
