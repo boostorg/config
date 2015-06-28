@@ -71,8 +71,6 @@
 #if !__has_include(<shared_mutex>)
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
 #endif
-#elif defined(__clang__) && (__clang_major__ < 3 || (__clang_major__ == 3 && __clang_minor__ < 4))
-#  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
 #elif __cplusplus < 201402
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
 #endif
