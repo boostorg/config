@@ -158,6 +158,18 @@
 #  define BOOST_LIBSTDCXX_VERSION (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)
 #endif
 
+// std::auto_ptr isn't provided with _GLIBCXX_DEPRECATED=0 (GCC 4.5 and earlier)
+// or _GLIBCXX_USE_DEPRECATED=0 (GCC 4.6 and later).
+#if defined(BOOST_LIBSTDCXX11)
+#  if BOOST_LIBSTDCXX_VERSION < 40600
+#     if !_GLIBCXX_DEPRECATED
+#        define BOOST_NO_AUTO_PTR
+#     endif
+#  elif !_GLIBCXX_USE_DEPRECATED
+#     define BOOST_NO_AUTO_PTR
+#  endif
+#endif
+
 //  C++0x headers in GCC 4.3.0 and later
 //
 #if (BOOST_LIBSTDCXX_VERSION < 40300) || !defined(BOOST_LIBSTDCXX11)
