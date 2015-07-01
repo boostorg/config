@@ -83,14 +83,6 @@
 #  define BOOST_NO_CXX11_REF_QUALIFIERS
 #  define BOOST_NO_CXX11_FINAL
 
-#if defined(__has_include)
-#if !__has_include(<shared_mutex>)
-#  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
-#endif
-#else
-#  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
-#endif
-
 // C++ 14:
 #if !defined(__cpp_aggregate_nsdmi) || (__cpp_aggregate_nsdmi < 201304)
 #  define BOOST_NO_CXX14_AGGREGATE_NSDMI
