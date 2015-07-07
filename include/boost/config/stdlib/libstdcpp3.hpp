@@ -128,7 +128,7 @@
 #  define BOOST_LIBSTDCXX_VERSION 40900
 #elif __has_include(<ext/cmath>)
 #  define BOOST_LIBSTDCXX_VERSION 40800
-#elif __has_include(<chrono>)
+#elif __has_include(<scoped_allocator>)
 #  define BOOST_LIBSTDCXX_VERSION 40700
 #elif __has_include(<typeindex>)
 #  define BOOST_LIBSTDCXX_VERSION 40600
