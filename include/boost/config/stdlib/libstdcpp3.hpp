@@ -235,6 +235,16 @@
 #  define BOOST_NO_CXX11_STD_ALIGN
 #endif
 
+#if defined(__has_include)
+#if !__has_include(<shared_mutex>)
+#  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#elif __cplusplus <= 201103
+#  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#endif
+#elif __cplusplus < 201402 || (BOOST_LIBSTDCXX_VERSION < 40900) || !defined(BOOST_LIBSTDCXX11)
+#  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#endif
+
 //
 // Headers not present on Solaris with the Oracle compiler:
 #if defined(__SUNPRO_CC)
@@ -253,6 +263,9 @@
 #  endif
 #  ifndef BOOST_NO_CXX11_HDR_THREAD
 #     define BOOST_NO_CXX11_HDR_THREAD
+#  endif
+#  ifndef BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#     define BOOST_NO_CXX14_HDR_SHARED_MUTEX
 #  endif
 #endif
 
