@@ -176,7 +176,9 @@
 
 //  520..610 have std::addressof, but it doesn't support functions
 //
+#if !defined(_CPPLIB_VER) || _CPPLIB_VER < 650
 #  define BOOST_NO_CXX11_ADDRESSOF
+#endif
 
 #ifdef _CPPLIB_VER
 #  define BOOST_DINKUMWARE_STDLIB _CPPLIB_VER
