@@ -174,9 +174,9 @@
 #  define BOOST_NO_CXX11_DECLTYPE_N3276
 #endif
 
-// C++11 features supported by VC++ 14 (aka 2015) CTP 5
+// C++11 features supported by VC++ 14 (aka 2015)
 //
-#if (_MSC_FULL_VER < 190022512)
+#if (_MSC_FULL_VER < 190023026)
 #  define BOOST_NO_CXX11_NOEXCEPT
 #  define BOOST_NO_CXX11_REF_QUALIFIERS
 #  define BOOST_NO_CXX11_USER_DEFINED_LITERALS
@@ -191,10 +191,10 @@
 #  define BOOST_NO_CXX14_BINARY_LITERALS
 #  define BOOST_NO_CXX14_GENERIC_LAMBDAS
 #  define BOOST_NO_CXX14_DIGIT_SEPARATORS
+#  define BOOST_NO_CXX11_CONSTEXPR
 #endif
 
 // C++11 features not supported by any versions
-#define BOOST_NO_CXX11_CONSTEXPR
 #define BOOST_NO_SFINAE_EXPR
 #define BOOST_NO_TWO_PHASE_NAME_LOOKUP
 
