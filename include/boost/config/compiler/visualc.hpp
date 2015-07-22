@@ -191,12 +191,16 @@
 #  define BOOST_NO_CXX14_BINARY_LITERALS
 #  define BOOST_NO_CXX14_GENERIC_LAMBDAS
 #  define BOOST_NO_CXX14_DIGIT_SEPARATORS
-#  define BOOST_NO_CXX11_CONSTEXPR
 #endif
 
 // C++11 features not supported by any versions
 #define BOOST_NO_SFINAE_EXPR
 #define BOOST_NO_TWO_PHASE_NAME_LOOKUP
+//
+// This is somewhat supported in VC14, but we may need to wait for
+// a service release before enabling:
+//
+#define BOOST_NO_CXX11_CONSTEXPR
 
 // C++ 14:
 #if !defined(__cpp_aggregate_nsdmi) || (__cpp_aggregate_nsdmi < 201304)
