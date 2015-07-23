@@ -27,6 +27,7 @@
 #define BOOST_HAS_EXPM1
 #define BOOST_HAS_LOG1P
 #undef BOOST_NO_CXX14_BINARY_LITERALS
+// This one may be a little risky to enable??
 #undef BOOST_NO_SFINAE_EXPR
 
 #endif
