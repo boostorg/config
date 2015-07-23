@@ -187,6 +187,8 @@
 // "Value-initialization in new-expression", reported in 2005 by
 // Pavel Kuznetsov (MetaCommunications Engineering):
 // https://connect.microsoft.com/VisualStudio/feedback/details/100744
+// Reported again by John Maddock in 2015 for VC14:
+// https://connect.microsoft.com/VisualStudio/feedback/details/1582233/c-subobjects-still-not-value-initialized-correctly
 // See also: http://www.boost.org/libs/utility/value_init.htm#compiler_issues
 // (Niels Dekker, LKEB, May 2010)
 #define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
