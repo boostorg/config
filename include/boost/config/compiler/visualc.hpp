@@ -67,23 +67,6 @@
 #endif
 
 
-// MSVC before version 14 has not yet completely
-// implemented value-initialization, as is reported:
-// "VC++ does not value-initialize members of derived classes without
-// user-declared constructor", reported in 2009 by Sylvester Hesp:
-// https://connect.microsoft.com/VisualStudio/feedback/details/484295
-// "Presence of copy constructor breaks member class initialization",
-// reported in 2009 by Alex Vakulenko:
-// https://connect.microsoft.com/VisualStudio/feedback/details/499606
-// "Value-initialization in new-expression", reported in 2005 by
-// Pavel Kuznetsov (MetaCommunications Engineering):
-// https://connect.microsoft.com/VisualStudio/feedback/details/100744
-// See also: http://www.boost.org/libs/utility/value_init.htm#compiler_issues
-// (Niels Dekker, LKEB, May 2010)
-#if _MSC_VER < 1900
-#  define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
-#endif
-
 #ifndef _NATIVE_WCHAR_T_DEFINED
 #  define BOOST_NO_INTRINSIC_WCHAR_T
 #endif
@@ -193,6 +176,20 @@
 #  define BOOST_NO_CXX14_DIGIT_SEPARATORS
 #endif
 
+// MSVC including version 14 has not yet completely
+// implemented value-initialization, as is reported:
+// "VC++ does not value-initialize members of derived classes without
+// user-declared constructor", reported in 2009 by Sylvester Hesp:
+// https://connect.microsoft.com/VisualStudio/feedback/details/484295
+// "Presence of copy constructor breaks member class initialization",
+// reported in 2009 by Alex Vakulenko:
+// https://connect.microsoft.com/VisualStudio/feedback/details/499606
+// "Value-initialization in new-expression", reported in 2005 by
+// Pavel Kuznetsov (MetaCommunications Engineering):
+// https://connect.microsoft.com/VisualStudio/feedback/details/100744
+// See also: http://www.boost.org/libs/utility/value_init.htm#compiler_issues
+// (Niels Dekker, LKEB, May 2010)
+#define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
 // C++11 features not supported by any versions
 #define BOOST_NO_SFINAE_EXPR
 #define BOOST_NO_TWO_PHASE_NAME_LOOKUP
