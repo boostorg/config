@@ -16,11 +16,11 @@ namespace boost_no_cxx14_hdr_shared_mutex {
 
 int test()
 {
-#if defined(__cpp_lib_shared_timed_mutex) && __cpp_lib_shared_timed_mutex == 201402
+  //
+  // We should probably test __cpp_lib_shared_timed_mutex here, but since neither
+  // MSVC/Dinkumware, nor clang/libc++ bother to set it (as of July 2015), there's
+  // not much point....
   using std::shared_timed_mutex;
-#else
-  using std::shared_mutex;
-#endif
   return 0;
 }
 
