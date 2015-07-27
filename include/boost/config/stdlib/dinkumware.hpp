@@ -169,6 +169,13 @@
 #  define BOOST_NO_CXX11_ADDRESSOF
 #endif
 
+// Bug specific to VC14, 
+// See https://connect.microsoft.com/VisualStudio/feedback/details/1348277/link-error-when-using-std-codecvt-utf8-utf16-char16-t
+// and discussion here: http://blogs.msdn.com/b/vcblog/archive/2014/11/12/visual-studio-2015-preview-now-available.aspx?PageIndex=2
+#if  _CPPLIB_VER == 650
+#  define BOOST_NO_CXX11_HDR_CODECVT
+#endif
+
 #ifdef _CPPLIB_VER
 #  define BOOST_DINKUMWARE_STDLIB _CPPLIB_VER
 #else
