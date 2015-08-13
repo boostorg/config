@@ -501,6 +501,16 @@ namespace boost{
 #  endif
 }
 #endif
+// same again for __float128:
+#if defined(BOOST_HAS_FLOAT128) && defined(__cplusplus)
+namespace boost {
+#  ifdef __GNUC__
+   __extension__ typedef __float128 float128_type;
+#  else
+   typedef __float128 float128_type;
+#  endif
+}
+#endif
 
 // BOOST_[APPEND_]EXPLICIT_TEMPLATE_[NON_]TYPE macros --------------------------//
 
