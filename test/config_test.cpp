@@ -1,4 +1,4 @@
-//  This file was automatically generated on Fri Jun 26 21:48:00 2015
+//  This file was automatically generated on Thu Aug 13 16:32:12 2015
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -753,6 +753,11 @@ namespace boost_has_dirent_h = empty_boost;
 #else
 namespace boost_has_expm1 = empty_boost;
 #endif
+#ifdef BOOST_HAS_FLOAT128
+#include "boost_has_float128.ipp"
+#else
+namespace boost_has_float128 = empty_boost;
+#endif
 #ifdef BOOST_HAS_FTIME
 #include "boost_has_ftime.ipp"
 #else
@@ -1014,6 +1019,11 @@ int main( int, char *[] )
    if(0 != boost_has_expm1::test())
    {
       std::cerr << "Failed test for BOOST_HAS_EXPM1 at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_has_float128::test())
+   {
+      std::cerr << "Failed test for BOOST_HAS_FLOAT128 at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_has_ftime::test())
