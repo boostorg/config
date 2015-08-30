@@ -1,4 +1,4 @@
-//  This file was automatically generated on Thu Aug 13 16:32:12 2015
+//  This file was automatically generated on Sun Aug 30 11:21:58 2015
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -401,6 +401,11 @@ namespace boost_no_cxx11_function_template_default_args = empty_boost;
 #include "boost_no_function_type_spec.ipp"
 #else
 namespace boost_no_function_type_specializations = empty_boost;
+#endif
+#ifndef BOOST_NO_GLOBAL_FILESYSTEM_NAMESPACE
+#include "boost_no_global_filesystem_namespace.ipp"
+#else
+namespace boost_no_global_filesystem_namespace = empty_boost;
 #endif
 #ifndef BOOST_NO_MS_INT64_NUMERIC_LIMITS
 #include "boost_no_i64_limits.ipp"
@@ -1639,6 +1644,11 @@ int main( int, char *[] )
    if(0 != boost_no_function_type_specializations::test())
    {
       std::cerr << "Failed test for BOOST_NO_FUNCTION_TYPE_SPECIALIZATIONS at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_global_filesystem_namespace::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_GLOBAL_FILESYSTEM_NAMESPACE at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_ms_int64_numeric_limits::test())

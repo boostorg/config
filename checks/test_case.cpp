@@ -1,4 +1,4 @@
-//  This file was automatically generated on Thu Aug 13 16:32:12 2015
+//  This file was automatically generated on Sun Aug 30 11:21:58 2015
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -524,6 +524,10 @@ namespace test = boost_no_cxx11_function_template_default_args;
 #ifdef TEST_BOOST_NO_FUNCTION_TYPE_SPECIALIZATIONS
 #  include "../test/boost_no_function_type_spec.ipp"
 namespace test = boost_no_function_type_specializations;
+#endif
+#ifdef TEST_BOOST_NO_GLOBAL_FILESYSTEM_NAMESPACE
+#  include "../test/boost_no_global_filesystem_namespace.ipp"
+namespace test = boost_no_global_filesystem_namespace;
 #endif
 #ifdef TEST_BOOST_NO_MS_INT64_NUMERIC_LIMITS
 #  include "../test/boost_no_i64_limits.ipp"
