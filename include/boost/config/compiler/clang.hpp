@@ -261,7 +261,7 @@
 #endif
 
 // Clang has supported the 'unused' attribute since the first release.
-#define BOOST_ATTRIBUTE_UNUSED __attribute__((unused))
+#define BOOST_ATTRIBUTE_UNUSED __attribute__((__unused__))
 
 #ifndef BOOST_COMPILER
 #  define BOOST_COMPILER "Clang version " __clang_version__
