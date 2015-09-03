@@ -260,9 +260,8 @@
 #  define BOOST_NO_CXX14_DIGIT_SEPARATORS
 #endif
 
-#if __has_attribute(unused)
-#  define BOOST_ATTRIBUTE_UNUSED __attribute__((unused))
-#endif
+// Clang has supported the 'unused' attribute since the first release.
+#define BOOST_ATTRIBUTE_UNUSED __attribute__((unused))
 
 #ifndef BOOST_COMPILER
 #  define BOOST_COMPILER "Clang version " __clang_version__
