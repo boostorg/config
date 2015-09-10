@@ -64,14 +64,6 @@
 #     define BOOST_STATIC_ASSERT_BOOL_CAST(x) (bool)(x)
 #  endif
 #endif
-//
-// If the compiler warns about unused typedefs then enable this:
-//
-#if defined(__GNUC__) && (__GNUC__ >= 4)
-#  define BOOST_STATIC_ASSERT_UNUSED_ATTRIBUTE __attribute__((unused))
-#else
-#  define BOOST_STATIC_ASSERT_UNUSED_ATTRIBUTE
-#endif
 
 #ifndef BOOST_NO_CXX11_STATIC_ASSERT
 #  ifndef BOOST_NO_CXX11_VARIADIC_MACROS
@@ -160,12 +152,12 @@ template<int x> struct static_assert_test{};
 #     define BOOST_STATIC_ASSERT( ... ) \
          typedef ::boost::static_assert_test<\
             sizeof(::boost::STATIC_ASSERTION_FAILURE< BOOST_STATIC_ASSERT_BOOL_CAST( __VA_ARGS__ ) >)>\
-               BOOST_JOIN(boost_static_assert_typedef_, __LINE__) BOOST_STATIC_ASSERT_UNUSED_ATTRIBUTE
+               BOOST_JOIN(boost_static_assert_typedef_, __LINE__) BOOST_ATTRIBUTE_UNUSED
 #  else
 #     define BOOST_STATIC_ASSERT( B ) \
          typedef ::boost::static_assert_test<\
             sizeof(::boost::STATIC_ASSERTION_FAILURE< BOOST_STATIC_ASSERT_BOOL_CAST( B ) >)>\
-               BOOST_JOIN(boost_static_assert_typedef_, __LINE__) BOOST_STATIC_ASSERT_UNUSED_ATTRIBUTE
+               BOOST_JOIN(boost_static_assert_typedef_, __LINE__) BOOST_ATTRIBUTE_UNUSED
 #  endif
 #endif
 
