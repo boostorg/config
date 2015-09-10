@@ -23,6 +23,10 @@
 #define __has_extension __has_feature
 #endif
 
+#ifndef __has_attribute
+#define __has_attribute(x) 0
+#endif
+
 #if !__has_feature(cxx_exceptions) && !defined(BOOST_NO_EXCEPTIONS)
 #  define BOOST_NO_EXCEPTIONS
 #endif
@@ -256,11 +260,8 @@
 #  define BOOST_NO_CXX14_DIGIT_SEPARATORS
 #endif
 
-
-// Unused attribute:
-#if defined(__GNUC__) && (__GNUC__ >= 4)
-#  define BOOST_ATTRIBUTE_UNUSED __attribute__((unused))
-#endif
+// Clang has supported the 'unused' attribute since the first release.
+#define BOOST_ATTRIBUTE_UNUSED __attribute__((__unused__))
 
 #ifndef BOOST_COMPILER
 #  define BOOST_COMPILER "Clang version " __clang_version__
