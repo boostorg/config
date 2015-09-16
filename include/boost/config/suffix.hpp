@@ -444,10 +444,12 @@ namespace std {
 // is defined, in which case it evaluates to return x; Use when you have a return
 // statement that can never be reached.
 
-#ifdef BOOST_NO_UNREACHABLE_RETURN_DETECTION
-#  define BOOST_UNREACHABLE_RETURN(x) return x;
-#else
-#  define BOOST_UNREACHABLE_RETURN(x)
+#ifndef BOOST_UNREACHABLE_RETURN
+#  ifdef BOOST_NO_UNREACHABLE_RETURN_DETECTION
+#     define BOOST_UNREACHABLE_RETURN(x) return x;
+#  else
+#     define BOOST_UNREACHABLE_RETURN(x)
+#  endif
 #endif
 
 // BOOST_DEDUCED_TYPENAME workaround ------------------------------------------//

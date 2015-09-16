@@ -278,6 +278,11 @@
 #if __GNUC__ >= 4
 #  define BOOST_ATTRIBUTE_UNUSED __attribute__((unused))
 #endif
+//
+// __builtin_unreachable:
+#if BOOST_GCC_VERSION >= 40800
+#define BOOST_UNREACHABLE_RETURN(x) __builtin_unreachable();
+#endif
 
 #ifndef BOOST_COMPILER
 #  define BOOST_COMPILER "GNU C++ version " __VERSION__

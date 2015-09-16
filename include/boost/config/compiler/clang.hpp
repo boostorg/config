@@ -255,6 +255,11 @@
 // All versions with __cplusplus above this value seem to support this:
 #  define BOOST_NO_CXX14_DIGIT_SEPARATORS
 #endif
+//
+// __builtin_unreachable:
+#if defined(__has_builtin) && __has_builtin(__builtin_unreachable)
+#define BOOST_UNREACHABLE_RETURN(x) __builtin_unreachable();
+#endif
 
 
 // Unused attribute:
