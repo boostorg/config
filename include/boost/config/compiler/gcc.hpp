@@ -276,7 +276,7 @@
 //
 // Unused attribute:
 #if __GNUC__ >= 4
-#  define BOOST_ATTRIBUTE_UNUSED __attribute__((unused))
+#  define BOOST_ATTRIBUTE_UNUSED __attribute__((__unused__))
 #endif
 //
 // __builtin_unreachable:
