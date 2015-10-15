@@ -348,6 +348,9 @@ The platform has the POSIX header `<dirent.h>`.
 [[`BOOST_HAS_EXPM1`][Platform][
 The platform has the functions `expm1`, `expm1f` and `expm1l` in `<math.h>`
 ]]
+[[`BOOST_HAS_FLOAT128`][Compiler][
+The compiler has `__float128` as a native type which is distinct
+from all the regular C++ floating point types.]]
 [[`BOOST_HAS_FTIME`][Platform][
 The platform has the Win32 API type FTIME.
 ]]

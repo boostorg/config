@@ -1,4 +1,4 @@
-//  This file was automatically generated on Fri Jun 26 21:48:00 2015
+//  This file was automatically generated on Thu Aug 13 16:32:12 2015
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -28,6 +28,10 @@ namespace test = boost_has_dirent_h;
 #ifdef TEST_BOOST_HAS_EXPM1
 #  include "../test/boost_has_expm1.ipp"
 namespace test = boost_has_expm1;
+#endif
+#ifdef TEST_BOOST_HAS_FLOAT128
+#  include "../test/boost_has_float128.ipp"
+namespace test = boost_has_float128;
 #endif
 #ifdef TEST_BOOST_HAS_FTIME
 #  include "../test/boost_has_ftime.ipp"
