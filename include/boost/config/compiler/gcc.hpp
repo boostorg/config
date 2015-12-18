@@ -134,7 +134,7 @@
 // Recent GCC versions have __int128 when in 64-bit mode.
 //
 // We disable this if the compiler is really nvcc as it
-// doesn't actually support __int128 as of CUDA_VERSION=5000
+// doesn't actually support __int128 as of CUDA_VERSION=7500
 // even though it defines __SIZEOF_INT128__.
 // See https://svn.boost.org/trac/boost/ticket/8048
 // Only re-enable this for nvcc if you're absolutely sure
@@ -148,12 +148,16 @@
 // include a std lib header to detect this - not ideal, but we'll
 // be including <cstddef> later anyway when we select the std lib.
 //
+// Nevertheless, as of CUDA 7.5, using __float128 with the host
+// compiler is still not supported.
+// See https://svn.boost.org/trac/boost/ticket/11852
+//
 #ifdef __cplusplus
 #include <cstddef>
 #else
 #include <stddef.h>
 #endif
-#if defined(_GLIBCXX_USE_FLOAT128) && !defined(__STRICT_ANSI__)
+#if defined(_GLIBCXX_USE_FLOAT128) && !defined(__STRICT_ANSI__) && !defined(__CUDACC__)
 # define BOOST_HAS_FLOAT128
 #endif
 
