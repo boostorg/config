@@ -23,6 +23,7 @@
 //  It should contain boilerplate code only - no compiler specific
 //  code unless it is unavoidable - no changes unless unavoidable.
 
+#include <unistd.h>
 #ifndef BOOST_CONFIG_SUFFIX_HPP
 #define BOOST_CONFIG_SUFFIX_HPP
 
@@ -248,6 +249,7 @@
 //
 #if (defined(__MT__) || defined(_MT) || defined(_REENTRANT) \
     || defined(_PTHREADS) || defined(__APPLE__) || defined(__DragonFly__)) \
+    || (defined(_POSIX_THREADS) && (_POSIX_THREADS+0 >= 0)) \
     && !defined(BOOST_HAS_THREADS)
 #  define BOOST_HAS_THREADS
 #endif
