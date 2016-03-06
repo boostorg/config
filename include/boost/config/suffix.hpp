@@ -23,9 +23,13 @@
 //  It should contain boilerplate code only - no compiler specific
 //  code unless it is unavoidable - no changes unless unavoidable.
 
-#include <unistd.h>
+
 #ifndef BOOST_CONFIG_SUFFIX_HPP
 #define BOOST_CONFIG_SUFFIX_HPP
+
+#if defined BOOST_HAS_UNISTD_H 
+#include <unistd.h> 
+#endif
 
 #if defined(__GNUC__) && (__GNUC__ >= 4)
 //
