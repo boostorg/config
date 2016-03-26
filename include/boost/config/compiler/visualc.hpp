@@ -158,6 +158,11 @@
 #  define BOOST_NO_CXX11_DECLTYPE_N3276
 #endif
 
+#if _MSC_FULL_VER >= 180020827
+#define BOOST_HAS_EXPM1
+#define BOOST_HAS_LOG1P
+#endif
+
 // C++11 features supported by VC++ 14 (aka 2015)
 //
 #if (_MSC_FULL_VER < 190023026)
