@@ -39,7 +39,7 @@
 #  define BOOST_NO_TYPEID
 #endif
 
-#if !__is_identifier(__int64) && !defined(__GNUC__)
+#if defined(__is_identifier) && !__is_identifier(__int64) && !defined(__GNUC__)
 #  define BOOST_HAS_MS_INT64
 #endif
 
