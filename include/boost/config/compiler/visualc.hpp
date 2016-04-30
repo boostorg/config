@@ -198,14 +198,22 @@
 // See also: http://www.boost.org/libs/utility/value_init.htm#compiler_issues
 // (Niels Dekker, LKEB, May 2010)
 #define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
+//
 // C++11 features not supported by any versions
-#define BOOST_NO_SFINAE_EXPR
 #define BOOST_NO_TWO_PHASE_NAME_LOOKUP
+//
+// To ease testing MSVC compiler updates, suppress BOOST_NO_SFINAE_EXPR if requested
+#ifndef BOOST_MSVC_SFINAE_EXPR
+#define BOOST_NO_SFINAE_EXPR
+#endif
 //
 // This is somewhat supported in VC14, but we may need to wait for
 // a service release before enabling:
 //
+// To ease testing MSVC compiler updates, suppress BOOST_NO_CXX11_CONSTEXPR if requested
+#ifndef BOOST_MSVC_CXX11_CONSTEXPR
 #define BOOST_NO_CXX11_CONSTEXPR
+#endif
 
 // C++ 14:
 #if !defined(__cpp_aggregate_nsdmi) || (__cpp_aggregate_nsdmi < 201304)
