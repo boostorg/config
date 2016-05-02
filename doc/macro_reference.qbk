@@ -1360,7 +1360,7 @@ include separate source code, and are intended to address several issues:
 * Fixing the ABI of the compiled library
 * Selecting which compiled library to link against based upon the compilers settings
 
-See [@http://svn.boost.org/trac/boost/wiki/Guidelines/Separate Guidelines for Authors of Boost Libraries Containing Separate Source] 
+See [@http://www.boost.org/development/separate_compilation.html Guidelines for Authors of Boost Libraries Containing Separate Source]
 
 [section Macros controlling shared library symbol visibility]
 
