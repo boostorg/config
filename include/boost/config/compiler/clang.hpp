@@ -39,6 +39,10 @@
 #  define BOOST_NO_TYPEID
 #endif
 
+#if !__has_feature(cxx_thread_local)
+#  define BOOST_NO_CXX11_THREAD_LOCAL
+#endif
+
 #ifdef __is_identifier
 #if !__is_identifier(__int64) && !defined(__GNUC__)
 #  define BOOST_HAS_MS_INT64

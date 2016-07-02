@@ -180,6 +180,7 @@
 #  define BOOST_NO_CXX14_BINARY_LITERALS
 #  define BOOST_NO_CXX14_GENERIC_LAMBDAS
 #  define BOOST_NO_CXX14_DIGIT_SEPARATORS
+#  define BOOST_NO_CXX11_THREAD_LOCAL
 #endif
 
 // MSVC including version 14 has not yet completely
