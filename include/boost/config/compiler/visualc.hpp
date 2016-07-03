@@ -182,6 +182,13 @@
 #  define BOOST_NO_CXX14_DIGIT_SEPARATORS
 #  define BOOST_NO_CXX11_THREAD_LOCAL
 #endif
+// C++11 features supported by VC++ 14 update 3 (aka 2015)
+//
+#if (_MSC_FULL_VER < 190024210)
+#  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
+#  define BOOST_NO_SFINAE_EXPR
+#  define BOOST_NO_TWO_PHASE_NAME_LOOKUP
+#endif
 
 // MSVC including version 14 has not yet completely
 // implemented value-initialization, as is reported:
@@ -201,18 +208,15 @@
 #define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
 //
 // C++11 features not supported by any versions
-#define BOOST_NO_TWO_PHASE_NAME_LOOKUP
-//
-// To ease testing MSVC compiler updates, suppress BOOST_NO_SFINAE_EXPR if requested
-#ifndef BOOST_MSVC_SFINAE_EXPR
-#define BOOST_NO_SFINAE_EXPR
-#endif
 //
 // This is somewhat supported in VC14, but we may need to wait for
 // a service release before enabling:
 //
 // To ease testing MSVC compiler updates, suppress BOOST_NO_CXX11_CONSTEXPR if requested
 #ifndef BOOST_MSVC_CXX11_CONSTEXPR
+// Not defining this for VC14up3 causes harmless failures in multiprecision and metaparse
+// but a critical failure in chrono (nothing much builds).  It also causes a strange runtime
+// failure in type_erasure.
 #define BOOST_NO_CXX11_CONSTEXPR
 #endif
 
@@ -222,9 +226,6 @@
 #endif
 #if !defined(__cpp_constexpr) || (__cpp_constexpr < 201304)
 #  define BOOST_NO_CXX14_CONSTEXPR
-#endif
-#if !defined(__cpp_variable_templates) || (__cpp_variable_templates < 201304)
-#  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #endif
 
 //
