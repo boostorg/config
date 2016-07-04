@@ -188,6 +188,7 @@
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #  define BOOST_NO_SFINAE_EXPR
 #  define BOOST_NO_TWO_PHASE_NAME_LOOKUP
+#  define BOOST_NO_CXX11_CONSTEXPR
 #endif
 
 // MSVC including version 14 has not yet completely
@@ -207,19 +208,6 @@
 // (Niels Dekker, LKEB, May 2010)
 #define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
 //
-// C++11 features not supported by any versions
-//
-// This is somewhat supported in VC14, but we may need to wait for
-// a service release before enabling:
-//
-// To ease testing MSVC compiler updates, suppress BOOST_NO_CXX11_CONSTEXPR if requested
-#ifndef BOOST_MSVC_CXX11_CONSTEXPR
-// Not defining this for VC14up3 causes harmless failures in multiprecision and metaparse
-// but a critical failure in chrono (nothing much builds).  It also causes a strange runtime
-// failure in type_erasure.
-#define BOOST_NO_CXX11_CONSTEXPR
-#endif
-
 // C++ 14:
 #if !defined(__cpp_aggregate_nsdmi) || (__cpp_aggregate_nsdmi < 201304)
 #  define BOOST_NO_CXX14_AGGREGATE_NSDMI
