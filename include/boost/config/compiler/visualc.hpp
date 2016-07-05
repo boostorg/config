@@ -187,7 +187,6 @@
 #if (_MSC_FULL_VER < 190024210)
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #  define BOOST_NO_SFINAE_EXPR
-#  define BOOST_NO_TWO_PHASE_NAME_LOOKUP
 #  define BOOST_NO_CXX11_CONSTEXPR
 #endif
 
@@ -207,6 +206,10 @@
 // See also: http://www.boost.org/libs/utility/value_init.htm#compiler_issues
 // (Niels Dekker, LKEB, May 2010)
 #define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
+//
+// C++ 11:
+//
+#define BOOST_NO_TWO_PHASE_NAME_LOOKUP
 //
 // C++ 14:
 #if !defined(__cpp_aggregate_nsdmi) || (__cpp_aggregate_nsdmi < 201304)
