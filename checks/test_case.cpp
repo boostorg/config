@@ -1,4 +1,4 @@
-//  This file was automatically generated on Thu Aug 13 16:32:12 2015
+//  This file was automatically generated on Fri Jul  1 18:47:25 2016
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -404,6 +404,10 @@ namespace test = boost_no_cxx11_smart_ptr;
 #ifdef TEST_BOOST_NO_CXX11_STD_ALIGN
 #  include "../test/boost_no_cxx11_std_align.ipp"
 namespace test = boost_no_cxx11_std_align;
+#endif
+#ifdef TEST_BOOST_NO_CXX11_THREAD_LOCAL
+#  include "../test/boost_no_cxx11_thread_local.ipp"
+namespace test = boost_no_cxx11_thread_local;
 #endif
 #ifdef TEST_BOOST_NO_CXX11_TRAILING_RESULT_TYPES
 #  include "../test/boost_no_cxx11_trailing_result_types.ipp"

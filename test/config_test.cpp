@@ -1,4 +1,4 @@
-//  This file was automatically generated on Thu Aug 13 16:32:12 2015
+//  This file was automatically generated on Fri Jul  1 18:47:25 2016
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -251,6 +251,11 @@ namespace boost_no_cxx11_smart_ptr = empty_boost;
 #include "boost_no_cxx11_std_align.ipp"
 #else
 namespace boost_no_cxx11_std_align = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX11_THREAD_LOCAL
+#include "boost_no_cxx11_thread_local.ipp"
+#else
+namespace boost_no_cxx11_thread_local = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX11_TRAILING_RESULT_TYPES
 #include "boost_no_cxx11_trailing_result_types.ipp"
@@ -1489,6 +1494,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx11_std_align::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX11_STD_ALIGN at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx11_thread_local::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX11_THREAD_LOCAL at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx11_trailing_result_types::test())

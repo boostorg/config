@@ -702,6 +702,8 @@ scoped enumerations (`enum class`).
 ]]
 [[`BOOST_NO_CXX11_TEMPLATE_ALIASES`][The compiler does not support template aliases. 
 ]]
+[[`BOOST_NO_CXX11_THREAD_LOCAL`][The compiler does not support the `thread_local` storage specifier. 
+]]
 [[`BOOST_NO_CXX11_TRAILING_RESULT_TYPES`][The compiler does not support the new function result type
 specification syntax (e.g. `auto foo(T) -> T;`).]]
 [[`BOOST_NO_CXX11_UNICODE_LITERALS`][The compiler does not support
@@ -1360,7 +1362,7 @@ include separate source code, and are intended to address several issues:
 * Fixing the ABI of the compiled library
 * Selecting which compiled library to link against based upon the compilers settings
 
-See [@http://svn.boost.org/trac/boost/wiki/Guidelines/Separate Guidelines for Authors of Boost Libraries Containing Separate Source] 
+See [@http://www.boost.org/development/separate_compilation.html Guidelines for Authors of Boost Libraries Containing Separate Source]
 
 [section Macros controlling shared library symbol visibility]
 
