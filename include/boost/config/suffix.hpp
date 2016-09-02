@@ -27,10 +27,6 @@
 #ifndef BOOST_CONFIG_SUFFIX_HPP
 #define BOOST_CONFIG_SUFFIX_HPP
 
-#if defined BOOST_HAS_UNISTD_H 
-#include <unistd.h> 
-#endif
-
 #if defined(__GNUC__) && (__GNUC__ >= 4)
 //
 // Some GCC-4.x versions issue warnings even when __extension__ is used,
@@ -251,9 +247,8 @@
 // limited number of macros that identify this (if there's any missing
 // from here then add to the appropriate compiler section):
 //
-#if (defined(__MT__) || defined(_MT) || defined(_REENTRANT) \
+#if (defined(__MT__) || defined(_MT) || defined(_REENTRANT) || defined(__SunOS_5_12) \
     || defined(_PTHREADS) || defined(__APPLE__) || defined(__DragonFly__)) \
-    || (defined(_POSIX_THREADS) && (_POSIX_THREADS+0 >= 0)) \
     && !defined(BOOST_HAS_THREADS)
 #  define BOOST_HAS_THREADS
 #endif
