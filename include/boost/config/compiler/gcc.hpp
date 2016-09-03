@@ -13,7 +13,7 @@
 
 //  GNU C++ compiler setup.
 
-#include "gcc_clone.hpp"
+#include "gcc_compatible.hpp"
 
 //
 // Define BOOST_GCC so we know this is "real" GCC and not some pretender:

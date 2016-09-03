@@ -1,11 +1,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 ///
-/// \file gcc_clone.hpp
-/// -------------------
+/// \file gcc_compatible.hpp
+/// ------------------------
 ///
-/// Definitions shared between GCC and its 'clones'/'emulators' (e.g. Clang)
+/// Definitions shared between GCC and its 'compatibles'/'emulators' (e.g.
+/// Clang)
 ///
-/// (c) Copyright Domagoj Saric 2015.
+/// (c) Copyright Domagoj Saric 2015 - 2016.
 ///
 ///  Use, modification and distribution are subject to the
 ///  Boost Software License, Version 1.0. (See accompanying file

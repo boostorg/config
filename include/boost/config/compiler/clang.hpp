@@ -9,7 +9,7 @@
 
 // Clang compiler setup.
 
-#include "gcc_clone.hpp"
+#include "gcc_compatible.hpp"
 
 #define BOOST_HAS_PRAGMA_ONCE
 
