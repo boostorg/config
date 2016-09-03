@@ -624,6 +624,10 @@ namespace std{ using ::type_info; }
 #    define BOOST_NORETURN __declspec(noreturn)
 #  elif defined(__GNUC__)
 #    define BOOST_NORETURN __attribute__ ((__noreturn__))
+#  elif defined(__has_cpp_attribute)
+#    if __has_cpp_attribute(noreturn)
+#      define BOOST_NORETURN [[noreturn]]
+#    endif
 #  else
 #    define BOOST_NO_NORETURN
 #    define BOOST_NORETURN
