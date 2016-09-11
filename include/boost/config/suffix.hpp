@@ -628,10 +628,12 @@ namespace std{ using ::type_info; }
 #    if __has_cpp_attribute(noreturn)
 #      define BOOST_NORETURN [[noreturn]]
 #    endif
-#  else
-#    define BOOST_NO_NORETURN
-#    define BOOST_NORETURN
 #  endif
+#endif
+
+#if !defined(BOOST_NORETURN)
+#  define BOOST_NO_NORETURN
+#  define BOOST_NORETURN
 #endif
 
 // Branch prediction hints
