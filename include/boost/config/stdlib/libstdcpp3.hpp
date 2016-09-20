@@ -151,7 +151,11 @@
 // Oracle Solaris compiler uses it's own verison of libstdc++ but doesn't 
 // set __GNUC__
 //
+#if __SUNPRO_CC >= 0x5140
+#define BOOST_LIBSTDCXX_VERSION 50100
+#else
 #define BOOST_LIBSTDCXX_VERSION 40800
+#endif
 #endif
 
 #if !defined(BOOST_LIBSTDCXX_VERSION)
@@ -259,7 +263,7 @@
 
 //
 // Headers not present on Solaris with the Oracle compiler:
-#if defined(__SUNPRO_CC)
+#if defined(__SUNPRO_CC) && (__SUNPRO_CC < 0x5140)
 #define BOOST_NO_CXX11_HDR_FUTURE
 #define BOOST_NO_CXX11_HDR_FORWARD_LIST 
 #define BOOST_NO_CXX11_HDR_ATOMIC
