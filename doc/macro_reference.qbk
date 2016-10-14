@@ -931,7 +931,7 @@ that are not yet supported by a particular compiler or library.
 
 [table
 [[Macro ][Description ]]
-[[`BOOST_NO_CXX17_STD_IVOKE`][The compiler does not support `std::invoke()`.]]
+[[`BOOST_NO_CXX17_STD_INVOKE`][The compiler does not support `std::invoke()`.]]
 ]
 
 [endsect]
