@@ -245,4 +245,7 @@ namespace boost { using std::min; using std::max; }
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
 #endif
 
+// C++17 features
+#  define BOOST_NO_CXX17_STD_INVOKE
+
 #define BOOST_STDLIB "STLPort standard library version " BOOST_STRINGIZE(__SGI_STL_PORT)
