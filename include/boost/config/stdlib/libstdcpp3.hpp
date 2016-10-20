@@ -123,7 +123,7 @@
 //
 #ifdef __clang__
 
-#if __has_include(<experimental/filesystem>)
+#if __has_include(<experimental/memory_resource>)
 #  define BOOST_LIBSTDCXX_VERSION 60100
 #elif __has_include(<experimental/any>)
 #  define BOOST_LIBSTDCXX_VERSION 50100
