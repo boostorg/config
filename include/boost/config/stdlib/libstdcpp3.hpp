@@ -123,9 +123,7 @@
 //
 #ifdef __clang__
 
-#include <functional>
-
-#if defined(__cpp_lib_invoke) && (__cpp_lib_invoke >= 201411)
+#if __has_include(<experimental/filesystem>)
 #  define BOOST_LIBSTDCXX_VERSION 60100
 #elif __has_include(<experimental/any>)
 #  define BOOST_LIBSTDCXX_VERSION 50100
