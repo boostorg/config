@@ -157,6 +157,11 @@
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
 #endif
 
+// C++17 features
+#if !defined(_CPPLIB_VER) || (_CPPLIB_VER < 650)
+#  define BOOST_NO_CXX17_STD_INVOKE
+#endif
+
 #if defined(BOOST_INTEL) && (BOOST_INTEL <= 1400)
 // Intel's compiler can't handle this header yet:
 #  define BOOST_NO_CXX11_HDR_ATOMIC
