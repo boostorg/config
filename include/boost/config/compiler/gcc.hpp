@@ -13,6 +13,9 @@
 
 //  GNU C++ compiler setup.
 
+// __cpp_lib_integer_sequence is defined in header <utility>
+#include <utility>
+
 //
 // Define BOOST_GCC so we know this is "real" GCC and not some pretender:
 //
@@ -285,6 +288,9 @@
 #endif
 #if !defined(__cpp_variable_templates) || (__cpp_variable_templates < 201304)
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
+#endif
+#if !defined(__cpp_lib_integer_sequence) || (__cpp_lib_integer_sequence < 201304)
+#  define BOOST_NO_CXX14_INTEGER_SEQUENCE
 #endif
 
 //
