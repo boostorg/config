@@ -73,8 +73,11 @@
 #if _LIBCPP_VERSION < 3700
 // libc++ uses a non-standard messages_base
 #define BOOST_NO_STD_MESSAGES
+#endif
+
 // C++17 features
-#define BOOST_NO_CXX17_STD_INVOKE
+#if (_LIBCPP_VERSION < 3700) || (__cplusplus <= 201402L)
+#  define BOOST_NO_CXX17_STD_INVOKE
 #endif
 
 #if (_LIBCPP_VERSION <= 1101) && !defined(BOOST_NO_CXX11_THREAD_LOCAL)
