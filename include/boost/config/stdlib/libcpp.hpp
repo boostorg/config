@@ -32,10 +32,14 @@
 #endif
 
 #if __cplusplus < 201103
-#  define BOOST_NO_CXX11_HDR_ARRAY
+//
+// These two appear to be somewhat useable in C++03 mode, there may be others...
+//
+//#  define BOOST_NO_CXX11_HDR_ARRAY
+//#  define BOOST_NO_CXX11_HDR_FORWARD_LIST
+
 #  define BOOST_NO_CXX11_HDR_CODECVT
 #  define BOOST_NO_CXX11_HDR_CONDITION_VARIABLE
-#  define BOOST_NO_CXX11_HDR_FORWARD_LIST
 #  define BOOST_NO_CXX11_HDR_INITIALIZER_LIST
 #  define BOOST_NO_CXX11_HDR_MUTEX
 #  define BOOST_NO_CXX11_HDR_RANDOM
