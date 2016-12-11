@@ -83,6 +83,9 @@
 #if (_LIBCPP_VERSION < 3700) || (__cplusplus <= 201402L)
 #  define BOOST_NO_CXX17_STD_INVOKE
 #endif
+#if (_LIBCPP_VERSION < 4000) || (__cplusplus <= 201402L)
+#  define BOOST_NO_CXX17_STD_APPLY
+#endif
 
 #if (_LIBCPP_VERSION <= 1101) && !defined(BOOST_NO_CXX11_THREAD_LOCAL)
 // This is a bit of a sledgehammer, because really it's just libc++abi that has no

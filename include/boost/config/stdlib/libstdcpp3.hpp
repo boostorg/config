@@ -261,6 +261,9 @@
 #if (BOOST_LIBSTDCXX_VERSION < 60100) || (__cplusplus <= 201402L)
 #  define BOOST_NO_CXX17_STD_INVOKE
 #endif
+#if (BOOST_LIBSTDCXX_VERSION < 70100) || (__cplusplus <= 201402L)
+#  define BOOST_NO_CXX17_STD_APPLY
+#endif
 
 #if defined(__has_include)
 #if !__has_include(<shared_mutex>)
