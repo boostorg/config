@@ -496,6 +496,11 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  define BOOST_NO_CXX11_HDR_TUPLE
 #endif
 
+// Broken in all versions up to 17:
+#if !defined(BOOST_NO_CXX14_CONSTEXPR)
+#define BOOST_NO_CXX14_CONSTEXPR
+#endif
+
 #if (BOOST_INTEL_CXX_VERSION < 1200)
 //
 // fenv.h appears not to work with Intel prior to 12.0:
