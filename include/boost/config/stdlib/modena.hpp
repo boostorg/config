@@ -62,6 +62,7 @@
 #endif
 
 // C++17 features
+#  define BOOST_NO_CXX17_STD_APPLY
 #  define BOOST_NO_CXX17_STD_INVOKE
 
 #define BOOST_STDLIB "Modena C++ standard library"

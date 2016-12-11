@@ -262,6 +262,13 @@
 #  define BOOST_NO_CXX17_STD_INVOKE
 #endif
 
+//
+//  C++17 features in GCC 7.1 and later
+//
+#if (BOOST_LIBSTDCXX_VERSION < 70100) || (__cplusplus <= 201402L)
+#  define BOOST_NO_CXX17_STD_APPLY
+#endif
+
 #if defined(__has_include)
 #if !__has_include(<shared_mutex>)
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX

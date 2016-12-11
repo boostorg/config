@@ -246,6 +246,7 @@ namespace boost { using std::min; using std::max; }
 #endif
 
 // C++17 features
+#  define BOOST_NO_CXX17_STD_APPLY
 #  define BOOST_NO_CXX17_STD_INVOKE
 
 #define BOOST_STDLIB "STLPort standard library version " BOOST_STRINGIZE(__SGI_STL_PORT)
