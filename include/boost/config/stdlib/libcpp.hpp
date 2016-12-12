@@ -79,6 +79,11 @@
 #define BOOST_NO_STD_MESSAGES
 #endif
 
+// C++14 features
+#if (_LIBCPP_VERSION < 3700) || (__cplusplus <= 201402L)
+#  define BOOST_NO_CXX14_STD_EXCHANGE
+#endif
+
 // C++17 features
 #if (_LIBCPP_VERSION < 3700) || (__cplusplus <= 201402L)
 #  define BOOST_NO_CXX17_STD_INVOKE

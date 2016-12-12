@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sun Dec 11 12:22:04 2016
+//  This file was automatically generated on Mon Dec 12 19:37:08 2016
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -311,6 +311,11 @@ namespace boost_no_cxx14_aggregate_nsdmi = empty_boost;
 #include "boost_no_cxx14_return_type_ded.ipp"
 #else
 namespace boost_no_cxx14_return_type_deduction = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX14_STD_EXCHANGE
+#include "boost_no_cxx14_std_exchange.ipp"
+#else
+namespace boost_no_cxx14_std_exchange = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #include "boost_no_cxx14_var_templ.ipp"
@@ -1564,6 +1569,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx14_return_type_deduction::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX14_RETURN_TYPE_DEDUCTION at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx14_std_exchange::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX14_STD_EXCHANGE at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx14_variable_templates::test())
