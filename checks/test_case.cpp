@@ -1,4 +1,4 @@
-//  This file was automatically generated on Fri Oct 14 20:08:50 2016
+//  This file was automatically generated on Mon Dec 12 19:37:08 2016
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -453,9 +453,17 @@ namespace test = boost_no_cxx14_aggregate_nsdmi;
 #  include "../test/boost_no_cxx14_return_type_ded.ipp"
 namespace test = boost_no_cxx14_return_type_deduction;
 #endif
+#ifdef TEST_BOOST_NO_CXX14_STD_EXCHANGE
+#  include "../test/boost_no_cxx14_std_exchange.ipp"
+namespace test = boost_no_cxx14_std_exchange;
+#endif
 #ifdef TEST_BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #  include "../test/boost_no_cxx14_var_templ.ipp"
 namespace test = boost_no_cxx14_variable_templates;
+#endif
+#ifdef TEST_BOOST_NO_CXX17_STD_APPLY
+#  include "../test/boost_no_cxx17_std_apply.ipp"
+namespace test = boost_no_cxx17_std_apply;
 #endif
 #ifdef TEST_BOOST_NO_CXX17_STD_INVOKE
 #  include "../test/boost_no_cxx17_std_invoke.ipp"

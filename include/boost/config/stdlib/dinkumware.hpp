@@ -157,8 +157,14 @@
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
 #endif
 
+// C++14 features
+#if !defined(_CPPLIB_VER) || (_CPPLIB_VER < 650)
+#  define BOOST_NO_CXX14_STD_EXCHANGE
+#endif
+
 // C++17 features
 #if !defined(_CPPLIB_VER) || (_CPPLIB_VER < 650)
+#  define BOOST_NO_CXX17_STD_APPLY
 #  define BOOST_NO_CXX17_STD_INVOKE
 #endif
 
