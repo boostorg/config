@@ -35,6 +35,10 @@
 
 #endif
 
+#if (__INTEL_COMPILER <= 1600) && !defined(BOOST_NO_CXX14_VARIABLE_TEMPLATES)
+#  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
+#endif
+
 #else
 
 #include <boost/config/compiler/gcc.hpp>
