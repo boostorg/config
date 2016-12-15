@@ -150,7 +150,7 @@
 #if defined(__has_include)
 #if !__has_include(<shared_mutex>)
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
-#elif __cplusplus < 201402
+#elif (__cplusplus < 201402) && !defined(_MSC_VER)
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
 #endif
 #elif !defined(_CPPLIB_VER) || (_CPPLIB_VER < 650)
