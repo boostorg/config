@@ -239,6 +239,8 @@
 // Although <regex> is present and compilable against, the actual implementation is not functional
 // even for the simplest patterns such as "\d" or "[0-9]". This is the case at least in gcc up to 4.8, inclusively.
 #  define BOOST_NO_CXX11_HDR_REGEX
+#endif
+#if (BOOST_LIBSTDCXX_VERSION < 40900) || (__cplusplus <= 201103)
 #  define BOOST_NO_CXX14_STD_EXCHANGE
 #endif
 
