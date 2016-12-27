@@ -39,14 +39,19 @@
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #endif
 
-#else
+#else // defined(_MSC_VER)
 
 #include <boost/config/compiler/gcc.hpp>
 
 #undef BOOST_GCC_VERSION
 #undef BOOST_GCC_CXX11
 
+// Broken in all versions up to 17 (newer versions not tested)
+#if (__INTEL_COMPILER <= 1700) && !defined(BOOST_NO_CXX14_CONSTEXPR)
+#  define BOOST_NO_CXX14_CONSTEXPR
 #endif
+
+#endif // defined(_MSC_VER)
 
 #undef BOOST_COMPILER
 
@@ -92,7 +97,7 @@
 #  define BOOST_INTEL_LINUX BOOST_INTEL
 #endif
 
-#else
+#else // defined(__INTEL_COMPILER) && (__INTEL_COMPILER >= 1500) && (defined(_MSC_VER) || defined(__GNUC__))
 
 #include <boost/config/compiler/common_edg.hpp>
 
@@ -483,7 +488,7 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  undef BOOST_NO_CXX11_FINAL
 #endif
 
-#endif
+#endif // defined(BOOST_INTEL_STDCXX0X)
 
 //
 // Broken in all versions up to 15:
@@ -498,11 +503,6 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 // A regression in Intel's compiler means that <tuple> seems to be broken in this release as well as <future> :
 #  define BOOST_NO_CXX11_HDR_FUTURE
 #  define BOOST_NO_CXX11_HDR_TUPLE
-#endif
-
-// Broken in all versions up to 17:
-#if !defined(BOOST_NO_CXX14_CONSTEXPR)
-#define BOOST_NO_CXX14_CONSTEXPR
 #endif
 
 #if (BOOST_INTEL_CXX_VERSION < 1200)
@@ -535,10 +535,10 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  define BOOST_HAS_INT128
 #endif
 
-#endif
+#endif // defined(__INTEL_COMPILER) && (__INTEL_COMPILER >= 1500) && (defined(_MSC_VER) || defined(__GNUC__))
 //
 // last known and checked version:
-#if (BOOST_INTEL_CXX_VERSION > 1500)
+#if (BOOST_INTEL_CXX_VERSION > 1700)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Unknown compiler version - please run the configure tests and report the results"
 #  elif defined(_MSC_VER)
