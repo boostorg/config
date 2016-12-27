@@ -219,6 +219,26 @@
 #define BOOST_NO_TWO_PHASE_NAME_LOOKUP
 
 //
+// Things that don't work in clr mode:
+//
+#ifdef _M_CEE
+#ifndef BOOST_NO_CXX11_THREAD_LOCAL
+#  define BOOST_NO_CXX11_THREAD_LOCAL
+#endif
+#ifndef BOOST_NO_SFINAE_EXPR
+#  define BOOST_NO_SFINAE_EXPR
+#endif
+#ifndef BOOST_NO_CXX11_REF_QUALIFIERS
+#  define BOOST_NO_CXX11_REF_QUALIFIERS
+#endif
+#endif
+#ifdef _M_CEE_PURE
+#ifndef BOOST_NO_CXX11_CONSTEXPR
+#  define BOOST_NO_CXX11_CONSTEXPR
+#endif
+#endif
+
+//
 // prefix and suffix headers:
 //
 #ifndef BOOST_ABI_PREFIX
