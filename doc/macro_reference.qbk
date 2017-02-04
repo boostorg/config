@@ -692,6 +692,9 @@ r-value references.
 [[`BOOST_NO_CXX11_SCOPED_ENUMS`][The compiler does not support
 scoped enumerations (`enum class`). 
 ]]
+[[`BOOST_NO_CXX11_SFINAE_EXPR`][The compiler does not support
+usage of C++11 SFINAE with arbitrary expressions.
+]]
 [[`BOOST_NO_CXX11_SMART_PTR`][The standard library header <memory> has no shared_ptr and unique_ptr.]]
 [[`BOOST_NO_CXX11_STATIC_ASSERT`][The compiler does not support
 `static_assert`. 

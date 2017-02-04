@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon Dec 12 19:37:08 2016
+//  This file was automatically generated on Sat Feb  4 00:49:07 2017
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -396,6 +396,10 @@ namespace test = boost_no_cxx11_numeric_limits;
 #ifdef TEST_BOOST_NO_CXX11_REF_QUALIFIERS
 #  include "../test/boost_no_cxx11_ref_qualifiers.ipp"
 namespace test = boost_no_cxx11_ref_qualifiers;
+#endif
+#ifdef TEST_BOOST_NO_CXX11_SFINAE_EXPR
+#  include "../test/boost_no_cxx11_sfinae_expr.ipp"
+namespace test = boost_no_cxx11_sfinae_expr;
 #endif
 #ifdef TEST_BOOST_NO_CXX11_SMART_PTR
 #  include "../test/boost_no_cxx11_smart_ptr.ipp"

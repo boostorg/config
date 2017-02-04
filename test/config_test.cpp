@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon Dec 12 19:37:08 2016
+//  This file was automatically generated on Sat Feb  4 00:49:07 2017
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -241,6 +241,11 @@ namespace boost_no_cxx11_numeric_limits = empty_boost;
 #include "boost_no_cxx11_ref_qualifiers.ipp"
 #else
 namespace boost_no_cxx11_ref_qualifiers = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX11_SFINAE_EXPR
+#include "boost_no_cxx11_sfinae_expr.ipp"
+#else
+namespace boost_no_cxx11_sfinae_expr = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX11_SMART_PTR
 #include "boost_no_cxx11_smart_ptr.ipp"
@@ -1499,6 +1504,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx11_ref_qualifiers::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX11_REF_QUALIFIERS at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx11_sfinae_expr::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX11_SFINAE_EXPR at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx11_smart_ptr::test())
