@@ -588,7 +588,7 @@ namespace std{ using ::type_info; }
 #if !defined(BOOST_RESTRICT)
 #  if defined(_MSC_VER)
 #    define BOOST_RESTRICT __restrict
-#    if !defined(BOOST_NO_RESTRICT_REFERENCES)
+#    if !defined(BOOST_NO_RESTRICT_REFERENCES) && (_MSC_FULL_VER < 190023026)
 #      define BOOST_NO_RESTRICT_REFERENCES
 #    endif
 #  elif defined(__GNUC__) && __GNUC__ > 3
