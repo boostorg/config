@@ -138,7 +138,7 @@ The standard library lacks `<iostream>`, `<istream>` or `<ostream>`.
 [[`BOOST_NO_IS_ABSTRACT`][Compiler][
 The C++ compiler does not support SFINAE with abstract types, this is covered
 by __CORE_LANGUAGE_DR337__, but is not part of the current standard.  Fortunately
-most compilers that support SFINAE also support this DR.
+most compilers that support SFINAE also support this DR.  See also BOOST_NO_SFINAE and BOOST_NO_SFINAE_EXPR
 ]]
 [[`BOOST_NO_LIMITS`][Standard library][
 The C++ implementation does not provide the `<limits>` header. Never check for
@@ -218,10 +218,11 @@ of an object is not supported.
 ]]
 [[`BOOST_NO_SFINAE`][Compiler][
 The compiler does not support the "Substitution Failure Is Not An Error"
-meta-programming idiom.
+meta-programming idiom.  This is the lightweight pre-C++11 version of SFINAE.
 ]]
 [[`BOOST_NO_SFINAE_EXPR`][Compiler][
-The compiler does not support usage of SFINAE with arbitrary expressions.
+The compiler does not support usage of SFINAE with arbitrary expressions.  This is the
+post-C++11 SFINAE, but excludes a few specific corner cases, see also BOOST_NO_CXX11_SFINAE_EXPR.
 ]]
 [[`BOOST_NO_STD_ALLOCATOR`][Standard library][
 The C++ standard library does not provide a standards conforming
@@ -694,6 +695,11 @@ r-value references.
 ]]
 [[`BOOST_NO_CXX11_SCOPED_ENUMS`][The compiler does not support
 scoped enumerations (`enum class`). 
+]]
+[[`BOOST_NO_CXX11_SFINAE_EXPR`][The compiler does not support
+usage of C++11 SFINAE with arbitrary expressions.  Use this macro only if you
+are using all of the features of SFINAE including substitution-failure-on-private-member-access.  
+Otherwise use BOOST_NO_SFINAE_EXPR or BOOST_NO_SFINAE which get defined for fewer compilers.
 ]]
 [[`BOOST_NO_CXX11_SMART_PTR`][The standard library header <memory> has no shared_ptr and unique_ptr.]]
 [[`BOOST_NO_CXX11_STATIC_ASSERT`][The compiler does not support

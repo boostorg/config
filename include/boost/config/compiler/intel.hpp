@@ -415,6 +415,11 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  undef BOOST_NO_SFINAE_EXPR
 #endif
 
+// BOOST_NO_CXX11_SFINAE_EXPR
+#if (BOOST_INTEL_CXX_VERSION >= 1500) && (!defined(BOOST_INTEL_GCC_VERSION) || (BOOST_INTEL_GCC_VERSION >= 40800)) && !defined(_MSC_VER)
+#  undef BOOST_NO_CXX11_SFINAE_EXPR
+#endif
+
 // BOOST_NO_CXX11_EXPLICIT_CONVERSION_OPERATORS
 #if (BOOST_INTEL_CXX_VERSION >= 1500) && (!defined(BOOST_INTEL_GCC_VERSION) || (BOOST_INTEL_GCC_VERSION >= 40500)) && (!defined(_MSC_VER) || (_MSC_FULL_VER >= 180020827))
 // This is available in earlier Intel releases, but breaks Multiprecision:
