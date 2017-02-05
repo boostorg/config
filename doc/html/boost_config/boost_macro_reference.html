@@ -41,6 +41,8 @@
       that describe C++14 features not supported</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_allow_use_of_c__14_features_with_c__11_or_earlier_compilers">Macros
       that allow use of C++14 features with C++11 or earlier compilers</a></span></dt>
+<dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__17_features_not_supported">Macros
+      that describe C++17 features not supported</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.boost_helper_macros">Boost
       Helper Macros</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.boost_informational_macros">Boost
@@ -809,6 +811,24 @@
                 <p>
                   The compiler misreads 8.5.1, treating classes as non-aggregate
                   if they contain private or protected member functions.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_RESTRICT_REFERENCES</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Compiler
+                </p>
+              </td>
+<td>
+                <p>
+                  Compiler-specific <code class="computeroutput"><span class="identifier">restrict</span></code>
+                  keyword can not be applied to references.
                 </p>
               </td>
 </tr>
@@ -3715,6 +3735,46 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
+<a name="boost_config.boost_macro_reference.macros_that_describe_c__17_features_not_supported"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__17_features_not_supported" title="Macros that describe C++17 features not supported">Macros
+      that describe C++17 features not supported</a>
+</h3></div></div></div>
+<p>
+        The following macros describe features in the 2016 ISO C++ standard, formerly
+        known as C++1z, that are not yet supported by a particular compiler or library.
+      </p>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Macro
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX17_STD_INVOKE</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">invoke</span><span class="special">()</span></code>.
+                </p>
+              </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
 <a name="boost_config.boost_macro_reference.boost_helper_macros"></a><a name="config_helpers"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.boost_helper_macros" title="Boost Helper Macros">Boost
       Helper Macros</a>
 </h3></div></div></div>
@@ -4117,6 +4177,35 @@
                   when one of the arguments is itself a macro (see 16.3.1 in C++
                   standard). This is normally used to create a mangled name in combination
                   with a predefined macro such a __LINE__.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_RESTRICT</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  This macro can be used in place of the compiler specific variant
+                  of the C99 <code class="computeroutput"><span class="identifier">restrict</span></code>
+                  keyword to notify the compiler that, for the lifetime of the qualified
+                  pointer variable, only it and its derivative value will be used
+                  to gain access to the object it references. This limits the effect
+                  of pointer aliasing and helps the optimizers in generating better
+                  code. However, i this condition is violated, undefined behavior
+                  may occurs.
+                </p>
+                <p>
+                  Usage example:
+</p>
+<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">void</span> <span class="identifier">perform_computation</span><span class="special">(</span> <span class="keyword">float</span><span class="special">*</span> <span class="identifier">BOOST_RESTRICT</span> <span class="identifier">in</span><span class="special">,</span> <span class="keyword">float</span><span class="special">*</span> <span class="identifier">BOOST_RESTRICT</span> <span class="identifier">out</span> <span class="special">)</span>
+<span class="special">{</span>
+  <span class="special">*</span><span class="identifier">out</span> <span class="special">=</span> <span class="special">*</span><span class="identifier">in</span> <span class="special">*</span> <span class="number">0.5f</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
                 </p>
               </td>
 </tr>
