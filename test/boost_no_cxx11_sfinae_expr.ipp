@@ -27,9 +27,7 @@ struct trait {
 };
 
 template<class T>
-struct trait<T, typename ignore<decltype(&object<T>())>::type> {
-    static const int value = 1;
-};
+struct trait<T, typename ignore<decltype(&object<T>())>::type> { };
 
 template<class T>
 struct result {
