@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon Dec 12 19:37:08 2016
+//  This file was automatically generated on Sun Feb  5 18:12:09 2017
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -556,6 +556,11 @@ namespace boost_no_cxx11_range_based_for = empty_boost;
 #include "boost_no_raw_literals.ipp"
 #else
 namespace boost_no_cxx11_raw_literals = empty_boost;
+#endif
+#ifndef BOOST_NO_RESTRICT_REFERENCES
+#include "boost_no_restrict_references.ipp"
+#else
+namespace boost_no_restrict_references = empty_boost;
 #endif
 #ifndef BOOST_NO_UNREACHABLE_RETURN_DETECTION
 #include "boost_no_ret_det.ipp"
@@ -1814,6 +1819,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx11_raw_literals::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX11_RAW_LITERALS at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_restrict_references::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_RESTRICT_REFERENCES at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_unreachable_return_detection::test())

@@ -209,6 +209,9 @@ Pointers to members don't work when used as template parameters.
 The compiler misreads 8.5.1, treating classes as non-aggregate if they
 contain private or protected member functions.
 ]]
+[[`BOOST_NO_RESTRICT_REFERENCES`][Compiler][
+Compiler-specific `restrict` keyword can not be applied to references.
+]]
 [[`BOOST_NO_RTTI`][Compiler][
 The compiler may (or may not) have the typeid operator, but RTTI on the dynamic type
 of an object is not supported.
@@ -1149,6 +1152,21 @@ This piece of macro magic joins the two arguments together, even when one of
 the arguments is itself a macro (see 16.3.1 in C++ standard). This is normally
 used to create a mangled name in combination with a predefined macro such a
 \_\_LINE__.
+]]
+[[`BOOST_RESTRICT`][
+This macro can be used in place of the compiler specific variant of the C99 `restrict` keyword to
+notify the compiler that, for the lifetime of the qualified pointer variable, only it and its
+derivative value will be used to gain access to the object it references. This limits the effect of
+pointer aliasing and helps the optimizers in generating better code. However, i this condition is
+violated, undefined behavior may occurs.
+
+Usage example:
+``
+  void perform_computation( float* BOOST_RESTRICT in, float* BOOST_RESTRICT out )
+  {
+    *out = *in * 0.5f;
+  }
+``
 ]]
 [[`BOOST_FORCEINLINE`][
 This macro can be used in place of the `inline` keyword to instruct the compiler

@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon Dec 12 19:37:08 2016
+//  This file was automatically generated on Sun Feb  5 18:12:09 2017
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -648,6 +648,10 @@ namespace test = boost_no_cxx11_range_based_for;
 #ifdef TEST_BOOST_NO_CXX11_RAW_LITERALS
 #  include "../test/boost_no_raw_literals.ipp"
 namespace test = boost_no_cxx11_raw_literals;
+#endif
+#ifdef TEST_BOOST_NO_RESTRICT_REFERENCES
+#  include "../test/boost_no_restrict_references.ipp"
+namespace test = boost_no_restrict_references;
 #endif
 #ifdef TEST_BOOST_NO_UNREACHABLE_RETURN_DETECTION
 #  include "../test/boost_no_ret_det.ipp"
