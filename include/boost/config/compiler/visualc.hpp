@@ -190,7 +190,7 @@
 #  define BOOST_NO_CXX11_CONSTEXPR
 #endif
 
-// C++14 features supported by VC++ 15 Preview 5
+// C++14 features supported by VC++ 15 Preview 5 (aka 2017)
 //
 #if (_MSC_VER < 1910)
 #  define BOOST_NO_CXX14_AGGREGATE_NSDMI
@@ -270,11 +270,11 @@
 #     define BOOST_COMPILER_VERSION evc9
 #   elif _MSC_VER < 1700
 #     define BOOST_COMPILER_VERSION evc10
-#   elif _MSC_VER < 1800 
-#     define BOOST_COMPILER_VERSION evc11 
-#   elif _MSC_VER < 1900 
+#   elif _MSC_VER < 1800
+#     define BOOST_COMPILER_VERSION evc11
+#   elif _MSC_VER < 1900
 #     define BOOST_COMPILER_VERSION evc12
-#   elif _MSC_VER < 2000  
+#   elif _MSC_VER < 2000
 #     define BOOST_COMPILER_VERSION evc14
 #   else
 #      if defined(BOOST_ASSERT_CONFIG)
@@ -299,12 +299,14 @@
 #     define BOOST_COMPILER_VERSION 9.0
 #   elif _MSC_VER < 1700
 #     define BOOST_COMPILER_VERSION 10.0
-#   elif _MSC_VER < 1800 
+#   elif _MSC_VER < 1800
 #     define BOOST_COMPILER_VERSION 11.0
 #   elif _MSC_VER < 1900
 #     define BOOST_COMPILER_VERSION 12.0
-#   elif _MSC_VER < 2000
+#   elif _MSC_VER < 1910
 #     define BOOST_COMPILER_VERSION 14.0
+#   elif _MSC_VER < 2000
+#     define BOOST_COMPILER_VERSION 14.1
 #   else
 #     define BOOST_COMPILER_VERSION _MSC_VER
 #   endif

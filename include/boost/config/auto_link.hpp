@@ -166,10 +166,10 @@ BOOST_LIB_VERSION:    The Boost version, in the form x_y, for Boost version x.y.
      // vc14:
 #    define BOOST_LIB_TOOLSET "vc140"
 
-# elif defined(BOOST_MSVC)
+#  elif defined(BOOST_MSVC)
 
-   // vc15:
-#  define BOOST_LIB_TOOLSET "vc150"
+     // Visual Studio 2017:
+#    define BOOST_LIB_TOOLSET "vc1410"
 
 #  elif defined(__BORLANDC__)
 
