@@ -92,8 +92,12 @@
 //  MPW MrCpp or SCpp
 #   define BOOST_COMPILER_CONFIG "boost/config/compiler/mpw.hpp"
 
+#elif defined(__IBMCPP__) && defined(__COMPILER_VER__)
+//  IBM z/OS XL C/C++
+#   define BOOST_COMPILER_CONFIG "boost/config/compiler/xlcpp_zos.hpp"
+
 #elif defined(__ibmxl__)
-// IBM XL C/C++ for Linux (Little Endian)
+//  IBM XL C/C++ for Linux (Little Endian)
 #   define BOOST_COMPILER_CONFIG "boost/config/compiler/xlcpp.hpp"
 
 #elif defined(__IBMCPP__)
@@ -140,6 +144,8 @@
 #include <boost/config/compiler/sunpro_cc.hpp>
 #include <boost/config/compiler/hp_acc.hpp>
 #include <boost/config/compiler/mpw.hpp>
+#include <boost/config/compiler/xlcpp_zos.hpp>
+#include <boost/config/compiler/xlcpp.hpp>
 #include <boost/config/compiler/vacpp.hpp>
 #include <boost/config/compiler/pgi.hpp>
 #include <boost/config/compiler/visualc.hpp>
