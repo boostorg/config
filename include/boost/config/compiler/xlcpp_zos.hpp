@@ -26,38 +26,6 @@
 
 #include <features.h> // For __UU, __C99, __TR1, ...
 
-#if !defined(BOOST_XLCPP_ZOS_DO_NOT_GUESS)
-#  if (defined(__C99_MIXED_STRING_CONCAT) \
-    && defined(__C99_MAX_LINE_NUMBER) \
-    && defined(__C99_EMPTY_MACRO_ARGUMENTS) \
-    && defined(__C99_LLONG) \
-    && defined(__IBMCPP_C99_PREPROCESSOR) \
-    && defined(__IBMCPP_C99_LONG_LONG) \
-    && defined(__IBM_CHAR32_T__) \
-    && defined(__IBM_CHAR16_T__) \
-    && defined(__IBMCPP_VARIADIC_TEMPLATES) \
-    && defined(__IBMCPP_STATIC_ASSERT) \
-    && defined(__IBMCPP_SCOPED_ENUM) \
-    && defined(__IBMCPP_RVALUE_REFERENCES) \
-    && defined(__IBMCPP_RIGHT_ANGLE_BRACKET) \
-    && defined(__IBMCPP_REFERENCE_COLLAPSING) \
-    && defined(__IBMCPP_INLINE_NAMESPACE) \
-    && defined(__IBMCPP_EXTENDED_FRIEND) \
-    && defined(__IBMCPP_EXPLICIT_CONVERSION_OPERATORS) \
-    && defined(__IBMCPP_DELEGATING_CTORS) \
-    && defined(__IBMCPP_DECLTYPE) \
-    && defined(__IBMCPP_CONSTEXPR) \
-    && defined(__IBMCPP_AUTO_TYPEDEDUCTION) \
-   )
-//   According to documentation, the "defaulted and deleted functions" feature should be testable via the predefined macro __IBMCPP_DEFAULTED_AND_DELETED_FUNCTIONS.
-//   Unfortunately this doesn't work, the macro is actually never defined (compiler version V2R1).
-//   Guess: defaulted and deleted functions feature is active if ALL other C++11 features supported by the compiler are active.
-#    if !defined(__IBMCPP_DEFAULTED_AND_DELETED_FUNCTIONS)
-#      define __IBMCPP_DEFAULTED_AND_DELETED_FUNCTIONS 1
-#    endif
-#  endif
-#endif
-
 #if !defined(__IBMCPP_DEFAULTED_AND_DELETED_FUNCTIONS)
 #  define BOOST_NO_CXX11_DELETED_FUNCTIONS
 #  define BOOST_NO_CXX11_DEFAULTED_FUNCTIONS
@@ -182,10 +150,6 @@
 #define BOOST_NO_CXX14_DECLTYPE_AUTO
 #define BOOST_NO_CXX14_CONSTEXPR
 #define BOOST_NO_CXX14_BINARY_LITERALS
-
-// -------------------------------------
-
-#define BOOST_SP_NO_SYNC
 
 // -------------------------------------
 
