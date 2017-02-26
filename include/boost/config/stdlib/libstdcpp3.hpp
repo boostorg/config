@@ -143,6 +143,12 @@
 #  define BOOST_LIBSTDCXX_VERSION 40300
 #endif
 
+#if (BOOST_LIBSTDCXX_VERSION < 50100)
+// libstdc++ does not define this function as it's deprecated in C++11, but clang still looks for it,
+// defining it here is a terrible cludge, but should get things working:
+extern "C" char *gets (char *__s);
+#endif
+
 //
 //  GCC 4.8 and 9 add working versions of <atomic> and <regex> respectively.
 //  However, we have no test for these as the headers were present but broken
