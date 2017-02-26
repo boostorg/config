@@ -23,15 +23,6 @@
 
 #define BOOST_HAS_MACRO_USE_FACET
 
-// Unfortunately the IBM z/OS XL C/C++ standard library has a bug when it comes to locales...
-// The locale-enabled overloads of functions like std::isdigit or std::tolower in <locale> are defined in a nested namespace and pulled into "std" via "using namespace xyz;". 
-// The classic C versions of those functions are defined in the global namespace, and then pulled into "std" via "using ::functionname;" in <cctype>.
-// This causes problems when including both <locale> and <cctype>, because the compiler will stop looking after it finds a function that was pulled in via "using ::functionname;"
-// (which is correct behavior as far as the compiler is concerned).
-// I.e. you cannot call a locale-enabled overload of one of those functions if both <locale> and <cctype> were included.
-// To deal with this we have to define at least BOOST_DATE_TIME_NO_LOCALE (possibly others?), even though there - theoretically - *is* support for locales.
-#define BOOST_DATE_TIME_NO_LOCALE
-
 #define BOOST_NO_CXX11_HDR_TYPE_TRAITS
 #define BOOST_NO_CXX11_HDR_INITIALIZER_LIST
 
