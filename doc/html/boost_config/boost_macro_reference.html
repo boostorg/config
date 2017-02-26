@@ -517,7 +517,7 @@
                   is covered by <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#337" target="_top">Core
                   Language DR337</a>, but is not part of the current standard.
                   Fortunately most compilers that support SFINAE also support this
-                  DR.
+                  DR. See also BOOST_NO_SFINAE and BOOST_NO_SFINAE_EXPR
                 </p>
               </td>
 </tr>
@@ -864,7 +864,8 @@
 <td>
                 <p>
                   The compiler does not support the "Substitution Failure Is
-                  Not An Error" meta-programming idiom.
+                  Not An Error" meta-programming idiom. This is the lightweight
+                  pre-C++11 version of SFINAE.
                 </p>
               </td>
 </tr>
@@ -882,6 +883,8 @@
 <td>
                 <p>
                   The compiler does not support usage of SFINAE with arbitrary expressions.
+                  This is the post-C++11 SFINAE, but excludes a few specific corner
+                  cases, see also BOOST_NO_CXX11_SFINAE_EXPR.
                 </p>
               </td>
 </tr>
@@ -3069,6 +3072,22 @@
 <td>
                 <p>
                   The compiler does not support scoped enumerations (<code class="computeroutput"><span class="keyword">enum</span> <span class="keyword">class</span></code>).
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_SFINAE_EXPR</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support usage of C++11 SFINAE with arbitrary
+                  expressions. Use this macro only if you are using all of the features
+                  of SFINAE including substitution-failure-on-private-member-access.
+                  Otherwise use BOOST_NO_SFINAE_EXPR or BOOST_NO_SFINAE which get
+                  defined for fewer compilers.
                 </p>
               </td>
 </tr>
