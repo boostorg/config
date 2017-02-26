@@ -92,7 +92,7 @@
 //  MPW MrCpp or SCpp
 #   define BOOST_COMPILER_CONFIG "boost/config/compiler/mpw.hpp"
 
-#elif defined(__IBMCPP__) && defined(__COMPILER_VER__)
+#elif defined(__IBMCPP__) && defined(__COMPILER_VER__) && defined(__MVS__)
 //  IBM z/OS XL C/C++
 #   define BOOST_COMPILER_CONFIG "boost/config/compiler/xlcpp_zos.hpp"
 
