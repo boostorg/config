@@ -676,15 +676,17 @@ namespace std{ using ::type_info; }
 
 // Type and data alignment specification
 //
-#if !defined(BOOST_NO_CXX11_ALIGNAS)
-#  define BOOST_ALIGNMENT(x) alignas(x)
-#elif defined(_MSC_VER)
-#  define BOOST_ALIGNMENT(x) __declspec(align(x))
-#elif defined(__GNUC__)
-#  define BOOST_ALIGNMENT(x) __attribute__ ((__aligned__(x)))
-#else
-#  define BOOST_NO_ALIGNMENT
-#  define BOOST_ALIGNMENT(x)
+#if !defined(BOOST_ALIGNMENT)
+#  if !defined(BOOST_NO_CXX11_ALIGNAS)
+#    define BOOST_ALIGNMENT(x) alignas(x)
+#  elif defined(_MSC_VER)
+#    define BOOST_ALIGNMENT(x) __declspec(align(x))
+#  elif defined(__GNUC__)
+#    define BOOST_ALIGNMENT(x) __attribute__ ((__aligned__(x)))
+#  else
+#    define BOOST_NO_ALIGNMENT
+#    define BOOST_ALIGNMENT(x)
+#  endif
 #endif
 
 // Lack of non-public defaulted functions is implied by the lack of any defaulted functions
