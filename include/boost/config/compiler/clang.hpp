@@ -289,6 +289,8 @@
 #if __cplusplus < 201400
 // All versions with __cplusplus above this value seem to support this:
 #  define BOOST_NO_CXX14_DIGIT_SEPARATORS
+// SD-6 feature test maco __cpp_lib_integer_sequence not used by CLANG                                    
+#  define BOOST_NO_CXX14_INTEGER_SEQUENCE
 #endif
 //
 // __builtin_unreachable:
