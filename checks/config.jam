@@ -7,6 +7,11 @@ import modules ;
 
 rule requires ( names + )
 {
+   return [ requires.set.properties $(names) : : <build>no ] ;
+}
+
+rule requires.set.properties ( names + : iftrue * : iffalse * )
+{
    local config-binding = [ modules.binding $(__name__) ] ;
 
    local result ;
@@ -14,8 +19,7 @@ rule requires ( names + )
    {
       local msg = "Boost.Config Feature Check: " ;
       msg += $(name) ;
-      result += [ check-target-builds $(config-binding:D)//$(name) $(msg:J=) : : <build>no ] ;
+      result += [ check-target-builds $(config-binding:D)//$(name) $(msg:J=) : $(iftrue) : $(iffalse) ] ;
    }
    return $(result) ;
 }
-
