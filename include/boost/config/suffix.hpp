@@ -23,6 +23,7 @@
 //  It should contain boilerplate code only - no compiler specific
 //  code unless it is unavoidable - no changes unless unavoidable.
 
+
 #ifndef BOOST_CONFIG_SUFFIX_HPP
 #define BOOST_CONFIG_SUFFIX_HPP
 
@@ -246,7 +247,7 @@
 // limited number of macros that identify this (if there's any missing
 // from here then add to the appropriate compiler section):
 //
-#if (defined(__MT__) || defined(_MT) || defined(_REENTRANT) \
+#if (defined(__MT__) || defined(_MT) || defined(_REENTRANT) || defined(__SunOS_5_12) \
     || defined(_PTHREADS) || defined(__APPLE__) || defined(__DragonFly__)) \
     && !defined(BOOST_HAS_THREADS)
 #  define BOOST_HAS_THREADS
