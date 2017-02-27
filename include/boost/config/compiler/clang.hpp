@@ -27,6 +27,13 @@
 #define __has_attribute(x) 0
 #endif
 
+// __is_identifier(x) returns 0 if x is a keyword (or a keyword-like identifier).
+// Because we use __is_identifier(x) to check the availability of compiler features
+// by asking if x is a keyword, the reasonable default of __is_identifier(x) is 1.
+#ifndef __is_identifier
+#define __is_identifier(x) 1
+#endif
+
 #if !__has_feature(cxx_exceptions) && !defined(BOOST_NO_EXCEPTIONS)
 #  define BOOST_NO_EXCEPTIONS
 #endif
