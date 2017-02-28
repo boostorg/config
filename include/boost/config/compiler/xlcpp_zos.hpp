@@ -156,7 +156,7 @@
 #if defined(__IBM_ATTRIBUTES)
 #  define BOOST_FORCEINLINE inline __attribute__ ((__always_inline__))
 #  define BOOST_NOINLINE __attribute__ ((__noinline__))
-#  define BOOST_ALIGNMENT(x) __attribute__ ((__aligned__(x)))
+// No BOOST_ALIGNMENT - explicit alignment support is broken (V2R1).
 #endif
 
 extern "builtin" long __builtin_expect(long, long);
