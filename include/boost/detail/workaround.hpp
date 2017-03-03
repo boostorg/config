@@ -90,6 +90,11 @@
 #else
 #define BOOST_GCC_WORKAROUND_GUARD 0
 #endif
+#ifndef BOOST_XLCPP_ZOS
+#define BOOST_XLCPP_ZOS_WORKAROUND_GUARD 1
+#else
+#define BOOST_XLCPP_ZOS_WORKAROUND_GUARD 0
+#endif
 #ifndef __IBMCPP__
 #define __IBMCPP___WORKAROUND_GUARD 1
 #else
