@@ -303,8 +303,10 @@
 #     define BOOST_COMPILER_VERSION 11.0
 #   elif _MSC_VER < 1900
 #     define BOOST_COMPILER_VERSION 12.0
-#   elif _MSC_VER < 2000
+#   elif _MSC_VER < 1910
 #     define BOOST_COMPILER_VERSION 14.0
+#   elif _MSC_VER < 1911
+#     define BOOST_COMPILER_VERSION 15.0
 #   else
 #     define BOOST_COMPILER_VERSION _MSC_VER
 #   endif
@@ -314,7 +316,7 @@
 #endif
 
 //
-// last known and checked version is 19.10.24629 (VC++ 2017 RC):
+// last known and checked version is 19.10.25017 (VC++ 2017 RTW, aka RTM):
 #if (_MSC_VER > 1910)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Unknown compiler version - please run the configure tests and report the results"
