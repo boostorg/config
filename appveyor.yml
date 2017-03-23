@@ -1,0 +1,49 @@
+environment:
+  matrix:
+  # - GENERATOR: "Visual Studio 14 2015 Win64"
+  #   CONFIG: Debug
+
+  # - GENERATOR: "Visual Studio 14 2015 Win64"
+  #   CONFIG: Release
+
+  # - GENERATOR: "Visual Studio 14 2015"
+  #   CONFIG: Debug
+
+  # - GENERATOR: "Visual Studio 14 2015"
+  #   CONFIG: Release
+
+  - GENERATOR: "Visual Studio 12 2013"
+    CONFIG: Debug
+
+  - GENERATOR: "Visual Studio 12 2013"
+    CONFIG: Release
+
+  # - GENERATOR: "Visual Studio 11 2012"
+  #   CONFIG: Debug
+
+  # - GENERATOR: "Visual Studio 11 2012"
+  #   CONFIG: Release
+
+  - GENERATOR: "Visual Studio 10 2010"
+    CONFIG: Debug
+
+  - GENERATOR: "Visual Studio 10 2010"
+    CONFIG: Release
+
+matrix:
+  fast_finish: true
+
+install:
+  - ps: Invoke-WebRequest "https://bootstrap.pypa.io/ez_setup.py" -OutFile "c:\\ez_setup.py"
+  - ps: Invoke-WebRequest "https://bootstrap.pypa.io/get-pip.py" -OutFile "c:\\get-pip.py"
+  - "c:\\Python34\\python c:\\ez_setup.py"
+  - "c:\\Python34\\python c:\\get-pip.py"
+  - "c:\\Python34\\Scripts\\pip install cget"
+  - "c:\\Python34\\Scripts\\cget install --verbose -p c:\\cget boost-cmake/bcm"
+
+build_script:
+ - cmd: set PATH=C:\Program Files (x86)\CMake\bin;%PATH%
+ - cmd: set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
+ - cmd: call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\vsvars32.bat"
+ - cmd: cmake --version
+ - cmd: cget -p c:\cget build -G"%GENERATOR%" --test

@@ -56,21 +56,6 @@ matrix:
           compiler: clang-3.8
           addons: *clang38
 
-        # - env: CLANG_VERSION=3.9 LIBCXX=on STDCXX=c++14
-        #   os: linux
-        #   compiler: clang-3.9
-        #   addons: *clang37
-
-        # - env: CLANG_VERSION=3.9 LIBCXX=on STDCXX=c++11
-        #   os: linux
-        #   compiler: clang-3.9
-        #   addons: *clang37
-
-        # - env: CLANG_VERSION=3.9 LIBCXX=on STDCXX=c++03
-        #   os: linux
-        #   compiler: clang-3.9
-        #   addons: *clang37
-
         # Gcc
         - env: GCC_VERSION=6 LIBCXX=off STDCXX=gnu++1y
           os: linux
@@ -220,6 +205,6 @@ script:
     - cd $CHECKOUT_PATH
     - |
       for build_type in debug release; do
-        cget install boostorg/config,. --test
-        cget rm boostorg/config
+        cget install boostorg/config,. -DCMAKE_BUILD_TYPE=$build_type --test
+        cget rm boostorg/config -y
       done
