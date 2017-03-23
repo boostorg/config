@@ -31,7 +31,7 @@ environment:
     CONFIG: Release
 
 matrix:
-  fast_finish: true
+  fast_finish: false
 
 install:
   - ps: Invoke-WebRequest "https://bootstrap.pypa.io/ez_setup.py" -OutFile "c:\\ez_setup.py"
