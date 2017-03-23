@@ -1,16 +1,16 @@
 environment:
   matrix:
-  # - GENERATOR: "Visual Studio 14 2015 Win64"
-  #   CONFIG: Debug
+  - GENERATOR: "Visual Studio 14 2015 Win64"
+    CONFIG: Debug
 
-  # - GENERATOR: "Visual Studio 14 2015 Win64"
-  #   CONFIG: Release
+  - GENERATOR: "Visual Studio 14 2015 Win64"
+    CONFIG: Release
 
-  # - GENERATOR: "Visual Studio 14 2015"
-  #   CONFIG: Debug
+  - GENERATOR: "Visual Studio 14 2015"
+    CONFIG: Debug
 
-  # - GENERATOR: "Visual Studio 14 2015"
-  #   CONFIG: Release
+  - GENERATOR: "Visual Studio 14 2015"
+    CONFIG: Release
 
   - GENERATOR: "Visual Studio 12 2013"
     CONFIG: Debug
@@ -44,6 +44,7 @@ install:
 build_script:
  - cmd: set PATH=C:\Program Files (x86)\CMake\bin;%PATH%
  - cmd: set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
+ - cmd: set PATH=c:\cget\bin;c:\Python34\Scripts\;%PATH%
  - cmd: call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\vsvars32.bat"
  - cmd: cmake --version
  - cmd: cget -p c:\cget build -G"%GENERATOR%" --test
