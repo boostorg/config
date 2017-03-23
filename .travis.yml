@@ -1,0 +1,225 @@
+sudo: required
+dist: trusty
+language: cpp
+script: cmake
+
+matrix:
+    include:
+        # OSX
+        - env: LIBCXX=off STDCXX=c++1y
+          os: osx
+          compiler: clang
+
+        # - env: LIBCXX=off STDCXX=c++11
+        #   os: osx
+        #   compiler: clang
+
+        # - env: LIBCXX=off STDCXX=c++03
+        #   os: osx
+        #   compiler: clang
+        # Clang
+        - env: CLANG_VERSION=3.5 LIBCXX=on STDCXX=c++14
+          os: linux
+          compiler: clang-3.5
+          addons: &clang35
+            apt:
+              packages:
+                - util-linux
+                - g++-4.9
+                - clang-3.5
+                - valgrind
+                - python-pip
+              sources:
+                - ubuntu-toolchain-r-test
+
+        # - env: CLANG_VERSION=3.5 LIBCXX=on STDCXX=c++11
+        #   os: linux
+        #   compiler: clang-3.5
+        #   addons: *clang35
+
+        - env: CLANG_VERSION=3.8 LIBCXX=on STDCXX=c++1z
+          os: linux
+          compiler: clang-3.8
+          addons: &clang38
+            apt:
+              packages:
+                - util-linux
+                - g++-4.9
+                - clang-3.8
+                - valgrind
+                - python-pip
+              sources:
+                - ubuntu-toolchain-r-test
+
+        - env: CLANG_VERSION=3.8 LIBCXX=off STDCXX=c++1z
+          os: linux
+          compiler: clang-3.8
+          addons: *clang38
+
+        # - env: CLANG_VERSION=3.9 LIBCXX=on STDCXX=c++14
+        #   os: linux
+        #   compiler: clang-3.9
+        #   addons: *clang37
+
+        # - env: CLANG_VERSION=3.9 LIBCXX=on STDCXX=c++11
+        #   os: linux
+        #   compiler: clang-3.9
+        #   addons: *clang37
+
+        # - env: CLANG_VERSION=3.9 LIBCXX=on STDCXX=c++03
+        #   os: linux
+        #   compiler: clang-3.9
+        #   addons: *clang37
+
+        # Gcc
+        - env: GCC_VERSION=6 LIBCXX=off STDCXX=gnu++1y
+          os: linux
+          compiler: gcc-6
+          addons: &gcc6
+            apt:
+              packages:
+                - g++-6
+                - valgrind
+                - python-pip
+              sources:
+                - ubuntu-toolchain-r-test
+
+        - env: GCC_VERSION=5 LIBCXX=off STDCXX=gnu++1y
+          os: linux
+          compiler: gcc-5
+          addons: &gcc5
+            apt:
+              packages:
+                - g++-5
+                - valgrind
+                - python-pip
+              sources:
+                - ubuntu-toolchain-r-test
+
+        - env: GCC_VERSION=4.9 LIBCXX=off STDCXX=gnu++1y
+          os: linux
+          compiler: gcc-4.9
+          addons: &gcc49
+            apt:
+              packages:
+                - g++-4.9
+                - valgrind
+                - python-pip
+              sources:
+                - ubuntu-toolchain-r-test
+
+        # - env: GCC_VERSION=4.9 LIBCXX=off STDCXX=gnu++11
+        #   os: linux
+        #   compiler: gcc-4.9
+        #   addons: *gcc49
+
+        # - env: GCC_VERSION=4.9 LIBCXX=off STDCXX=c++11
+        #   os: linux
+        #   compiler: gcc-4.9
+        #   addons: *gcc49
+
+        - env: GCC_VERSION=4.8 LIBCXX=off STDCXX=gnu++11
+          os: linux
+          compiler: gcc-4.8
+          addons: &gcc48
+            apt:
+              packages:
+                - g++-4.8
+                - valgrind
+                - python-pip
+              sources:
+                - ubuntu-toolchain-r-test
+
+
+        - env: GCC_VERSION=4.7 LIBCXX=off STDCXX=gnu++0x
+          os: linux
+          compiler: gcc-4.7
+          addons: &gcc47
+            apt:
+              packages:
+                - g++-4.7
+                - valgrind
+                - python-pip
+              sources:
+                - ubuntu-toolchain-r-test
+
+        # - env: GCC_VERSION=4.7 LIBCXX=off STDCXX=gnu++03
+        #   os: linux
+        #   compiler: gcc-4.7
+        #   addons: *gcc47
+
+        - env: GCC_VERSION=4.6 LIBCXX=off STDCXX=gnu++0x
+          os: linux
+          compiler: gcc-4.6
+          addons: &gcc46
+            apt:
+              packages:
+                - g++-4.6
+                - valgrind
+                - python-pip
+              sources:
+                - ubuntu-toolchain-r-test
+
+        # - env: GCC_VERSION=4.6 LIBCXX=off STDCXX=gnu++03
+        #   os: linux
+        #   compiler: gcc-4.6
+        #   addons: *gcc46
+
+install:
+    - export CHECKOUT_PATH=`pwd`;
+    - if [ -n "$GCC_VERSION" ]; then export CXX="g++-${GCC_VERSION}" CC="gcc-${GCC_VERSION}"; fi
+    - if [ -n "$CLANG_VERSION" ]; then export CXX="clang++-${CLANG_VERSION}" CC="clang-${CLANG_VERSION}"; fi
+    - if [[ "$CLANG_VERSION" == "3.4" ]]; then export CXX="/usr/local/clang-3.4/bin/clang++" CC="/usr/local/clang-3.4/bin/clang"; fi
+    # Setup deps directory
+    - export DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
+    - export CGET_PREFIX="${DEPS_DIR}/usr"
+    - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
+    - mkdir usr
+    - export PATH=${DEPS_DIR}/usr/bin:${PATH}
+    # Install cget
+    - pip install cget
+    # Install cmake
+    - cget install http://www.cmake.org/files/v3.3/cmake-3.3.1-Linux-x86_64.tar.gz
+    # Show compiler info
+    - $CXX --version
+    - which $CXX
+    - $CC --version
+    - which $CC
+    - which cmake
+    - cmake --version
+    # Install libc++
+    - |
+      if [[ "$LIBCXX" == "on" ]]; then
+        if [[ "${CLANG_VERSION}" == "3.5" ]]; then LLVM_VERSION="3.5.2"; fi
+        if [[ "${CLANG_VERSION}" == "3.6" ]]; then LLVM_VERSION="3.6.2"; fi
+        if [[ "${CLANG_VERSION}" == "3.7" ]]; then LLVM_VERSION="3.7.0"; fi
+        if [[ "${CLANG_VERSION}" == "3.8" ]]; then LLVM_VERSION="3.8.1"; fi
+        LLVM_URL="http://llvm.org/releases/${LLVM_VERSION}/llvm-${LLVM_VERSION}.src.tar.xz"
+        LIBCXX_URL="http://llvm.org/releases/${LLVM_VERSION}/libcxx-${LLVM_VERSION}.src.tar.xz"
+        LIBCXXABI_URL="http://llvm.org/releases/${LLVM_VERSION}/libcxxabi-${LLVM_VERSION}.src.tar.xz"
+
+        mkdir -p llvm llvm/build llvm/projects/libcxx llvm/projects/libcxxabi
+        travis_retry wget --quiet -O - ${LLVM_URL} | tar --strip-components=1 -x --xz -C llvm
+        travis_retry wget --quiet -O - ${LIBCXX_URL} | tar --strip-components=1 -x --xz -C llvm/projects/libcxx
+        travis_retry wget --quiet -O - ${LIBCXXABI_URL} | tar --strip-components=1 -x --xz -C llvm/projects/libcxxabi
+        (cd llvm/build && cmake .. -DCMAKE_INSTALL_PREFIX=${DEPS_DIR}/usr)
+        (cd llvm/build/projects/libcxx && make install -j2)
+        (cd llvm/build/projects/libcxxabi && make install -j2)
+        export LDFLAGS="-L${DEPS_DIR}/usr/lib -lc++ -lc++abi"
+        export CFLAGS="${CFLAGS} -stdlib=libc++ -I${DEPS_DIR}/usr/include/c++/v1"
+        export CXXFLAGS="${CXXFLAGS} -stdlib=libc++ -I${DEPS_DIR}/usr/include/c++/v1"
+        export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${DEPS_DIR}/usr/lib"
+      fi
+      # Install bcm
+      - cget install boost-cmake/bcm
+      # Add stdflags
+      export CXXFLAGS="${CXXFLAGS} -std=${STDCXX}"
+
+    
+script:
+    - cd $CHECKOUT_PATH
+    - |
+      for build_type in debug release; do
+        cget install boostorg/config,. --test
+        cget rm boostorg/config
+      done
