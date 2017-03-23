@@ -50,4 +50,4 @@ build_script:
  - cmd: set PATH=c:\cget\bin;c:\Python34\Scripts\;%PATH%
  - cmd: call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\vsvars32.bat"
  - cmd: cmake --version
- - cmd: cget -p c:\cget build "-G%GENERATOR%" --test
+ - cmd: cget -p c:\cget build -G "%GENERATOR%" --test --verbose
