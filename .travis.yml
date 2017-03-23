@@ -150,6 +150,10 @@ matrix:
         #   compiler: gcc-4.6
         #   addons: *gcc46
 
+cache:
+  directories:
+    - $HOME/.config/cget
+
 install:
     - export CHECKOUT_PATH=`pwd`;
     - if [ -n "$GCC_VERSION" ]; then export CXX="g++-${GCC_VERSION}" CC="gcc-${GCC_VERSION}"; fi
@@ -164,7 +168,7 @@ install:
     # Install cget
     - pip install cget
     # Install cmake
-    - cget install -X binary http://www.cmake.org/files/v3.3/cmake-3.3.1-Linux-x86_64.tar.gz
+    - cget install -X binary -H sha256:9dce2e6d6ae5bdee45db46ef5148541fe986fba3ae55f689bdc99d26d3696689 cmake,http://www.cmake.org/files/v3.3/cmake-3.3.1-Linux-x86_64.tar.gz
     # Show compiler info
     - $CXX --version
     - which $CXX
