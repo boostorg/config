@@ -179,7 +179,7 @@ install:
     # Install cget
     - pip install cget
     # Install cmake
-    - cget install http://www.cmake.org/files/v3.3/cmake-3.3.1-Linux-x86_64.tar.gz
+    - cget install -X binary http://www.cmake.org/files/v3.3/cmake-3.3.1-Linux-x86_64.tar.gz
     # Show compiler info
     - $CXX --version
     - which $CXX
