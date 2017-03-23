@@ -149,14 +149,24 @@ install:
     - mkdir usr
     - export PATH=${DEPS_DIR}/usr/bin:${PATH}
     # Install cget
-    - pip install cget backports.lzma
-    # Install recipes
-    - cget install pfultz2/cget-travis-recipes
-    - if [ -n "$CLANG_VERSION" ]; then cget install clang-${CLANG_VERSION}; fi
-    - cget install cmake-3.3 boost-cmake/bcm
-    # Setup compilers
-    - if [ -n "$GCC_VERSION" ]; then export CXX="g++-${GCC_VERSION}" CC="gcc-${GCC_VERSION}"; fi
-    - if [ -n "$CLANG_VERSION" ]; then export CXX="clang++-${CLANG_VERSION}" CC="clang-${CLANG_VERSION}"; fi
+    - pip install cget 
+    - |
+      if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
+        pip install backports.lzma
+        cget install pfultz2/cget-travis-recipes
+        cget install cmake-3.3
+        if [ -n "$CLANG_VERSION" ]; then 
+          cget install clang-${CLANG_VERSION}
+          export CXX="clang++" 
+          export CC="clang"
+        fi
+        if [ -n "$GCC_VERSION" ]; then 
+          export CXX="g++-${GCC_VERSION}" 
+          export CC="gcc-${GCC_VERSION}"
+        fi
+      fi
+    # Install bcm
+    - cget install boost-cmake/bcm
     # Show compiler info
     - $CXX --version
     - which $CXX
