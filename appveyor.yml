@@ -41,8 +41,7 @@ install:
   - ps: Invoke-WebRequest "https://bootstrap.pypa.io/get-pip.py" -OutFile "c:\\get-pip.py"
   - "c:\\Python34\\python c:\\ez_setup.py"
   - "c:\\Python34\\python c:\\get-pip.py"
-  - "c:\\Python34\\Scripts\\pip install cget"
-  - "c:\\Python34\\Scripts\\cget install --verbose -p c:\\cget boost-cmake/bcm"
+  - "c:\\Python34\\Scripts\\pip install https://github.com/pfultz2/cget/archive/generator.zip"
 
 build_script:
  - cmd: set PATH=C:\Program Files (x86)\CMake\bin;%PATH%

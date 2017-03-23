@@ -165,8 +165,6 @@ install:
           export CC="gcc-${GCC_VERSION}"
         fi
       fi
-    # Install bcm
-    - cget install boost-cmake/bcm
     # Show compiler info
     - $CXX --version
     - which $CXX
