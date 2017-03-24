@@ -38,6 +38,11 @@ function(create_test BOOST_CONFIG_MACRO BOOST_CONFIG_FILE POSITIVE_TEST EXPECT_S
     else()
         configure_file(fail.cpp ${BOOST_CONFIG_FILE}_fail.cpp)
         bcm_test(NAME ${BOOST_CONFIG_FILE}_fail SOURCES ${CMAKE_CURRENT_BINARY_DIR}/${BOOST_CONFIG_FILE}_fail.cpp COMPILE_ONLY WILL_FAIL)
+        if(MSVC)
+            target_compile_options(${BOOST_CONFIG_FILE}_fail PUBLIC /WX)
+        else()
+            target_compile_options(${BOOST_CONFIG_FILE}_fail PUBLIC -Werror -Wall)
+        endif()
     endif()
 endfunction()
 
@@ -63,10 +68,17 @@ function(parse_test SRC)
 endfunction()
 
 set(SKIP_TESTS 
-    boost_no_ded_typename.ipp
     boost_has_macro_use_facet.ipp
     boost_no_com_value_init.ipp
+    boost_no_cxx11_addressof.ipp
+    boost_no_cxx11_hdr_atomic.ipp
     boost_no_cxx11_hdr_codecvt.ipp
+    boost_no_cxx11_hdr_tuple.ipp
+    boost_no_cxx11_std_align.ipp
+    boost_no_cxx11_trailing_result_types.ipp
+    boost_no_decltype_n3276.ipp
+    boost_no_ded_typename.ipp
+    boost_no_sfinae_expr.ipp
     boost_no_two_phase_lookup.ipp
 )
 file(GLOB TESTS *.ipp)
