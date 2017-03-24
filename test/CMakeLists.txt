@@ -65,6 +65,9 @@ endfunction()
 set(SKIP_TESTS 
     boost_no_ded_typename.ipp
     boost_has_macro_use_facet.ipp
+    boost_no_com_value_init.ipp
+    boost_no_cxx11_hdr_codecvt.ipp
+    boost_no_two_phase_lookup.ipp
 )
 file(GLOB TESTS *.ipp)
 foreach(TEST ${TESTS})
