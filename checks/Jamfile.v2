@@ -9,7 +9,7 @@
 
 import modules ;
 import path ; 
-
+import testing ;
 
 rule run-simple ( requirements * : target-name )
 {
