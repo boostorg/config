@@ -936,13 +936,14 @@ provide compliant C++14 support.
 
 [section Macros that describe C++17 features not supported]
 
-The following macros describe features in the 2016 ISO C++ standard, formerly known as C++1z,
+The following macros describe features in the 2017 ISO C++ standard, formerly known as C++1z,
 that are not yet supported by a particular compiler or library.
 
 [table
 [[Macro ][Description ]]
 [[`BOOST_NO_CXX17_STD_APPLY`][The compiler does not support `std::apply()`.]]
 [[`BOOST_NO_CXX17_STD_INVOKE`][The compiler does not support `std::invoke()`.]]
+[[`BOOST_NO_CXX98_RANDOM_SHUFFLE`][The compiler does no longer support `std::random_shuffle()`. It was deprecated in C++14 and is removed from C++17.]]
 ]
 
 [endsect]
