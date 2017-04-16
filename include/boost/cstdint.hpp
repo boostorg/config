@@ -422,6 +422,20 @@ INT#_C macros if they're not already defined (John Maddock).
 #if defined(__GNUC__) && (__GNUC__ >= 4)
 #pragma GCC system_header
 #endif
+//
+// Undef the macros as a precaution, since we may get here if <stdint.h> has failed
+// to define them all, see https://svn.boost.org/trac/boost/ticket/12786
+//
+#undef INT8_C
+#undef INT16_C
+#undef INT32_C
+#undef INT64_C
+#undef INTMAX_C
+#undef UINT8_C
+#undef UINT16_C
+#undef UINT32_C
+#undef UINT64_C
+#undef UINTMAX_C
 
 #include <limits.h>
 # define BOOST__STDC_CONSTANT_MACROS_DEFINED
