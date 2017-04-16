@@ -48,6 +48,10 @@
 //  Digital Mars C++
 #   define BOOST_COMPILER_CONFIG "boost/config/compiler/digitalmars.hpp"
 
+#elif defined __DCC__
+//  Wind River Diab C++
+#   define BOOST_COMPILER_CONFIG "boost/config/compiler/diab.hpp"
+
 # elif defined(__GNUC__) && !defined(__ibmxl__)
 //  GNU C++:
 #   define BOOST_COMPILER_CONFIG "boost/config/compiler/gcc.hpp"
