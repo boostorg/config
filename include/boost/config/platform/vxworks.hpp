@@ -286,10 +286,8 @@ inline ssize_t readlink(const char*, char*, size_t){
   return -1;
 }
 
-// vxWorks claims to implement gettimeofday in sys/time.h
-// but nevertheless does not provide it! See
-// https://support.windriver.com/olsPortal/faces/maintenance/techtipDetail_noHeader.jspx?docId=16442&contentId=WR_TECHTIP_006256
-// We implement a surrogate version here via clock_gettime:
+#if (_WRS_VXWORKS_MAJOR < 7)
+
 inline int gettimeofday(struct timeval *tv, void * /*tzv*/) {
   struct timespec ts;
   clock_gettime(CLOCK_MONOTONIC, &ts);
@@ -297,6 +295,8 @@ inline int gettimeofday(struct timeval *tv, void * /*tzv*/) {
   tv->tv_usec = ts.tv_nsec / 1000;
   return 0;
 }
+#endif
+
 
 // vxWorks does provide neither struct tms nor function times()!
 // We implement an empty dummy-function, simply setting the user
@@ -327,6 +327,7 @@ inline clock_t times(struct tms *t){
   return ticks;
 }
 
+extern void 	bzero	    (void *, size_t);    // FD_ZERO uses bzero() but doesn't include strings.h
 } // extern "C"
 
 // Put the selfmade functions into the std-namespace, just in case
@@ -360,10 +361,32 @@ namespace std {
 #if !defined(BUS_ADRALN) && defined(BUS_ADRALNR)
 #  define BUS_ADRALN     BUS_ADRALNR                   // Correct a supposed typo in vxWorks' <signal.h>
 #endif
-//typedef int              locale_t;                     // locale_t is a POSIX-extension, currently unpresent in vxWorks!
+typedef int              locale_t;                     // locale_t is a POSIX-extension, currently not present in vxWorks!
 
 // #include boilerplate code:
 #include <boost/config/posix_features.hpp>
 
 // vxWorks lies about XSI conformance, there is no nl_types.h:
 #undef BOOST_HAS_NL_TYPES_H
+
+// vxWorks 7 adds C++11 support 
+// however it is optional, and does not match exactly the support determined
+// by examining Dinkum STL version and GCC version (or ICC and DCC) 
+
+#ifndef _WRS_CONFIG_LANG_LIB_CPLUS_CPLUS_USER_2011
+#  define BOOST_NO_CXX11_HDR_ARRAY
+#  define BOOST_NO_CXX11_HDR_TYPEINDEX 
+#  define BOOST_NO_CXX11_HDR_TYPE_TRAITS
+#  define BOOST_NO_CXX11_HDR_TUPLE 
+#  define BOOST_NO_CXX11_ALLOCATOR
+#  define BOOST_NO_CXX11_SMART_PTR 
+#  define BOOST_NO_CXX11_STD_ALIGN
+#  define BOOST_NO_CXX11_HDR_UNORDERED_SET 
+#  define BOOST_NO_CXX11_HDR_TYPE_TRAITS
+#  define BOOST_NO_CXX11_HDR_UNORDERED_MAP
+#  define BOOST_NO_CXX11_HDR_FUNCTIONAL 
+#  define BOOST_NO_CXX11_HDR_ATOMIC
+#else
+#  define BOOST_NO_CXX11_NULLPTR
+#endif
+
