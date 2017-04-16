@@ -180,7 +180,7 @@
   // Luckily, at the moment there seems to be none!
 #endif
 
-// These #defines allow posix_features to work, since vxWorks doesn't
+// These #defines allow detail/posix_features to work, since vxWorks doesn't
 // #define them itself for DKMs (for RTPs on the contrary it does):
 #ifdef _WRS_KERNEL
 #  ifndef _POSIX_TIMERS
@@ -364,7 +364,7 @@ namespace std {
 typedef int              locale_t;                     // locale_t is a POSIX-extension, currently not present in vxWorks!
 
 // #include boilerplate code:
-#include <boost/config/posix_features.hpp>
+#include <boost/config/detail/posix_features.hpp>
 
 // vxWorks lies about XSI conformance, there is no nl_types.h:
 #undef BOOST_HAS_NL_TYPES_H
