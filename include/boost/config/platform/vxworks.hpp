@@ -350,11 +350,11 @@ namespace std {
 // Include signal.h which might contain a typo to be corrected here
 #include <signal.h>
 
-#define getpagesize()    sysconf(_SC_PAGESIZE)         // getpagesize is deprecated anyway!
+inline int getpagesize() { return sysconf(_SC_PAGESIZE); }         // getpagesize is deprecated anyway!
 #ifndef S_ISSOCK
 #  define S_ISSOCK(mode) ((mode & S_IFMT) == S_IFSOCK) // Is file a socket?
 #endif
-#define lstat(p, b)      stat(p, b)                    // lstat() == stat(), as vxWorks has no symlinks!
+inline int lstat(p, b) { return stat(p, b); }  // lstat() == stat(), as vxWorks has no symlinks!
 #ifndef FPE_FLTINV
 #  define FPE_FLTINV     (FPE_FLTSUB+1)                // vxWorks has no FPE_FLTINV, so define one as a dummy
 #endif
