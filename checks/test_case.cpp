@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon Apr 17 12:45:44 2017
+//  This file was automatically generated on Mon Apr 17 18:35:54 2017
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -589,6 +589,21 @@
 #ifdef TEST_BOOST_NO_CXX17_STD_INVOKE
 #  ifdef BOOST_NO_CXX17_STD_INVOKE
 #     error "Defect macro BOOST_NO_CXX17_STD_INVOKE is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX98_BINDERS
+#  ifdef BOOST_NO_CXX98_BINDERS
+#     error "Defect macro BOOST_NO_CXX98_BINDERS is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX98_FUNCTION_BASE
+#  ifdef BOOST_NO_CXX98_FUNCTION_BASE
+#     error "Defect macro BOOST_NO_CXX98_FUNCTION_BASE is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX98_RANDOM_SHUFFLE
+#  ifdef BOOST_NO_CXX98_RANDOM_SHUFFLE
+#     error "Defect macro BOOST_NO_CXX98_RANDOM_SHUFFLE is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX11_HDR_FUNCTIONAL

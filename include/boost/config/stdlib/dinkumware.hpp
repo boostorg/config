@@ -196,6 +196,8 @@
 #  if defined(_HAS_AUTO_PTR_ETC) && (_HAS_AUTO_PTR_ETC == 0)
 #    define BOOST_NO_AUTO_PTR
 #    define BOOST_NO_CXX98_RANDOM_SHUFFLE
+#    define BOOST_NO_CXX98_FUNCTION_BASE
+#    define BOOST_NO_CXX98_BINDERS
 #  endif
 #endif
 
