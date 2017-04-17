@@ -3770,7 +3770,7 @@
       that describe C++17 features not supported</a>
 </h3></div></div></div>
 <p>
-        The following macros describe features in the 2016 ISO C++ standard, formerly
+        The following macros describe features in the 2017 ISO C++ standard, formerly
         known as C++1z, that are not yet supported by a particular compiler or library.
       </p>
 <div class="informaltable"><table class="table">
@@ -3815,7 +3815,18 @@
                 </p>
               </td>
 </tr>
-</tbody>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX98_RANDOM_SHUFFLE</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does no longer support <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">random_shuffle</span><span class="special">()</span></code>. It was deprecated in C++14 and is removed from C++17.
+                </p>
+              </td>
+</tr></tbody>
 </table></div>
 </div>
 <div class="section">
