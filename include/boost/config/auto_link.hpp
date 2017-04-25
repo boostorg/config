@@ -86,6 +86,10 @@ BOOST_LIB_VERSION:    The Boost version, in the form x_y, for Boost version x.y.
 #  define BOOST_STRINGIZE(X) BOOST_DO_STRINGIZE(X)
 #  define BOOST_DO_STRINGIZE(X) #X
 #endif
+// Support clang-cl
+#if defined(__clang__) && defined(_MSC_EXTENSIONS)
+#define BOOST_MSVC _MSC_VER
+#endif
 //
 // Only include what follows for known and supported compilers:
 //
@@ -440,5 +444,6 @@ BOOST_LIB_VERSION:    The Boost version, in the form x_y, for Boost version x.y.
 #if defined(BOOST_DYN_LINK)
 #  undef BOOST_DYN_LINK
 #endif
-
-
+#if defined(__clang__) && defined(_MSC_EXTENSIONS)
+#undef BOOST_MSVC
+#endif
