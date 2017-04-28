@@ -14,6 +14,7 @@
 //
 
 #include <boost/limits.hpp>
+#include <boost/detail/workaround.hpp>
 #include <limits.h>
 #include <math.h>
 #include <cmath>
@@ -21,7 +22,9 @@
 #include <iostream>
 #include <iomanip>
 #include <cstring>
-#include <boost/type_traits/alignment_of.hpp>
+#ifndef BOOST_NO_CXX11_HDR_TYPE_TRAITS
+#include <type_traits>
+#endif
 
 #ifdef BOOST_NO_STDC_NAMESPACE
 namespace std{ using ::strcmp; using ::pow; using ::fabs; using ::sqrt; using ::sin; using ::atan2; }
@@ -155,8 +158,10 @@ void print_limits(T, const char* name)
    }
    std::cout << 
       "    sizeof(" << name << ") = " << sizeof(T) << std::endl;
+#ifndef BOOST_NO_CXX11_HDR_TYPE_TRAITS
    std::cout << 
-      "    alignment_of<" << name << "> = " << boost::alignment_of<T>::value << std::endl << std::endl;
+      "    alignment_of<" << name << "> = " << std::alignment_of<T>::value << std::endl;
+#endif
 }
 /*
 template <class T>

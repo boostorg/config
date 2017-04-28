@@ -9,9 +9,18 @@
  */
 
 #include <boost/limits.hpp>
-#include <boost/detail/lightweight_main.hpp>
-#include <boost/core/lightweight_test.hpp>
 #include <iostream>
+
+namespace boost { namespace config_test {
+
+inline void fail(bool b)
+{
+  if (!b) std::abort();
+}
+
+}}
+
+#define BOOST_TEST(x) boost::config_test::fail(x)
 
 /*
  * General portability note:
@@ -172,7 +181,7 @@ void test_float_limits(const T &, const char * msg)
 }
 
 
-int cpp_main(int, char*[])
+int main(int, char*[])
 {
   test_integral_limits(bool(), "bool");
   test_integral_limits(char(), "char");
