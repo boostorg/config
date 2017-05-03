@@ -910,6 +910,7 @@ Foo foo = { 0 };
 [[`BOOST_NO_CXX14_CONSTEXPR`][The compiler does not support relaxed `constexpr`.]]
 [[`BOOST_NO_CXX14_DECLTYPE_AUTO`][The compiler does not support `decltype(auto)`.]]
 [[`BOOST_NO_CXX14_DIGIT_SEPARATORS`][The compiler does not support digit separators (e.g. `1'000'000`).]]
+[[`BOOST_NO_CXX14_STD_EXCHANGE`][The compiler does not support `std::exchange()`.]]
 [[`BOOST_NO_CXX14_GENERIC_LAMBDAS`][The compiler does not support generic lambda (e.g. `[](auto v){ }`).]]
 [[`BOOST_NO_CXX14_HDR_SHARED_MUTEX`][The standard library does not provide header <shared_mutex>.]]
 [[`BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURES`][The compiler does not support initialized lambda capture (e.g. `[foo = 42]{ }`).]]
@@ -935,12 +936,27 @@ provide compliant C++14 support.
 
 [section Macros that describe C++17 features not supported]
 
-The following macros describe features in the 2016 ISO C++ standard, formerly known as C++1z,
+The following macros describe features in the 2017 ISO C++ standard, formerly known as C++1z,
 that are not yet supported by a particular compiler or library.
 
 [table
 [[Macro ][Description ]]
+[[`BOOST_NO_CXX17_STD_APPLY`][The compiler does not support `std::apply()`.]]
 [[`BOOST_NO_CXX17_STD_INVOKE`][The compiler does not support `std::invoke()`.]]
+]
+
+[endsect]
+
+[section Macros that describe features that have been removed from the standard.]
+
+The following macros describe features which were required by one version of the standard, but have been removed by later versions.
+
+[table
+[[Macro ][Description ]]
+[[`BOOST_NO_CXX98_RANDOM_SHUFFLE`][The standard library no longer supports `std::random_shuffle()`. It was deprecated in C++11 and is removed from C++14.]]
+[[`BOOST_NO_AUTO_PTR`][The standard library no longer supports `std::auto_ptr`. It was deprecated in C++11 and is removed from C++14.]]
+[[`BOOST_NO_CXX98_FUNCTION_BASE`][The standard library no longer supports `std::unary_function` and `std::binary_function`. They were deprecated in C++11 and is removed from C++14.]]
+[[`BOOST_NO_CXX98_BINDERS`][The standard library no longer supports `std::bind1st`, `std::bind2nd`, `std::ptr_fun` and `std::mem_fun`. They were deprecated in C++11 and is removed from C++14.]]
 ]
 
 [endsect]

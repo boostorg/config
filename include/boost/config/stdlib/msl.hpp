@@ -34,7 +34,7 @@
 #    define BOOST_HAS_UNISTD_H
 #  endif
    // boilerplate code:
-#  include <boost/config/posix_features.hpp>
+#  include <boost/config/detail/posix_features.hpp>
 #endif
 
 #if defined(_MWMT) || _MSL_THREADSAFE

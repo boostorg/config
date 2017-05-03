@@ -163,7 +163,9 @@
 #endif
 
 // C++17 features
+#if !defined(_CPPLIB_VER) || (_CPPLIB_VER < 650) || !defined(_HAS_CXX17) || (_HAS_CXX17 == 0)
 #  define BOOST_NO_CXX17_STD_APPLY
+#endif
 #if !defined(_CPPLIB_VER) || (_CPPLIB_VER < 650)
 #  define BOOST_NO_CXX17_STD_INVOKE
 #endif
@@ -188,11 +190,14 @@
 #endif
 
 #if defined(_CPPLIB_VER) && (_CPPLIB_VER >= 650)
-// If _HAS_AUTO_PTR_ETC is defined to 0, std::auto_ptr is not available.
+// If _HAS_AUTO_PTR_ETC is defined to 0, std::auto_ptr and std::random_shuffle are not available.
 // See https://www.visualstudio.com/en-us/news/vs2015-vs.aspx#C++
 // and http://blogs.msdn.com/b/vcblog/archive/2015/06/19/c-11-14-17-features-in-vs-2015-rtm.aspx
 #  if defined(_HAS_AUTO_PTR_ETC) && (_HAS_AUTO_PTR_ETC == 0)
 #    define BOOST_NO_AUTO_PTR
+#    define BOOST_NO_CXX98_RANDOM_SHUFFLE
+#    define BOOST_NO_CXX98_FUNCTION_BASE
+#    define BOOST_NO_CXX98_BINDERS
 #  endif
 #endif
 

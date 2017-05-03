@@ -43,6 +43,8 @@
       that allow use of C++14 features with C++11 or earlier compilers</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__17_features_not_supported">Macros
       that describe C++17 features not supported</a></span></dt>
+<dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_features_that_have_been_removed_from_the_standard_">Macros
+      that describe features that have been removed from the standard.</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.boost_helper_macros">Boost
       Helper Macros</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.boost_informational_macros">Boost
@@ -3641,6 +3643,18 @@
 <tr>
 <td>
                 <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX14_STD_EXCHANGE</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">exchange</span><span class="special">()</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <code class="computeroutput"><span class="identifier">BOOST_NO_CXX14_GENERIC_LAMBDAS</span></code>
                 </p>
               </td>
@@ -3758,7 +3772,7 @@
       that describe C++17 features not supported</a>
 </h3></div></div></div>
 <p>
-        The following macros describe features in the 2016 ISO C++ standard, formerly
+        The following macros describe features in the 2017 ISO C++ standard, formerly
         known as C++1z, that are not yet supported by a particular compiler or library.
       </p>
 <div class="informaltable"><table class="table">
@@ -3778,7 +3792,20 @@
                 </p>
               </th>
 </tr></thead>
-<tbody><tr>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX17_STD_APPLY</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">apply</span><span class="special">()</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
 <td>
                 <p>
                   <code class="computeroutput"><span class="identifier">BOOST_NO_CXX17_STD_INVOKE</span></code>
@@ -3789,7 +3816,93 @@
                   The compiler does not support <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">invoke</span><span class="special">()</span></code>.
                 </p>
               </td>
-</tr></tbody>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="boost_config.boost_macro_reference.macros_that_describe_features_that_have_been_removed_from_the_standard_"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_features_that_have_been_removed_from_the_standard_" title="Macros that describe features that have been removed from the standard.">Macros
+      that describe features that have been removed from the standard.</a>
+</h3></div></div></div>
+<p>
+        The following macros describe features which were required by one version
+        of the standard, but have been removed by later versions.
+      </p>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Macro
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX98_RANDOM_SHUFFLE</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The standard library no longer supports <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">random_shuffle</span><span class="special">()</span></code>. It was deprecated in C++11 and
+                  is removed from C++14.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_AUTO_PTR</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The standard library no longer supports <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">auto_ptr</span></code>.
+                  It was deprecated in C++11 and is removed from C++14.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX98_FUNCTION_BASE</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The standard library no longer supports <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">unary_function</span></code>
+                  and <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">binary_function</span></code>. They were deprecated
+                  in C++11 and is removed from C++14.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX98_BINDERS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The standard library no longer supports <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">bind1st</span></code>,
+                  <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">bind2nd</span></code>, <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">ptr_fun</span></code>
+                  and <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">mem_fun</span></code>. They were deprecated
+                  in C++11 and is removed from C++14.
+                </p>
+              </td>
+</tr>
+</tbody>
 </table></div>
 </div>
 <div class="section">

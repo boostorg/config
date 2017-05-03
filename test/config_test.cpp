@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sun Feb  5 19:09:22 2017
+//  This file was automatically generated on Mon Apr 17 18:35:54 2017
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -336,6 +336,21 @@ namespace boost_no_cxx17_std_apply = empty_boost;
 #include "boost_no_cxx17_std_invoke.ipp"
 #else
 namespace boost_no_cxx17_std_invoke = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX98_BINDERS
+#include "boost_no_cxx98_binders.ipp"
+#else
+namespace boost_no_cxx98_binders = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX98_FUNCTION_BASE
+#include "boost_no_cxx98_function_base.ipp"
+#else
+namespace boost_no_cxx98_function_base = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX98_RANDOM_SHUFFLE
+#include "boost_no_cxx98_random_shuffle.ipp"
+#else
+namespace boost_no_cxx98_random_shuffle = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX11_HDR_FUNCTIONAL
 #include "boost_no_cxx_hdr_functional.ipp"
@@ -1604,6 +1619,21 @@ int main( int, char *[] )
    if(0 != boost_no_cxx17_std_invoke::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX17_STD_INVOKE at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx98_binders::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX98_BINDERS at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx98_function_base::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX98_FUNCTION_BASE at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx98_random_shuffle::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX98_RANDOM_SHUFFLE at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx11_hdr_functional::test())

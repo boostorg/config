@@ -12,7 +12,12 @@
 #  define BOOST_COMPILER "PathScale EKOPath C++ Compiler version " __PATHSCALE__
 #endif
 
-#if __PATHCC__ >= 4
+#if __PATHCC__ >= 6 
+// PathCC is based on clang, and supports the __has_*() builtins used 
+// to detect features in clang.hpp. Since the clang toolset is much 
+// better maintained, it is more convenient to reuse its definitions. 
+#  include "boost/config/compiler/clang.hpp"
+#elif __PATHCC__ >= 4 
 #  define BOOST_MSVC6_MEMBER_TEMPLATES
 #  define BOOST_HAS_UNISTD_H
 #  define BOOST_HAS_STDINT_H
