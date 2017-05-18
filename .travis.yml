@@ -311,9 +311,7 @@ install:
   - cd boost-root
   - git submodule update --init tools/build
   - git submodule update --init libs/config
-  - git submodule update --init tools/boostdep
   - cp -r $TRAVIS_BUILD_DIR/* libs/config
-  - python tools/boostdep/depinst/depinst.py config
   - ./bootstrap.sh
   - ./b2 headers
 
