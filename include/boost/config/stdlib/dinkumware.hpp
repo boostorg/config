@@ -163,7 +163,7 @@
 #endif
 
 // C++17 features
-#if !defined(_CPPLIB_VER) || (_CPPLIB_VER < 650) || !defined(_HAS_CXX17) || (_HAS_CXX17 == 0)
+#if !defined(_CPPLIB_VER) || (_CPPLIB_VER < 650) || !defined(BOOST_MSVC) || (BOOST_MSVC < 1910) || !defined(_HAS_CXX17) || (_HAS_CXX17 == 0)
 #  define BOOST_NO_CXX17_STD_APPLY
 #endif
 #if !defined(_CPPLIB_VER) || (_CPPLIB_VER < 650)
