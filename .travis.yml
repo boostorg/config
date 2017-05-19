@@ -316,6 +316,7 @@ install:
   - python tools/boostdep/depinst/depinst.py config
   - ./bootstrap.sh
   - ./b2 headers
+  - $TOOLSET -std=$CXXSTD -I. -O3 libs/config/config_info.cpp -o config_info && ./config_info
 
 script:
   - |-
