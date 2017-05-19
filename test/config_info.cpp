@@ -313,6 +313,13 @@ void print_compiler_macros()
   PRINT_MACRO(_FASTMD); 
   PRINT_MACRO(_MAXVL); 
 
+  // clang options:
+  PRINT_MACRO(__clang__); 
+  PRINT_MACRO(__clang_major__);
+  PRINT_MACRO(__clang_minor__);
+  PRINT_MACRO(__clang_version__);
+  PRINT_MACRO(__clang_patchlevel__);
+
   // misc compilers not covered so far:
   PRINT_MACRO(__USLC__);
   PRINT_MACRO(__DECCXX);
