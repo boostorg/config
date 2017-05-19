@@ -148,6 +148,19 @@
 // defining it here is a terrible cludge, but should get things working:
 extern "C" char *gets (char *__s);
 #endif
+//
+// clang is unable to parse some GCC headers, add those workarounds here:
+//
+#if BOOST_LIBSTDCXX_VERSION < 50000
+#  define BOOST_NO_CXX11_HDR_REGEX
+#endif
+//
+// GCC 4.7.x has no __cxa_thread_atexit which
+// thread_local objects require for cleanup:
+//
+#if BOOST_LIBSTDCXX_VERSION < 40800
+#  define BOOST_NO_CXX11_THREAD_LOCAL
+#endif
 
 //
 //  GCC 4.8 and 9 add working versions of <atomic> and <regex> respectively.
