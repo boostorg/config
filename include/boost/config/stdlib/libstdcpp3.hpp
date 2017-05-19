@@ -161,6 +161,15 @@ extern "C" char *gets (char *__s);
 #if BOOST_LIBSTDCXX_VERSION < 40800
 #  define BOOST_NO_CXX11_THREAD_LOCAL
 #endif
+//
+// Early clang versions can handle <chrono>, not exactly sure which versions
+// but certainly up to clang-3.4 and gcc-4.6:
+//
+#if (__clang_major__ < 3) || ((__clang_major__ == 3) && (__clang_minor__ < 5))
+#  if BOOST_LIBSTDCXX_VERSION < 50000
+#     define BOOST_NO_CXX11_HDR_CHRONO
+#  endif
+#endif
 
 //
 //  GCC 4.8 and 9 add working versions of <atomic> and <regex> respectively.
