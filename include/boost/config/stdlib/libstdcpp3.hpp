@@ -256,6 +256,7 @@ extern "C" char *gets (char *__s);
 // so 4.7.0 is the first truly conforming one.
 #  define BOOST_NO_CXX11_HDR_CHRONO
 #  define BOOST_NO_CXX11_ALLOCATOR
+#  define BOOST_NO_CXX11_POINTER_TRAITS
 #endif
 //  C++0x features in GCC 4.8.0 and later
 //
