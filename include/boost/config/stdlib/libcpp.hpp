@@ -91,6 +91,9 @@
 #if (_LIBCPP_VERSION < 4000) || (__cplusplus <= 201402L)
 #  define BOOST_NO_CXX17_STD_APPLY
 #endif
+#if (_LIBCPP_VERSION > 4000) && (__cplusplus > 201402L) && !defined(_LIBCPP_ENABLE_CXX17_REMOVED_AUTO_PTR)
+#  define BOOST_NO_AUTO_PTR
+#endif
 
 #if (_LIBCPP_VERSION <= 1101) && !defined(BOOST_NO_CXX11_THREAD_LOCAL)
 // This is a bit of a sledgehammer, because really it's just libc++abi that has no
