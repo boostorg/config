@@ -29,6 +29,7 @@
 // aliases since members rebind_alloc and rebind_traits require it.
 #if defined(_LIBCPP_HAS_NO_TEMPLATE_ALIASES)
 #    define BOOST_NO_CXX11_ALLOCATOR
+#    define BOOST_NO_CXX11_POINTER_TRAITS
 #endif
 
 #if __cplusplus < 201103
@@ -53,6 +54,7 @@
 #  define BOOST_NO_CXX11_HDR_UNORDERED_SET
 #  define BOOST_NO_CXX11_NUMERIC_LIMITS
 #  define BOOST_NO_CXX11_ALLOCATOR
+#  define BOOST_NO_CXX11_POINTER_TRAITS
 #  define BOOST_NO_CXX11_SMART_PTR
 #  define BOOST_NO_CXX11_HDR_FUNCTIONAL
 #  define BOOST_NO_CXX11_STD_ALIGN
