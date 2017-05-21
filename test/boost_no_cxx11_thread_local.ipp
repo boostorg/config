@@ -14,10 +14,22 @@
 
 namespace boost_no_cxx11_thread_local{
 
+template <class T>
+int check_local(int n)
+{
+   static thread_local T s(n, ' ');
+   static thread_local int size = s.size();
+   if(size != n)
+   {
+      s = T(n, ' ');
+	  size = n;
+   }
+   return size;
+}
+
 int test()
 {
-   static thread_local std::string local("hello");
-   return 0;
+   return check_local<std::string>(5) == 5 ? 0 : 1;
 }
 
 }
