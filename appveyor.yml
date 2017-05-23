@@ -33,11 +33,14 @@ install:
   - python tools/boostdep/depinst/depinst.py config
   - bootstrap
   - b2 headers
+  - dir
 
 build: off
 
 test_script:
-  - cd boost-root\libs\config\test
+  - dir
+  - dir %APPVEYOR_BUILD_FOLDER%
+  - cd %APPVEYOR_BUILD_FOLDER%\libs\config\test
   - ..\..\..\b2 config_info_travis_install toolset=%TOOLSET%
   - config_info.exe
   - ..\..\..\b2 -j3 toolset=%TOOLSET%
