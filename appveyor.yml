@@ -41,5 +41,6 @@ test_script:
   - dir
   - cd libs\config\test
   - ..\..\..\b2 config_info_travis_install toolset=%TOOLSET%
-  - config_info.exe
+  - dir
+  - config_info_travis
   - ..\..\..\b2 -j3 toolset=%TOOLSET%
