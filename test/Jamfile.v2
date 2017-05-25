@@ -8,6 +8,8 @@
 # the template defined in options_v2.jam.
 #
 
+import testing ;
+
 project
     : requirements
       <toolset>gcc:<cxxflags>-Wno-deprecated-declarations
@@ -104,3 +106,7 @@ obj has_clang_implicit_fallthrough : cmd_line_check.cpp :
 
 explicit has_clang_implicit_fallthrough ;
 
+exe config_info_travis : config_info.cpp ;
+install config_info_travis_install : config_info_travis : <location>. ;
+explicit config_info_travis_install ;
+explicit config_info_travis ;
