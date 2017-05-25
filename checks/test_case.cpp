@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon Apr 17 18:35:54 2017
+//  This file was automatically generated on Wed May 17 01:29:40 2017
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -489,6 +489,11 @@
 #ifdef TEST_BOOST_NO_CXX11_NUMERIC_LIMITS
 #  ifdef BOOST_NO_CXX11_NUMERIC_LIMITS
 #     error "Defect macro BOOST_NO_CXX11_NUMERIC_LIMITS is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX11_POINTER_TRAITS
+#  ifdef BOOST_NO_CXX11_POINTER_TRAITS
+#     error "Defect macro BOOST_NO_CXX11_POINTER_TRAITS is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX11_REF_QUALIFIERS
