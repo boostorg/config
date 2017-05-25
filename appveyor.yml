@@ -12,16 +12,22 @@ branches:
     - develop
 
 platform:
-  - x86
   - x64
 
 environment:
   matrix:
-    - TOOLSET: msvc-9.0
-    - TOOLSET: msvc-10.0
-    - TOOLSET: msvc-11.0
-    - TOOLSET: msvc-12.0
-    - TOOLSET: msvc-14.0
+    - ARGS: --toolset=msvc-9.0  address-model=32
+    - ARGS: --toolset=msvc-10.0 address-model=32
+    - ARGS: --toolset=msvc-11.0 address-model=32
+    - ARGS: --toolset=msvc-12.0 address-model=32
+    - ARGS: --toolset=msvc-14.0 address-model=32
+    - ARGS: --toolset=msvc-14.1 address-model=32
+    - ARGS: --toolset=msvc-9.0  address-model=64
+    - ARGS: --toolset=msvc-10.0 address-model=64
+    - ARGS: --toolset=msvc-11.0 address-model=64
+    - ARGS: --toolset=msvc-12.0 address-model=64
+    - ARGS: --toolset=msvc-14.0 address-model=64
+    - ARGS: --toolset=msvc-14.1 address-model=64
 
 install:
   - cd ..
@@ -40,7 +46,7 @@ build: off
 test_script:
   - dir
   - cd libs\config\test
-  - ..\..\..\b2 config_info_travis_install toolset=%TOOLSET%
+  - ..\..\..\b2 config_info_travis_install %ARGS%
   - dir
   - config_info_travis
-  - ..\..\..\b2 -j3 toolset=%TOOLSET%
+  - ..\..\..\b2 -j3 %ARGS%
