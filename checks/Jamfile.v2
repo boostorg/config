@@ -9,7 +9,7 @@
 
 import modules ;
 import path ; 
-
+import testing ;
 
 obj two_arg_use_facet : test_case.cpp : <define>TEST_BOOST_HAS_TWO_ARG_USE_FACET ;
 obj bethreads : test_case.cpp : <define>TEST_BOOST_HAS_BETHREADS ;
