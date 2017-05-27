@@ -430,9 +430,11 @@ install:
   - git clone -b $TRAVIS_BRANCH --depth 1 https://github.com/boostorg/boost.git boost-root
   - cd boost-root
   - git submodule update --init tools/build
-  - git submodule update --init tools/boostdep
+  - git submodule update --init libs/detail
+  - git submodule update --init libs/core
+  - git submodule update --init libs/assert
+  - git submodule update --init libs/type_traits
   - cp -r $TRAVIS_BUILD_DIR/* libs/config
-  - python tools/boostdep/depinst/depinst.py config
   - ./bootstrap.sh
   - ./b2 headers
  
