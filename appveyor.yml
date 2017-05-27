@@ -46,14 +46,13 @@ install:
   - git submodule update --init libs/type_traits
   - bootstrap
   - b2 headers
-  - dir
 
 build: off
 
 test_script:
-  - if %APPVEYOR_BUILD_WORKER_IMAGE% == "Visual Studio 2017" then call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
+  - dir "C:\Program Files (x86)"
+  - if %APPVEYOR_BUILD_WORKER_IMAGE% == "Visual Studio 2017" then echo using msvc : 14.1 : "C:/Program Files (x86)/Microsoft Visual Studio 14.1/VC/Tools/MSVC/14.10.25017/bin/HostX64/x64/cl.exe" ; > %HOMEDRIVE%%HOMEPATH%\user_config.jam
   - cd libs\config\test
   - ..\..\..\b2 config_info_travis_install %ARGS%
-  - dir
   - config_info_travis
   - ..\..\..\b2 -j3 %ARGS%
