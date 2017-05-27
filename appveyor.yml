@@ -51,7 +51,7 @@ build: off
 
 test_script:
   - dir "C:\Program Files (x86)"
-  - 'if %APPVEYOR_BUILD_WORKER_IMAGE% == "Visual Studio 2017" then echo using msvc : 14.1 : "C:/Program Files (x86)/Microsoft Visual Studio 14.1/VC/Tools/MSVC/14.10.25017/bin/HostX64/x64/cl.exe" ; > %HOMEDRIVE%%HOMEPATH%\user_config.jam'
+  - 'if %APPVEYOR_BUILD_WORKER_IMAGE% == "Visual Studio 2017" echo using msvc : 14.1 : "C:/Program Files (x86)/Microsoft Visual Studio 14.1/VC/Tools/MSVC/14.10.25017/bin/HostX64/x64/cl.exe" ; > %HOMEDRIVE%%HOMEPATH%\user_config.jam'
   - cd libs\config\test
   - ..\..\..\b2 config_info_travis_install %ARGS%
   - config_info_travis
