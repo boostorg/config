@@ -25,7 +25,9 @@ environment:
     - ARGS: --toolset=msvc-14.0 address-model=64
     - ARGS: --toolset=gcc address-model=64
       PATH: C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\mingw64\bin;%PATH%
-    - ARGS: --toolset=gcc address-model=64
+    - ARGS: --toolset=gcc address-model=64 cxxflags=-std=gnu++1z
+      PATH: C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\mingw64\bin;%PATH%
+    - ARGS: --toolset=gcc address-model=32
       PATH: C:\mingw-w64\i686-5.3.0-posix-dwarf-rt_v4-rev0\mingw32\bin;%PATH%
     - ARGS: --toolset=gcc address-model=32 linkflags=-Wl,-allow-multiple-definition
       PATH: C:\MinGW\bin;%PATH%
@@ -36,8 +38,10 @@ install:
   - cd boost-root
   - xcopy /s /e /q %APPVEYOR_BUILD_FOLDER% libs\config
   - git submodule update --init tools/build
-  - git submodule update --init tools/boostdep
-  - python tools/boostdep/depinst/depinst.py config
+  - git submodule update --init libs/detail
+  - git submodule update --init libs/core
+  - git submodule update --init libs/assert
+  - git submodule update --init libs/type_traits
   - bootstrap
   - b2 headers
   - dir
