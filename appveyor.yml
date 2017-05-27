@@ -18,7 +18,7 @@ environment:
   matrix:
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       ARGS: --toolset=msvc-14.1 address-model=64
-      CI_SETUP: "C:\Program Files (x86)\Microsoft Visual Studio 14.1\VC\vcvarsall.bat" x86_amd64
+      CI_SETUP: "C:\\Program Files (x86)\\Microsoft Visual Studio 14.1\\VC\\vcvarsall.bat" x86_amd64
     - ARGS: --toolset=msvc-9.0  address-model=32
     - ARGS: --toolset=msvc-10.0 address-model=32
     - ARGS: --toolset=msvc-11.0 address-model=32
