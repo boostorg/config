@@ -18,7 +18,6 @@ environment:
   matrix:
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       ARGS: --toolset=msvc-14.1 address-model=64
-      CI_SETUP: "C:\\Program Files (x86)\\Microsoft Visual Studio 14.1\\VC\\vcvarsall.bat" x86_amd64
     - ARGS: --toolset=msvc-9.0  address-model=32
     - ARGS: --toolset=msvc-10.0 address-model=32
     - ARGS: --toolset=msvc-11.0 address-model=32
@@ -52,7 +51,7 @@ install:
 build: off
 
 test_script:
-  - if defined CI_SETUP call %CI_SETUP%
+  - if %APPVEYOR_BUILD_WORKER_IMAGE% == "Visual Studio 2017" then call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
   - cd libs\config\test
   - ..\..\..\b2 config_info_travis_install %ARGS%
   - dir
