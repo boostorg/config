@@ -1,4 +1,4 @@
-//  This file was automatically generated on Wed May 17 01:29:40 2017
+//  This file was automatically generated on Sun May 28 10:05:49 2017
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -164,91 +164,6 @@
 #ifdef TEST_BOOST_HAS_STLP_USE_FACET
 #  ifndef BOOST_HAS_STLP_USE_FACET
 #     error "Feature macro BOOST_HAS_STLP_USE_FACET is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_ARRAY
-#  ifndef BOOST_HAS_TR1_ARRAY
-#     error "Feature macro BOOST_HAS_TR1_ARRAY is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_BIND
-#  ifndef BOOST_HAS_TR1_BIND
-#     error "Feature macro BOOST_HAS_TR1_BIND is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_COMPLEX_OVERLOADS
-#  ifndef BOOST_HAS_TR1_COMPLEX_OVERLOADS
-#     error "Feature macro BOOST_HAS_TR1_COMPLEX_OVERLOADS is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_COMPLEX_INVERSE_TRIG
-#  ifndef BOOST_HAS_TR1_COMPLEX_INVERSE_TRIG
-#     error "Feature macro BOOST_HAS_TR1_COMPLEX_INVERSE_TRIG is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_FUNCTION
-#  ifndef BOOST_HAS_TR1_FUNCTION
-#     error "Feature macro BOOST_HAS_TR1_FUNCTION is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_HASH
-#  ifndef BOOST_HAS_TR1_HASH
-#     error "Feature macro BOOST_HAS_TR1_HASH is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_MEM_FN
-#  ifndef BOOST_HAS_TR1_MEM_FN
-#     error "Feature macro BOOST_HAS_TR1_MEM_FN is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_RANDOM
-#  ifndef BOOST_HAS_TR1_RANDOM
-#     error "Feature macro BOOST_HAS_TR1_RANDOM is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_REFERENCE_WRAPPER
-#  ifndef BOOST_HAS_TR1_REFERENCE_WRAPPER
-#     error "Feature macro BOOST_HAS_TR1_REFERENCE_WRAPPER is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_REGEX
-#  ifndef BOOST_HAS_TR1_REGEX
-#     error "Feature macro BOOST_HAS_TR1_REGEX is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_RESULT_OF
-#  ifndef BOOST_HAS_TR1_RESULT_OF
-#     error "Feature macro BOOST_HAS_TR1_RESULT_OF is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_SHARED_PTR
-#  ifndef BOOST_HAS_TR1_SHARED_PTR
-#     error "Feature macro BOOST_HAS_TR1_SHARED_PTR is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_TUPLE
-#  ifndef BOOST_HAS_TR1_TUPLE
-#     error "Feature macro BOOST_HAS_TR1_TUPLE is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_TYPE_TRAITS
-#  ifndef BOOST_HAS_TR1_TYPE_TRAITS
-#     error "Feature macro BOOST_HAS_TR1_TYPE_TRAITS is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_UNORDERED_MAP
-#  ifndef BOOST_HAS_TR1_UNORDERED_MAP
-#     error "Feature macro BOOST_HAS_TR1_UNORDERED_MAP is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_UNORDERED_SET
-#  ifndef BOOST_HAS_TR1_UNORDERED_SET
-#     error "Feature macro BOOST_HAS_TR1_UNORDERED_SET is not defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_HAS_TR1_UTILITY
-#  ifndef BOOST_HAS_TR1_UTILITY
-#     error "Feature macro BOOST_HAS_TR1_UTILITY is not defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_HAS_UNISTD_H
