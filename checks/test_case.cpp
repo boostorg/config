@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon May 29 10:00:26 2017
+//  This file was automatically generated on Mon May 29 10:27:35 2017
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -499,6 +499,11 @@
 #ifdef TEST_BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #  ifdef BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #     error "Defect macro BOOST_NO_CXX14_VARIABLE_TEMPLATES is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX17_FOLD_EXPRESSIONS
+#  ifdef BOOST_NO_CXX17_FOLD_EXPRESSIONS
+#     error "Defect macro BOOST_NO_CXX17_FOLD_EXPRESSIONS is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX17_INLINE_VARIABLES

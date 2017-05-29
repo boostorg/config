@@ -163,6 +163,10 @@
 #  define BOOST_NO_CXX17_INLINE_VARIABLES
 #endif
 
+#if !defined(__cpp_fold_expressions) || (__cpp_fold_expressions < 201603)
+#  define BOOST_NO_CXX17_FOLD_EXPRESSIONS
+#endif
+
 //
 // TR1 macros:
 //

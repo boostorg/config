@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon May 29 10:00:26 2017
+//  This file was automatically generated on Mon May 29 10:27:35 2017
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -331,6 +331,11 @@ namespace boost_no_cxx14_std_exchange = empty_boost;
 #include "boost_no_cxx14_var_templ.ipp"
 #else
 namespace boost_no_cxx14_variable_templates = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX17_FOLD_EXPRESSIONS
+#include "boost_no_cxx17_fold_expressions.ipp"
+#else
+namespace boost_no_cxx17_fold_expressions = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX17_INLINE_VARIABLES
 #include "boost_no_cxx17_inline_variables.ipp"
@@ -1459,6 +1464,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx14_variable_templates::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX14_VARIABLE_TEMPLATES at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx17_fold_expressions::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX17_FOLD_EXPRESSIONS at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx17_inline_variables::test())

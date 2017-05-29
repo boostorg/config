@@ -235,6 +235,9 @@
 #if !defined(__cpp_inline_variables) || (__cpp_inline_variables < 201606)
 #  define BOOST_NO_CXX17_INLINE_VARIABLES
 #endif
+#if !defined(__cpp_fold_expressions) || (__cpp_fold_expressions < 201603)
+#  define BOOST_NO_CXX17_FOLD_EXPRESSIONS
+#endif
 
 #if __BORLANDC__ >= 0x590
 #  define BOOST_HAS_TR1_HASH

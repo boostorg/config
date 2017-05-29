@@ -293,6 +293,7 @@
 // Clang 3.9+ in c++1z
 #if !__has_cpp_attribute(fallthrough) || __cplusplus < 201406L
 #  define BOOST_NO_CXX17_INLINE_VARIABLES
+#  define BOOST_NO_CXX17_FOLD_EXPRESSIONS
 #endif
 
 #if __cplusplus < 201103L
