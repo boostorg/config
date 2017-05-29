@@ -172,6 +172,8 @@
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #endif
 
+#define BOOST_HAS_STDINT_H
+
 // Turn on threading support for Solaris 12.
 // Ticket #11972
 #if (__SUNPRO_CC >= 0x5140) && defined(__SunOS_5_12) && !defined(BOOST_HAS_THREADS)
