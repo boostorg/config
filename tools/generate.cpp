@@ -162,9 +162,6 @@ void write_test_file(const fs::path& file,
 
       ofs << "#include <boost/config.hpp>\n";
 
-      if(regex_match(macro_name, tr1_exp))
-         ofs << "#include <boost/tr1/detail/config.hpp>\n";
-
       ofs << "#include \"test.hpp\"\n\n"
          "#if";
       if(positive_test != expect_success)
