@@ -92,6 +92,11 @@
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #endif
 
+// C++17
+#if !defined(__cpp_structured_bindings) || (__cpp_structured_bindings < 201606)
+#  define BOOST_NO_CXX17_STRUCTURED_BINDINGS
+#endif
+
 #define BOOST_COMPILER "GCC-XML C++ version " __GCCXML__
 
 

@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sun May 28 10:05:49 2017
+//  This file was automatically generated on Mon May 29 09:56:04 2017
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -509,6 +509,11 @@
 #ifdef TEST_BOOST_NO_CXX17_STD_INVOKE
 #  ifdef BOOST_NO_CXX17_STD_INVOKE
 #     error "Defect macro BOOST_NO_CXX17_STD_INVOKE is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX17_STRUCTURED_BINDINGS
+#  ifdef BOOST_NO_CXX17_STRUCTURED_BINDINGS
+#     error "Defect macro BOOST_NO_CXX17_STRUCTURED_BINDINGS is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX98_BINDERS

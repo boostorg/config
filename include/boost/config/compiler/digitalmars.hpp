@@ -114,6 +114,11 @@
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #endif
 
+// C++17
+#if !defined(__cpp_structured_bindings) || (__cpp_structured_bindings < 201606)
+#  define BOOST_NO_CXX17_STRUCTURED_BINDINGS
+#endif
+
 #if (__DMC__ <= 0x840)
 #error "Compiler not supported or configured - please reconfigure"
 #endif

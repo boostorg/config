@@ -172,6 +172,11 @@
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #endif
 
+// C++17
+#if !defined(__cpp_structured_bindings) || (__cpp_structured_bindings < 201606)
+#  define BOOST_NO_CXX17_STRUCTURED_BINDINGS
+#endif
+
 // Turn on threading support for Solaris 12.
 // Ticket #11972
 #if (__SUNPRO_CC >= 0x5140) && defined(__SunOS_5_12) && !defined(BOOST_HAS_THREADS)

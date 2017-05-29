@@ -218,6 +218,8 @@
 //
 #define BOOST_NO_TWO_PHASE_NAME_LOOKUP
 #define BOOST_NO_CXX11_SFINAE_EXPR
+// C++ 17:
+#define BOOST_NO_CXX17_STRUCTURED_BINDINGS
 
 //
 // Things that don't work in clr mode:

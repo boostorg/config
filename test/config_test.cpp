@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sun May 28 10:05:49 2017
+//  This file was automatically generated on Mon May 29 09:56:04 2017
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -341,6 +341,11 @@ namespace boost_no_cxx17_std_apply = empty_boost;
 #include "boost_no_cxx17_std_invoke.ipp"
 #else
 namespace boost_no_cxx17_std_invoke = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX17_STRUCTURED_BINDINGS
+#include "boost_no_cxx17_structured_bindings.ipp"
+#else
+namespace boost_no_cxx17_structured_bindings = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX98_BINDERS
 #include "boost_no_cxx98_binders.ipp"
@@ -1459,6 +1464,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx17_std_invoke::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX17_STD_INVOKE at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx17_structured_bindings::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX17_STRUCTURED_BINDINGS at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx98_binders::test())

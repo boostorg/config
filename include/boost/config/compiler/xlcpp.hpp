@@ -238,6 +238,10 @@
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #endif
 
+#if !defined(__cpp_structured_bindings) || (__cpp_structured_bindings < 201606)
+#  define BOOST_NO_CXX17_STRUCTURED_BINDINGS
+#endif
+
 #if !__has_feature(cxx_thread_local)
 #  define BOOST_NO_CXX11_THREAD_LOCAL
 #endif
