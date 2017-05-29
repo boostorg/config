@@ -16,6 +16,10 @@ platform:
 
 environment:
   matrix:
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      ARGS: --toolset=msvc-14.1 address-model=64
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      ARGS: --toolset=msvc-14.1 address-model=32
     - ARGS: --toolset=msvc-9.0  address-model=32
     - ARGS: --toolset=msvc-10.0 address-model=32
     - ARGS: --toolset=msvc-11.0 address-model=32
@@ -44,14 +48,11 @@ install:
   - git submodule update --init libs/type_traits
   - bootstrap
   - b2 headers
-  - dir
 
 build: off
 
 test_script:
-  - dir
   - cd libs\config\test
   - ..\..\..\b2 config_info_travis_install %ARGS%
-  - dir
   - config_info_travis
   - ..\..\..\b2 -j3 %ARGS%
