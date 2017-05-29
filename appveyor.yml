@@ -17,7 +17,7 @@ platform:
 environment:
   matrix:
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-      ARGS: --toolset=msvc-14.1 address-model=64
+      ARGS: --toolset=msvc-14.1
     - ARGS: --toolset=msvc-9.0  address-model=32
     - ARGS: --toolset=msvc-10.0 address-model=32
     - ARGS: --toolset=msvc-11.0 address-model=32
@@ -50,10 +50,6 @@ install:
 build: off
 
 test_script:
-  - >
-    if %APPVEYOR_BUILD_WORKER_IMAGE% == "Visual Studio 2017" call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat"
-  - >
-    if %APPVEYOR_BUILD_WORKER_IMAGE% == "Visual Studio 2017" call %VS150COMNTOOLS%\..\..\VC\Auxiliary\Build\vcvarsall.bat amd64
   - cd libs\config\test
   - ..\..\..\b2 config_info_travis_install %ARGS%
   - config_info_travis
