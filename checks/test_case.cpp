@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon May 29 09:56:04 2017
+//  This file was automatically generated on Mon May 29 10:00:26 2017
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -499,6 +499,11 @@
 #ifdef TEST_BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #  ifdef BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #     error "Defect macro BOOST_NO_CXX14_VARIABLE_TEMPLATES is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX17_INLINE_VARIABLES
+#  ifdef BOOST_NO_CXX17_INLINE_VARIABLES
+#     error "Defect macro BOOST_NO_CXX17_INLINE_VARIABLES is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX17_STD_APPLY

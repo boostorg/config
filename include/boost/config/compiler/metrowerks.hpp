@@ -161,6 +161,9 @@
 #if !defined(__cpp_structured_bindings) || (__cpp_structured_bindings < 201606)
 #  define BOOST_NO_CXX17_STRUCTURED_BINDINGS
 #endif
+#if !defined(__cpp_inline_variables) || (__cpp_inline_variables < 201606)
+#  define BOOST_NO_CXX17_INLINE_VARIABLES
+#endif
 
 #define BOOST_COMPILER "Metrowerks CodeWarrior C++ version " BOOST_STRINGIZE(BOOST_COMPILER_VERSION)
 

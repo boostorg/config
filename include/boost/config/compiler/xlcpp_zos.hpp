@@ -151,6 +151,7 @@
 #define BOOST_NO_CXX14_CONSTEXPR
 #define BOOST_NO_CXX14_BINARY_LITERALS
 #define BOOST_NO_CXX17_STRUCTURED_BINDINGS
+#define BOOST_NO_CXX17_INLINE_VARIABLES
 
 // -------------------------------------
 
