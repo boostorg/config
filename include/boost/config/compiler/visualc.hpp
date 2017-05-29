@@ -194,7 +194,6 @@
 //
 #if (_MSC_VER < 1910)
 #  define BOOST_NO_CXX14_AGGREGATE_NSDMI
-#  define BOOST_NO_CXX14_CONSTEXPR
 #endif
 
 // MSVC including version 14 has not yet completely
@@ -218,6 +217,7 @@
 //
 #define BOOST_NO_TWO_PHASE_NAME_LOOKUP
 #define BOOST_NO_CXX11_SFINAE_EXPR
+#  define BOOST_NO_CXX14_CONSTEXPR
 
 //
 // Things that don't work in clr mode:
