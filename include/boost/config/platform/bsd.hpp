@@ -62,7 +62,7 @@
 //
 // The BSD <ctype.h> has macros only, no functions:
 //
-#if !defined(__OpenBSD__) || defined(__DragonFly__)
+#if defined(__FreeBSD__) || defined(__DragonFly__)
 #  define BOOST_NO_CTYPE_FUNCTIONS
 #endif
 
