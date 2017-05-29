@@ -17,7 +17,9 @@ platform:
 environment:
   matrix:
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-      ARGS: --toolset=msvc-14.1
+      ARGS: --toolset=msvc-14.1 address-model=64
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      ARGS: --toolset=msvc-14.1 address-model=32
     - ARGS: --toolset=msvc-9.0  address-model=32
     - ARGS: --toolset=msvc-10.0 address-model=32
     - ARGS: --toolset=msvc-11.0 address-model=32
