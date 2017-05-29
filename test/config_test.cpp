@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sun May 28 10:05:49 2017
+//  This file was automatically generated on Mon May 29 10:27:35 2017
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -332,6 +332,16 @@ namespace boost_no_cxx14_std_exchange = empty_boost;
 #else
 namespace boost_no_cxx14_variable_templates = empty_boost;
 #endif
+#ifndef BOOST_NO_CXX17_FOLD_EXPRESSIONS
+#include "boost_no_cxx17_fold_expressions.ipp"
+#else
+namespace boost_no_cxx17_fold_expressions = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX17_INLINE_VARIABLES
+#include "boost_no_cxx17_inline_variables.ipp"
+#else
+namespace boost_no_cxx17_inline_variables = empty_boost;
+#endif
 #ifndef BOOST_NO_CXX17_STD_APPLY
 #include "boost_no_cxx17_std_apply.ipp"
 #else
@@ -341,6 +351,11 @@ namespace boost_no_cxx17_std_apply = empty_boost;
 #include "boost_no_cxx17_std_invoke.ipp"
 #else
 namespace boost_no_cxx17_std_invoke = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX17_STRUCTURED_BINDINGS
+#include "boost_no_cxx17_structured_bindings.ipp"
+#else
+namespace boost_no_cxx17_structured_bindings = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX98_BINDERS
 #include "boost_no_cxx98_binders.ipp"
@@ -1451,6 +1466,16 @@ int main( int, char *[] )
       std::cerr << "Failed test for BOOST_NO_CXX14_VARIABLE_TEMPLATES at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
+   if(0 != boost_no_cxx17_fold_expressions::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX17_FOLD_EXPRESSIONS at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx17_inline_variables::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX17_INLINE_VARIABLES at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
    if(0 != boost_no_cxx17_std_apply::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX17_STD_APPLY at: " << __FILE__ << ":" << __LINE__ << std::endl;
@@ -1459,6 +1484,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx17_std_invoke::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX17_STD_INVOKE at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx17_structured_bindings::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX17_STRUCTURED_BINDINGS at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx98_binders::test())
