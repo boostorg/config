@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sun May 28 10:05:49 2017
+//  This file was automatically generated on Mon May 29 10:27:35 2017
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -501,6 +501,16 @@
 #     error "Defect macro BOOST_NO_CXX14_VARIABLE_TEMPLATES is defined."
 #  endif
 #endif
+#ifdef TEST_BOOST_NO_CXX17_FOLD_EXPRESSIONS
+#  ifdef BOOST_NO_CXX17_FOLD_EXPRESSIONS
+#     error "Defect macro BOOST_NO_CXX17_FOLD_EXPRESSIONS is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX17_INLINE_VARIABLES
+#  ifdef BOOST_NO_CXX17_INLINE_VARIABLES
+#     error "Defect macro BOOST_NO_CXX17_INLINE_VARIABLES is defined."
+#  endif
+#endif
 #ifdef TEST_BOOST_NO_CXX17_STD_APPLY
 #  ifdef BOOST_NO_CXX17_STD_APPLY
 #     error "Defect macro BOOST_NO_CXX17_STD_APPLY is defined."
@@ -509,6 +519,11 @@
 #ifdef TEST_BOOST_NO_CXX17_STD_INVOKE
 #  ifdef BOOST_NO_CXX17_STD_INVOKE
 #     error "Defect macro BOOST_NO_CXX17_STD_INVOKE is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX17_STRUCTURED_BINDINGS
+#  ifdef BOOST_NO_CXX17_STRUCTURED_BINDINGS
+#     error "Defect macro BOOST_NO_CXX17_STRUCTURED_BINDINGS is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX98_BINDERS
