@@ -30,3 +30,11 @@
 #if defined(_MSC_VER)
 #  define BOOST_NO_CXX11_CONSTEXPR
 #endif
+
+// A bug in nvcc (cudafe) of CUDA 8.0 prevents use of noexcept
+// https://svn.boost.org/trac/boost/ticket/13049
+// The issue will be fixed with CUDA 9.
+#if (__CUDACC_VER__ >= 80000) && (__CUDACC_VER__ < 80100)
+#   define BOOST_NO_CXX11_NOEXCEPT
+#endif
+
