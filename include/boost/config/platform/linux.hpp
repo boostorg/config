@@ -24,8 +24,9 @@
 #if defined(__GLIBC__) && ((__GLIBC__ > 2) || ((__GLIBC__ == 2) && (__GLIBC_MINOR__ >= 1)))
    // <stdint.h> defines int64_t unconditionally, but <sys/types.h> defines
    // int64_t only if __GNUC__.  Thus, assume a fully usable <stdint.h>
-   // only when using GCC.
-#  if defined __GNUC__
+   // only when using GCC.  Update 2017: this appears not to be the case for
+   // recent glibc releases, see bug report: https://svn.boost.org/trac/boost/ticket/13045
+#  if defined(__GNUC__) || ((__GLIBC__ > 2) || ((__GLIBC__ == 2) && (__GLIBC_MINOR__ >= 5)))
 #    define BOOST_HAS_STDINT_H
 #  endif
 #endif
