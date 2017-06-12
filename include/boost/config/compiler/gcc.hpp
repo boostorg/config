@@ -299,6 +299,10 @@
 #  define BOOST_NO_CXX17_FOLD_EXPRESSIONS
 #endif
 
+#if __GNUC__ >= 7
+#  define BOOST_FALLTHROUGH __attribute__((fallthrough))
+#endif
+
 //
 // Unused attribute:
 #if __GNUC__ >= 4
