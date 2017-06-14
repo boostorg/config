@@ -344,6 +344,10 @@ void print_compiler_macros()
   PRINT_MACRO(__CUDACC_VER_MINOR__);
   PRINT_MACRO(__CUDACC_VER_BUILD__);
   PRINT_MACRO(__CUDACC_VER__);
+
+  // Android:
+  PRINT_MACRO(ANDROID);
+  PRINT_MACRO(__ANDROID__);
 }
 
 void print_stdlib_macros()
@@ -1134,35 +1138,6 @@ void print_boost_macros()
    PRINT_MACRO(BOOST_NO_USING_DECLARATION_OVERLOADS_FROM_TYPENAME_BASE);
    PRINT_MACRO(BOOST_NO_USING_TEMPLATE);
    PRINT_MACRO(BOOST_NO_VOID_RETURNS);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
    // END GENERATED BLOCK
 
