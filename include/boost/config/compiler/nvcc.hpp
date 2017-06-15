@@ -42,7 +42,9 @@
 //
 // And this one effects the NVCC front end:
 //
-#define BOOST_NO_CXX11_NOEXCEPT
+#if (__CUDACC_VER__ >= 80000) && (__CUDACC_VER__ < 80100)
+#  define BOOST_NO_CXX11_NOEXCEPT
+#endif
 
 #endif
 
