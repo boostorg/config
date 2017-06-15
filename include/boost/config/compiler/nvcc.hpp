@@ -40,7 +40,8 @@
 #  define BOOST_NO_CXX11_UNICODE_LITERALS
 #endif
 //
-// And this one effects the NVCC front end:
+// And this one effects the NVCC front end,
+// See https://svn.boost.org/trac/boost/ticket/13049
 //
 #if (__CUDACC_VER__ >= 80000) && (__CUDACC_VER__ < 80100)
 #  define BOOST_NO_CXX11_NOEXCEPT
