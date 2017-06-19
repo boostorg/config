@@ -194,7 +194,6 @@
 //
 #if (_MSC_VER < 1910)
 #  define BOOST_NO_CXX14_AGGREGATE_NSDMI
-#  define BOOST_NO_CXX14_CONSTEXPR
 #endif
 
 // MSVC including version 14 has not yet completely
@@ -218,6 +217,12 @@
 //
 #define BOOST_NO_TWO_PHASE_NAME_LOOKUP
 #define BOOST_NO_CXX11_SFINAE_EXPR
+// C++ 14:
+#  define BOOST_NO_CXX14_CONSTEXPR
+// C++ 17:
+#define BOOST_NO_CXX17_STRUCTURED_BINDINGS
+#define BOOST_NO_CXX17_INLINE_VARIABLES
+#define BOOST_NO_CXX17_FOLD_EXPRESSIONS
 
 //
 // Things that don't work in clr mode:
