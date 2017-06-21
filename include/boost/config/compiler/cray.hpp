@@ -10,7 +10,7 @@
 
 #define BOOST_COMPILER "Cray C version " BOOST_STRINGIZE(_RELEASE)
 
-#if _RELEASE < 8
+#if _RELEASE_MAJOR < 8
 #  error "Boost is not configured for Cray compilers prior to version 8, please try the configure script."
 #endif
 
