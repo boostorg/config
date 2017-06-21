@@ -27,6 +27,10 @@
 #define __has_attribute(x) 0
 #endif
 
+#ifndef __has_cpp_attribute
+#define __has_cpp_attribute(x) 0
+#endif
+
 #if !__has_feature(cxx_exceptions) && !defined(BOOST_NO_EXCEPTIONS)
 #  define BOOST_NO_EXCEPTIONS
 #endif
@@ -280,6 +284,16 @@
 
 #if !__has_feature(__cxx_variable_templates__)
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
+#endif
+
+#if !defined(__cpp_structured_bindings) || (__cpp_structured_bindings < 201606)
+#  define BOOST_NO_CXX17_STRUCTURED_BINDINGS
+#endif
+
+// Clang 3.9+ in c++1z
+#if !__has_cpp_attribute(fallthrough) || __cplusplus < 201406L
+#  define BOOST_NO_CXX17_INLINE_VARIABLES
+#  define BOOST_NO_CXX17_FOLD_EXPRESSIONS
 #endif
 
 #if __cplusplus < 201103L

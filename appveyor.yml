@@ -16,6 +16,12 @@ platform:
 
 environment:
   matrix:
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      ARGS: --toolset=msvc-14.1 address-model=64
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      ARGS: --toolset=msvc-14.1 address-model=32
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      ARGS: --toolset=msvc-14.1 address-model=64 cxxflags=-std:c++latest
     - ARGS: --toolset=msvc-9.0  address-model=32
     - ARGS: --toolset=msvc-10.0 address-model=32
     - ARGS: --toolset=msvc-11.0 address-model=32
@@ -23,6 +29,7 @@ environment:
     - ARGS: --toolset=msvc-14.0 address-model=32
     - ARGS: --toolset=msvc-12.0 address-model=64
     - ARGS: --toolset=msvc-14.0 address-model=64
+    - ARGS: --toolset=msvc-14.0 address-model=64 cxxflags=-std:c++latest
     - ARGS: --toolset=gcc address-model=64
       PATH: C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\mingw64\bin;%PATH%
     - ARGS: --toolset=gcc address-model=64 cxxflags=-std=gnu++1z
@@ -44,14 +51,11 @@ install:
   - git submodule update --init libs/type_traits
   - bootstrap
   - b2 headers
-  - dir
-
+  
 build: off
 
 test_script:
-  - dir
   - cd libs\config\test
   - ..\..\..\b2 config_info_travis_install %ARGS%
-  - dir
   - config_info_travis
   - ..\..\..\b2 -j3 %ARGS%
