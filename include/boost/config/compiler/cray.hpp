@@ -21,6 +21,7 @@
 #  error "Unsupported Cray compiler, please try running the configure script."
 #endif
 
+#if _RELEASE_MINOR < 6
 #include <boost/config/compiler/common_edg.hpp>
 
 
@@ -89,6 +90,32 @@
 #define __ATOMIC_ACQ_REL 4
 #define __ATOMIC_SEQ_CST 5
 #endif
+
+#else  /* _RELEASE_MINOR */
+
+#define BOOST_HAS_VARIADIC_TMPL
+#define BOOST_HAS_UNISTD_H
+#define BOOST_HAS_TR1_COMPLEX_INVERSE_TRIG
+#define BOOST_HAS_TR1_COMPLEX_OVERLOADS
+#define BOOST_HAS_STDINT_H
+#define BOOST_HAS_STATIC_ASSERT
+#define BOOST_HAS_SIGACTION
+#define BOOST_HAS_SCHED_YIELD
+#define BOOST_HAS_RVALUE_REFS
+#define BOOST_HAS_PTHREADS
+#define BOOST_HAS_PTHREAD_YIELD
+#define BOOST_HAS_PTHREAD_MUTEXATTR_SETTYPE
+#define BOOST_HAS_PARTIAL_STD_ALLOCATOR
+#define BOOST_HAS_NRVO
+#define BOOST_HAS_NL_TYPES_H
+#define BOOST_HAS_NANOSLEEP
+#define BOOST_NO_CXX11_SMART_PTR
+#define BOOST_NO_CXX11_HDR_FUNCTIONAL
+#define BOOST_NO_CXX14_CONSTEXPR
+#define BOOST_HAS_LONG_LONG
+#define BOOST_HAS_FLOAT128
+
+#endif /* _RELEASE_MINOR */
 
 
 
