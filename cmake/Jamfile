@@ -1,0 +1,4 @@
+# Update cmake files
+
+install BoostVersion_ : ../../../BoostVersion.cmake : <location>. ;
+install default_ : ../../../cmake/default.cmake : <location>. ;
