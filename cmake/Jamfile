@@ -2,3 +2,19 @@
 
 install BoostVersion_ : ../../../BoostVersion.cmake : <location>. ;
 install default_ : ../../../cmake/default.cmake : <location>. ;
+
+# Update dependencies
+
+import path ;
+
+path-constant LIBDIR : .. ;
+
+actions boostdep-cmake
+{
+    "$(LIBDIR)/../../dist/bin/boostdep" --cmake $(LIBDIR:B) > $(1)
+}
+
+make dependencies.cmake : : @boostdep-cmake ;
+always dependencies.cmake ;
+
+install dependencies_ : dependencies.cmake : <location>. ;
