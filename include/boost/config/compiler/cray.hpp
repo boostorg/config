@@ -115,6 +115,10 @@
 #define BOOST_HAS_LONG_LONG
 #define BOOST_HAS_FLOAT128
 
+#if __cplusplus < 201400
+#define BOOST_NO_CXX11_DECLTYPE_N3276
+#endif /* __cpluspus */
+
 #endif /* _RELEASE_MINOR */
 
 
