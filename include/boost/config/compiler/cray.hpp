@@ -21,9 +21,8 @@
 #  error "Unsupported Cray compiler, please try running the configure script."
 #endif
 
-#if _RELEASE_MINOR < 6
+#if _RELEASE_MINOR < 5 || __cplusplus < 201100
 #include <boost/config/compiler/common_edg.hpp>
-
 
 //
 //
@@ -114,6 +113,10 @@
 #define BOOST_NO_CXX14_CONSTEXPR
 #define BOOST_HAS_LONG_LONG
 #define BOOST_HAS_FLOAT128
+
+#if __cplusplus < 201400
+#define BOOST_NO_CXX11_DECLTYPE_N3276
+#endif /* __cpluspus */
 
 #endif /* _RELEASE_MINOR */
 
