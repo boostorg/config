@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon May 29 10:27:35 2017
+//  This file was automatically generated on Sun Jul  9 16:30:35 2017
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -509,6 +509,11 @@
 #ifdef TEST_BOOST_NO_CXX17_INLINE_VARIABLES
 #  ifdef BOOST_NO_CXX17_INLINE_VARIABLES
 #     error "Defect macro BOOST_NO_CXX17_INLINE_VARIABLES is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX17_ITERATOR_TRAITS
+#  ifdef BOOST_NO_CXX17_ITERATOR_TRAITS
+#     error "Defect macro BOOST_NO_CXX17_ITERATOR_TRAITS is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX17_STD_APPLY
