@@ -311,6 +311,12 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  define BOOST_SYMBOL_IMPORT
 #  define BOOST_SYMBOL_VISIBLE __attribute__((visibility("default")))
 #endif
+
+// Type aliasing hint
+#if defined(__GNUC__) && (BOOST_INTEL_CXX_VERSION >= 1300)
+#  define BOOST_MAY_ALIAS __attribute__((__may_alias__))
+#endif
+
 //
 // C++0x features
 // For each feature we need to check both the Intel compiler version, 

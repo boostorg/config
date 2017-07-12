@@ -315,6 +315,10 @@
 #if __GNUC__ >= 4
 #  define BOOST_ATTRIBUTE_UNUSED __attribute__((__unused__))
 #endif
+
+// Type aliasing hint. Supported since gcc 3.3.
+#define BOOST_MAY_ALIAS __attribute__((__may_alias__))
+
 //
 // __builtin_unreachable:
 #if BOOST_GCC_VERSION >= 40800
