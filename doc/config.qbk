@@ -22,7 +22,7 @@ Distributed under the Boost Software License, Version 1.0.
 [def __BOOST_REGRESSION_TEST_DRIVER__ [@../../../../tools/regression/doc/index.html boost regression test driver]]
 [def __BOOST_CONFIG_HEADER__ [@../../../../boost/config.hpp <boost/config.hpp>]]
 [def __BOOST_CONFIG_USER_HEADER__ [@../../../../boost/config/user.hpp <boost/config/user.hpp>]]
-[def __BOOST_CONFIG_SUFFIX_HEADER__ [@../../../../boost/config/user.hpp <boost/config/suffix.hpp>]]
+[def __BOOST_CONFIG_SUFFIX_HEADER__ [@../../../../boost/config/detail/suffix.hpp <boost/config/detail/suffix.hpp>]]
 [def __BOOST_CONFIG_DIR__ ['<boost-root>]`/boost/config/`]
 
 
