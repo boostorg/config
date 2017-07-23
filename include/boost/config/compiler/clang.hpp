@@ -310,6 +310,11 @@
 #define BOOST_UNREACHABLE_RETURN(x) __builtin_unreachable();
 #endif
 
+#if (__clang_major__ == 3) && (__clang_minor__ == 0)
+// Apparently a clang bug:
+#  define BOOST_NO_CXX11_FIXED_LENGTH_VARIADIC_TEMPLATE_EXPANSION_PACKS
+#endif
+
 // Clang has supported the 'unused' attribute since the first release.
 #define BOOST_ATTRIBUTE_UNUSED __attribute__((__unused__))
 
