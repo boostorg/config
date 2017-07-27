@@ -1,16 +1,17 @@
-cmake_minimum_required (VERSION 2.8)
-project(Boost.Config)
+cmake_minimum_required (VERSION 3.5)
+project(boost_config)
 
 enable_language(C)
 enable_language(CXX)
 
 find_package(BCM)
-include(BCMPackage)
-include(BCMTest)
-include(BCMProperties)
+include(BCMDeploy)
+include(BCMSetupVersion)
 
-bcm_boost_package(config
-    VERSION 1.61.0
-)
+bcm_setup_version(VERSION 1.61.0)
+
+add_library(boost_config INTERFACE)
+
+bcm_deploy(TARGETS boost_config INCLUDE include)
 
 add_subdirectory(test)
