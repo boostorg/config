@@ -11,6 +11,15 @@
 #  define BOOST_COMPILER "NVIDIA CUDA C++ Compiler"
 #endif
 
+#if defined(__CUDACC_VER_MAJOR__) && defined(__CUDACC_VER_MINOR__) && defined(__CUDACC_VER_BUILD__)
+#  define BOOST_CUDA_VERSION __CUDACC_VER_MAJOR__ * 10000 + __CUDACC_VER_MINOR__ * 100 + __CUDACC_VER_BUILD__
+#elif defined(__CUDACC_VER__)
+  define BOOST_CUDA_VERSION __CUDACC_VER__
+#else
+// We don't really know what the CUDA version is, but it's definitely before 7.5:
+#  define BOOST_CUDA_VERSION 70000
+#endif
+
 // NVIDIA Specific support
 // BOOST_GPU_ENABLED : Flag a function or a method as being enabled on the host and device
 #define BOOST_GPU_ENABLED __host__ __device__
@@ -19,11 +28,11 @@
 // https://svn.boost.org/trac/boost/ticket/11897
 // This is fixed in 7.5. As the following version macro was introduced in 7.5 an existance
 // check is enough to detect versions < 7.5
-#if !defined(__CUDACC_VER__) || (__CUDACC_VER__ < 70500)
+#if BOOST_CUDA_VERSION < 70500
 #   define BOOST_NO_CXX11_VARIADIC_TEMPLATES
 #endif
 // The same bug is back again in 8.0:
-#if (__CUDACC_VER__ > 80000) && (__CUDACC_VER__ < 80100)
+#if (BOOST_CUDA_VERSION > 80000) && (BOOST_CUDA_VERSION < 80100)
 #   define BOOST_NO_CXX11_VARIADIC_TEMPLATES
 #endif
 // Most recent CUDA (8.0) has no constexpr support in msvc mode:
@@ -43,7 +52,7 @@
 // And this one effects the NVCC front end,
 // See https://svn.boost.org/trac/boost/ticket/13049
 //
-#if (__CUDACC_VER__ >= 80000) && (__CUDACC_VER__ < 80100)
+#if (BOOST_CUDA_VERSION >= 80000) && (BOOST_CUDA_VERSION < 80100)
 #  define BOOST_NO_CXX11_NOEXCEPT
 #endif
 
