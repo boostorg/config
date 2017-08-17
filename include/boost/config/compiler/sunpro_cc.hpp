@@ -203,8 +203,8 @@
 #endif
 //
 // last known and checked version is 0x590:
-#if (__SUNPRO_CC > 0x590)
+#if (__SUNPRO_CC > 0x5150)
 #  if defined(BOOST_ASSERT_CONFIG)
-#     error "Unknown compiler version - please run the configure tests and report the results"
+#     error "Boost.Config is older than your compiler - please check for an updated Boost release."
 #  endif
 #endif
