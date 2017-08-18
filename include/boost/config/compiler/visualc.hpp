@@ -196,6 +196,12 @@
 #  define BOOST_NO_CXX14_AGGREGATE_NSDMI
 #endif
 
+// C++17 features supported by VC++ 14.1 (Visual Studio 2017) Update 3
+//
+#if (_MSC_VER < 1911) || (_MSVC_LANG < 201703)
+#  define BOOST_NO_CXX17_STRUCTURED_BINDINGS
+#endif
+
 // MSVC including version 14 has not yet completely
 // implemented value-initialization, as is reported:
 // "VC++ does not value-initialize members of derived classes without
@@ -220,7 +226,6 @@
 // C++ 14:
 #  define BOOST_NO_CXX14_CONSTEXPR
 // C++ 17:
-#define BOOST_NO_CXX17_STRUCTURED_BINDINGS
 #define BOOST_NO_CXX17_INLINE_VARIABLES
 #define BOOST_NO_CXX17_FOLD_EXPRESSIONS
 
