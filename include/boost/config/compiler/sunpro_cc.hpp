@@ -202,7 +202,7 @@
 #error "Compiler not supported or configured - please reconfigure"
 #endif
 //
-// last known and checked version is 0x590:
+// last known and checked version:
 #if (__SUNPRO_CC > 0x5150)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Boost.Config is older than your compiler - please check for an updated Boost release."
