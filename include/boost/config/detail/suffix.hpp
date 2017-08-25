@@ -986,9 +986,14 @@ namespace std{ using ::type_info; }
 #if defined(BOOST_NO_CXX11_CONSTEXPR)
 #define BOOST_CONSTEXPR
 #define BOOST_CONSTEXPR_OR_CONST const
-#else
+#elif defined BOOST_NO_CXX14_CONSTEXPR
+// constexpr implies const:
 #define BOOST_CONSTEXPR constexpr
 #define BOOST_CONSTEXPR_OR_CONST constexpr
+#else
+// constexpr does not imply const:
+#define BOOST_CONSTEXPR constexpr
+#define BOOST_CONSTEXPR_OR_CONST constexpr const
 #endif
 #if defined(BOOST_NO_CXX14_CONSTEXPR)
 #define BOOST_CXX14_CONSTEXPR
