@@ -3019,6 +3019,18 @@
 <tr>
 <td>
                 <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_POINTER_TRAITS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The standard library does not provide a C++11 version of <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">pointer_traits</span></code> in &lt;memory&gt;.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_RANGE_BASED_FOR</span></code>
                 </p>
               </td>
@@ -4477,6 +4489,34 @@
                   Expands to <code class="computeroutput"><span class="identifier">__attribute__</span><span class="special">((</span><span class="identifier">unused</span><span class="special">))</span></code> when this is available - can
                   be used to disable compiler warnings relating to unused types or
                   variables.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_MAY_ALIAS</span></code>,
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_MAY_ALIAS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_MAY_ALIAS</span></code>
+                  expands to a type attribute that can be used to mark types that
+                  may alias other types. Pointers or references to such marked types
+                  can be used to access objects of other types. If the compiler supports
+                  this feature <code class="computeroutput"><span class="identifier">BOOST_NO_MAY_ALIAS</span></code>
+                  is not defined. Otherwise <code class="computeroutput"><span class="identifier">BOOST_MAY_ALIAS</span></code>
+                  expands to nothing and <code class="computeroutput"><span class="identifier">BOOST_NO_MAY_ALIAS</span></code>
+                  is defined.
+                </p>
+                <p>
+                  Usage example:
+</p>
+<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">BOOST_MAY_ALIAS</span> <span class="identifier">aliasing_struct</span><span class="special">;</span>
+<span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="identifier">BOOST_MAY_ALIAS</span> <span class="identifier">aliasing_uint</span><span class="special">;</span>
+</pre>
+<p>
                 </p>
               </td>
 </tr>

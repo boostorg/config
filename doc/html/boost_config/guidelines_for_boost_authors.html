@@ -302,7 +302,7 @@
         one specific API (for example <code class="computeroutput"><span class="identifier">BOOST_HAS_NL_TYPES_H</span></code>
         rather than <code class="computeroutput"><span class="identifier">BOOST_HAS_CATOPEN</span></code>).
         If the macro describes a POSIX feature group, then add boilerplate code to
-        <a href="../../../../../boost/config/user.hpp" target="_top">&lt;boost/config/suffix.hpp&gt;</a>
+        <a href="../../../../../boost/config/detail/suffix.hpp" target="_top">&lt;boost/config/detail/suffix.hpp&gt;</a>
         to auto-detect the feature where possible (if you are wondering why we can't
         use POSIX feature test macro directly, remember that many of these features
         can be added by third party libraries, and are not therefore identified inside
@@ -333,15 +333,15 @@
         as well.
       </p>
 <p>
-        <a href="../../../../../boost/config/user.hpp" target="_top">&lt;boost/config/suffix.hpp&gt;</a>
+        <a href="../../../../../boost/config/detail/suffix.hpp" target="_top">&lt;boost/config/detail/suffix.hpp&gt;</a>
         is always included so be careful about modifying this file as it breaks dependencies
         for everyone. This file should include only "boilerplate" configuration
         code, and generally should change only when new macros are added.
       </p>
 <p>
-        <a href="../../../../../boost/config/select_compiler_config.hpp" target="_top">&lt;boost/config/select_compiler_config.hpp&gt;</a>,
-        <a href="../../../../../boost/config/select_platform_config.hpp" target="_top">&lt;boost/config/select_platform_config.hpp&gt;</a>
-        and <a href="../../../../../boost/config/select_stdlib_config.hpp" target="_top">&lt;boost/config/select_stdlib_config.hpp&gt;</a>
+        <a href="../../../../../boost/config/detail/select_compiler_config.hpp" target="_top">&lt;boost/config/detail/select_compiler_config.hpp&gt;</a>,
+        <a href="../../../../../boost/config/detail/select_platform_config.hpp" target="_top">&lt;boost/config/detail/select_platform_config.hpp&gt;</a>
+        and <a href="../../../../../boost/config/detail/select_stdlib_config.hpp" target="_top">&lt;boost/config/detail/select_stdlib_config.hpp&gt;</a>
         are included by default and should change only if support for a new compiler/standard
         library/platform is added.
       </p>

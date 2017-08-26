@@ -945,6 +945,7 @@ that are not yet supported by a particular compiler or library.
 [[Macro ][Description ]]
 [[`BOOST_NO_CXX17_STD_APPLY`][The compiler does not support `std::apply()`.]]
 [[`BOOST_NO_CXX17_STD_INVOKE`][The compiler does not support `std::invoke()`.]]
+[[`BOOST_NO_CXX17_ITERATOR_TRAITS`][The compiler does not support SFINAE-friendly `std::iterator_traits`.]]
 ]
 
 [endsect]
@@ -1262,6 +1263,18 @@ Usage example:
 ]]
 [[`BOOST_ATTRIBUTE_UNUSED`][Expands to `__attribute__((unused))` when this is available - 
 can be used to disable compiler warnings relating to unused types or variables.]]
+[[`BOOST_MAY_ALIAS`, `BOOST_NO_MAY_ALIAS`][
+`BOOST_MAY_ALIAS` expands to a type attribute that can be used to mark types that may
+alias other types. Pointers or references to such marked types can be used to access objects
+of other types. If the compiler supports this feature `BOOST_NO_MAY_ALIAS` is not defined.
+Otherwise `BOOST_MAY_ALIAS` expands to nothing and `BOOST_NO_MAY_ALIAS` is defined.
+
+Usage example:
+``
+  struct BOOST_MAY_ALIAS aliasing_struct;
+  typedef unsigned int BOOST_MAY_ALIAS aliasing_uint;
+``
+]]
 ]
 
 [endsect]
