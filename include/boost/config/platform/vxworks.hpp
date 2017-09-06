@@ -22,7 +22,28 @@
 //  Similarly the Dinkum abridged STL that supports the loosely specified 
 //  embedded C++ standard has not been tested and is unlikely to work 
 //  on anything but the simplest library.
+// ====================================================================
 // 
+//  Additional Configuration
+//  -------------------------------------------------------------------
+//
+//  Because of the ordering of include files and other issues the following 
+//  additional definitions worked better outside this file.
+//
+//  When building the log library add the following to the b2 invocation
+//     define=BOOST_LOG_WITHOUT_IPC
+//  and 
+//     -DBOOST_LOG_WITHOUT_DEFAULT_FACTORIES
+//  to your compile options.
+//
+//  When building the test library add 
+//     -DBOOST_TEST_LIMITED_SIGNAL_DETAILS
+//  to your compile options
+//
+//  When building containers library add
+//     -DHAVE_MORECORE=0
+//  to your c compile options so dlmalloc heap library is compiled 
+//  without brk() calls
 //
 // ====================================================================
 //
