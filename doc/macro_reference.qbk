@@ -979,7 +979,7 @@ workarounds for compiler/standard library defects.
 This macro is used where a compiler specific workaround is required that is not otherwise
 described by one of the other Boost.Config macros.  To use the macro you must first
 ``
-#include <boost/detail/workaround.hpp>
+#include <boost/config/workaround.hpp>
 ``
 usage is then:
 ``
@@ -1001,7 +1001,7 @@ For example
 of `__BORLANDC__` /unless/ the macro `BOOST_DETECT_OUTDATED_WORKAROUNDS` is defined, in which case evaluates to
 `(__BORLANDC__ <= 0x590)`.
 
-[*Note]: the ultimate source of documentation for this macro is in [@../../../../boost/detail/workaround.hpp boost/detail/workaround.hpp].
+[*Note]: the ultimate source of documentation for this macro is in [@../../../../boost/config/workaround.hpp boost/config/workaround.hpp].
 ]]
 [[`BOOST_PREVENT_MACRO_SUBSTITUTION`][
 Sometimes you have a function name with the same name as a C macro, for example "min" and "max"
@@ -1279,8 +1279,9 @@ Usage example:
   typedef unsigned int BOOST_MAY_ALIAS aliasing_uint;
 ``
 ]]
-[[`BOOST_PRAGMA_MESSAGE(M)`][Expands to the equivalent of `#pragma message(M)`. `M` must
-be a string literal. Example: `BOOST_PRAGMA_MESSAGE("This header is deprecated.")`.]]
+[[`BOOST_PRAGMA_MESSAGE(M)`][Defined in header `<boost/config/pragma_message.hpp>`,
+this macro expands to the equivalent of `#pragma message(M)`. `M` must be a string
+literal. Example: `BOOST_PRAGMA_MESSAGE("This header is deprecated.")`.]]
 ]
 
 [endsect]
