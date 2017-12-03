@@ -23,7 +23,7 @@ matrix:
 
   include:
     - os: linux
-      env: TOOLSET=gcc COMPILER=g++ CXXSTD=03
+      env: TOOLSET=gcc COMPILER=g++ CXXSTD=03,11
 
     - os: linux
       env: TOOLSET=gcc COMPILER=g++-4.7 CXXSTD=03,11
