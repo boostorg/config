@@ -9,14 +9,17 @@
 //  http://www.boost.org/LICENSE_1_0.txt
 //
 //  BOOST_PRAGMA_MESSAGE("message")
+//
+//  Expands to the equivalent of #pragma message("message")
+//
+//  Note that this header is C compatible.
+
+#include <boost/config/helper_macros.hpp>
 
 #if defined(__GNUC__)
-#define BOOST_PRAGMA_MESSAGE_IMPL_1(x) _Pragma(#x)
-#define BOOST_PRAGMA_MESSAGE(x) BOOST_PRAGMA_MESSAGE_IMPL_1(message(x))
+#define BOOST_PRAGMA_MESSAGE(x) _Pragma(BOOST_STRINGIZE(message(x)))
 #elif defined(_MSC_VER)
-#define BOOST_PRAGMA_MESSAGE_IMPL_2(x, f, ln) __pragma(message(f "(" #ln "): note: " x))
-#define BOOST_PRAGMA_MESSAGE_IMPL_1(x, f, ln) BOOST_PRAGMA_MESSAGE_IMPL_2(x, f, ln)
-#define BOOST_PRAGMA_MESSAGE(x) BOOST_PRAGMA_MESSAGE_IMPL_1(x, __FILE__, __LINE__)
+#define BOOST_PRAGMA_MESSAGE(x) __pragma(message(__FILE__ "(" BOOST_STRINGIZE(__LINE__) "): note: " x))
 #else
 #define BOOST_PRAGMA_MESSAGE(x)
 #endif
