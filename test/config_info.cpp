@@ -585,6 +585,13 @@ void print_stdlib_macros()
    PRINT_MACRO(_HAS_EXCEPTIONS);
    PRINT_MACRO(_HAS_MEMBER_TEMPLATES_REBIND);
    PRINT_MACRO(_HAS_TEMPLATE_PARTIAL_ORDERING);
+   // https://blogs.msdn.microsoft.com/vcblog/2016/08/12/stl-fixes-in-vs-2015-update-3/
+   PRINT_MACRO(_HAS_CXX17);
+   PRINT_MACRO(_HAS_AUTO_PTR_ETC);
+   PRINT_MACRO(_HAS_OLD_IOSTREAMS_MEMBERS);
+   PRINT_MACRO(_HAS_FUNCTION_ASSIGN);
+   PRINT_MACRO(_HAS_TR1_NAMESPACE);
+   PRINT_MACRO(_HAS_IDENTITY_STRUCT);
    // Libc++:
    PRINT_MACRO(_LIBCPP_VERSION);
    // STLPort and generic SGI STL options:
@@ -1159,6 +1166,65 @@ void print_boost_macros()
    PRINT_MACRO(BOOST_NO_MAY_ALIAS);
 }
 
+void print_sd6_macros()
+{
+    // http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0096r5.html
+
+    // C++17:
+    PRINT_MACRO(__cpp_hex_float);
+    PRINT_MACRO(__cpp_inline_variables);
+    PRINT_MACRO(__cpp_aligned_new);
+    PRINT_MACRO(__cpp_guaranteed_copy_elision);
+    PRINT_MACRO(__cpp_noexcept_function_type);
+    PRINT_MACRO(__cpp_fold_expressions);
+    PRINT_MACRO(__cpp_capture_star_this);
+    PRINT_MACRO(__cpp_constexpr);
+    PRINT_MACRO(__cpp_if_constexpr);
+    PRINT_MACRO(__cpp_range_based_for);
+    PRINT_MACRO(__cpp_static_assert);
+    PRINT_MACRO(__cpp_deduction_guides);
+    PRINT_MACRO(__cpp_nontype_template_parameter_auto);
+    PRINT_MACRO(__cpp_namespace_attributes);
+    PRINT_MACRO(__cpp_enumerator_attributes);
+    PRINT_MACRO(__cpp_inheriting_constructors);
+    PRINT_MACRO(__cpp_variadic_using);
+    PRINT_MACRO(__cpp_structured_bindings);
+    PRINT_MACRO(__cpp_aggregate_bases);
+    PRINT_MACRO(__cpp_nontype_template_args);
+    PRINT_MACRO(__cpp_template_template_args);
+
+    // C++14:
+    PRINT_MACRO(__cpp_binary_literals);
+    PRINT_MACRO(__cpp_init_captures);
+    PRINT_MACRO(__cpp_generic_lambdas);
+    PRINT_MACRO(__cpp_sized_deallocation);
+    PRINT_MACRO(__cpp_decltype_auto);
+    PRINT_MACRO(__cpp_return_type_deduction);
+    PRINT_MACRO(__cpp_aggregate_nsdmi);
+    PRINT_MACRO(__cpp_variable_templates);
+
+    // C++11:
+    PRINT_MACRO(__cpp_unicode_characters);
+    PRINT_MACRO(__cpp_raw_strings);
+    PRINT_MACRO(__cpp_unicode_literals);
+    PRINT_MACRO(__cpp_user_defined_literals);
+    PRINT_MACRO(__cpp_threadsafe_static_init);
+    PRINT_MACRO(__cpp_lambdas);
+    PRINT_MACRO(__cpp_decltype);
+    PRINT_MACRO(__cpp_attributes);
+    PRINT_MACRO(__cpp_rvalue_references);
+    PRINT_MACRO(__cpp_variadic_templates);
+    PRINT_MACRO(__cpp_initializer_lists);
+    PRINT_MACRO(__cpp_delegating_constructors);
+    PRINT_MACRO(__cpp_nsdmi);
+    PRINT_MACRO(__cpp_ref_qualifiers);
+    PRINT_MACRO(__cpp_alias_templates);
+
+    // C++98:
+    PRINT_MACRO(__cpp_rtti);
+    PRINT_MACRO(__cpp_exceptions);
+}
+
 void print_separator()
 {
    std::cout <<
@@ -1176,6 +1242,8 @@ int main()
   print_platform_macros();
   print_separator();
   print_boost_macros();
+  print_separator();
+  print_sd6_macros();
 
   return 0;
 }
