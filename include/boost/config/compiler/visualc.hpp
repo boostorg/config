@@ -326,8 +326,8 @@
 #endif
 
 //
-// last known and checked version is 19.11.25506 (VC++ 2017.3):
-#if (_MSC_VER > 1911)
+// last known and checked version is 19.12.25830 (VC++ 2017.5):
+#if (_MSC_VER > 1912)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Boost.Config is older than your current compiler version."
 #  elif !defined(BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE)
