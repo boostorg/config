@@ -222,7 +222,9 @@
 // C++ 11:
 //
 #define BOOST_NO_TWO_PHASE_NAME_LOOKUP
+#if (_MSC_VER < 1912) || (_MSVC_LANG < 201402)
 #define BOOST_NO_CXX11_SFINAE_EXPR
+#endif
 // C++ 14:
 #  define BOOST_NO_CXX14_CONSTEXPR
 // C++ 17:
