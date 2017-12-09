@@ -13,9 +13,13 @@
 
 namespace boost_no_cxx17_iterator_traits {
 
-struct iterator :
-    public std::iterator< std::random_access_iterator_tag, char >
+struct iterator
 {
+   typedef std::random_access_iterator_tag iterator_category;
+   typedef char value_type;
+   typedef std::ptrdiff_t distance;
+   typedef char* pointer;
+   typedef char& reference;
 };
 
 struct non_iterator {};
