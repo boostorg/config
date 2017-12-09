@@ -217,11 +217,16 @@
 // https://connect.microsoft.com/VisualStudio/feedback/details/1582233/c-subobjects-still-not-value-initialized-correctly
 // See also: http://www.boost.org/libs/utility/value_init.htm#compiler_issues
 // (Niels Dekker, LKEB, May 2010)
+// Still present in VC15.5, Dec 2017.
 #define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
 //
 // C++ 11:
 //
-#define BOOST_NO_TWO_PHASE_NAME_LOOKUP
+#if (_MSC_VER < 1912)
+   // This is really only supported with /permissive- but as this is the default for new projects it seems
+   // sensible to allow this:
+#  define BOOST_NO_TWO_PHASE_NAME_LOOKUP
+#endif
 #if (_MSC_VER < 1912) || (_MSVC_LANG < 201402)
 // Supported from msvc-15.5 onwards:
 #define BOOST_NO_CXX11_SFINAE_EXPR
@@ -232,8 +237,8 @@
 // C++ 17:
 #if (_MSC_VER < 1912) || (_MSVC_LANG < 201703)
 #define BOOST_NO_CXX17_INLINE_VARIABLES
-#endif
 #define BOOST_NO_CXX17_FOLD_EXPRESSIONS
+#endif
 
 //
 // Things that don't work in clr mode:
