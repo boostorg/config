@@ -223,12 +223,16 @@
 //
 #define BOOST_NO_TWO_PHASE_NAME_LOOKUP
 #if (_MSC_VER < 1912) || (_MSVC_LANG < 201402)
+// Supported from msvc-15.5 onwards:
 #define BOOST_NO_CXX11_SFINAE_EXPR
 #endif
 // C++ 14:
+// Still gives internal compiler error for msvc-15.5:
 #  define BOOST_NO_CXX14_CONSTEXPR
 // C++ 17:
+#if (_MSC_VER < 1912) || (_MSVC_LANG < 201703)
 #define BOOST_NO_CXX17_INLINE_VARIABLES
+#endif
 #define BOOST_NO_CXX17_FOLD_EXPRESSIONS
 
 //
