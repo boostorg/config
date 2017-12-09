@@ -17,9 +17,12 @@ struct iterator
 {
    typedef std::random_access_iterator_tag iterator_category;
    typedef char value_type;
-   typedef std::ptrdiff_t distance;
+   typedef std::ptrdiff_t difference_type;
    typedef char* pointer;
    typedef char& reference;
+
+   reference operator*()const;
+   iterator operator++();
 };
 
 struct non_iterator {};
@@ -41,11 +44,9 @@ struct has_iterator_category< Traits, typename void_type< typename Traits::itera
 
 int test()
 {
-    if (!has_iterator_category< std::iterator_traits< boost_no_cxx17_iterator_traits::iterator > >::value)
-        return 1;
+    static_assert(has_iterator_category< std::iterator_traits< boost_no_cxx17_iterator_traits::iterator > >::value, "has_iterator_category failed");
 
-    if (has_iterator_category< std::iterator_traits< boost_no_cxx17_iterator_traits::non_iterator > >::value)
-        return 2;
+    static_assert(!has_iterator_category< std::iterator_traits< boost_no_cxx17_iterator_traits::non_iterator > >::value, "has_iterator_category negative check failed");
 
     return 0;
 }
