@@ -232,7 +232,8 @@ The C++ standard library does not provide a standards conforming
 The platform does not have a conforming version of `std::distance`.
 ]]
 [[`BOOST_NO_STD_ITERATOR`][Standard library][
-The C++ implementation fails to provide the `std::iterator` class.
+The C++ implementation fails to provide the `std::iterator` class.  
+Note that post C++17, this macro is re-purposed to indicate that std::iterator has been removed or deprecated.
 ]]
 [[`BOOST_NO_STD_ITERATOR_TRAITS`][Standard library][
 The compiler does not provide a standard compliant implementation of
