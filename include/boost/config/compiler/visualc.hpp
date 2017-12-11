@@ -222,11 +222,12 @@
 //
 // C++ 11:
 //
-#if (_MSC_VER < 1912)
-   // This is really only supported with /permissive- but as this is the default for new projects it seems
-   // sensible to allow this:
+// This is supported with /permissive- for 15.5 onwards, unfortunately we appear to have no way to tell
+// if this is in effect or not, in any case nothing in Boost is currently using this, so we'll just go
+// on defining it for now:
+//
 #  define BOOST_NO_TWO_PHASE_NAME_LOOKUP
-#endif
+
 #if (_MSC_VER < 1912) || (_MSVC_LANG < 201402)
 // Supported from msvc-15.5 onwards:
 #define BOOST_NO_CXX11_SFINAE_EXPR
