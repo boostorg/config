@@ -1,28 +1,70 @@
 //  (C) Copyright John Maddock 2011.
-//  (C) Copyright Cray, Inc. 2013
+//  (C) Copyright Cray, Inc. 2013 - 2017.
 //  Use, modification and distribution are subject to the
 //  Boost Software License, Version 1.0. (See accompanying file
 //  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 //  See http://www.boost.org for most recent version.
 
-//  Greenhills C compiler setup:
+// Cray C++ compiler setup.
+//
+// There are a few parameters that affect the macros defined in this file:
+//
+// - What version of CCE (Cray Compiling Environment) are we running? This
+//   comes from the '_RELEASE_MAJOR', '_RELEASE_MINOR', and
+//   '_RELEASE_PATCHLEVEL' macros.
+// - What C++ standards conformance level are we using (e.g. '-h
+//   std=c++14')? This comes from the '__cplusplus' macro.
+// - Are we using GCC extensions ('-h gnu' or '-h nognu')? If we have '-h
+//   gnu' then CCE emulates GCC, and the macros '__GNUC__',
+//   '__GNUC_MINOR__', and '__GNUC_PATCHLEVEL__' are defined.
+//
+// This file is organized as follows:
+//
+// - Verify that the combination of parameters listed above is supported.
+//   If we have an unsupported combination, we abort with '#error'.
+// - Establish baseline values for all Boost macros.
+// - Apply changes to the baseline macros based on compiler version. These
+//   changes are cummulative so each version section only describes the
+//   changes since the previous version.
+//   - Within each version section, we may also apply changes based on
+//     other parameters (i.e. C++ standards conformance level and GCC
+//     extensions).
 
-#define BOOST_COMPILER "Cray C version " BOOST_STRINGIZE(_RELEASE)
+#define BOOST_CRAY_VERSION (_RELEASE_MAJOR * 10000 + _RELEASE_MINOR * 100 + _RELEASE_PATCHLEVEL)
 
-#if _RELEASE_MAJOR < 8
+#ifdef __GNUC__
+#   define BOOST_GCC_VERSION (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)
+#endif
+
+#ifndef BOOST_COMPILER
+#   define BOOST_COMPILER "Cray C++ version " BOOST_STRINGIZE(_RELEASE_MAJOR) "." BOOST_STRINGIZE(_RELEASE_MINOR) "." BOOST_STRINGIZE(_RELEASE_PATCHLEVEL)
+#endif
+
+///
+/// Parameter validation
+///
+
+// FIXME: Do we really need to support compilers before 8.5? Do they pass
+// the Boost.Config tests?
+
+#if BOOST_CRAY_VERSION < 80000
 #  error "Boost is not configured for Cray compilers prior to version 8, please try the configure script."
 #endif
 
-//
-// Check this is a recent EDG based compiler, otherwise we don't support it here:
-//
-#ifndef __EDG_VERSION__
+// We only support recent EDG based compilers.
+
+#ifndef __EDG__
 #  error "Unsupported Cray compiler, please try running the configure script."
 #endif
 
-#if _RELEASE_MINOR < 5 || __cplusplus < 201100
+///
+/// Baseline values
+///
+
 #include <boost/config/compiler/common_edg.hpp>
+
+#if _RELEASE_MINOR < 5 || __cplusplus < 201100
 
 //
 //
