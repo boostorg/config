@@ -45,6 +45,13 @@
 #   define BOOST_COMPILER "Cray C++ version " BOOST_STRINGIZE(_RELEASE_MAJOR) "." BOOST_STRINGIZE(_RELEASE_MINOR) "." BOOST_STRINGIZE(_RELEASE_PATCHLEVEL)
 #endif
 
+// We have to emulate some GCC macros in order to enable some Boost.Config
+// tests.
+
+#if __cplusplus >= 201103L && defined(__GNUC__) && !defined(__GXX_EXPERIMENTAL_CXX0X__)
+#   define __GXX_EXPERIMENTAL_CXX0X__
+#endif // __GNUC__
+
 ////
 //// Parameter validation
 ////
@@ -214,12 +221,28 @@
 //
 
 #if BOOST_CRAY_VERSION >= 80605
+
+#if __cplusplus == 201402L
+#define BOOST_NO_CXX11_HDR_ATOMIC
+#define BOOST_NO_CXX11_HDR_REGEX
+#define BOOST_NO_CXX11_HDR_TYPEINDEX
+#define BOOST_NO_CXX11_LOCAL_CLASS_TEMPLATE_PARAMETERS
+#define BOOST_NO_CXX14_DIGIT_SEPARATORS
+#define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
+#define BOOST_NO_TEMPLATE_TEMPLATES
+#endif // __cplusplus == 201402L
+
 #endif // BOOST_CRAY_VERSION >= 80605
 
 ////
 //// Remove temporary macros
 ////
 
+// I've commented out some '#undef' statements to signify that we purposely
+// want to keep certain macros.
+
+//#undef __GXX_EXPERIMENTAL_CXX0X__
+//#undef BOOST_COMPILER
 #undef BOOST_GCC_VERSION
 #undef BOOST_CRAY_VERSION
 
