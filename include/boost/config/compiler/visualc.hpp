@@ -337,12 +337,14 @@
 #  define BOOST_COMPILER "Microsoft Visual C++ version " BOOST_STRINGIZE(BOOST_COMPILER_VERSION)
 #endif
 
+#include <boost/config/pragma_message.hpp>
+
 //
 // last known and checked version is 19.11.25506 (VC++ 2017.3):
 #if (_MSC_VER > 1912)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Boost.Config is older than your current compiler version."
 #  elif !defined(BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE)
-#     pragma message("Info: Boost.Config is older than your compiler version - probably nothing bad will happen - but you may wish to look for an updated Boost version. Define BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE to suppress this message.")
+      BOOST_PRAGMA_MESSAGE("Info: Boost.Config is older than your compiler version - probably nothing bad will happen - but you may wish to look for an updated Boost version. Define BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE to suppress this message.")
 #  endif
 #endif
