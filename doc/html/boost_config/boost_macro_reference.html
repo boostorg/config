@@ -939,7 +939,8 @@
 <td>
                 <p>
                   The C++ implementation fails to provide the <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">iterator</span></code>
-                  class.
+                  class. Note that post C++17, this macro is re-purposed to indicate
+                  that std::iterator has been removed or deprecated.
                 </p>
               </td>
 </tr>
@@ -3826,6 +3827,18 @@
 <td>
                 <p>
                   The compiler does not support <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">invoke</span><span class="special">()</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX17_ITERATOR_TRAITS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support SFINAE-friendly <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">iterator_traits</span></code>.
                 </p>
               </td>
 </tr>

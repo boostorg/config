@@ -217,17 +217,29 @@
 // https://connect.microsoft.com/VisualStudio/feedback/details/1582233/c-subobjects-still-not-value-initialized-correctly
 // See also: http://www.boost.org/libs/utility/value_init.htm#compiler_issues
 // (Niels Dekker, LKEB, May 2010)
+// Still present in VC15.5, Dec 2017.
 #define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
 //
 // C++ 11:
 //
-#define BOOST_NO_TWO_PHASE_NAME_LOOKUP
+// This is supported with /permissive- for 15.5 onwards, unfortunately we appear to have no way to tell
+// if this is in effect or not, in any case nothing in Boost is currently using this, so we'll just go
+// on defining it for now:
+//
+#  define BOOST_NO_TWO_PHASE_NAME_LOOKUP
+
+#if (_MSC_VER < 1912) || (_MSVC_LANG < 201402)
+// Supported from msvc-15.5 onwards:
 #define BOOST_NO_CXX11_SFINAE_EXPR
+#endif
 // C++ 14:
+// Still gives internal compiler error for msvc-15.5:
 #  define BOOST_NO_CXX14_CONSTEXPR
 // C++ 17:
+#if (_MSC_VER < 1912) || (_MSVC_LANG < 201703)
 #define BOOST_NO_CXX17_INLINE_VARIABLES
 #define BOOST_NO_CXX17_FOLD_EXPRESSIONS
+#endif
 
 //
 // Things that don't work in clr mode:
@@ -327,7 +339,7 @@
 
 //
 // last known and checked version is 19.11.25506 (VC++ 2017.3):
-#if (_MSC_VER > 1911)
+#if (_MSC_VER > 1912)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Boost.Config is older than your current compiler version."
 #  elif !defined(BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE)
