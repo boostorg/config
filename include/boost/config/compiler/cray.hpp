@@ -232,10 +232,7 @@
 #endif // __cplusplus >= 201103L
 
 #if __cplusplus >= 201402L
-#define BOOST_NO_CXX11_HDR_TYPEINDEX
-#define BOOST_NO_CXX11_LOCAL_CLASS_TEMPLATE_PARAMETERS
 #define BOOST_NO_CXX14_DIGIT_SEPARATORS
-#define BOOST_NO_TEMPLATE_TEMPLATES
 #endif // __cplusplus == 201402L
 
 #endif // BOOST_CRAY_VERSION >= 80605
