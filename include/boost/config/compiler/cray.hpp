@@ -222,6 +222,9 @@
 
 #if BOOST_CRAY_VERSION >= 80605
 
+#if __cplusplus >= 199711L
+#endif // __cplusplus >= 199711L
+
 #if __cplusplus >= 201103L
 #define BOOST_NO_CXX11_HDR_ATOMIC
 #define BOOST_NO_CXX11_HDR_REGEX
