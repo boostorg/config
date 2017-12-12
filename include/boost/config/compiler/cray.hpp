@@ -31,6 +31,10 @@
 //     other parameters (i.e. C++ standards conformance level and GCC
 //     extensions).
 
+////
+//// Front matter
+////
+
 #define BOOST_CRAY_VERSION (_RELEASE_MAJOR * 10000 + _RELEASE_MINOR * 100 + _RELEASE_PATCHLEVEL)
 
 #ifdef __GNUC__
@@ -211,4 +215,11 @@
 
 #if BOOST_CRAY_VERSION >= 80605
 #endif // BOOST_CRAY_VERSION >= 80605
+
+////
+//// Remove temporary macros
+////
+
+#undef BOOST_GCC_VERSION
+#undef BOOST_CRAY_VERSION
 
