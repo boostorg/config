@@ -108,15 +108,15 @@
 #define BOOST_SP_USE_PTHREADS 
 #define BOOST_AC_USE_PTHREADS 
 
-/* everything that follows is working around what are thought to be
- * compiler shortcomings.  Revist all of these regularly.
- */
+//
+// Everything that follows is working around what are thought to be
+// compiler shortcomings. Revist all of these regularly.
+//
 
 //#define BOOST_USE_ENUM_STATIC_ASSERT
 //#define BOOST_BUGGY_INTEGRAL_CONSTANT_EXPRESSIONS //(this may be implied by the previous #define
 
-// These constants should be provided by the 
-// compiler, at least when -hgnu is asserted on the command line.
+// These constants should be provided by the compiler.
 
 #ifndef __ATOMIC_RELAXED
 #define __ATOMIC_RELAXED 0
@@ -137,7 +137,7 @@
 
 #if BOOST_CRAY_VERSION >= 80500
 
-#if __cplusplus >= 201103
+#if __cplusplus >= 201103L
 
 #undef BOOST_NO_CXX11_STATIC_ASSERT
 #undef BOOST_NO_CXX11_AUTO_DECLARATIONS
@@ -201,11 +201,18 @@
 #define BOOST_HAS_LONG_LONG
 #define BOOST_HAS_FLOAT128
 
-#if __cplusplus < 201400
+#if __cplusplus < 201402L
 #define BOOST_NO_CXX11_DECLTYPE_N3276
-#endif // __cpluspus < 201400
+#endif // __cplusplus < 201402L
 
-#endif // __cplusplus >= 201103
+#endif // __cplusplus >= 201103L
 
 #endif // BOOST_CRAY_VERSION >= 80500
+
+//
+// 8.6.5
+//
+
+#if BOOST_CRAY_VERSION >= 80605
+#endif // BOOST_CRAY_VERSION >= 80605
 
