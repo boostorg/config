@@ -3969,7 +3969,7 @@
                   that is not otherwise described by one of the other Boost.Config
                   macros. To use the macro you must first
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">detail</span><span class="special">/</span><span class="identifier">workaround</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">/</span><span class="identifier">workaround</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
 <p>
                   usage is then:
@@ -4000,7 +4000,7 @@
                 </p>
                 <p>
                   <span class="bold"><strong>Note</strong></span>: the ultimate source of documentation
-                  for this macro is in <a href="../../../../../boost/detail/workaround.hpp" target="_top">boost/detail/workaround.hpp</a>.
+                  for this macro is in <a href="../../../../../boost/config/workaround.hpp" target="_top">boost/config/workaround.hpp</a>.
                 </p>
               </td>
 </tr>
@@ -4196,7 +4196,16 @@
 <tr>
 <td>
                 <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_EXPLICIT_TEMPLATE_TYPE</span><span class="special">(</span><span class="identifier">t</span><span class="special">)</span></code> <code class="computeroutput"><span class="identifier">BOOST_EXPLICIT_TEMPLATE_NON_TYPE</span><span class="special">(</span><span class="identifier">t</span><span class="special">,</span><span class="identifier">v</span><span class="special">)</span></code> <code class="computeroutput"><span class="identifier">BOOST_APPEND_EXPLICIT_TEMPLATE_TYPE</span><span class="special">(</span><span class="identifier">t</span><span class="special">)</span></code> <code class="computeroutput"><span class="identifier">BOOST_APPEND_EXPLICIT_TEMPLATE_NON_TYPE</span><span class="special">(</span><span class="identifier">t</span><span class="special">,</span><span class="identifier">v</span><span class="special">)</span></code>
+                  <code class="computeroutput"><span class="identifier">BOOST_EXPLICIT_TEMPLATE_TYPE</span><span class="special">(</span><span class="identifier">t</span><span class="special">)</span></code>
+                </p>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_EXPLICIT_TEMPLATE_NON_TYPE</span><span class="special">(</span><span class="identifier">t</span><span class="special">,</span><span class="identifier">v</span><span class="special">)</span></code>
+                </p>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_APPEND_EXPLICIT_TEMPLATE_TYPE</span><span class="special">(</span><span class="identifier">t</span><span class="special">)</span></code>
+                </p>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_APPEND_EXPLICIT_TEMPLATE_NON_TYPE</span><span class="special">(</span><span class="identifier">t</span><span class="special">,</span><span class="identifier">v</span><span class="special">)</span></code>
                 </p>
               </td>
 <td>
@@ -4465,6 +4474,8 @@
 <td>
                 <p>
                   <code class="computeroutput"><span class="identifier">BOOST_LIKELY</span><span class="special">(</span><span class="identifier">X</span><span class="special">)</span></code>
+                </p>
+                <p>
                   <code class="computeroutput"><span class="identifier">BOOST_UNLIKELY</span><span class="special">(</span><span class="identifier">X</span><span class="special">)</span></code>
                 </p>
               </td>
@@ -4530,6 +4541,23 @@
 <span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="identifier">BOOST_MAY_ALIAS</span> <span class="identifier">aliasing_uint</span><span class="special">;</span>
 </pre>
 <p>
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_PRAGMA_MESSAGE</span><span class="special">(</span><span class="identifier">M</span><span class="special">)</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Defined in header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">/</span><span class="identifier">pragma_message</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>,
+                  this macro expands to the equivalent of <code class="computeroutput"><span class="preprocessor">#pragma</span>
+                  <span class="identifier">message</span><span class="special">(</span><span class="identifier">M</span><span class="special">)</span></code>.
+                  <code class="computeroutput"><span class="identifier">M</span></code> must be a string
+                  literal. Example: <code class="computeroutput"><span class="identifier">BOOST_PRAGMA_MESSAGE</span><span class="special">(</span><span class="string">"This header
+                  is deprecated."</span><span class="special">)</span></code>.
                 </p>
               </td>
 </tr>
