@@ -243,8 +243,8 @@
 #endif // __cplusplus >= 201103L
 
 #if __cplusplus >= 201402L
-#undef  BOOST_DEDUCED_TYPENAME // Whether defined or undefined, has no affect on 'no_ded_typename_fail'.
-#undef  BOOST_HAS_CLOCK_GETTIME // Whether defined or undefined, has no affect on 'has_clock_gettime_pass'.
+#undef  BOOST_DEDUCED_TYPENAME // Whether defined or undefined, has no affect on 'no_ded_typename_fail'. Also fails on GCC.
+#undef  BOOST_HAS_CLOCK_GETTIME // Whether defined or undefined, has no affect on 'has_clock_gettime_pass'. Similar failure on GCC, with 'undefined reference to clock_gettime'. May be related to 'ld' path and loaded modules.
 #define BOOST_NO_COMPLETE_VALUE_INITIALIZATION // If defined, then 'no_com_value_init_fail' fails. If undefined, then 'no_com_value_init_pass' fails.
 #undef  BOOST_NO_CXX11_ALIGNAS
 #undef  BOOST_NO_CXX11_HDR_FUNCTIONAL
