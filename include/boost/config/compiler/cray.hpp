@@ -56,8 +56,11 @@
 #   define BOOST_COMPILER "Cray C++ version " BOOST_STRINGIZE(_RELEASE_MAJOR) "." BOOST_STRINGIZE(_RELEASE_MINOR) "." BOOST_STRINGIZE(_RELEASE_PATCHLEVEL)
 #endif
 
-// We have to emulate some GCC macros in order to enable some Boost.Config
-// tests.
+// Since the Cray compiler defines '__GNUC__', we have to emulate some
+// additional GCC macros in order to make everything work.
+//
+// FIXME: Perhaps Cray should fix the compiler to define these additional
+// macros for GCC emulation?
 
 #if __cplusplus >= 201103L && defined(__GNUC__) && !defined(__GXX_EXPERIMENTAL_CXX0X__)
 #   define __GXX_EXPERIMENTAL_CXX0X__ 1
