@@ -49,7 +49,7 @@
 // tests.
 
 #if __cplusplus >= 201103L && defined(__GNUC__) && !defined(__GXX_EXPERIMENTAL_CXX0X__)
-#   define __GXX_EXPERIMENTAL_CXX0X__
+#   define __GXX_EXPERIMENTAL_CXX0X__ 1
 #endif // __GNUC__
 
 ////
@@ -232,6 +232,16 @@
 #endif // __cplusplus >= 201103L
 
 #if __cplusplus >= 201402L
+#undef  BOOST_DEDUCED_TYPENAME // Whether defined or undefined, has no affect on 'no_ded_typename_fail'.
+#undef  BOOST_HAS_CLOCK_GETTIME // Whether defined or undefined, has no affect on 'has_clock_gettime_pass'.
+#define BOOST_NO_COMPLETE_VALUE_INITIALIZATION // If defined, then 'no_com_value_init_fail' fails. If undefined, then 'no_com_value_init_pass' fails.
+#undef  BOOST_NO_CXX11_ALIGNAS
+#undef  BOOST_NO_CXX11_HDR_FUNCTIONAL
+#define BOOST_NO_CXX11_HDR_REGEX // If defined, then 'no_cxx11_hdr_regex_fail' fails. If undefined, then 'no_cxx11_hdr_regex_pass' fails.
+#undef  BOOST_NO_CXX11_INLINE_NAMESPACES
+#undef  BOOST_NO_CXX11_SMART_PTR
+#undef  BOOST_NO_CXX11_TRAILING_RESULT_TYPES
+#undef  BOOST_NO_CXX14_CONSTEXPR
 #define BOOST_NO_CXX14_DIGIT_SEPARATORS
 #endif // __cplusplus == 201402L
 
