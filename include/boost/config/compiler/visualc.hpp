@@ -340,7 +340,7 @@
 #include <boost/config/pragma_message.hpp>
 
 //
-// last known and checked version is 19.11.25506 (VC++ 2017.3):
+// last known and checked version is 19.12.25830.2 (VC++ 2017.3):
 #if (_MSC_VER > 1912)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Boost.Config is older than your current compiler version."
