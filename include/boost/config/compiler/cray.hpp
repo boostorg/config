@@ -30,6 +30,17 @@
 //   - Within each version section, we may also apply changes based on
 //     other parameters (i.e. C++ standards conformance level and GCC
 //     extensions).
+//
+// To test changes to this file:
+//
+// ```
+// module load cce/8.6.5 # Pick the version you want to test.
+// cd boost/libs/config/test/all
+// b2 -j 8 toolset=craype cxxstd=03 cxxstd=11 cxxstd=14 cxxstd-dialect=gnu
+// ```
+//
+// Using 'cxxstd-dialect=iso' is not supported at this time (the tests run,
+// but many tests fail).
 
 ////
 //// Front matter
