@@ -39,11 +39,25 @@
 // b2 -j 8 toolset=craype cxxstd=03 cxxstd=11 cxxstd=14 cxxstd-dialect=gnu linkflags=-lrt
 // ```
 //
-// Using 'cxxstd-dialect=iso' is not supported at this time (the tests run,
-// but many tests fail).
+// Note: Using 'cxxstd-dialect=iso' is not supported at this time (the
+// tests run, but many tests fail).
 //
-// 'linkflags=-lrt' is needed. Otherwise you get an 'undefined reference to
-// clock_gettime' error.
+// Note: 'linkflags=-lrt' is needed in Cray Linux Environment. Otherwise
+// you get an 'undefined reference to clock_gettime' error.
+//
+// Pay attention to the macro definitions for the macros you wish to
+// modify. For example, only macros categorized as compiler macros should
+// appear in this file; platform macros should not appear in this file.
+// Also, some macros have to be defined to specific values; it is not
+// always enough to define or undefine a macro.
+//
+// Macro definitions are available in the source code at:
+//
+// `boost/libs/config/doc/html/boost_config/boost_macro_reference.html`
+//
+// Macro definitions are also available online at:
+//
+// http://www.boost.org/doc/libs/master/libs/config/doc/html/boost_config/boost_macro_reference.html
 
 ////
 //// Front matter
