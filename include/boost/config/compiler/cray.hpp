@@ -36,11 +36,14 @@
 // ```
 // module load cce/8.6.5 # Pick the version you want to test.
 // cd boost/libs/config/test/all
-// b2 -j 8 toolset=craype cxxstd=03 cxxstd=11 cxxstd=14 cxxstd-dialect=gnu
+// b2 -j 8 toolset=craype cxxstd=03 cxxstd=11 cxxstd=14 cxxstd-dialect=gnu linkflags=-lrt
 // ```
 //
 // Using 'cxxstd-dialect=iso' is not supported at this time (the tests run,
 // but many tests fail).
+//
+// 'linkflags=-lrt' is needed. Otherwise you get an 'undefined reference to
+// clock_gettime' error.
 
 ////
 //// Front matter
