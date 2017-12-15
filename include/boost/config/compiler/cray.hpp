@@ -64,12 +64,12 @@
 //
 // http://www.boost.org/doc/libs/master/libs/config/doc/html/boost_config/boost_macro_reference.html
 //
-// Typically, defining a 'BOOST_NO_*' macro disables some feature, and
-// undefining the macro enables the feature. If a feature is enabled, and
-// the tests are passing, then you probably do not need to revisit it.
-// However, if you have disabled a feature, you may want to try enabling
-// it, even if the '_fail.cpp' tests are passing, because sometimes the
-// '_fail.cpp' tests are broken.
+// Typically, if you enable a feature, and the tests pass, then you have
+// nothing to worry about. However, it's sometimes hard to figure out if a
+// disabled feature needs to stay disabled. To get a list of disabled
+// features, run 'b2' in 'boost/libs/config/check'. These are the macros
+// you should pay attention to (in addition to macros that cause test
+// failures).
 
 ////
 //// Front matter
@@ -275,8 +275,16 @@
 #endif // __cplusplus >= 201103L
 
 #if __cplusplus >= 201402L
+#undef  BOOST_HAS_INT128
+#undef  BOOST_HAS_MACRO_USE_FACET
+#undef  BOOST_HAS_MS_INT64
+#undef  BOOST_HAS_SGI_TYPE_TRAITS
+#undef  BOOST_HAS_STLP_USE_FACET
+#undef  BOOST_HAS_TWO_ARG_USE_FACET
+#undef  BOOST_MSVC_STD_ITERATOR
 #define BOOST_NO_COMPLETE_VALUE_INITIALIZATION // This is correct. Test compiles, but fails to run.
 #undef  BOOST_NO_CXX11_ALIGNAS
+#define BOOST_NO_CXX11_HDR_ATOMIC
 #undef  BOOST_NO_CXX11_HDR_FUNCTIONAL
 #define BOOST_NO_CXX11_HDR_REGEX // This is correct. Test compiles, but fails to run.
 #undef  BOOST_NO_CXX11_INLINE_NAMESPACES
@@ -298,6 +306,7 @@
 // you have to modify 'no_ded_typename_pass.cpp' to unconditionally include
 // 'boost_no_ded_typename.ipp'.
 #undef  BOOST_NO_DEDUCED_TYPENAME // This is correct. Test is broken.
+#define BOOST_NO_MS_INT64_NUMERIC_LIMITS // This is also defined in 'boost/libs/config/include/boost/config/detail/suffix.hpp'. Changing it here has no effect.
 #endif // __cplusplus == 201402L
 
 #endif // BOOST_CRAY_VERSION >= 80605
