@@ -45,6 +45,11 @@
 // Note: 'linkflags=-lrt' is needed in Cray Linux Environment. Otherwise
 // you get an 'undefined reference to clock_gettime' error.
 //
+// Note: If a test '*_fail.cpp' file compiles, but fails to run, then it is
+// reported as a defect. However, this is not actually a defect. This is an
+// area where the test system is somewhat broken. Tests that are failing
+// because of this problem are noted in the comments.
+//
 // Pay attention to the macro definitions for the macros you wish to
 // modify. For example, only macros categorized as compiler macros should
 // appear in this file; platform macros should not appear in this file.
@@ -271,25 +276,16 @@
 // 'BOOST_NO_DEDUCED_TYPENAME' has no effect on which tests are run.
 //
 // The 'no_ded_typename_pass.cpp' test should always compile and run
-// successfully, regardless of the value of 'BOOST_DEDUCED_TYPENAME'.
-// 'BOOST_DEDUCED_TYPENAME' must always have an appropriate value; it's not
-// just something that you turn on or off.
+// successfully, because 'BOOST_DEDUCED_TYPENAME' must always have an
+// appropriate value (it's not just something that you turn on or off).
+// Therefore, if you wish to test changes to 'BOOST_NO_DEDUCED_TYPENAME',
+// you have to modify 'no_ded_typename_pass.cpp' to unconditionally include
+// 'boost_no_ded_typename.ipp'.
 #undef  BOOST_NO_DEDUCED_TYPENAME // This is correct. Test is broken.
-// 'BOOST_NO_COMPLETE_VALUE_INITIALIZATION' test is broken.
-// 'no_com_value_init_fail.cpp' should pass if one of the following occurs:
-//
-// - It fails to compile.
-// - It fails to run.
-//
-// The test Jamfile file uses 'compile-fail', but the proper semantics for
-// this test is 'compile-or-run-fail'. For the Cray compiler,
-// 'no_com_value_init_fail.cpp' compiles, so the test indicates a defect.
-// However, if we run the compiled program, it fails at runtime, so this
-// really isn't a defect.
-#define BOOST_NO_COMPLETE_VALUE_INITIALIZATION // This is correct. Test is broken.
+#define BOOST_NO_COMPLETE_VALUE_INITIALIZATION // This is correct. Test compiles, but fails to run.
 #undef  BOOST_NO_CXX11_ALIGNAS
 #undef  BOOST_NO_CXX11_HDR_FUNCTIONAL
-#define BOOST_NO_CXX11_HDR_REGEX // If defined, then 'no_cxx11_hdr_regex_fail' fails. If undefined, then 'no_cxx11_hdr_regex_pass' fails.
+#define BOOST_NO_CXX11_HDR_REGEX // This is correct. Test compiles, but fails to run.
 #undef  BOOST_NO_CXX11_INLINE_NAMESPACES
 #undef  BOOST_NO_CXX11_SMART_PTR
 #undef  BOOST_NO_CXX11_TRAILING_RESULT_TYPES
