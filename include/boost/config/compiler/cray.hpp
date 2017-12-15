@@ -63,6 +63,13 @@
 // Macro definitions are also available online at:
 //
 // http://www.boost.org/doc/libs/master/libs/config/doc/html/boost_config/boost_macro_reference.html
+//
+// Typically, defining a 'BOOST_NO_*' macro disables some feature, and
+// undefining the macro enables the feature. If a feature is enabled, and
+// the tests are passing, then you probably do not need to revisit it.
+// However, if you have disabled a feature, you may want to try enabling
+// it, even if the '_fail.cpp' tests are passing, because sometimes the
+// '_fail.cpp' tests are broken.
 
 ////
 //// Front matter
