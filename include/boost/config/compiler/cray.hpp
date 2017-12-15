@@ -275,6 +275,15 @@
 #endif // __cplusplus >= 201103L
 
 #if __cplusplus >= 201402L
+#define BOOST_NO_COMPLETE_VALUE_INITIALIZATION // This is correct. Test compiles, but fails to run.
+#undef  BOOST_NO_CXX11_ALIGNAS
+#undef  BOOST_NO_CXX11_HDR_FUNCTIONAL
+#define BOOST_NO_CXX11_HDR_REGEX // This is correct. Test compiles, but fails to run.
+#undef  BOOST_NO_CXX11_INLINE_NAMESPACES
+#undef  BOOST_NO_CXX11_SMART_PTR
+#undef  BOOST_NO_CXX11_TRAILING_RESULT_TYPES
+#undef  BOOST_NO_CXX14_CONSTEXPR
+#define BOOST_NO_CXX14_DIGIT_SEPARATORS
 // 'BOOST_NO_DEDUCED_TYPENAME' test is broken. The test files are enabled /
 // disabled with an '#ifdef BOOST_DEDUCED_TYPENAME'. However,
 // 'boost/libs/config/include/boost/config/detail/suffix.hpp' ensures that
@@ -289,15 +298,6 @@
 // you have to modify 'no_ded_typename_pass.cpp' to unconditionally include
 // 'boost_no_ded_typename.ipp'.
 #undef  BOOST_NO_DEDUCED_TYPENAME // This is correct. Test is broken.
-#define BOOST_NO_COMPLETE_VALUE_INITIALIZATION // This is correct. Test compiles, but fails to run.
-#undef  BOOST_NO_CXX11_ALIGNAS
-#undef  BOOST_NO_CXX11_HDR_FUNCTIONAL
-#define BOOST_NO_CXX11_HDR_REGEX // This is correct. Test compiles, but fails to run.
-#undef  BOOST_NO_CXX11_INLINE_NAMESPACES
-#undef  BOOST_NO_CXX11_SMART_PTR
-#undef  BOOST_NO_CXX11_TRAILING_RESULT_TYPES
-#undef  BOOST_NO_CXX14_CONSTEXPR
-#define BOOST_NO_CXX14_DIGIT_SEPARATORS
 #endif // __cplusplus == 201402L
 
 #endif // BOOST_CRAY_VERSION >= 80605
