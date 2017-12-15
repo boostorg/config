@@ -266,18 +266,19 @@
 #if BOOST_CRAY_VERSION >= 80605
 
 #if __cplusplus >= 199711L
-#endif // __cplusplus >= 199711L
-
-#if __cplusplus >= 201103L
-#undef  BOOST_NO_CXX11_ALIGNAS
-#undef  BOOST_NO_CXX11_DECLTYPE_N3276
-#define BOOST_NO_CXX11_HDR_ATOMIC
-#undef  BOOST_NO_CXX11_HDR_FUNCTIONAL
-#define BOOST_NO_CXX11_HDR_REGEX // This is correct. Test compiles, but fails to run.
-#undef  BOOST_NO_CXX11_INLINE_NAMESPACES
-#undef  BOOST_NO_CXX11_SMART_PTR
-#undef  BOOST_NO_CXX11_TRAILING_RESULT_TYPES
+#define BOOST_HAS_FLOAT128
+#define BOOST_HAS_PTHREAD_YIELD // This is a platform macro, but it improves test results.
 #define BOOST_NO_COMPLETE_VALUE_INITIALIZATION // This is correct. Test compiles, but fails to run.
+#undef  BOOST_NO_CXX11_CHAR16_T
+#undef  BOOST_NO_CXX11_CHAR32_T
+#undef  BOOST_NO_CXX11_INLINE_NAMESPACES
+#undef  BOOST_NO_CXX11_FINAL
+#undef  BOOST_NO_CXX11_FIXED_LENGTH_VARIADIC_TEMPLATE_EXPANSION_PACKS
+#undef  BOOST_NO_CXX11_FUNCTION_TEMPLATE_DEFAULT_ARGS
+#define BOOST_NO_CXX11_SFINAE_EXPR // This is correct, even though '*_fail.cpp' test fails.
+#define BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX // This is correct, even though '*_fail.cpp' test fails.
+#undef  BOOST_NO_CXX11_VARIADIC_MACROS
+#undef  BOOST_NO_CXX11_VARIADIC_TEMPLATES
 // 'BOOST_NO_DEDUCED_TYPENAME' test is broken. The test files are enabled /
 // disabled with an '#ifdef BOOST_DEDUCED_TYPENAME'. However,
 // 'boost/libs/config/include/boost/config/detail/suffix.hpp' ensures that
@@ -292,6 +293,19 @@
 // you have to modify 'no_ded_typename_pass.cpp' to unconditionally include
 // 'boost_no_ded_typename.ipp'.
 #undef  BOOST_NO_DEDUCED_TYPENAME // This is correct. Test is broken.
+#undef  BOOST_NO_TWO_PHASE_NAME_LOOKUP
+#endif // __cplusplus >= 199711L
+
+#if __cplusplus >= 201103L
+#undef  BOOST_NO_CXX11_ALIGNAS
+#undef  BOOST_NO_CXX11_DECLTYPE_N3276
+#define BOOST_NO_CXX11_HDR_ATOMIC
+#undef  BOOST_NO_CXX11_HDR_FUNCTIONAL
+#define BOOST_NO_CXX11_HDR_REGEX // This is correct. Test compiles, but fails to run.
+#undef  BOOST_NO_CXX11_SFINAE_EXPR
+#undef  BOOST_NO_CXX11_SMART_PTR
+#undef  BOOST_NO_CXX11_TRAILING_RESULT_TYPES
+#undef  BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX
 #endif // __cplusplus >= 201103L
 
 #if __cplusplus >= 201402L
