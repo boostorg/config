@@ -269,29 +269,15 @@
 #endif // __cplusplus >= 199711L
 
 #if __cplusplus >= 201103L
-#define BOOST_NO_CXX11_HDR_ATOMIC
-#define BOOST_NO_CXX11_HDR_REGEX
-#define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
-#endif // __cplusplus >= 201103L
-
-#if __cplusplus >= 201402L
-#undef  BOOST_HAS_INT128
-#undef  BOOST_HAS_MACRO_USE_FACET
-#undef  BOOST_HAS_MS_INT64
-#undef  BOOST_HAS_SGI_TYPE_TRAITS
-#undef  BOOST_HAS_STLP_USE_FACET
-#undef  BOOST_HAS_TWO_ARG_USE_FACET
-#undef  BOOST_MSVC_STD_ITERATOR
-#define BOOST_NO_COMPLETE_VALUE_INITIALIZATION // This is correct. Test compiles, but fails to run.
 #undef  BOOST_NO_CXX11_ALIGNAS
+#undef  BOOST_NO_CXX11_DECLTYPE_N3276
 #define BOOST_NO_CXX11_HDR_ATOMIC
 #undef  BOOST_NO_CXX11_HDR_FUNCTIONAL
 #define BOOST_NO_CXX11_HDR_REGEX // This is correct. Test compiles, but fails to run.
 #undef  BOOST_NO_CXX11_INLINE_NAMESPACES
 #undef  BOOST_NO_CXX11_SMART_PTR
 #undef  BOOST_NO_CXX11_TRAILING_RESULT_TYPES
-#undef  BOOST_NO_CXX14_CONSTEXPR
-#define BOOST_NO_CXX14_DIGIT_SEPARATORS
+#define BOOST_NO_COMPLETE_VALUE_INITIALIZATION // This is correct. Test compiles, but fails to run.
 // 'BOOST_NO_DEDUCED_TYPENAME' test is broken. The test files are enabled /
 // disabled with an '#ifdef BOOST_DEDUCED_TYPENAME'. However,
 // 'boost/libs/config/include/boost/config/detail/suffix.hpp' ensures that
@@ -306,6 +292,18 @@
 // you have to modify 'no_ded_typename_pass.cpp' to unconditionally include
 // 'boost_no_ded_typename.ipp'.
 #undef  BOOST_NO_DEDUCED_TYPENAME // This is correct. Test is broken.
+#endif // __cplusplus >= 201103L
+
+#if __cplusplus >= 201402L
+#undef  BOOST_HAS_INT128
+#undef  BOOST_HAS_MACRO_USE_FACET
+#undef  BOOST_HAS_MS_INT64
+#undef  BOOST_HAS_SGI_TYPE_TRAITS
+#undef  BOOST_HAS_STLP_USE_FACET
+#undef  BOOST_HAS_TWO_ARG_USE_FACET
+#undef  BOOST_MSVC_STD_ITERATOR
+#undef  BOOST_NO_CXX14_CONSTEXPR
+#define BOOST_NO_CXX14_DIGIT_SEPARATORS
 #define BOOST_NO_MS_INT64_NUMERIC_LIMITS // This is also defined in 'boost/libs/config/include/boost/config/detail/suffix.hpp'. Changing it here has no effect.
 #endif // __cplusplus == 201402L
 
