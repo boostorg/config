@@ -323,6 +323,23 @@
 
 #endif // BOOST_CRAY_VERSION >= 80605
 
+//
+// 8.7.0
+//
+
+#if BOOST_CRAY_VERSION >= 80700
+
+#if __cplusplus >= 199711L
+#endif // __cplusplus >= 199711L
+
+#if __cplusplus >= 201103L
+#endif // __cplusplus >= 201103L
+
+#if __cplusplus >= 201402L
+#endif // __cplusplus == 201402L
+
+#endif // BOOST_CRAY_VERSION >= 80700
+
 ////
 //// Remove temporary macros
 ////
