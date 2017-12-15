@@ -263,7 +263,18 @@
 #endif // __cplusplus >= 201103L
 
 #if __cplusplus >= 201402L
-#undef  BOOST_NO_DEDUCED_TYPENAME // Not documented. See 'boost/libs/config/include/boost/config/detail/suffix.hpp'.
+// 'BOOST_NO_DEDUCED_TYPENAME' test is broken. The test files are enabled /
+// disabled with an '#ifdef BOOST_DEDUCED_TYPENAME'. However,
+// 'boost/libs/config/include/boost/config/detail/suffix.hpp' ensures that
+// 'BOOST_DEDUCED_TYPENAME' is always defined (the value it is defined as
+// depends on 'BOOST_NO_DEDUCED_TYPENAME'). So, modifying
+// 'BOOST_NO_DEDUCED_TYPENAME' has no effect on which tests are run.
+//
+// The 'no_ded_typename_pass.cpp' test should always compile and run
+// successfully, regardless of the value of 'BOOST_DEDUCED_TYPENAME'.
+// 'BOOST_DEDUCED_TYPENAME' must always have an appropriate value; it's not
+// just something that you turn on or off.
+#undef  BOOST_NO_DEDUCED_TYPENAME // This is correct. Test is broken.
 // 'BOOST_NO_COMPLETE_VALUE_INITIALIZATION' test is broken.
 // 'no_com_value_init_fail.cpp' should pass if one of the following occurs:
 //
@@ -275,7 +286,7 @@
 // 'no_com_value_init_fail.cpp' compiles, so the test indicates a defect.
 // However, if we run the compiled program, it fails at runtime, so this
 // really isn't a defect.
-#define BOOST_NO_COMPLETE_VALUE_INITIALIZATION // Test is broken.
+#define BOOST_NO_COMPLETE_VALUE_INITIALIZATION // This is correct. Test is broken.
 #undef  BOOST_NO_CXX11_ALIGNAS
 #undef  BOOST_NO_CXX11_HDR_FUNCTIONAL
 #define BOOST_NO_CXX11_HDR_REGEX // If defined, then 'no_cxx11_hdr_regex_fail' fails. If undefined, then 'no_cxx11_hdr_regex_pass' fails.
