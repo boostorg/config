@@ -309,16 +309,8 @@
 #endif // __cplusplus >= 201103L
 
 #if __cplusplus >= 201402L
-#undef  BOOST_HAS_INT128
-#undef  BOOST_HAS_MACRO_USE_FACET
-#undef  BOOST_HAS_MS_INT64
-#undef  BOOST_HAS_SGI_TYPE_TRAITS
-#undef  BOOST_HAS_STLP_USE_FACET
-#undef  BOOST_HAS_TWO_ARG_USE_FACET
-#undef  BOOST_MSVC_STD_ITERATOR
 #undef  BOOST_NO_CXX14_CONSTEXPR
 #define BOOST_NO_CXX14_DIGIT_SEPARATORS
-#define BOOST_NO_MS_INT64_NUMERIC_LIMITS // This is also defined in 'boost/libs/config/include/boost/config/detail/suffix.hpp'. Changing it here has no effect.
 #endif // __cplusplus == 201402L
 
 #endif // BOOST_CRAY_VERSION >= 80605
