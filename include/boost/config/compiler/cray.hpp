@@ -264,7 +264,18 @@
 
 #if __cplusplus >= 201402L
 #undef  BOOST_NO_DEDUCED_TYPENAME // Not documented. See 'boost/libs/config/include/boost/config/detail/suffix.hpp'.
-#define BOOST_NO_COMPLETE_VALUE_INITIALIZATION // If defined, then 'no_com_value_init_fail' fails. If undefined, then 'no_com_value_init_pass' fails.
+// 'BOOST_NO_COMPLETE_VALUE_INITIALIZATION' test is broken.
+// 'no_com_value_init_fail.cpp' should pass if one of the following occurs:
+//
+// - It fails to compile.
+// - It fails to run.
+//
+// The test Jamfile file uses 'compile-fail', but the proper semantics for
+// this test is 'compile-or-run-fail'. For the Cray compiler,
+// 'no_com_value_init_fail.cpp' compiles, so the test indicates a defect.
+// However, if we run the compiled program, it fails at runtime, so this
+// really isn't a defect.
+#define BOOST_NO_COMPLETE_VALUE_INITIALIZATION // Test is broken.
 #undef  BOOST_NO_CXX11_ALIGNAS
 #undef  BOOST_NO_CXX11_HDR_FUNCTIONAL
 #define BOOST_NO_CXX11_HDR_REGEX // If defined, then 'no_cxx11_hdr_regex_fail' fails. If undefined, then 'no_cxx11_hdr_regex_pass' fails.
