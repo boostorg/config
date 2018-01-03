@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sun Jul  9 16:30:35 2017
+//  This file was automatically generated on Wed Jan 03 23:31:31 2018
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -289,6 +289,11 @@
 #ifdef TEST_BOOST_NO_CXX11_ATOMIC_SMART_PTR
 #  ifdef BOOST_NO_CXX11_ATOMIC_SMART_PTR
 #     error "Defect macro BOOST_NO_CXX11_ATOMIC_SMART_PTR is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX11_DEFAULTED_MOVES
+#  ifdef BOOST_NO_CXX11_DEFAULTED_MOVES
+#     error "Defect macro BOOST_NO_CXX11_DEFAULTED_MOVES is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX11_FINAL

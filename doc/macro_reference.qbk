@@ -625,6 +625,9 @@ deleted (`= delete`) functions.
 [[`BOOST_NO_CXX11_DEFAULTED_FUNCTIONS`][The compiler does not support
 defaulted (`= default`) functions.
 ]]
+[[`BOOST_NO_CXX11_DEFAULTED_MOVES`][The compiler does not support
+defaulted move constructor or assignment. Other defaulted functions may still be supported.
+]]
 [[`BOOST_NO_CXX11_EXPLICIT_CONVERSION_OPERATORS`][The compiler does not support 
 explicit conversion operators (`explicit operator T()`).
 ]] 
