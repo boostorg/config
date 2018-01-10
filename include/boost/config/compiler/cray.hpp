@@ -75,7 +75,78 @@
 //// Front matter
 ////
 
-#define BOOST_CRAY_VERSION (_RELEASE_MAJOR * 10000 + _RELEASE_MINOR * 100 + _RELEASE_PATCHLEVEL)
+// In a developer build of the Cray compiler (i.e. a compiler built by a
+// Cray employee), the release patch level is reported as "x". This gives
+// versions that look like e.g. "8.6.x".
+//
+// To accomplish this, the the Cray compiler preprocessor inserts:
+//
+// #define _RELEASE_PATCHLEVEL x
+//
+// If we are using a developer build of the compiler, we want to use the
+// configuration macros for the most recent patch level of the release. To
+// accomplish this, we'll pretend that _RELEASE_PATCHLEVEL is 99.
+//
+// However, it's difficult to detect if _RELEASE_PATCHLEVEL is x. We must
+// consider that the x will be expanded if x is defined as a macro
+// elsewhere. For example, imagine if someone put "-D x=3" on the command
+// line, and _RELEASE_PATCHLEVEL is x. Then _RELEASE_PATCHLEVEL would
+// expand to 3, and we could not distinguish it from an actual
+// _RELEASE_PATCHLEVEL of 3. This problem only affects developer builds; in
+// production builds, _RELEASE_PATCHLEVEL is always an integer.
+//
+// IMPORTANT: In developer builds, if x is defined as a macro, you will get
+// an incorrect configuration. The behavior in this case is undefined.
+//
+// Even if x is not defined, we have to use some trickery to detect if
+// _RELEASE_PATCHLEVEL is x. First we define BOOST_CRAY_x to some arbitrary
+// magic value, 9867657. Then we use BOOST_CRAY_APPEND to append the
+// expanded value of _RELEASE_PATCHLEVEL to the string "BOOST_CRAY_".
+//
+// - If _RELEASE_PATCHLEVEL is undefined, we get "BOOST_CRAY_".
+// - If _RELEASE_PATCHLEVEL is 5, we get "BOOST_CRAY_5".
+// - If _RELEASE_PATCHLEVEL is x (and x is not defined) we get
+//   "BOOST_CRAY_x":
+//
+// Then we check if BOOST_CRAY_x is equal to the output of
+// BOOST_CRAY_APPEND. In other words, the output of BOOST_CRAY_APPEND is
+// treated as a macro name, and expanded again. If we can safely assume
+// that BOOST_CRAY_ is not a macro defined as our magic number, and
+// BOOST_CRAY_5 is not a macro defined as our magic number, then the only
+// way the equality test can pass is if _RELEASE_PATCHLEVEL expands to x.
+//
+// So, that is how we detect if we are using a developer build of the Cray
+// compiler.
+
+#define BOOST_CRAY_x 9867657 // Arbitrary number
+#define BOOST_CRAY_APPEND(MACRO) BOOST_CRAY_APPEND_INTERNAL(MACRO)
+#define BOOST_CRAY_APPEND_INTERNAL(MACRO) BOOST_CRAY_##MACRO
+
+#if BOOST_CRAY_x == BOOST_CRAY_APPEND(_RELEASE_PATCHLEVEL)
+
+    // This is a developer build.
+    //
+    // - _RELEASE_PATCHLEVEL is defined as x, and x is not defined as a macro.
+
+    // Pretend _RELEASE_PATCHLEVEL is 99, so we get the configuration for the
+    // most recent patch level in this release.
+
+    #define BOOST_CRAY_VERSION (_RELEASE_MAJOR * 10000 + _RELEASE_MINOR * 100 + 99)
+
+#else
+
+    // This is a production build.
+    //
+    // _RELEASE_PATCHLEVEL is not defined as x, or x is defined as a macro.
+
+    #define BOOST_CRAY_VERSION (_RELEASE_MAJOR * 10000 + _RELEASE_MINOR * 100 + _RELEASE_PATCHLEVEL)
+
+#endif // BOOST_CRAY_x == BOOST_CRAY_APPEND(_RELEASE_PATCHLEVEL)
+
+#undef BOOST_CRAY_APPEND_INTERNAL
+#undef BOOST_CRAY_APPEND
+#undef BOOST_CRAY_x
+
 
 #ifdef __GNUC__
 #   define BOOST_GCC_VERSION (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)
