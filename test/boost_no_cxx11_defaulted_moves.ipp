@@ -7,14 +7,14 @@
 //  See http://www.boost.org/libs/config for more information.
 
 //  MACRO:         BOOST_NO_CXX11_DEFAULTED_MOVES 
-//  TITLE:         C++0x defaulting of move constructor/assignmet unavailable
-//  DESCRIPTION:   The compiler does not support C++0x defaulting of move constructor/assignmet
+//  TITLE:         C++0x defaulting of move constructor/assignment unavailable
+//  DESCRIPTION:   The compiler does not support C++0x defaulting of move constructor/assignment
 
 namespace boost_no_cxx11_defaulted_moves {
 
   struct foo {
     foo(foo&&) = default;
-	foo& operator=(foo&&) = default;
+    foo& operator=(foo&&) = default;
   };
 
   int test()
