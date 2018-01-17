@@ -59,6 +59,7 @@ test-suite config
           : #input-files
           : #requirements
           <rtti>off
+          <toolset>gcc-4.4,<cxxstd>0x:<build>no # <memory> does not compile with -fno-rtti
           [ check-target-builds has_atomic_lib : <source>atomic ]
           [ check-target-builds has_pthread_lib : <source>pthread ]
           [ check-target-builds has_rt_lib : <source>rt ]
