@@ -1282,7 +1282,21 @@ Usage example:
 ]]
 [[`BOOST_PRAGMA_MESSAGE(M)`][Defined in header `<boost/config/pragma_message.hpp>`,
 this macro expands to the equivalent of `#pragma message(M)`. `M` must be a string
-literal. Example: `BOOST_PRAGMA_MESSAGE("This header is deprecated.")`.]]
+literal.
+
+Example: `BOOST_PRAGMA_MESSAGE("This header is deprecated.")`
+
+The messages issued by `BOOST_PRAGMA_MESSAGE` can be suppressed by defining the macro
+`BOOST_DISABLE_PRAGMA_MESSAGE`.]]
+
+[[`BOOST_HEADER_DEPRECATED(A)`][Defined in header `<boost/config/header_deprecated.hpp>`,
+this macro issues the message "This header is deprecated. Use `A` instead." via
+`BOOST_PRAGMA_MESSAGE`. `A` must be a string literal.
+
+Example: `BOOST_HEADER_DEPRECATED("<boost/config/workaround.hpp>")`
+
+The messages issued by `BOOST_HEADER_DEPRECATED` can be suppressed by defining the macro
+`BOOST_ALLOW_DEPRECATED_HEADERS`.]]
 ]
 
 [endsect]
