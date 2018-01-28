@@ -66,6 +66,6 @@ build: off
 
 test_script:
   - cd libs\config\test
-  - FOR %A in (%CXXSTD%) DO ..\..\..\b2 config_info_travis_install %ARGS% cxxstd=%A
+  - FOR %%A in (%CXXSTD%) DO ..\..\..\b2 config_info_travis_install %ARGS% cxxstd=%%A
   - config_info_travis
   - ..\..\..\b2 -j3 %ARGS% cxxstd=%CXXSTD%
