@@ -66,8 +66,6 @@ build: off
 
 test_script:
   - cd libs\config\test
-  - echo "FOR ^%^%A in (^%CXXSTD^%) DO ..\..\..\b2 config_info_travis_install ^%ARGS^% cxxstd=^%^%A" > info.bat
-  - type info.bat
-  - info.bat
+  - ..\..\..\b2 config_info_travis_install %ARGS^
   - config_info_travis
   - ..\..\..\b2 -j3 %ARGS% cxxstd=%CXXSTD%
