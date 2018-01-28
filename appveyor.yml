@@ -66,6 +66,6 @@ build: off
 
 test_script:
   - cd libs\config\test
-  - ..\..\..\b2 config_info_travis_install %ARGS^
+  - ..\..\..\b2 config_info_travis_install %ARGS%
   - config_info_travis
   - ..\..\..\b2 -j3 %ARGS% cxxstd=%CXXSTD%
