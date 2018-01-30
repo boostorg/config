@@ -35,9 +35,6 @@ environment:
       PATH: C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\mingw64\bin;%PATH%
     - ARGS: --toolset=gcc address-model=64
       CXXSTD: 03,11,14,1z
-      PATH: C:\mingw-w64\i686-5.3.0-posix-dwarf-rt_v4-rev0\mingw64\bin;%PATH%
-    - ARGS: --toolset=gcc address-model=64
-      CXXSTD: 03,11,14,1z
       PATH: C:\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev1\mingw64\bin;%PATH%
     - ARGS: --toolset=gcc address-model=32 linkflags=-Wl,-allow-multiple-definition
       CXXSTD: 03,11,14,1z
@@ -66,6 +63,5 @@ build: off
 
 test_script:
   - cd libs\config\test
-  - ..\..\..\b2 config_info_travis_install %ARGS%
-  - config_info_travis
+  - ..\appveyor.bat
   - ..\..\..\b2 -j3 %ARGS% cxxstd=%CXXSTD%
