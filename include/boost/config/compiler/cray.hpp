@@ -415,6 +415,7 @@
 #endif // __cplusplus >= 201103L
 
 #if __cplusplus >= 201402L
+#undef  BOOST_NO_CXX11_HDR_ATOMIC
 #endif // __cplusplus == 201402L
 
 #endif // BOOST_CRAY_VERSION > 80799
