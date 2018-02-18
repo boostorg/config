@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Boost Macro Reference</title>
 <link rel="stylesheet" href="../../../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="../index.html" title="Boost.Config">
 <link rel="up" href="../index.html" title="Boost.Config">
 <link rel="prev" href="../index.html" title="Boost.Config">
@@ -26,7 +26,7 @@
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="boost_config.boost_macro_reference"></a><a class="link" href="boost_macro_reference.html" title="Boost Macro Reference">Boost Macro Reference</a>
 </h2></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__03_defects">Macros
       that describe C++03 defects</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_optional_features">Macros
@@ -4556,8 +4556,39 @@
                   this macro expands to the equivalent of <code class="computeroutput"><span class="preprocessor">#pragma</span>
                   <span class="identifier">message</span><span class="special">(</span><span class="identifier">M</span><span class="special">)</span></code>.
                   <code class="computeroutput"><span class="identifier">M</span></code> must be a string
-                  literal. Example: <code class="computeroutput"><span class="identifier">BOOST_PRAGMA_MESSAGE</span><span class="special">(</span><span class="string">"This header
-                  is deprecated."</span><span class="special">)</span></code>.
+                  literal.
+                </p>
+                <p>
+                  Example: <code class="computeroutput"><span class="identifier">BOOST_PRAGMA_MESSAGE</span><span class="special">(</span><span class="string">"This header
+                  is deprecated."</span><span class="special">)</span></code>
+                </p>
+                <p>
+                  The messages issued by <code class="computeroutput"><span class="identifier">BOOST_PRAGMA_MESSAGE</span></code>
+                  can be suppressed by defining the macro <code class="computeroutput"><span class="identifier">BOOST_DISABLE_PRAGMA_MESSAGE</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_HEADER_DEPRECATED</span><span class="special">(</span><span class="identifier">A</span><span class="special">)</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Defined in header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">/</span><span class="identifier">header_deprecated</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>,
+                  this macro issues the message "This header is deprecated.
+                  Use <code class="computeroutput"><span class="identifier">A</span></code> instead."
+                  via <code class="computeroutput"><span class="identifier">BOOST_PRAGMA_MESSAGE</span></code>.
+                  <code class="computeroutput"><span class="identifier">A</span></code> must be a string
+                  literal.
+                </p>
+                <p>
+                  Example: <code class="computeroutput"><span class="identifier">BOOST_HEADER_DEPRECATED</span><span class="special">(</span><span class="string">"&lt;boost/config/workaround.hpp&gt;"</span><span class="special">)</span></code>
+                </p>
+                <p>
+                  The messages issued by <code class="computeroutput"><span class="identifier">BOOST_HEADER_DEPRECATED</span></code>
+                  can be suppressed by defining the macro <code class="computeroutput"><span class="identifier">BOOST_ALLOW_DEPRECATED_HEADERS</span></code>.
                 </p>
               </td>
 </tr>
@@ -5925,7 +5956,7 @@
 <a name="boost_config.boost_macro_reference.macros_for_libraries_with_separate_source_code"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_for_libraries_with_separate_source_code" title="Macros for libraries with separate source code">Macros
       for libraries with separate source code</a>
 </h3></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_for_libraries_with_separate_source_code.macros_controlling_shared_library_symbol_visibility">Macros
         controlling shared library symbol visibility</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_for_libraries_with_separate_source_code.abi_fixing">ABI

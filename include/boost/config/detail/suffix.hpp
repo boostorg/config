@@ -687,6 +687,11 @@ namespace std{ using ::type_info; }
 #  define BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS
 #endif
 
+// Lack of defaulted moves is implied by the lack of either rvalue references or any defaulted functions
+#if !defined(BOOST_NO_CXX11_DEFAULTED_MOVES) && (defined(BOOST_NO_CXX11_DEFAULTED_FUNCTIONS) || defined(BOOST_NO_CXX11_RVALUE_REFERENCES))
+#  define BOOST_NO_CXX11_DEFAULTED_MOVES
+#endif
+
 // Defaulted and deleted function declaration helpers
 // These macros are intended to be inside a class definition.
 // BOOST_DEFAULTED_FUNCTION accepts the function declaration and its

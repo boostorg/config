@@ -233,6 +233,7 @@
 //
 #if (BOOST_GCC_VERSION < 40600) || !defined(BOOST_GCC_CXX11)
 #define BOOST_NO_CXX11_CONSTEXPR
+#define BOOST_NO_CXX11_DEFAULTED_MOVES
 #define BOOST_NO_CXX11_NOEXCEPT
 #define BOOST_NO_CXX11_NULLPTR
 #define BOOST_NO_CXX11_RANGE_BASED_FOR
@@ -284,7 +285,7 @@
 #if !defined(__cpp_constexpr) || (__cpp_constexpr < 201304)
 #  define BOOST_NO_CXX14_CONSTEXPR
 #endif
-#if !defined(__cpp_variable_templates) || (__cpp_variable_templates < 201304)
+#if (BOOST_GCC_VERSION < 50200) || !defined(__cpp_variable_templates) || (__cpp_variable_templates < 201304)
 #  define BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #endif
 

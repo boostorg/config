@@ -59,6 +59,7 @@ test-suite config
           : #input-files
           : #requirements
           <rtti>off
+          <toolset>gcc-4.4.7,<cxxstd>0x:<build>no # <memory> does not compile with -fno-rtti
           [ check-target-builds has_atomic_lib : <source>atomic ]
           [ check-target-builds has_pthread_lib : <source>pthread ]
           [ check-target-builds has_rt_lib : <source>rt ]
@@ -105,6 +106,7 @@ test-suite config
     [ run config_build_check.cpp : : : [ requires int128 cxx11_constexpr cxx11_user_defined_literals ] ]
     [ run helper_macros_test.cpp ]
     [ compile pragma_message_test.cpp ]
+    [ compile header_deprecated_test.cpp ]
   ;
 
 obj has_clang_implicit_fallthrough : cmd_line_check.cpp :
