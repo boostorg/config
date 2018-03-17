@@ -30,6 +30,7 @@ int test()
     if constexpr (true) {
         if constexpr (1 != 0) {
             if constexpr (same<int, double>::value) {
+                static_assert(!same<int, double>::value, "");
                 return 1;
             } else if constexpr (false) {
                 return 1;
