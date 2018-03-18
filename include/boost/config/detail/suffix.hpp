@@ -391,7 +391,7 @@ namespace std {
 #  ifdef BOOST_NO_INCLASS_MEMBER_INITIALIZATION
 #       define BOOST_STATIC_CONSTANT(type, assignment) enum { assignment }
 #  else
-#     define BOOST_STATIC_CONSTANT(type, assignment) BOOST_STATIC_CONSTEXPR type assignment
+#     define BOOST_STATIC_CONSTANT(type, assignment) static const type assignment
 #  endif
 
 // BOOST_USE_FACET / HAS_FACET workaround ----------------------------------//
