@@ -19,7 +19,7 @@ int foo( int i, int j) {
 
 int test() {
     int i = 1, j = 2;
-    std::invoke( foo, i, j);
+    typename std::invoke_result<int(&)(int,int), int, int>::type t = std::invoke( foo, i, j);
     return 0;
 }
 
