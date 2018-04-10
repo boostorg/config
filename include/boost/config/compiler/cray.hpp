@@ -330,10 +330,11 @@
 #endif // BOOST_CRAY_VERSION >= 80500
 
 //
-// 8.6.5
+// 8.6.4
+// (versions prior to 8.6.5 do not define _RELEASE_PATCHLEVEL)
 //
 
-#if BOOST_CRAY_VERSION >= 80605
+#if BOOST_CRAY_VERSION >= 80600
 
 #if __cplusplus >= 199711L
 #define BOOST_HAS_FLOAT128
@@ -383,7 +384,12 @@
 #define BOOST_NO_CXX14_DIGIT_SEPARATORS
 #endif // __cplusplus == 201402L
 
-#endif // BOOST_CRAY_VERSION >= 80605
+#endif // BOOST_CRAY_VERSION >= 80600
+
+//
+// 8.6.5
+// (no change from 8.6.4)
+//
 
 //
 // 8.7.0
