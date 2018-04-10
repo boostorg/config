@@ -392,9 +392,13 @@
 #if BOOST_CRAY_VERSION >= 80700
 
 #if __cplusplus >= 199711L
+#undef  BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX
+#undef  BOOST_NO_SFINAE_EXPR
 #endif // __cplusplus >= 199711L
 
 #if __cplusplus >= 201103L
+#undef  BOOST_NO_CXX11_HDR_ATOMIC
+#undef  BOOST_NO_CXX11_HDR_REGEX
 #endif // __cplusplus >= 201103L
 
 #if __cplusplus >= 201402L
@@ -415,7 +419,6 @@
 #endif // __cplusplus >= 201103L
 
 #if __cplusplus >= 201402L
-#undef  BOOST_NO_CXX11_HDR_ATOMIC
 #endif // __cplusplus == 201402L
 
 #endif // BOOST_CRAY_VERSION > 80799
@@ -431,4 +434,3 @@
 //#undef BOOST_COMPILER
 #undef BOOST_GCC_VERSION
 #undef BOOST_CRAY_VERSION
-
