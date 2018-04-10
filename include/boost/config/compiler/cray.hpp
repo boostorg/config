@@ -346,7 +346,7 @@
 #undef  BOOST_NO_CXX11_FIXED_LENGTH_VARIADIC_TEMPLATE_EXPANSION_PACKS
 #undef  BOOST_NO_CXX11_FUNCTION_TEMPLATE_DEFAULT_ARGS
 #define BOOST_NO_CXX11_SFINAE_EXPR // This is correct, even though '*_fail.cpp' test fails.
-#define BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX // This is correct, even though '*_fail.cpp' test fails.
+#undef  BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX
 #undef  BOOST_NO_CXX11_VARIADIC_MACROS
 #undef  BOOST_NO_CXX11_VARIADIC_TEMPLATES
 // 'BOOST_NO_DEDUCED_TYPENAME' test is broken. The test files are enabled /
@@ -363,6 +363,7 @@
 // you have to modify 'no_ded_typename_pass.cpp' to unconditionally include
 // 'boost_no_ded_typename.ipp'.
 #undef  BOOST_NO_DEDUCED_TYPENAME // This is correct. Test is broken.
+#undef  BOOST_NO_SFINAE_EXPR
 #undef  BOOST_NO_TWO_PHASE_NAME_LOOKUP
 #endif // __cplusplus >= 199711L
 
@@ -375,7 +376,6 @@
 #undef  BOOST_NO_CXX11_SFINAE_EXPR
 #undef  BOOST_NO_CXX11_SMART_PTR
 #undef  BOOST_NO_CXX11_TRAILING_RESULT_TYPES
-#undef  BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX
 #endif // __cplusplus >= 201103L
 
 #if __cplusplus >= 201402L
@@ -392,8 +392,6 @@
 #if BOOST_CRAY_VERSION >= 80700
 
 #if __cplusplus >= 199711L
-#undef  BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX
-#undef  BOOST_NO_SFINAE_EXPR
 #endif // __cplusplus >= 199711L
 
 #if __cplusplus >= 201103L
