@@ -1,5 +1,5 @@
-//  (C) Copyright John Maddock 2011.
-//  (C) Copyright Cray, Inc. 2013 - 2017.
+//  Copyright 2011 John Maddock
+//  Copyright 2013, 2017-2018 Cray, Inc.
 //  Use, modification and distribution are subject to the
 //  Boost Software License, Version 1.0. (See accompanying file
 //  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -163,7 +163,7 @@
 
 #if __cplusplus >= 201103L && defined(__GNUC__) && !defined(__GXX_EXPERIMENTAL_CXX0X__)
 #   define __GXX_EXPERIMENTAL_CXX0X__ 1
-#endif // __GNUC__
+#endif
 
 ////
 //// Parameter validation
