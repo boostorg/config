@@ -66,7 +66,7 @@
 // Typically, if you enable a feature, and the tests pass, then you have
 // nothing to worry about. However, it's sometimes hard to figure out if a
 // disabled feature needs to stay disabled. To get a list of disabled
-// features, run 'b2' in 'boost/libs/config/check'. These are the macros
+// features, run 'b2' in 'boost/libs/config/checks'. These are the macros
 // you should pay attention to (in addition to macros that cause test
 // failures).
 
