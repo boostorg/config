@@ -1,4 +1,4 @@
-//  This file was automatically generated on Wed Jan 03 23:31:31 2018
+//  This file was automatically generated on Tue Mar  6 17:44:35 2018
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -509,6 +509,11 @@
 #ifdef TEST_BOOST_NO_CXX17_FOLD_EXPRESSIONS
 #  ifdef BOOST_NO_CXX17_FOLD_EXPRESSIONS
 #     error "Defect macro BOOST_NO_CXX17_FOLD_EXPRESSIONS is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX17_IF_CONSTEXPR
+#  ifdef BOOST_NO_CXX17_IF_CONSTEXPR
+#     error "Defect macro BOOST_NO_CXX17_IF_CONSTEXPR is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX17_INLINE_VARIABLES
