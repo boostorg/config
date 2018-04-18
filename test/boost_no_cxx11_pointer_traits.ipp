@@ -18,7 +18,7 @@ namespace boost_no_cxx11_pointer_traits {
 template<class T>
 struct pointer {
     template<class U>
-    using rebind = pointer<bool>;
+    using rebind = pointer<U>;
 };
 
 template<class T>
@@ -31,7 +31,7 @@ struct result<pointer<bool> > {
 
 int test()
 {
-    return result<std::pointer_traits<pointer<int> >::rebind<char> >::value;
+    return result<std::pointer_traits<pointer<int> >::rebind<bool> >::value;
 }
 
 } /* boost_no_cxx11_pointer_traits */

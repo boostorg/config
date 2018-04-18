@@ -25,7 +25,7 @@ namespace boost_no_std_allocator{
 #endif
 
 template <class T>
-int test_allocator(const T& i)
+int test_allocator(const T&)
 {
    typedef std::allocator<int> alloc1_t;
 #if !((__cplusplus > 201700) || (defined(_MSVC_LANG) && (_MSVC_LANG > 201700)))

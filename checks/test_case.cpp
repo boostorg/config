@@ -1,4 +1,4 @@
-//  This file was automatically generated on Tue Mar  6 17:44:35 2018
+//  This file was automatically generated on Wed Apr 18 20:03:40 2018
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -24,6 +24,11 @@
 #ifdef TEST_BOOST_HAS_CLOCK_GETTIME
 #  ifndef BOOST_HAS_CLOCK_GETTIME
 #     error "Feature macro BOOST_HAS_CLOCK_GETTIME is not defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_HAS_PRAGMA_DETECT_MISMATCH
+#  ifndef BOOST_HAS_PRAGMA_DETECT_MISMATCH
+#     error "Feature macro BOOST_HAS_PRAGMA_DETECT_MISMATCH is not defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_HAS_DIRENT_H
