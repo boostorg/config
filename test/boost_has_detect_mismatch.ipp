@@ -14,9 +14,10 @@
 
 namespace boost_has_pragma_detect_mismatch {
 
+# pragma detect_mismatch("Boost_Config", "1")
+
 int test()
 {
-# pragma detect_mismatch("Boost_Config", "1")
    return 0;
 }
 
