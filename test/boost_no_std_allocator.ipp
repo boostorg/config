@@ -25,7 +25,7 @@ namespace boost_no_std_allocator{
 #endif
 
 template <class T>
-int test_allocator(const T&)
+int test_allocator(const T& i)
 {
    typedef std::allocator<int> alloc1_t;
 #if !((__cplusplus > 201700) || (defined(_MSVC_LANG) && (_MSVC_LANG > 201700)))
@@ -41,6 +41,7 @@ int test_allocator(const T&)
 
    alloc1_t a1;
    alloc1_t a2(a1);
+   (void)i;
 #if !((__cplusplus > 201700) || (defined(_MSVC_LANG) && (_MSVC_LANG > 201700)))
    // stuff deprecated in C++17:
    typedef typename alloc1_t::BOOST_NESTED_TEMPLATE rebind<double> binder_t;
