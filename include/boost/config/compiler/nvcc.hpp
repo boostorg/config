@@ -12,7 +12,7 @@
 #endif
 
 #if defined(__CUDACC_VER_MAJOR__) && defined(__CUDACC_VER_MINOR__) && defined(__CUDACC_VER_BUILD__)
-#  define BOOST_CUDA_VERSION __CUDACC_VER_MAJOR__ * 1000000 + __CUDACC_VER_MINOR__ * 10000 + __CUDACC_VER_BUILD__
+#  define BOOST_CUDA_VERSION (__CUDACC_VER_MAJOR__ * 1000000 + __CUDACC_VER_MINOR__ * 10000 + __CUDACC_VER_BUILD__)
 #else
 // We don't really know what the CUDA version is, but it's definitely before 7.5:
 #  define BOOST_CUDA_VERSION 7000000
