@@ -33,8 +33,8 @@
 #if (BOOST_CUDA_VERSION > 8000000) && (BOOST_CUDA_VERSION < 8010000)
 #   define BOOST_NO_CXX11_VARIADIC_TEMPLATES
 #endif
-// Most recent CUDA (8.0) has no constexpr support in msvc mode:
-#if defined(_MSC_VER)
+// CUDA (8.0) has no constexpr support in msvc mode:
+#if defined(_MSC_VER) && (BOOST_CUDA_VERSION < 9000000)
 #  define BOOST_NO_CXX11_CONSTEXPR
 #endif
 
