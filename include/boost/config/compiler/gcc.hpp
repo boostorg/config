@@ -318,11 +318,11 @@
 // last known and checked version is 4.9:
 #if (BOOST_GCC_VERSION > 40900)
 #  if defined(BOOST_ASSERT_CONFIG)
-#     error "Unknown compiler version - please run the configure tests and report the results"
+#     error "boost: Unknown compiler version - please run the configure tests and report the results"
 #  else
 // we don't emit warnings here anymore since there are no defect macros defined for
 // gcc post 3.4, so any failures are gcc regressions...
-//#     warning "Unknown compiler version - please run the configure tests and report the results"
+//#     warning "boost: Unknown compiler version - please run the configure tests and report the results"
 #  endif
 #endif
 
