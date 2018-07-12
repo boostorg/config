@@ -1,4 +1,4 @@
-//  This file was automatically generated on Wed Jan 03 23:31:31 2018
+//  This file was automatically generated on Wed Apr 18 20:03:40 2018
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -341,6 +341,11 @@ namespace boost_no_cxx14_variable_templates = empty_boost;
 #include "boost_no_cxx17_fold_expressions.ipp"
 #else
 namespace boost_no_cxx17_fold_expressions = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX17_IF_CONSTEXPR
+#include "boost_no_cxx17_if_constexpr.ipp"
+#else
+namespace boost_no_cxx17_if_constexpr = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX17_INLINE_VARIABLES
 #include "boost_no_cxx17_inline_variables.ipp"
@@ -818,6 +823,11 @@ namespace boost_has_bethreads = empty_boost;
 #else
 namespace boost_has_clock_gettime = empty_boost;
 #endif
+#ifdef BOOST_HAS_PRAGMA_DETECT_MISMATCH
+#include "boost_has_detect_mismatch.ipp"
+#else
+namespace boost_has_pragma_detect_mismatch = empty_boost;
+#endif
 #ifdef BOOST_HAS_DIRENT_H
 #include "boost_has_dirent_h.ipp"
 #else
@@ -999,6 +1009,11 @@ int main( int, char *[] )
    if(0 != boost_has_clock_gettime::test())
    {
       std::cerr << "Failed test for BOOST_HAS_CLOCK_GETTIME at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_has_pragma_detect_mismatch::test())
+   {
+      std::cerr << "Failed test for BOOST_HAS_PRAGMA_DETECT_MISMATCH at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_has_dirent_h::test())
@@ -1484,6 +1499,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx17_fold_expressions::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX17_FOLD_EXPRESSIONS at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx17_if_constexpr::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX17_IF_CONSTEXPR at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx17_inline_variables::test())

@@ -38,7 +38,7 @@ int test_allocator(const T& i)
    typedef typename alloc1_t::value_type          value_type BOOST_UNUSED_ATTRIBUTE;
 #endif
    alloc1_t a1;
-
+   (void)i;
 #if !((__cplusplus > 201700) || (defined(_MSVC_LANG) && (_MSVC_LANG > 201700)))
    pointer p = a1.allocate(1);
    const_pointer cp = p;
