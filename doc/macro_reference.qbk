@@ -1622,6 +1622,14 @@ Optional: when set link to dll rather than static library.
 Optional: when set the header will print out the name of the library selected
 (useful for debugging).
 ]]
+[[`BOOST_AUTO_LINK_NOMANGLE`][
+Optional: whan set specifies that we should link to BOOST_LIB_NAME.lib, rather than a mangled-name version.]]
+[[`BOOST_AUTO_LINK_TAGGED`][Optional: Specifies that we link to libraries built with the --layout=tagged option.
+                          This is essentially the same as the default name-mangled version, but without
+                          the compiler name and version, or the Boost version.  Just the build options.]]
+[[`BOOST_AUTO_LINK_SYSTEM`][Optional: Specifies that we link to libraries built with the --layout=system option.
+                          This is essentially the same as the non-name-mangled version, but with
+                          the prefix to differentiate static and dll builds]]
 ]
 
 If the compiler supports this mechanism, then it will be told to link against
