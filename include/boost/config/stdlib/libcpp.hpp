@@ -111,7 +111,7 @@
 #  define BOOST_NO_CXX11_THREAD_LOCAL
 #endif
 
-#if defined(__linux__) && (_LIBCPP_VERSION < 4000) && !defined(BOOST_NO_CXX11_THREAD_LOCAL)
+#if defined(__linux__) && (_LIBCPP_VERSION < 6000) && !defined(BOOST_NO_CXX11_THREAD_LOCAL)
 // After libc++-dev is installed on Trusty, clang++-libc++ almost works,
 // except uses of `thread_local` fail with undefined reference to
 // `__cxa_thread_atexit`.
