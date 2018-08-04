@@ -111,10 +111,16 @@
 #  define BOOST_NO_CXX11_THREAD_LOCAL
 #endif
 
-#if defined(__linux__) && !defined(BOOST_NO_CXX11_THREAD_LOCAL)
+#if defined(__linux__) && (_LIBCPP_VERSION < 4000) && !defined(BOOST_NO_CXX11_THREAD_LOCAL)
 // After libc++-dev is installed on Trusty, clang++-libc++ almost works,
 // except uses of `thread_local` fail with undefined reference to
 // `__cxa_thread_atexit`.
+//
+// clang's libc++abi provides an implementation by deferring to the glibc
+// implementation, which may or may not be available (it is not on Trusty).
+// clang 4's libc++abi will provide an implementation if one is not in glibc
+// though, so thread local support should work with clang 4 and above as long
+// as libc++abi is linked in.
 #  define BOOST_NO_CXX11_THREAD_LOCAL
 #endif
 
