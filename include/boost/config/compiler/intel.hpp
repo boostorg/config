@@ -46,10 +46,15 @@
 #undef BOOST_GCC_VERSION
 #undef BOOST_GCC_CXX11
 #undef BOOST_GCC
+#undef BOOST_FALLTHROUGH
 
 // Broken in all versions up to 17 (newer versions not tested)
 #if (__INTEL_COMPILER <= 1700) && !defined(BOOST_NO_CXX14_CONSTEXPR)
 #  define BOOST_NO_CXX14_CONSTEXPR
+#endif
+
+#if (__INTEL_COMPILER >= 1800) && (__cplusplus >= 201703)
+#  define BOOST_FALLTHROUGH [[fallthrough]]
 #endif
 
 #endif // defined(_MSC_VER)
