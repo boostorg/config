@@ -217,7 +217,7 @@ matrix:
 
     - os: linux
       compiler: clang++-libc++
-      env: TOOLSET=clang COMPILER=clang++-libc++ CXXSTD=03,11,14,1z
+      env: TOOLSET=clang COMPILER="clang++-6.0 -stdlib=libc++" CXXSTD=03,11,14,1z
       addons:
         apt:
           packages:
