@@ -1024,8 +1024,12 @@ namespace std{ using ::type_info; }
 #endif
 
 // This is a catch all case for obsolete compilers / std libs:
-#if !defined(__has_include) || !__has_include(<optional>)
+#if !defined(__has_include)
 #  define BOOST_NO_CXX17_HDR_OPTIONAL
+#else
+#if !__has_include(<optional>)
+#  define BOOST_NO_CXX17_HDR_OPTIONAL
+#endif
 #endif
 
 //
