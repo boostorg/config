@@ -135,4 +135,8 @@
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
 #endif
 
+#if !defined(BOOST_NO_CXX14_HDR_SHARED_MUTEX) && (_LIBCPP_VERSION < 5000)
+#  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#endif
+
 //  --- end ---
