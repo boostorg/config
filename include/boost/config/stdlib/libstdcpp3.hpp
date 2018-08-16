@@ -299,6 +299,7 @@ extern "C" char *gets (char *__s);
 #if (BOOST_LIBSTDCXX_VERSION < 70100) || (__cplusplus <= 201402L)
 #  define BOOST_NO_CXX17_STD_INVOKE
 #  define BOOST_NO_CXX17_STD_APPLY
+#  define BOOST_NO_CXX17_HDR_OPTIONAL
 #endif
 
 #if defined(__has_include)

@@ -202,6 +202,7 @@
 #if (_MSC_VER < 1911) || (_MSVC_LANG < 201703)
 #  define BOOST_NO_CXX17_STRUCTURED_BINDINGS
 #  define BOOST_NO_CXX17_IF_CONSTEXPR
+#  define BOOST_NO_CXX17_HDR_OPTIONAL
 #endif
 
 // MSVC including version 14 has not yet completely
@@ -284,9 +285,9 @@
 #   if _MSC_VER < 1400
       // Note: I'm not aware of any CE compiler with version 13xx
 #      if defined(BOOST_ASSERT_CONFIG)
-#         error "Unknown EVC++ compiler version - please run the configure tests and report the results"
+#         error "boost: Unknown EVC++ compiler version - please run the configure tests and report the results"
 #      else
-#         pragma message("Unknown EVC++ compiler version - please run the configure tests and report the results")
+#         pragma message("boost: Unknown EVC++ compiler version - please run the configure tests and report the results")
 #      endif
 #   elif _MSC_VER < 1500
 #     define BOOST_COMPILER_VERSION evc8
@@ -302,9 +303,9 @@
 #     define BOOST_COMPILER_VERSION evc14
 #   else
 #      if defined(BOOST_ASSERT_CONFIG)
-#         error "Unknown EVC++ compiler version - please run the configure tests and report the results"
+#         error "boost: Unknown EVC++ compiler version - please run the configure tests and report the results"
 #      else
-#         pragma message("Unknown EVC++ compiler version - please run the configure tests and report the results")
+#         pragma message("boost: Unknown EVC++ compiler version - please run the configure tests and report the results")
 #      endif
 #   endif
 # else
