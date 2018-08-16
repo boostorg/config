@@ -203,6 +203,7 @@
 #  define BOOST_NO_CXX17_STRUCTURED_BINDINGS
 #  define BOOST_NO_CXX17_IF_CONSTEXPR
 #  define BOOST_NO_CXX17_HDR_OPTIONAL
+#  define BOOST_NO_CXX17_HDR_STRING_VIEW
 #endif
 
 // MSVC including version 14 has not yet completely
