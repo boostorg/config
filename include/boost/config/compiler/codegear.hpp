@@ -28,6 +28,8 @@
 #  endif
 #endif
 
+#define BOOST_IS_EMPTY(T) __is_empty(T)
+
 // CodeGear C++ Builder 2009
 #if (__CODEGEARC__ <= 0x613)
 #  define BOOST_NO_INTEGRAL_INT64_T

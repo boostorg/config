@@ -552,6 +552,13 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  define BOOST_HAS_INT128
 #endif
 
+#if defined(_MSC_VER) && (_MSC_VER >= 1500)
+#define BOOST_IS_EMPTY(T) __is_empty(T)
+#if _MSC_VER >= 1800
+#define BOOST_IS_FINAL(T) __is_final(T)
+#endif
+#endif
+
 #endif // defined(__INTEL_COMPILER) && (__INTEL_COMPILER >= 1500) && (defined(_MSC_VER) || defined(__GNUC__))
 //
 // last known and checked version:

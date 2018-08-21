@@ -192,6 +192,11 @@
 # define BOOST_HAS_THREADS
 #endif
 
+#if __SUNPRO_CC >= 0x5130
+#define BOOST_IS_EMPTY(T) __oracle_is_empty(T)
+#define BOOST_IS_FINAL(T) __oracle_is_final(T)
+#endif
+
 //
 // Version
 //

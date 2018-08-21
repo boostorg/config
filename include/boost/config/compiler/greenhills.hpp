@@ -11,6 +11,10 @@
 
 #include <boost/config/compiler/common_edg.hpp>
 
+#if __GHS_VERSION_NUMBER >= 600
+#define BOOST_IS_EMPTY(T) __is_empty(T)
+#endif
+
 //
 // versions check:
 // we don't support Greenhills prior to version 0:
