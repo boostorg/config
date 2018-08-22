@@ -265,6 +265,13 @@
 #endif
 #endif
 
+#if _MSC_FULL_VER >= 140050215
+#define BOOST_IS_EMPTY(T) __is_empty(T)
+#if _MSC_VER >= 1800
+#define BOOST_IS_FINAL(T) __is_final(T)
+#endif
+#endif
+
 //
 // prefix and suffix headers:
 //

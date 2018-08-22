@@ -128,6 +128,10 @@
 #  define BOOST_NO_CXX17_IF_CONSTEXPR
 #endif
 
+#if __DMC__ >= 0x848
+#define BOOST_IS_EMPTY(T) (__typeinfo(T) & 0x1000)
+#endif
+
 #if (__DMC__ <= 0x840)
 #error "Compiler not supported or configured - please reconfigure"
 #endif

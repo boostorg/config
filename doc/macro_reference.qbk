@@ -853,6 +853,9 @@ or:
   };
 ``
 ]]
+[[`BOOST_IS_EMPTY(T)`][
+If this macro is defined, evaluates to `true` if `T` is an empty non-union class type.
+]]
 [[
 ``
   BOOST_NOEXCEPT
@@ -936,6 +939,9 @@ provide compliant C++14 support.
 [table
 [[Macro ][ Description ]]
 [[`BOOST_CXX14_CONSTEXPR`][This macro works similar to BOOST_CONSTEXPR, but expands to `constexpr` only if the C++14 "relaxed" `constexpr` is available.]]
+[[`BOOST_IS_FINAL(T)`][
+If this macro is defined, evaluates to `true` if `T` is a class type declared with the `final` specifier.
+]]
 ]
 
 [endsect]

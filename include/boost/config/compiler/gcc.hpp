@@ -329,6 +329,13 @@
 #define BOOST_UNREACHABLE_RETURN(x) __builtin_unreachable();
 #endif
 
+#if BOOST_GCC_VERSION >= 40300
+#define BOOST_IS_EMPTY(T) __is_empty(T)
+#if BOOST_GCC_VERSION >= 40700
+#define BOOST_IS_FINAL(T) __is_final(T)
+#endif
+#endif
+
 #ifndef BOOST_COMPILER
 #  define BOOST_COMPILER "GNU C++ version " __VERSION__
 #endif

@@ -318,6 +318,15 @@
 #define BOOST_UNREACHABLE_RETURN(x) __builtin_unreachable();
 #endif
 
+#if defined(__has_feature) && !defined(__CUDACC__)
+#if (!defined(__GLIBCXX__) || (__GLIBCXX__ >= 20080306 && __GLIBCXX__ != 20080519)) && __has_feature(is_empty)
+#define BOOST_IS_EMPTY(T) __is_empty(T)
+#endif
+#if __has_feature(is_final)
+#define BOOST_IS_FINAL(T) __is_final(T)
+#endif
+#endif
+
 #if (__clang_major__ == 3) && (__clang_minor__ == 0)
 // Apparently a clang bug:
 #  define BOOST_NO_CXX11_FIXED_LENGTH_VARIADIC_TEMPLATE_EXPANSION_PACKS
