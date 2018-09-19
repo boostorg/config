@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.8)
-project(boost-config LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.5)
+project(BoostConfig LANGUAGES CXX)
 
 add_library(boost_config INTERFACE)
 add_library(Boost::config ALIAS boost_config)
