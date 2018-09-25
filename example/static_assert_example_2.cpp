@@ -5,11 +5,11 @@
 
 //  See http://www.boost.org for most recent version including documentation.
 
+#include <boost/static_assert.hpp>
+#include <boost/type_traits.hpp>
 #include <iterator>
 #include <list>
 #include <deque>
-#include <boost/static_assert.hpp>
-#include <boost/type_traits.hpp>
 
 template <class RandomAccessIterator >
 RandomAccessIterator foo(RandomAccessIterator from, RandomAccessIterator /*to*/)
