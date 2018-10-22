@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sat Aug  4 19:11:09 2018
+//  This file was automatically generated on Thu Aug 16 11:20:17 2018
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -346,6 +346,11 @@ namespace boost_no_cxx17_fold_expressions = empty_boost;
 #include "boost_no_cxx17_hdr_optional.ipp"
 #else
 namespace boost_no_cxx17_hdr_optional = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX17_HDR_STRING_VIEW
+#include "boost_no_cxx17_hdr_string_view.ipp"
+#else
+namespace boost_no_cxx17_hdr_string_view = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX17_IF_CONSTEXPR
 #include "boost_no_cxx17_if_constexpr.ipp"
@@ -1509,6 +1514,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx17_hdr_optional::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX17_HDR_OPTIONAL at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx17_hdr_string_view::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX17_HDR_STRING_VIEW at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx17_if_constexpr::test())

@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sat Aug  4 19:11:09 2018
+//  This file was automatically generated on Thu Aug 16 11:20:17 2018
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -519,6 +519,11 @@
 #ifdef TEST_BOOST_NO_CXX17_HDR_OPTIONAL
 #  ifdef BOOST_NO_CXX17_HDR_OPTIONAL
 #     error "Defect macro BOOST_NO_CXX17_HDR_OPTIONAL is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX17_HDR_STRING_VIEW
+#  ifdef BOOST_NO_CXX17_HDR_STRING_VIEW
+#     error "Defect macro BOOST_NO_CXX17_HDR_STRING_VIEW is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX17_IF_CONSTEXPR

@@ -300,6 +300,7 @@ extern "C" char *gets (char *__s);
 #  define BOOST_NO_CXX17_STD_INVOKE
 #  define BOOST_NO_CXX17_STD_APPLY
 #  define BOOST_NO_CXX17_HDR_OPTIONAL
+#  define BOOST_NO_CXX17_HDR_STRING_VIEW
 #endif
 
 #if defined(__has_include)

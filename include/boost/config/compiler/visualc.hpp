@@ -203,6 +203,7 @@
 #  define BOOST_NO_CXX17_STRUCTURED_BINDINGS
 #  define BOOST_NO_CXX17_IF_CONSTEXPR
 #  define BOOST_NO_CXX17_HDR_OPTIONAL
+#  define BOOST_NO_CXX17_HDR_STRING_VIEW
 #endif
 
 // MSVC including version 14 has not yet completely
@@ -235,9 +236,11 @@
 // Supported from msvc-15.5 onwards:
 #define BOOST_NO_CXX11_SFINAE_EXPR
 #endif
+#if (_MSC_VER < 1915) || (_MSVC_LANG < 201402)
 // C++ 14:
 // Still gives internal compiler error for msvc-15.5:
 #  define BOOST_NO_CXX14_CONSTEXPR
+#endif
 // C++ 17:
 #if (_MSC_VER < 1912) || (_MSVC_LANG < 201703)
 #define BOOST_NO_CXX17_INLINE_VARIABLES
