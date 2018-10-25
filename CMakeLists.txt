@@ -1,4 +1,5 @@
 # Copyright 2018 Mike Dev
+# Copyright 2018 Roger Leigh
 # Distributed under the Boost Software License, Version 1.0.
 # See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt
 #
@@ -13,9 +14,62 @@
 #
 
 cmake_minimum_required(VERSION 3.5)
-project(BoostConfig LANGUAGES CXX)
+project(BoostConfig VERSION 1.69 LANGUAGES CXX)
+
+# Globbing is not recommended, but it matches the b2 behaviour for
+# now.  Should be a static list.
+file(GLOB_RECURSE boost_config_headers
+  RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}/include"
+  CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include/boost/*")
 
 add_library(boost_config INTERFACE)
 add_library(Boost::config ALIAS boost_config)
 
-target_include_directories(boost_config INTERFACE include)
+target_include_directories(boost_config INTERFACE
+  $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+
+set_target_properties(boost_config PROPERTIES EXPORT_NAME "Boost::config")
+
+# Install headers
+include(GNUInstallDirs)
+foreach(header ${boost_config_headers})
+  get_filename_component(header_name "${header}" NAME)
+  get_filename_component(header_dir "${header}" DIRECTORY)
+  install(FILES "include/${header}"
+    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${header_dir}"
+    COMPONENT "development")
+endforeach()
+
+# Install exported configuration
+if(WIN32)
+  set(boost_config_config_dir "cmake")
+else()
+  set(boost_config_config_dir "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
+endif()
+
+install(TARGETS boost_config
+        EXPORT BoostConfigInternal
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        COMPONENT "runtime"
+        INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
+install(EXPORT BoostConfigInternal
+        DESTINATION "${boost_config_config_dir}"
+        COMPONENT "development")
+include(CMakePackageConfigHelpers)
+configure_package_config_file(
+  "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}Config.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
+  INSTALL_DESTINATION "${boost_config_config_dir}")
+write_basic_package_version_file(
+  ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
+  VERSION "${PROJECT_VERSION}"
+  COMPATIBILITY SameMinorVersion)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
+              ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
+        DESTINATION "${boost_config_config_dir}"
+        COMPONENT "development")
+
+add_subdirectory(test)

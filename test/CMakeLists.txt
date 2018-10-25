@@ -1,4 +1,5 @@
 # Copyright 2018 John Maddock
+# Copyright 2018 Roger Leigh
 # Distributed under the Boost Software License, Version 1.0.
 # See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt
 #
@@ -16,12 +17,12 @@
 # want to import these projects into their IDE.
 #
 cmake_minimum_required(VERSION 3.5)
-  
-add_subdirectory(.. ${CMAKE_CURRENT_BINARY_DIR}/boost_config)
-  
-add_executable(config_info config_info.cpp)  
-target_link_libraries(config_info Boost::config)  
 
-add_executable(config_test config_test.cpp)  
-target_link_libraries(config_test Boost::config)  
+find_package(Threads)
+
+add_executable(config_info config_info.cpp)
+target_link_libraries(config_info Boost::config Threads::Threads)
+
+add_executable(config_test config_test.cpp)
+target_link_libraries(config_test Boost::config Threads::Threads)
 
