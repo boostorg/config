@@ -5,7 +5,10 @@ This library provides configuration support for the Boost C++ libraries.
 
 The full documentation is available on [boost.org](http://www.boost.org/doc/libs/release/libs/config/index.html).
 
-[![Build Status](https://travis-ci.org/boostorg/config.png)](https://travis-ci.org/boostorg/config)
+|                  |  Master  |   Develop   |
+|------------------|----------|-------------|
+| Travis           | [![Build Status](https://travis-ci.org/boostorg/config.svg?branch=master)](https://travis-ci.org/boostorg/config)  |  [![Build Status](https://travis-ci.org/boostorg/config.png)](https://travis-ci.org/boostorg/config) |
+| Appveyor         | [![Build status](https://ci.appveyor.com/api/projects/status/wo2n2mhoy8vegmuo/branch/master?svg=true)](https://ci.appveyor.com/project/jzmaddock/config/branch/master) | [![Build status](https://ci.appveyor.com/api/projects/status/wo2n2mhoy8vegmuo/branch/develop?svg=true)](https://ci.appveyor.com/project/jzmaddock/config/branch/develop) |
 
 ## Support, bugs and feature requests ##
 
