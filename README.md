@@ -5,6 +5,8 @@ This library provides configuration support for the Boost C++ libraries.
 
 The full documentation is available on [boost.org](http://www.boost.org/doc/libs/release/libs/config/index.html).
 
+[![Build Status](https://travis-ci.org/boostorg/config.png)](https://travis-ci.org/boostorg/config)
+
 ## Support, bugs and feature requests ##
 
 Bugs and feature requests can be reported through the [Gitub issue tracker](https://github.com/boostorg/config/issues)
