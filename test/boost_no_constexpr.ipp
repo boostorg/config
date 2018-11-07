@@ -32,13 +32,7 @@ private:
 
 template<int> struct X { };
 
-
-#if __cplusplus < 201400L
-// Some C++14 compilers reject this (clang), some C++11 compilers reject "constexpr const" (GCC-4.6)
-constexpr A a = 42;
-#else
 constexpr const A a = 42;
-#endif
 
 X<a> xx; // OK: unique conversion to int
 
@@ -68,9 +62,18 @@ struct F : virtual E
 };
 constexpr F& f(F& out) { return out; }
 
+namespace whatever{};
+
+constexpr int factorial(int i)
+{
+   typedef int value_type;
+   using namespace whatever;
+   return i <= 1 ? 1 : i * factorial(value_type(i-1));
+}
+
 int test()
 {
-  int i = square(5);
+  constexpr int i = square(5) + factorial(10);
   quiet_warning(i);
 
   switch (i)
