@@ -251,14 +251,6 @@ matrix:
       env: TOOLSET=clang COMPILER=clang++ CXXSTD=03,11,14,1z
       osx_image: xcode6.4
 
-    - os: linux
-      env: CMAKE_TEST_PROJECT=1
-      install: true
-      script:
-        - mkdir __build__ && cd __build__
-        - cmake ../test
-        - cmake --build .
-
 install:
   - BOOST_BRANCH=develop && [ "$TRAVIS_BRANCH" == "master" ] && BOOST_BRANCH=master || true
   - cd ..
