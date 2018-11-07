@@ -251,7 +251,7 @@ matrix:
       env: TOOLSET=clang COMPILER=clang++ CXXSTD=03,11,14,1z
       osx_image: xcode6.4
 
-     - os: linux
+    - os: linux
       env: CMAKE_TEST_PROJECT=1
       install: true
       script:
