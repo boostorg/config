@@ -16,12 +16,6 @@
 cmake_minimum_required(VERSION 3.5)
 project(BoostConfig VERSION 1.69 LANGUAGES CXX)
 
-# Globbing is not recommended, but it matches the b2 behaviour for
-# now.  Should be a static list.
-file(GLOB_RECURSE boost_config_headers
-  RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}/include"
-  CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include/boost/*")
-
 add_library(boost_config INTERFACE)
 add_library(Boost::config ALIAS boost_config)
 
@@ -33,13 +27,9 @@ set_target_properties(boost_config PROPERTIES EXPORT_NAME "Boost::config")
 
 # Install headers
 include(GNUInstallDirs)
-foreach(header ${boost_config_headers})
-  get_filename_component(header_name "${header}" NAME)
-  get_filename_component(header_dir "${header}" DIRECTORY)
-  install(FILES "include/${header}"
-    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${header_dir}"
-    COMPONENT "development")
-endforeach()
+install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/include/boost"
+  DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
+  COMPONENT "development")
 
 # Install exported configuration
 if(WIN32)
