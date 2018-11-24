@@ -18,6 +18,8 @@
 #
 cmake_minimum_required(VERSION 3.5)
 
+add_subdirectory(.. ${CMAKE_CURRENT_BINARY_DIR}/boost_config)
+
 find_package(Threads)
 
 add_executable(config_info config_info.cpp)

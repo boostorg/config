@@ -61,5 +61,3 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
               ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
         DESTINATION "${boost_config_config_dir}"
         COMPONENT "development")
-
-add_subdirectory(test)
