@@ -40,9 +40,6 @@ endif()
 
 install(TARGETS boost_config
         EXPORT BoostConfigInternal
-        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
         COMPONENT "runtime"
         INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
 install(EXPORT BoostConfigInternal
