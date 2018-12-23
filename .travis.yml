@@ -34,7 +34,7 @@ matrix:
         - '[[ ! -z "${INTEL_INSTALL_PATH}" ]] && uninstall_intel_software'
 
     - os: linux
-      env: TOOLSET=intel COMPILER=icpc CXXSTD=03,11,14, 1z TEST_INTEL=1 EXTRA_FLAGS=-gcc-name=g++-7
+      env: TOOLSET=intel COMPILER=icpc CXXSTD=03,11,14, 1z TEST_INTEL=1 EXTRA_FLAGS=-gcc-name=g++-6
       before_install:
         - wget -q  'https://raw.githubusercontent.com/nemequ/icc-travis/master/install-icc.sh'
         - bash ./install-icc.sh
@@ -43,7 +43,7 @@ matrix:
       addons:
         apt:
           packages:
-            - g++-7
+            - g++-6
           sources:
             - ubuntu-toolchain-r-test
 
