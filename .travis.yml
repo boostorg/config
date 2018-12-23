@@ -29,7 +29,7 @@ matrix:
       env: TOOLSET=intel COMPILER=icpc CXXSTD=03,11 TEST_INTEL=1
       before_install:
         - wget -q  'https://raw.githubusercontent.com/nemequ/icc-travis/master/install-icc.sh'
-        - ./install-icc.sh icc 
+        - bash ./install-icc.sh icc 
       after_script:
         - '[[ ! -z "${INTEL_INSTALL_PATH}" ]] && uninstall_intel_software'
 
