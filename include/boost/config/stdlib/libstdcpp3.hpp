@@ -36,6 +36,7 @@
         || defined(_GLIBCXX__PTHREADS) \
         || defined(_GLIBCXX_HAS_GTHREADS) \
         || defined(_WIN32) \
+        || defined(__CYGWIN__) \
         || defined(_AIX) \
         || defined(__HAIKU__)
       //
