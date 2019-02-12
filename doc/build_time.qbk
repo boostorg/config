@@ -45,7 +45,8 @@ Then add a "requires" rule invocation to the requirements section of the target:
 
 Notice that multiple arguments can be added to the requires rule, and that these are
 always the same as the Boost.Config macro name, but in lower case and with the ['boost_no_]
-or ['boost_has_] prefix removed.
+or ['boost_has_] prefix removed.  You can also use any C++ standard feature-macro name
+with the leading underscores removed (see more below).
 
 When building the above example, you will see at the start of the build process the results
 of the configuration, for example GCC in C++11 mode gives:
@@ -53,6 +54,28 @@ of the configuration, for example GCC in C++11 mode gives:
     - Boost.Config Feature Check: int128 : yes
     - Boost.Config Feature Check: cxx11_constexpr : yes
     - Boost.Config Feature Check: cxx11_user_defined_literals : yes
+
+If you wish to make a build conditional on a C++ standard feature macro then you can specify
+these too, just remove the leading underscores from the name.  For example:
+
+   [ requires cpp_constexpr ]
+
+To require C++11 style const-expressions.  If you want to specify a macro from a particular
+standard, then you append an underscore followed by the (2 digit) year of the standard, for example:
+
+   [ requires cpp_constexpr_17 ]
+
+For C++17 constepxr.  If you don't specify a standard then you get the first version that
+introduced the macro.  In addition there are only standard-specific rules for each version
+bump of the macro, so:
+
+   [ requires cpp_if_constexpr_17 ]
+
+Is fine since the macro was introduced in C++17 and is the same as the un-versioned name, but:
+
+   [ requires cpp_if_constexpr_20 ]
+
+Will result in a build error since there is no C++20 version bump for `__cpp_if_constexpr`.
 
 That's all there is to this handy feature, should at any time you be unsure of the feature-test
 names you can pass to the "requires" rule, then search for the Boost.Config macro of interest in
