@@ -297,6 +297,182 @@ void process_ipp_file(const fs::path& file, bool positive_test)
    feature_list.insert(feature_name);
 }
 
+void write_std_check(std::string macroname, int min_value, std::string header, int std_version, bool primary = true)
+{
+   std::string test_name(macroname);
+   while (test_name[0] == '_')
+      test_name.erase(0, 1);
+   std::string test_basename = test_name;
+   test_name.append("_");
+   test_name.append(1, std_version > 10 ? std_version / 10 + '0' : '0');
+   test_name.append(1, std_version % 10 + '0');
+   fs::ofstream ofs(config_path / ".." / "checks" / "std" / (test_name + ".cpp"));
+   time_t t = std::time(0);
+   ofs << "//  This file was automatically generated on " << std::ctime(&t);
+   ofs << "//  by libs/config/tools/generate.cpp\n" << copyright << std::endl;
+   ofs << "#ifdef __has_include\n#if __has_include(<version>)\n#include <version>\n#endif\n#endif\n\n";
+   if (header.size())
+   {
+      ofs << "#include <" << header << ">\n\n";
+   }
+   ofs << "#ifndef " << macroname << "\n#error \"Macro << " << macroname << " is not set\"\n#endif\n\n";
+   ofs << "#if " << macroname << " < " << min_value << "\n#error \"Macro " << macroname << " had too low a value\"\n#endif\n\n";
+   ofs << "int main( int, char *[] )\n{\n" << "   return 0;\n}\n\n";
+
+   build_config_jamfile << "obj " << test_name << " : std/" << test_name << ".cpp ;\n";
+   if(primary)
+      build_config_jamfile << "alias " << test_basename << " : " << test_name << " ;\n";
+}
+
+void write_std_config_checks()
+{
+   // C++20
+   write_std_check("__cpp_impl_destroying_delete", 201806, "", 20);
+   write_std_check("__cpp_lib_destroying_delete", 201806, "new", 20);
+   write_std_check("__cpp_char8_t", 201811, "", 20);
+   write_std_check("__cpp_impl_three_way_comparison", 201711, "", 20);
+   write_std_check("__cpp_lib_three_way_comparison", 201711, "compare", 20);
+   write_std_check("__cpp_conditional_explicit", 201806, "", 20);
+   write_std_check("__cpp_nontype_template_parameter_class", 201806, "", 20);
+   write_std_check("__cpp_lib_char8_t", 201811, "atomic", 20); 
+   write_std_check("__cpp_lib_concepts", 201806, "concepts", 20);
+   write_std_check("__cpp_lib_constexpr_swap_algorithms", 201806, "algorithm", 20);
+   write_std_check("__cpp_lib_constexpr_misc", 201811, "array", 20);
+   write_std_check("__cpp_lib_bind_front", 201811, "functional", 20);
+   write_std_check("__cpp_lib_is_constant_evaluated", 201811, "type_traits", 20);
+   write_std_check("__cpp_lib_erase_if", 201811, "string", 20);
+   write_std_check("__cpp_lib_list_remove_return_type", 201806, "forward_list", 20);
+   write_std_check("__cpp_lib_generic_unordered_lookup", 201811, "unordered_map", 20);
+   write_std_check("__cpp_lib_ranges", 201811, "algorithm", 20);
+   write_std_check("__cpp_lib_bit_cast", 201806, "bit", 20);
+   write_std_check("__cpp_lib_atomic_ref", 201806, "atomic", 20);
+   // C++17
+   write_std_check("__cpp_hex_float", 201603, "", 17);
+   write_std_check("__cpp_inline_variables", 201606, "", 17);
+   write_std_check("__cpp_aligned_new", 201606, "", 17);
+   write_std_check("__cpp_guaranteed_copy_elision", 201606, "", 17);
+   write_std_check("__cpp_noexcept_function_type", 201510, "", 17);
+   write_std_check("__cpp_fold_expressions", 201603, "", 17);
+   write_std_check("__cpp_capture_star_this", 201603, "", 17);
+   write_std_check("__cpp_constexpr", 201603, "", 17, false);
+   write_std_check("__cpp_if_constexpr", 201606, "", 17);
+   write_std_check("__cpp_range_based_for", 201603, "", 17, false);
+   write_std_check("__cpp_static_assert", 201411, "", 17, false);
+   write_std_check("__cpp_deduction_guides", 201703, "", 17);
+   write_std_check("__cpp_nontype_template_parameter_auto", 201606, "", 17);
+   write_std_check("__cpp_namespace_attributes", 201411, "", 17);
+   write_std_check("__cpp_enumerator_attributes", 201411, "", 17);
+   write_std_check("__cpp_inheriting_constructors", 201511, "", 17, false);
+   write_std_check("__cpp_variadic_using", 201611, "", 17);
+   write_std_check("__cpp_structured_bindings", 201606, "", 17);
+   write_std_check("__cpp_aggregate_bases", 201603, "", 17);
+   write_std_check("__cpp_nontype_template_args", 201411, "", 17);
+   write_std_check("__cpp_template_template_args", 201611, "", 17);
+   write_std_check("__cpp_lib_byte", 201603, "cstddef", 17);
+   write_std_check("__cpp_lib_hardware_interference_size", 201703, "new", 17);
+   write_std_check("__cpp_lib_launder", 201606, "new", 17);
+   write_std_check("__cpp_lib_uncaught_exceptions", 201411, "exception", 17);
+   write_std_check("__cpp_lib_as_const", 201510, "utility", 17);
+   write_std_check("__cpp_lib_make_from_tuple", 201606, "tuple", 17);
+   write_std_check("__cpp_lib_apply", 201603, "tuple", 17);
+   write_std_check("__cpp_lib_optional", 201606, "optional", 17);
+   write_std_check("__cpp_lib_variant", 201606, "variant", 17);
+   write_std_check("__cpp_lib_any", 201606, "any", 17);
+   write_std_check("__cpp_lib_addressof_constexpr", 201603, "memory", 17);
+   write_std_check("__cpp_lib_raw_memory_algorithms", 201606, "memory", 17);
+   write_std_check("__cpp_lib_transparent_operators", 201510, "memory", 17, false);
+   write_std_check("__cpp_lib_enable_shared_from_this", 201603, "memory", 17);
+   write_std_check("__cpp_lib_shared_ptr_weak_type", 201606, "memory", 17);
+   write_std_check("__cpp_lib_shared_ptr_arrays", 201611, "memory", 17);
+   write_std_check("__cpp_lib_memory_resource", 201603, "memory_resource", 17);
+   write_std_check("__cpp_lib_boyer_moore_searcher", 201603, "functional", 17);
+   write_std_check("__cpp_lib_invoke", 201411, "functional", 17);
+   write_std_check("__cpp_lib_not_fn", 201603, "functional", 17);
+   write_std_check("__cpp_lib_void_t", 201411, "type_traits", 17);
+   write_std_check("__cpp_lib_bool_constant", 201505, "type_traits", 17);
+   write_std_check("__cpp_lib_type_trait_variable_templates", 201510, "type_traits", 17);
+   write_std_check("__cpp_lib_logical_traits", 201510, "type_traits", 17);
+   write_std_check("__cpp_lib_is_swappable", 201603, "type_traits", 17);
+   write_std_check("__cpp_lib_is_invocable", 201703, "type_traits", 17);
+   write_std_check("__cpp_lib_has_unique_object_representations", 201606, "type_traits", 17);
+   write_std_check("__cpp_lib_is_aggregate", 201703, "type_traits", 17);
+   write_std_check("__cpp_lib_chrono", 201611, "chrono", 17);
+   write_std_check("__cpp_lib_execution", 201603, "execution", 17);
+   write_std_check("__cpp_lib_parallel_algorithm", 201603, "algorithm", 17);
+   write_std_check("__cpp_lib_to_chars", 201611, "utility", 17);
+   write_std_check("__cpp_lib_string_view", 201606, "string", 17);
+   write_std_check("__cpp_lib_allocator_traits_is_always_equal", 201411, "memory", 17);
+   write_std_check("__cpp_lib_incomplete_container_elements", 201505, "forward_list", 17);
+   write_std_check("__cpp_lib_map_try_emplace", 201411, "map", 17);
+   write_std_check("__cpp_lib_unordered_map_try_emplace", 201411, "unordered_map", 17);
+   write_std_check("__cpp_lib_node_extract", 201606, "map", 17);
+   write_std_check("__cpp_lib_array_constexpr", 201603, "iterator", 17);
+   write_std_check("__cpp_lib_nonmember_container_access", 201411, "iterator", 17);
+   write_std_check("__cpp_lib_sample", 201603, "algorithm", 17);
+   write_std_check("__cpp_lib_clamp", 201603, "algorithm", 17);
+   write_std_check("__cpp_lib_gcd_lcm", 201606, "numeric", 17);
+   write_std_check("__cpp_lib_hypot", 201603, "cmath", 17);
+   write_std_check("__cpp_lib_math_special_functions", 201603, "cmath", 17);
+   write_std_check("__cpp_lib_filesystem", 201703, "filesystem", 17);
+   write_std_check("__cpp_lib_atomic_is_always_lock_free", 201603, "atomic", 17);
+   write_std_check("__cpp_lib_shared_mutex", 201505, "shared_mutex", 17);
+   write_std_check("__cpp_lib_scoped_lock", 201703, "mutex", 17);
+   // C++14
+   write_std_check("__cpp_binary_literals", 201304, "", 14);
+   write_std_check("__cpp_init_captures", 201304, "", 14);
+   write_std_check("__cpp_generic_lambdas", 201304, "", 14);
+   write_std_check("__cpp_sized_deallocation", 201309, "", 14);
+   write_std_check("__cpp_constexpr", 201304, "", 14, false);
+   write_std_check("__cpp_decltype_auto", 201304, "", 14);
+   write_std_check("__cpp_return_type_deduction", 201304, "", 14);
+   write_std_check("__cpp_aggregate_nsdmi", 201304, "", 14);
+   write_std_check("__cpp_variable_templates", 201304, "", 14);
+   write_std_check("__cpp_lib_integer_sequence", 201304, "utility", 14);
+   write_std_check("__cpp_lib_exchange_function", 201304, "utility", 14);
+   write_std_check("__cpp_lib_tuples_by_type", 201304, "utility", 14);
+   write_std_check("__cpp_lib_tuple_element_t", 201402, "tuple", 14);
+   write_std_check("__cpp_lib_make_unique", 201304, "memory", 14);
+   write_std_check("__cpp_lib_transparent_operators", 201210, "functional", 14);
+   write_std_check("__cpp_lib_integral_constant_callable", 201304, "type_traits", 14);
+   write_std_check("__cpp_lib_transformation_trait_aliases", 201304, "type_traits", 14);
+   write_std_check("__cpp_lib_result_of_sfinae", 201210, "functional", 14);
+   write_std_check("__cpp_lib_is_final", 201402, "type_traits", 14);
+   write_std_check("__cpp_lib_is_null_pointer", 201309, "type_traits", 14);
+   write_std_check("__cpp_lib_chrono_udls", 201304, "chrono", 14);
+   write_std_check("__cpp_lib_string_udls", 201304, "string", 14);
+   write_std_check("__cpp_lib_generic_associative_lookup", 201304, "map", 14);
+   write_std_check("__cpp_lib_null_iterators", 201304, "iterator", 14);
+   write_std_check("__cpp_lib_make_reverse_iterator", 201402, "iterator", 14);
+   write_std_check("__cpp_lib_robust_nonmodifying_seq_ops", 201304, "algorithm", 14);
+   write_std_check("__cpp_lib_complex_udls", 201309, "complex", 14);
+   write_std_check("__cpp_lib_quoted_string_io", 201304, "iomanip", 14);
+   write_std_check("__cpp_lib_shared_timed_mutex", 201402, "shared_mutex", 14);
+   // C++11
+   write_std_check("__cpp_unicode_characters", 200704, "", 11);
+   write_std_check("__cpp_raw_strings", 200710, "", 11);
+   write_std_check("__cpp_unicode_literals", 200710, "", 11);
+   write_std_check("__cpp_user_defined_literals", 200809, "", 11);
+   write_std_check("__cpp_threadsafe_static_init", 200806, "", 11);
+   write_std_check("__cpp_lambdas", 200907, "", 11);
+   write_std_check("__cpp_constexpr", 200704, "", 11);
+   write_std_check("__cpp_range_based_for", 200907, "", 11);
+   write_std_check("__cpp_static_assert", 200410, "", 11);
+   write_std_check("__cpp_decltype", 200707, "", 11);
+   write_std_check("__cpp_attributes", 200809, "", 11);
+   write_std_check("__cpp_rvalue_references", 200610, "", 11);
+   write_std_check("__cpp_variadic_templates", 200704, "", 11);
+   write_std_check("__cpp_initializer_lists", 200806, "", 11);
+   write_std_check("__cpp_explicit_conversion", 200710, "", 11);
+   write_std_check("__cpp_delegating_constructors", 200604, "", 11);
+   write_std_check("__cpp_nsdmi", 200809, "", 11);
+   write_std_check("__cpp_inheriting_constructors", 200802, "", 11);
+   write_std_check("__cpp_ref_qualifiers", 200710, "", 11);
+   write_std_check("__cpp_alias_templates", 200704, "", 11);
+   // C++98
+   write_std_check("__cpp_rtti", 199711, "", 03);
+   write_std_check("__cpp_exceptions", 199711, "", 03);
+}
+
 int cpp_main(int argc, char* argv[])
 {
    //
@@ -338,6 +514,7 @@ int cpp_main(int argc, char* argv[])
    write_config_test();
    write_jamfile_v2();
    write_config_info();
+   write_std_config_checks();
    write_build_tests();
    write_build_check_jamfile();
    return 0;
