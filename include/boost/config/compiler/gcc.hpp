@@ -327,7 +327,7 @@
 
 //
 // __builtin_unreachable:
-#if BOOST_GCC_VERSION >= 40800
+#if BOOST_GCC_VERSION >= 40500
 #define BOOST_UNREACHABLE_RETURN(x) __builtin_unreachable();
 #endif
 
