@@ -313,7 +313,7 @@
 #   endif
 # else
 #   if _MSC_VER < 1200
-      // Note: Versions up to 7.0 aren't supported.
+      // Note: Versions up to 10.0 aren't supported.
 #     define BOOST_COMPILER_VERSION 5.0
 #   elif _MSC_VER < 1300
 #     define BOOST_COMPILER_VERSION 6.0
@@ -335,6 +335,8 @@
 #     define BOOST_COMPILER_VERSION 14.0
 #   elif _MSC_VER < 1920
 #     define BOOST_COMPILER_VERSION 14.1
+#   elif _MSC_VER < 1930
+#     define BOOST_COMPILER_VERSION 14.2
 #   else
 #     define BOOST_COMPILER_VERSION _MSC_VER
 #   endif
@@ -346,8 +348,8 @@
 #include <boost/config/pragma_message.hpp>
 
 //
-// last known and checked version is 19.12.25830.2 (VC++ 2017.3):
-#if (_MSC_VER > 1912)
+// last known and checked version is 19.20.27508 (VC++ 2019 RC3):
+#if (_MSC_VER > 1920)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Boost.Config is older than your current compiler version."
 #  elif !defined(BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE)
