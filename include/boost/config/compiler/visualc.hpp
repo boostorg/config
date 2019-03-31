@@ -43,6 +43,9 @@
 #  error "Compiler not supported or configured - please reconfigure"
 #endif
 
+// VS2005 (VC8) docs: __assume has been in Visual C++ for multiple releases
+#define BOOST_UNREACHABLE_RETURN(x) __assume(0)
+
 #if _MSC_FULL_VER < 180020827
 #  define BOOST_NO_FENV_H
 #endif
