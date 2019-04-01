@@ -948,6 +948,7 @@ that are not yet supported by a particular compiler or library.
 [table
 [[Macro ][Description ]]
 [[`BOOST_NO_CXX17_HDR_OPTIONAL`][The compiler does not support the header `<optional>`.]]
+[[`BOOST_NO_CXX17_HDR_VARIANT`][The compiler does not support the header `<variant>`.]]
 [[`BOOST_NO_CXX17_HDR_STRING_VIEW`][The compiler does not support the header `<string_view>`.]]
 [[`BOOST_NO_CXX17_STD_APPLY`][The compiler does not support `std::apply()`.]]
 [[`BOOST_NO_CXX17_STD_INVOKE`][The compiler does not support `std::invoke()`.]]
