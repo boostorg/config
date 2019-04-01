@@ -23,7 +23,7 @@ int test_unreachable(int i)
    if(BOOST_LIKELY(i)) return i;
 
    throw i;
-   BOOST_UNREACHABLE_RETURN(0);
+   BOOST_UNREACHABLE_RETURN(0)  // NOTE: no semicolon afterwards!!
 }
 
 BOOST_FORCEINLINE int always_inline(int i){ return ++i; }
