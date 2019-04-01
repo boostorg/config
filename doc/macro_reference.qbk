@@ -1275,6 +1275,8 @@ Usage example:
 ]]
 [[`BOOST_ATTRIBUTE_UNUSED`][Expands to `__attribute__((unused))` when this is available - 
 can be used to disable compiler warnings relating to unused types or variables.]]
+[[`BOOST_ATTRIBUTE_NODISCARD`][Expands to `[[nodiscard]]` when this is available - 
+can be used to create a warning when a type or variable is unused.]]
 [[`BOOST_MAY_ALIAS`, `BOOST_NO_MAY_ALIAS`][
 `BOOST_MAY_ALIAS` expands to a type attribute that can be used to mark types that may
 alias other types. Pointers or references to such marked types can be used to access objects

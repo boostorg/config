@@ -37,6 +37,8 @@ BOOST_NORETURN void always_throw()
 struct BOOST_MAY_ALIAS aliasing_struct {};
 typedef unsigned int BOOST_MAY_ALIAS aliasing_uint;
 
+struct BOOST_ATTRIBUTE_NODISCARD nodiscard_struct {};
+
 
 #define test_fallthrough(x) foobar(x)
 
@@ -53,6 +55,7 @@ int main()
       result += never_inline(3);
       if(BOOST_UNLIKELY(!result))
          always_throw();
+      nodiscard_struct s;
    }
    catch(int)
    {
