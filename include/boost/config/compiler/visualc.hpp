@@ -205,6 +205,7 @@
 #if (_MSC_VER < 1911) || (_MSVC_LANG < 201703)
 #  define BOOST_NO_CXX17_STRUCTURED_BINDINGS
 #  define BOOST_NO_CXX17_IF_CONSTEXPR
+// Let the defaults handle these now:
 //#  define BOOST_NO_CXX17_HDR_OPTIONAL
 //#  define BOOST_NO_CXX17_HDR_STRING_VIEW
 #endif
