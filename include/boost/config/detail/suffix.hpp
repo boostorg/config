@@ -992,6 +992,17 @@ namespace std{ using ::type_info; }
 #ifndef BOOST_ATTRIBUTE_UNUSED
 #  define BOOST_ATTRIBUTE_UNUSED
 #endif
+//
+// [[nodiscard]]:
+//
+#ifdef __has_cpp_attribute
+#if __has_cpp_attribute(nodiscard)
+# define BOOST_ATTRIBUTE_NODISCARD [[nodiscard]]
+#endif
+#endif
+#ifndef BOOST_ATTRIBUTE_NODISCARD
+# define BOOST_ATTRIBUTE_NODISCARD
+#endif
 
 #define BOOST_STATIC_CONSTEXPR  static BOOST_CONSTEXPR_OR_CONST
 
