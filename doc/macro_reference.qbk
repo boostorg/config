@@ -1277,6 +1277,8 @@ Usage example:
 can be used to disable compiler warnings relating to unused types or variables.]]
 [[`BOOST_ATTRIBUTE_NODISCARD`][Expands to `[[nodiscard]]` when this is available - 
 can be used to create a warning when a type or variable is unused.]]
+[[`BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS`][Expands to `[[no_unique_address]]` when this is available - 
+can be used to indicate that a non-static data member need not have a unique address (for example empty classes).]]
 [[`BOOST_MAY_ALIAS`, `BOOST_NO_MAY_ALIAS`][
 `BOOST_MAY_ALIAS` expands to a type attribute that can be used to mark types that may
 alias other types. Pointers or references to such marked types can be used to access objects

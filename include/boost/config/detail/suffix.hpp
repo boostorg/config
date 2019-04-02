@@ -999,9 +999,15 @@ namespace std{ using ::type_info; }
 #if __has_cpp_attribute(nodiscard)
 # define BOOST_ATTRIBUTE_NODISCARD [[nodiscard]]
 #endif
+#if __has_cpp_attribute(no_unique_address)
+# define BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS [[no_unique_address]]
+#endif
 #endif
 #ifndef BOOST_ATTRIBUTE_NODISCARD
 # define BOOST_ATTRIBUTE_NODISCARD
+#endif
+#ifndef BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS
+# define BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS
 #endif
 
 #define BOOST_STATIC_CONSTEXPR  static BOOST_CONSTEXPR_OR_CONST
