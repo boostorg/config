@@ -1027,12 +1027,16 @@ namespace std{ using ::type_info; }
 #if !defined(__has_include)
 #  define BOOST_NO_CXX17_HDR_OPTIONAL
 #  define BOOST_NO_CXX17_HDR_STRING_VIEW
+#  define BOOST_NO_CXX17_HDR_VARIANT
 #else
 #if !__has_include(<optional>)
 #  define BOOST_NO_CXX17_HDR_OPTIONAL
 #endif
 #if !__has_include(<string_view>)
 #  define BOOST_NO_CXX17_HDR_STRING_VIEW
+#endif
+#if !__has_include(<variant>)
+#  define BOOST_NO_CXX17_HDR_VARIANT
 #endif
 #endif
 

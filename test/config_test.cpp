@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon Feb 11 18:07:32 2019
+//  This file was automatically generated on Mon Apr  1 19:04:05 2019
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -351,6 +351,11 @@ namespace boost_no_cxx17_hdr_optional = empty_boost;
 #include "boost_no_cxx17_hdr_string_view.ipp"
 #else
 namespace boost_no_cxx17_hdr_string_view = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX17_HDR_VARIANT
+#include "boost_no_cxx17_hdr_variant.ipp"
+#else
+namespace boost_no_cxx17_hdr_variant = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX17_IF_CONSTEXPR
 #include "boost_no_cxx17_if_constexpr.ipp"
@@ -1519,6 +1524,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx17_hdr_string_view::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX17_HDR_STRING_VIEW at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx17_hdr_variant::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX17_HDR_VARIANT at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx17_if_constexpr::test())
