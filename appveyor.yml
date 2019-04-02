@@ -65,5 +65,5 @@ build: off
 
 test_script:
   - cd libs\config\test
-  - ..\appveyor.bat
+  - ..\..\..\b2 print_config_info %ARGS% cxxstd=%CXXSTD%
   - ..\..\..\b2 -j3 %ARGS% cxxstd=%CXXSTD%
