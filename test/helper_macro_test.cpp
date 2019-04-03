@@ -42,6 +42,13 @@ struct BOOST_ATTRIBUTE_NODISCARD nodiscard_struct {};
 
 #define test_fallthrough(x) foobar(x)
 
+struct empty {};
+struct no_unique
+{
+   int a;
+   BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS empty b;
+};
+
 
 int main()
 {
@@ -56,6 +63,7 @@ int main()
       if(BOOST_UNLIKELY(!result))
          always_throw();
       nodiscard_struct s;
+      no_unique no_un;
    }
    catch(int)
    {
