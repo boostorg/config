@@ -358,7 +358,7 @@ void write_std_config_checks()
    write_std_check("__cpp_if_constexpr", 201606, "", 17);
    write_std_check("__cpp_range_based_for", 201603, "", 17, false);
    write_std_check("__cpp_static_assert", 201411, "", 17, false);
-   write_std_check("__cpp_deduction_guides", 201703, "", 17);
+   write_std_check("__cpp_deduction_guides", 201611, "", 17);    // NOTE: this is the pre-std version number used by gcc-8, is this OK???
    write_std_check("__cpp_nontype_template_parameter_auto", 201606, "", 17);
    write_std_check("__cpp_namespace_attributes", 201411, "", 17);
    write_std_check("__cpp_enumerator_attributes", 201411, "", 17);
