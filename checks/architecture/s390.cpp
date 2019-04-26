@@ -1,4 +1,4 @@
-// s390.cpp
+// s390x.cpp
 //
 // Copyright (c) 2012 Steven Watanabe
 //
@@ -6,6 +6,6 @@
 // accompanying file LICENSE_1_0.txt or copy at
 // http://www.boost.org/LICENSE_1_0.txt)
 
-#if !defined(__s390__)
-#error "Not S390"
+#if !defined(__s390x__)
+#error "Not S390x"
 #endif
