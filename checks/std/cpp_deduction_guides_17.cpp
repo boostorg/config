@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon Feb 11 18:07:32 2019
+//  This file was automatically generated on Sun Apr 21 09:13:03 2019
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -19,7 +19,7 @@
 #error "Macro << __cpp_deduction_guides is not set"
 #endif
 
-#if __cpp_deduction_guides < 201703
+#if __cpp_deduction_guides < 201611
 #error "Macro __cpp_deduction_guides had too low a value"
 #endif
 

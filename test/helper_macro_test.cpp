@@ -23,7 +23,7 @@ int test_unreachable(int i)
    if(BOOST_LIKELY(i)) return i;
 
    throw i;
-   BOOST_UNREACHABLE_RETURN(0);
+   BOOST_UNREACHABLE_RETURN(0)  // NOTE: no semicolon afterwards!!
 }
 
 BOOST_FORCEINLINE int always_inline(int i){ return ++i; }
@@ -37,8 +37,17 @@ BOOST_NORETURN void always_throw()
 struct BOOST_MAY_ALIAS aliasing_struct {};
 typedef unsigned int BOOST_MAY_ALIAS aliasing_uint;
 
+struct BOOST_ATTRIBUTE_NODISCARD nodiscard_struct {};
+
 
 #define test_fallthrough(x) foobar(x)
+
+struct empty {};
+struct no_unique
+{
+   int a;
+   BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS empty b;
+};
 
 
 int main()
@@ -53,6 +62,8 @@ int main()
       result += never_inline(3);
       if(BOOST_UNLIKELY(!result))
          always_throw();
+      nodiscard_struct s;
+      no_unique no_un;
    }
    catch(int)
    {
