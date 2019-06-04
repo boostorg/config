@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sun Apr 21 09:13:03 2019
+//  This file was automatically generated on Tue Jun  4 10:08:17 2019
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -156,6 +156,11 @@ namespace boost_no_cxx11_hdr_codecvt = empty_boost;
 #include "boost_no_cxx11_hdr_condition_variable.ipp"
 #else
 namespace boost_no_cxx11_hdr_condition_variable = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX11_HDR_EXCEPTION
+#include "boost_no_cxx11_hdr_exception.ipp"
+#else
+namespace boost_no_cxx11_hdr_exception = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX11_HDR_FORWARD_LIST
 #include "boost_no_cxx11_hdr_forward_list.ipp"
@@ -1329,6 +1334,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx11_hdr_condition_variable::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX11_HDR_CONDITION_VARIABLE at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx11_hdr_exception::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX11_HDR_EXCEPTION at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx11_hdr_forward_list::test())
