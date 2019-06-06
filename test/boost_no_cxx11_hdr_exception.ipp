@@ -7,7 +7,7 @@
 //  See http://www.boost.org/libs/config for more information.
 
 //  MACRO:         BOOST_NO_CXX11_HDR_EXCEPTION
-//  TITLE:         C++11 header <exception> unavailable
+//  TITLE:         C++11 header <exception> not compatible
 //  DESCRIPTION:   The standard library does not provide a C++11 compatible version of <exception>.
 
 #include <exception>
