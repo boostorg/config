@@ -16,6 +16,12 @@ namespace boost_no_cxx11_hdr_exception {
 
 int test()
 {
+#ifdef BOOST_NO_EXCEPTIONS
+  using std::exception_ptr;
+  auto current = &std::current_exception;
+  auto rethrow = &std::rethrow_exception;
+  return 0;
+#else
   std::exception_ptr ep;
   try
   {
@@ -35,6 +41,7 @@ int test()
     return i == 42 ? 0 : 1;
   }
   return 1;
+#endif
 }
 
 }
