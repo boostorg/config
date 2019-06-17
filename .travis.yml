@@ -179,7 +179,7 @@ matrix:
             - clang-4.0
           sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-4.0
+            - llvm-toolchain-xenial-4.0
 
     - os: linux
       compiler: clang++-5.0
@@ -190,7 +190,7 @@ matrix:
             - clang-5.0
           sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-5.0
+            - llvm-toolchain-xenial-5.0
 
     - os: linux
       compiler: clang++-libc++
@@ -202,7 +202,7 @@ matrix:
             - clang-5.0
           sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-5.0
+            - llvm-toolchain-xenial-5.0
 
     - os: linux
       compiler: clang++-6.0
@@ -213,7 +213,7 @@ matrix:
             - clang-6.0
           sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-6.0
+            - llvm-toolchain-xenial-6.0
 
     - os: linux
       compiler: clang++-libc++
@@ -225,7 +225,7 @@ matrix:
             - libc++-dev
           sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-6.0
+            - llvm-toolchain-xenial-6.0
 
     - os: linux
       compiler: clang++-7
@@ -236,7 +236,7 @@ matrix:
             - clang-7
           sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-7
+            - llvm-toolchain-xenial-7
 
     - os: linux
       compiler: clang++-libc++
@@ -248,7 +248,7 @@ matrix:
             - libc++-dev
           sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-7
+            - llvm-toolchain-xenial-7
 
     - os: osx
       env: TOOLSET=clang COMPILER=clang++ CXXSTD=03,11,14,1z
