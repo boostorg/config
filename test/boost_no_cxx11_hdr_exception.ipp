@@ -18,8 +18,8 @@ int test()
 {
 #ifdef BOOST_NO_EXCEPTIONS
   using std::exception_ptr;
-  auto current = &std::current_exception;
-  auto rethrow = &std::rethrow_exception;
+  using std::current_exception;
+  using std::rethrow_exception;
   return 0;
 #else
   std::exception_ptr ep;
