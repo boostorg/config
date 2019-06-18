@@ -106,7 +106,7 @@
 #define BOOST_NO_CXX17_ITERATOR_TRAITS
 #define BOOST_NO_CXX17_STD_INVOKE      // Invoke support is incomplete (no invoke_result)
 
-#if (_LIBCPP_VERSION <= 1101) && !defined(BOOST_NO_CXX11_THREAD_LOCAL)
+#if ((_LIBCPP_VERSION <= 1101) || (_LIBCPP_VERSION == 7000)) && !defined(BOOST_NO_CXX11_THREAD_LOCAL)
 // This is a bit of a sledgehammer, because really it's just libc++abi that has no
 // support for thread_local, leading to linker errors such as
 // "undefined reference to `__cxa_thread_atexit'".  It is fixed in the

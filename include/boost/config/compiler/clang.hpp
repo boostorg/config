@@ -257,7 +257,9 @@
 #endif
 
 #if !__has_feature(__cxx_decltype_auto__)
+#if (__clang_major__ > 3)
 #  define BOOST_NO_CXX14_DECLTYPE_AUTO
+#endif
 #endif
 
 #if !__has_feature(__cxx_aggregate_nsdmi__)
