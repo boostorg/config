@@ -256,7 +256,7 @@
 #  define BOOST_NO_CXX14_BINARY_LITERALS
 #endif
 
-#if !__has_feature(__cxx_decltype_auto__) && (__clang_major__ > 3)
+#if !__has_feature(__cxx_decltype_auto__) || (__clang_major__ < 4)
 // This fails with debug info enabled for clang 3.5:
 #  define BOOST_NO_CXX14_DECLTYPE_AUTO
 #endif
