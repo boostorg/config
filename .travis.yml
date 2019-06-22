@@ -238,18 +238,6 @@ matrix:
             - ubuntu-toolchain-r-test
             - llvm-toolchain-xenial-7
 
-    - os: linux
-      compiler: clang++-libc++
-      env: TOOLSET=clang COMPILER="clang++-7 -stdlib=libc++" CXXSTD=03,11,14
-      addons:
-        apt:
-          packages:
-            - clang-7
-            - libc++-dev
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-xenial-7
-
     - os: osx
       env: TOOLSET=clang COMPILER=clang++ CXXSTD=03,11,14,1z
       osx_image: xcode9.1
