@@ -6,6 +6,8 @@ language: cpp
 
 sudo: false
 
+dist : xenial
+
 branches:
   only:
     - master
