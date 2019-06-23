@@ -269,7 +269,7 @@
 #  define BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURES
 #endif
 
-#if !__has_feature(__cxx_generic_lambdas__)
+#if !__has_feature(__cxx_generic_lambdas__) || (__clang_major__ < 4)
 #  define BOOST_NO_CXX14_GENERIC_LAMBDAS
 #endif
 
