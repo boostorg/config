@@ -269,7 +269,7 @@
 #  define BOOST_NO_CXX14_INITIALIZED_LAMBDA_CAPTURES
 #endif
 
-#if !__has_feature(__cxx_generic_lambdas__) || (__clang_major__ < 4)
+#if !__has_feature(__cxx_generic_lambdas__)
 #  define BOOST_NO_CXX14_GENERIC_LAMBDAS
 #endif
 
@@ -291,7 +291,7 @@
 #  define BOOST_NO_CXX14_CONSTEXPR
 #endif
 
-#if !__has_feature(__cxx_return_type_deduction__) || (__clang_major__ < 4)
+#if !__has_feature(__cxx_return_type_deduction__)
 #  define BOOST_NO_CXX14_RETURN_TYPE_DEDUCTION
 #endif
 

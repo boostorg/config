@@ -28,6 +28,7 @@ matrix:
       env: TOOLSET=gcc COMPILER=g++ CXXSTD=03,11
 
     - os: linux
+      dist: trusty
       compiler: g++-4.4
       env: TOOLSET=gcc COMPILER=g++-4.4 CXXSTD=98,0x
       addons:
@@ -38,6 +39,7 @@ matrix:
             - ubuntu-toolchain-r-test
 
     - os: linux
+      dist: trusty
       compiler: g++-4.6
       env: TOOLSET=gcc COMPILER=g++-4.6 CXXSTD=03,0x
       addons:
@@ -48,6 +50,7 @@ matrix:
             - ubuntu-toolchain-r-test
 
     - os: linux
+      dist: trusty
       env: TOOLSET=gcc COMPILER=g++-4.7 CXXSTD=03,11
       addons:
         apt:
@@ -57,6 +60,7 @@ matrix:
             - ubuntu-toolchain-r-test
 
     - os: linux
+      dist: trusty
       env: TOOLSET=gcc COMPILER=g++-4.8 CXXSTD=03,11
       addons:
         apt:
@@ -66,6 +70,7 @@ matrix:
             - ubuntu-toolchain-r-test
 
     - os: linux
+      dist: trusty
       env: TOOLSET=gcc COMPILER=g++-4.9 CXXSTD=03,11
       addons:
         apt:
@@ -123,6 +128,7 @@ matrix:
       env: TOOLSET=clang COMPILER=clang++ CXXSTD=03,11
 
     - os: linux
+      dist: trusty
       env: TOOLSET=clang COMPILER=clang++-3.5 CXXSTD=03,11,14,1z
       addons:
         apt:
@@ -133,6 +139,7 @@ matrix:
             - llvm-toolchain-precise-3.5
 
     - os: linux
+      dist: trusty
       env: TOOLSET=clang COMPILER=clang++-3.6 CXXSTD=03,11,14,1z
       addons:
         apt:
@@ -143,6 +150,7 @@ matrix:
             - llvm-toolchain-precise-3.6
 
     - os: linux
+      dist: trusty
       env: TOOLSET=clang COMPILER=clang++-3.7 CXXSTD=03,11,14,1z
       addons:
         apt:
@@ -153,6 +161,7 @@ matrix:
             - llvm-toolchain-precise-3.7
 
     - os: linux
+      dist: trusty
       env: TOOLSET=clang COMPILER=clang++-3.8 CXXSTD=03,11,14,1z
       addons:
         apt:
@@ -163,6 +172,7 @@ matrix:
             - llvm-toolchain-precise-3.8
 
     - os: linux
+      dist: trusty
       env: TOOLSET=clang COMPILER=clang++-3.9 CXXSTD=03,11,14,1z
       addons:
         apt:
