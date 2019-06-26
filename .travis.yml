@@ -125,6 +125,17 @@ matrix:
             - ubuntu-toolchain-r-test
 
     - os: linux
+      dist: trusty
+      compiler: g++-9
+      env: TOOLSET=gcc COMPILER=g++-9 CXXSTD=03,11,14,17,2a
+      addons:
+        apt:
+          packages:
+            - g++-9
+          sources:
+            - ubuntu-toolchain-r-test
+
+    - os: linux
       env: TOOLSET=clang COMPILER=clang++ CXXSTD=03,11
 
     - os: linux
@@ -250,9 +261,24 @@ matrix:
             - ubuntu-toolchain-r-test
             - llvm-toolchain-xenial-7
 
+    - os: linux
+      compiler: clang++-8
+      env: TOOLSET=clang COMPILER=clang++-8 CXXSTD=03,11,14,17,2a
+      addons:
+        apt:
+          packages:
+            - clang-8
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-xenial-8
+
+    - os: osx
+      env: TOOLSET=clang COMPILER=clang++ CXXSTD=03,11,14,17,2a
+      osx_image: xcode10.2
+
     - os: osx
       env: TOOLSET=clang COMPILER=clang++ CXXSTD=03,11,14,1z
-      osx_image: xcode9.1
+      osx_image: xcode9.4
 
     - os: osx
       env: TOOLSET=clang COMPILER=clang++ CXXSTD=03,11,14,1z
