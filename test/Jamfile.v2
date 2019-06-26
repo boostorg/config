@@ -132,3 +132,6 @@ rule print-run ( target : sources * : properties * )
 
 notfile print_config_info : @print-run : config_info_printer ;
 explicit print_config_info ;
+# Backwards compatibility:
+alias config_info_travis : print_config_info ;
+explicit config_info_travis ;
