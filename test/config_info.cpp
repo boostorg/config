@@ -1273,6 +1273,16 @@ void print_sd6_macros()
 {
     // http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0096r5.html
 
+    // C++20:
+    PRINT_MACRO(__cpp_aggregate_paren_init);
+    PRINT_MACRO(__cpp_char8_t);
+    PRINT_MACRO(__cpp_char8_type);
+    PRINT_MACRO(__cpp_conditional_explicit);
+    PRINT_MACRO(__cpp_coroutines);
+    PRINT_MACRO(__cpp_impl_destroying_delete);
+    PRINT_MACRO(__cpp_impl_three_way_comparison);
+    PRINT_MACRO(__cpp_nontype_template_parameter_class);
+
     // C++17:
     PRINT_MACRO(__cpp_hex_float);
     PRINT_MACRO(__cpp_inline_variables);
