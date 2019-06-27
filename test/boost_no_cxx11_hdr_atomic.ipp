@@ -21,72 +21,78 @@
 
 namespace boost_no_cxx11_hdr_atomic {
 
-int test()
-{
-   std::memory_order m = static_cast<std::memory_order>(std::memory_order_relaxed | std::memory_order_consume | std::memory_order_acquire | std::memory_order_release 
-                           | std::memory_order_acq_rel | std::memory_order_seq_cst);
-   (void)m;
+   void consume(std::memory_order)
+   {}
 
-   std::atomic<int> a1;
-   std::atomic<unsigned> a2;
-   std::atomic<int*>    a3;
-   a1.is_lock_free();
-   a1.store(1);
-   a1.load();
-   a1.exchange(2);
-   int v;
-   a1.compare_exchange_weak(v, 2, std::memory_order_relaxed, std::memory_order_relaxed);
-   a1.compare_exchange_strong(v, 2, std::memory_order_relaxed, std::memory_order_relaxed);
-   a1.fetch_add(2);
-   a1.fetch_sub(3);
-   a1.fetch_and(3);
-   a1.fetch_or(1);
-   a1.fetch_xor(1);
-   a1++;
-   ++a1;
-   a1--;
-   --a1;
-   a1 += 2;
-   a1 -= 2;
-   a1 &= 1;
-   a1 |= 2;
-   a1 ^= 3;
+   int test()
+   {
+      consume(std::memory_order_relaxed);
+      consume(std::memory_order_consume);
+      consume(std::memory_order_acquire);
+      consume(std::memory_order_release);
+      consume(std::memory_order_acq_rel);
+      consume(std::memory_order_seq_cst);
 
-   a2 = 0u;
+      std::atomic<int> a1;
+      std::atomic<unsigned> a2;
+      std::atomic<int*>    a3;
+      a1.is_lock_free();
+      a1.store(1);
+      a1.load();
+      a1.exchange(2);
+      int v;
+      a1.compare_exchange_weak(v, 2, std::memory_order_relaxed, std::memory_order_relaxed);
+      a1.compare_exchange_strong(v, 2, std::memory_order_relaxed, std::memory_order_relaxed);
+      a1.fetch_add(2);
+      a1.fetch_sub(3);
+      a1.fetch_and(3);
+      a1.fetch_or(1);
+      a1.fetch_xor(1);
+      a1++;
+      ++a1;
+      a1--;
+      --a1;
+      a1 += 2;
+      a1 -= 2;
+      a1 &= 1;
+      a1 |= 2;
+      a1 ^= 3;
 
-   a3.store(&v);
-   a3.fetch_add(1);
-   a3.fetch_sub(1);
-   ++a3;
-   --a3;
-   a3++;
-   a3--;
-   a3 += 1;
-   a3 -= 1;
+      a2 = 0u;
 
-   std::atomic_is_lock_free(&a1);
-   // This produces linker errors on Mingw32 for some reason, probably not required anyway for most uses??
-   //std::atomic_init(&a1, 2);
-   std::atomic_store(&a1, 3);
-   std::atomic_store_explicit(&a1, 3, std::memory_order_relaxed);
-   std::atomic_load(&a1);
-   std::atomic_load_explicit(&a1, std::memory_order_relaxed);
-   std::atomic_exchange(&a1, 3);
-   std::atomic_compare_exchange_weak(&a1, &v, 2);
-   std::atomic_compare_exchange_strong(&a1, &v, 2);
-   std::atomic_compare_exchange_weak_explicit(&a1, &v, 2, std::memory_order_relaxed, std::memory_order_relaxed);
-   std::atomic_compare_exchange_strong_explicit(&a1, &v, 2, std::memory_order_relaxed, std::memory_order_relaxed);
+      a3.store(&v);
+      a3.fetch_add(1);
+      a3.fetch_sub(1);
+      ++a3;
+      --a3;
+      a3++;
+      a3--;
+      a3 += 1;
+      a3 -= 1;
 
-   std::atomic_flag f = ATOMIC_FLAG_INIT;
-   f.test_and_set(std::memory_order_relaxed);
-   f.test_and_set();
-   f.clear(std::memory_order_relaxed);
-   f.clear();
+      std::atomic_is_lock_free(&a1);
+      // This produces linker errors on Mingw32 for some reason, probably not required anyway for most uses??
+      //std::atomic_init(&a1, 2);
+      std::atomic_store(&a1, 3);
+      std::atomic_store_explicit(&a1, 3, std::memory_order_relaxed);
+      std::atomic_load(&a1);
+      std::atomic_load_explicit(&a1, std::memory_order_relaxed);
+      std::atomic_exchange(&a1, 3);
+      std::atomic_compare_exchange_weak(&a1, &v, 2);
+      std::atomic_compare_exchange_strong(&a1, &v, 2);
+      std::atomic_compare_exchange_weak_explicit(&a1, &v, 2, std::memory_order_relaxed, std::memory_order_relaxed);
+      std::atomic_compare_exchange_strong_explicit(&a1, &v, 2, std::memory_order_relaxed, std::memory_order_relaxed);
 
-   std::atomic_thread_fence(std::memory_order_relaxed);
-   std::atomic_signal_fence(std::memory_order_relaxed);
+      std::atomic_flag f = ATOMIC_FLAG_INIT;
+      f.test_and_set(std::memory_order_relaxed);
+      f.test_and_set();
+      f.clear(std::memory_order_relaxed);
+      f.clear();
 
-   return 0;
-}
+      std::atomic_thread_fence(std::memory_order_relaxed);
+      std::atomic_signal_fence(std::memory_order_relaxed);
+
+      return 0;
+   }
 
 }
