@@ -8,6 +8,7 @@
 # the template defined in options_v2.jam.
 #
 
+import feature ;
 import testing ;
 
 project
@@ -114,7 +115,23 @@ obj has_clang_implicit_fallthrough : cmd_line_check.cpp :
 
 explicit has_clang_implicit_fallthrough ;
 
-exe config_info_travis : config_info.cpp ;
-install config_info_travis_install : config_info_travis : <location>. ;
-explicit config_info_travis_install ;
+exe config_info_printer : config_info.cpp ;
+explicit config_info_printer ;
+
+actions print-run
+{
+      echo With Standard Version $(STANDARD:E=default)
+      echo =====================================================================
+      $(>)
+}
+
+rule print-run ( target : sources * : properties * )
+{
+    STANDARD on $(target) = [ feature.get-values <cxxstd> : $(properties) ] ;
+}
+
+notfile print_config_info : @print-run : config_info_printer ;
+explicit print_config_info ;
+# Backwards compatibility:
+alias config_info_travis : print_config_info ;
 explicit config_info_travis ;
