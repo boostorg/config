@@ -17,7 +17,7 @@ void quiet_warning(const CharT*){}
 
 int test()
 {
-#ifdef _­_­cpp_­char8_­t
+#if defined(__cpp_char8_type) || defined(__cpp_char8_t)
    // The change to char8_t in C++20 is a breaking change to the std:
    const char8_t* c8 = u8"";
 #else
