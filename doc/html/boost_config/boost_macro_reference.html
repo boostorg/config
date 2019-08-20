@@ -3834,6 +3834,18 @@
 <tr>
 <td>
                 <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX17_HDR_VARIANT</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">variant</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <code class="computeroutput"><span class="identifier">BOOST_NO_CXX17_HDR_STRING_VIEW</span></code>
                 </p>
               </td>
@@ -4563,6 +4575,33 @@
                   Expands to <code class="computeroutput"><span class="identifier">__attribute__</span><span class="special">((</span><span class="identifier">unused</span><span class="special">))</span></code> when this is available - can
                   be used to disable compiler warnings relating to unused types or
                   variables.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_ATTRIBUTE_NODISCARD</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Expands to <code class="computeroutput"><span class="special">[[</span><span class="identifier">nodiscard</span><span class="special">]]</span></code> when this is available - can
+                  be used to create a warning when a type or variable is unused.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Expands to <code class="computeroutput"><span class="special">[[</span><span class="identifier">no_unique_address</span><span class="special">]]</span></code> when this is available - can
+                  be used to indicate that a non-static data member need not have
+                  a unique address (for example empty classes).
                 </p>
               </td>
 </tr>
