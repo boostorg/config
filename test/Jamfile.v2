@@ -110,6 +110,9 @@ test-suite config
     [ compile header_deprecated_test.cpp ]
   ;
 
+obj has_clang_implicit_fallthrough : cmd_line_check.cpp :
+		<toolset>clang:<cxxflags>"-std=c++11 -Wimplicit-fallthrough" <warnings-as-errors>on <warnings>all ;
+
 explicit has_clang_implicit_fallthrough ;
 
 exe config_info_printer : config_info.cpp ;
