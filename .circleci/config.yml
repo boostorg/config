@@ -42,7 +42,7 @@ jobs:
           command: |
             cd $BOOST/boost && ./bootstrap.sh && ./b2 headers
             echo "using xsltproc ;" | tee $HOME/user-config.jam
-            echo "using boostbook : /usr/share/sgml/docbook/stylesheet/docbook-xsl : /usr/share/sgml/docbook/dtd/xml/4.2 ;" | tee -a $HOME/user-config.jam
+            echo "using boostbook : /usr/share/xml/docbook/stylesheet/docbook-xsl : /usr/share/sgml/docbook/dtd/xml/4.2 ;" | tee -a $HOME/user-config.jam
       - run:
           name: Building inspect
           command: |
