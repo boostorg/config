@@ -18,7 +18,7 @@ jobs:
             else
                 echo 'export BOOST_BRANCH="develop"' >> $BASH_ENV;
             fi
-            echo 'export BOOST_REMOVE="$BOOST/libs/$BOOST_LIBRARY"' >> $BASH_ENV
+            echo 'export BOOST_REMOVE="$BOOST/boost/libs/$BOOST_LIBRARY"' >> $BASH_ENV
             HOME_SED_=$(echo $HOME | sed -e 's/\//\\\//g')
             echo 'export HOME_SED=$HOME_SED_' >> $BASH_ENV
       - run:
@@ -29,33 +29,28 @@ jobs:
       - run:
           name: Initializing git repo for boost
           command: |
+            echo BOOST=$BOOST BOOST_REMOVE=$BOOST_REMOVE BOOST_LIBRARY=$BOOST_LIBRARY BOOST_BRANCH=$BOOST_BRANCH PWD=$PWD
             mkdir $BOOST
             cd $BOOST
-            echo Testing $CIRCLE_BRANCH
-            git remote add --no-tags -t $BOOST_BRANCH origin https://github.com/boostorg/boost.git
-            git fetch --depth=1
-            git checkout $BOOST_BRANCH
+            git clone --single-branch --branch $BOOST_BRANCH https://github.com/boostorg/boost.git
+            cd boost
             git submodule update --init --merge
-            git remote set-branches --add origin $BOOST_BRANCH
-            git pull --recurse-submodules
-            git submodule update --init
-            git checkout $BOOST_BRANCH
-            git submodule foreach "git reset --quiet --hard; git clean -fxd"
-            git reset --hard; git clean -fxd
-            git status
             rm -rf $BOOST_REMOVE
             mv $HOME/project $BOOST_REMOVE
       - run:
           name: Bootstrapping boost-build
           command: |
+            echo $PWD
             cd $BOOST
             ./bootstrap.sh
             ./b2 headers
       - run:
           name: Building inspect
           command: |
+            echo $PWD
             cd tools/inspect/build && ../../../b2 -j2 address-model=64 architecture=x86 toolset=gcc cxxflags="-std=gnu++14" release dist-bin
       - run:
           name: Running Inspect
           command: |
+            echo $PWD
             cd $BOOST_REMOVE && ../../dist/bin/inspect -text -license -copyright -crlf -end -link -path_name -tab -ascii -apple_macro -assert_macro -minmax -unnamed -version-string
