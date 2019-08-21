@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     environment:
-      - BOOST_LIBRARY=process
+      - BOOST_LIBRARY=config
       - CXX_STANDARD=gnu++11
     docker:
       - image: gcc:7
@@ -29,8 +29,8 @@ jobs:
       - run:
           name: Initializing git repo for boost
           command: |
-            mkdir boost-config
-            cd boost-config
+            mkdir $BOOST
+            cd $BOOST
             echo Testing $CIRCLE_BRANCH
             git remote add --no-tags -t $BOOST_BRANCH origin https://github.com/boostorg/boost.git
             git fetch --depth=1
