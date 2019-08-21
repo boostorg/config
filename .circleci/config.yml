@@ -40,17 +40,12 @@ jobs:
       - run:
           name: Bootstrapping boost-build
           command: |
-            echo $PWD
-            cd $BOOST
-            ./bootstrap.sh
-            ./b2 headers
+            cd $BOOST/boost && ./bootstrap.sh && ./b2 headers
       - run:
           name: Building inspect
           command: |
-            echo $PWD
-            cd tools/inspect/build && ../../../b2 -j2 address-model=64 architecture=x86 toolset=gcc cxxflags="-std=gnu++14" release dist-bin
+            cd $BOOST/boost/tools/inspect/build && ../../../b2 -j2 address-model=64 architecture=x86 toolset=gcc cxxflags="-std=gnu++14" release dist-bin
       - run:
           name: Running Inspect
           command: |
-            echo $PWD
             cd $BOOST_REMOVE && ../../dist/bin/inspect -text -license -copyright -crlf -end -link -path_name -tab -ascii -apple_macro -assert_macro -minmax -unnamed -version-string
