@@ -25,7 +25,7 @@ jobs:
           name: install pre dependencies
           command: |
             apt-get update -yqq
-            apt-get install git -y
+            apt-get install git xsltproc docbook-xsl docbook-xml -y
       - run:
           name: Initializing git repo for boost
           command: |
@@ -41,10 +41,16 @@ jobs:
           name: Bootstrapping boost-build
           command: |
             cd $BOOST/boost && ./bootstrap.sh && ./b2 headers
+            echo "using xsltproc ;" | tee $HOME/user-config.jam
+            echo "using boostbook : /usr/share/sgml/docbook/stylesheet/docbook-xsl : /usr/share/sgml/docbook/dtd/xml/4.2 ;" | tee -a $HOME/user-config.jam
       - run:
           name: Building inspect
           command: |
             cd $BOOST/boost/tools/inspect/build && ../../../b2 -j2 address-model=64 architecture=x86 toolset=gcc cxxflags="-std=gnu++14" release dist-bin
+      - run:
+          name: Building docs
+          command: |
+            cd $BOOST_REMOVE/doc && rm -rf html && ../../../b2 -j2 address-model=64 architecture=x86 toolset=gcc cxxflags="-std=gnu++14" release
       - run:
           name: Running Inspect
           command: |
