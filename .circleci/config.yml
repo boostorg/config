@@ -48,4 +48,4 @@ jobs:
       - run:
           name: Running Inspect
           command: |
-            cd $BOOST_REMOVE && ../../dist/bin/inspect -text -license -copyright -crlf -end -link -path_name -tab -ascii -apple_macro -assert_macro -minmax -unnamed -version-string
+            cd $BOOST_REMOVE && ../../dist/bin/inspect -text -license -copyright -crlf -end -link -path_name -tab -ascii -apple_macro -assert_macro -minmax -unnamed
