@@ -136,6 +136,7 @@
 #  define BOOST_NO_CXX11_HDR_RATIO
 #  define BOOST_NO_CXX11_HDR_THREAD
 #  define BOOST_NO_CXX11_ATOMIC_SMART_PTR
+#  define BOOST_NO_CXX11_HDR_EXCEPTION
 #endif
 
 //  C++0x headers implemented in 610 (as shipped by Microsoft)

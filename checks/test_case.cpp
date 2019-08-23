@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sun Apr 21 09:13:03 2019
+//  This file was automatically generated on Fri Aug 23 11:11:12 2019
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -299,6 +299,11 @@
 #ifdef TEST_BOOST_NO_CXX11_DEFAULTED_MOVES
 #  ifdef BOOST_NO_CXX11_DEFAULTED_MOVES
 #     error "Defect macro BOOST_NO_CXX11_DEFAULTED_MOVES is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX11_HDR_EXCEPTION
+#  ifdef BOOST_NO_CXX11_HDR_EXCEPTION
+#     error "Defect macro BOOST_NO_CXX11_HDR_EXCEPTION is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX11_FINAL
