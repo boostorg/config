@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sun Apr 21 09:13:03 2019
+//  This file was automatically generated on Fri Aug 23 11:11:12 2019
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -126,6 +126,11 @@ namespace boost_no_cxx11_atomic_smart_ptr = empty_boost;
 #include "boost_no_cxx11_defaulted_moves.ipp"
 #else
 namespace boost_no_cxx11_defaulted_moves = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX11_HDR_EXCEPTION
+#include "boost_no_cxx11_exception.ipp"
+#else
+namespace boost_no_cxx11_hdr_exception = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX11_FINAL
 #include "boost_no_cxx11_final.ipp"
@@ -1299,6 +1304,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx11_defaulted_moves::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX11_DEFAULTED_MOVES at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx11_hdr_exception::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX11_HDR_EXCEPTION at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx11_final::test())
