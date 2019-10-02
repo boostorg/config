@@ -987,6 +987,15 @@ namespace std{ using ::type_info; }
 #endif
 
 //
+// C++17 inline variables
+//
+#if !defined(BOOST_NO_CXX17_INLINE_VARIABLES)
+#define BOOST_INLINE_VARIABLE inline
+#else
+#define BOOST_INLINE_VARIABLE
+#endif
+
+//
 // Unused variable/typedef workarounds:
 //
 #ifndef BOOST_ATTRIBUTE_UNUSED
