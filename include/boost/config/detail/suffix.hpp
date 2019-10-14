@@ -943,6 +943,14 @@ namespace std{ using ::type_info; }
 //  ------------------ End of deprecated macros for 1.51 ---------------------------
 
 
+//
+// Helper macro for marking types and methods final
+//
+#if !defined(BOOST_NO_CXX11_FINAL)
+#  define BOOST_FINAL final
+#else
+#  define BOOST_FINAL
+#endif
 
 //
 // Helper macros BOOST_NOEXCEPT, BOOST_NOEXCEPT_IF, BOOST_NOEXCEPT_EXPR
