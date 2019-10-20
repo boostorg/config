@@ -996,7 +996,8 @@ namespace std{ using ::type_info; }
 // [[nodiscard]]:
 //
 #ifdef __has_cpp_attribute
-#if __has_cpp_attribute(nodiscard)
+// clang-6 accepts [[nodiscard]] with -std=c++14, but warns about it -pedantic
+#if __has_cpp_attribute(nodiscard) && !(defined(__clang__) && (__cplusplus < 201703L))
 # define BOOST_ATTRIBUTE_NODISCARD [[nodiscard]]
 #endif
 #if __has_cpp_attribute(no_unique_address) && !(defined(__GNUC__) && (__cplusplus < 201100))
