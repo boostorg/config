@@ -1042,7 +1042,7 @@ namespace std{ using ::type_info; }
 #endif
 
 // This is a catch all case for obsolete compilers / std libs:
-#if !defined(__has_include)
+#if (!defined(__has_include) || (__cplusplus < 201700)) && !defined(_MSC_VER)
 #  define BOOST_NO_CXX17_HDR_OPTIONAL
 #  define BOOST_NO_CXX17_HDR_STRING_VIEW
 #  define BOOST_NO_CXX17_HDR_VARIANT
