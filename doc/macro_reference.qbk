@@ -881,6 +881,10 @@ If `BOOST_NO_CXX11_NOEXCEPT` is not defined (i.e. C++11 compliant compilers) the
 ``
 ]
 ]]
+[[`BOOST_FINAL`][
+If `BOOST_NO_CXX11_FINAL` is not defined (i.e. C++11 compliant compilers), expands to `final` keyword,
+otherwise expands to nothing.
+]]
 [[`BOOST_MSVC_ENABLE_2012_NOV_CTP`][
 For Microsoft Visual C++ 2012, enable the C++11 features supplied by the
 November 2012 Community Technology Preview. These features are not automatically
