@@ -1059,7 +1059,8 @@ namespace std{ using ::type_info; }
 #endif
 
 // This is a catch all case for obsolete compilers / std libs:
-#if (!defined(__has_include) || (__cplusplus < 201700)) && !defined(_MSC_VER)
+#if !defined(_YVALS) && !defined(_CPPLIB_VER)  // msvc std lib already configured
+#if (!defined(__has_include) || (__cplusplus < 201700))
 #  define BOOST_NO_CXX17_HDR_OPTIONAL
 #  define BOOST_NO_CXX17_HDR_STRING_VIEW
 #  define BOOST_NO_CXX17_HDR_VARIANT
@@ -1072,6 +1073,7 @@ namespace std{ using ::type_info; }
 #endif
 #if !__has_include(<variant>)
 #  define BOOST_NO_CXX17_HDR_VARIANT
+#endif
 #endif
 #endif
 

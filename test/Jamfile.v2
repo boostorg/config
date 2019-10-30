@@ -77,9 +77,9 @@ test-suite config
           [ check-target-builds has_rt_lib : <source>rt ]
           : config_test_no_except
     ]
-     [ run config_info.cpp : : : <test-info>always_show_run_output <threading>single <toolset>msvc:<runtime-link>static <toolset>msvc:<link>static ]
-     [ run config_info.cpp : : : <test-info>always_show_run_output <threading>multi : config_info_threaded ]
-     [ run config_info.cpp : : : <test-info>always_show_run_output <rtti>off : config_info_no_rtti ]
+     [ run config_info.cpp : : : <test-info>always_show_run_output <threading>single <toolset>msvc:<runtime-link>static <toolset>msvc:<link>static <toolset>msvc:<warnings-as-errors>on <toolset>gcc:<warnings-as-errors>on <toolset>clang:<warnings-as-errors>on ]
+     [ run config_info.cpp : : : <test-info>always_show_run_output <threading>multi <toolset>msvc:<warnings-as-errors>on <toolset>gcc:<warnings-as-errors>on <toolset>clang:<warnings-as-errors>on : config_info_threaded ]
+     [ run config_info.cpp : : : <test-info>always_show_run_output <rtti>off <toolset>msvc:<warnings-as-errors>on <toolset>gcc:<warnings-as-errors>on <toolset>clang:<warnings-as-errors>on : config_info_no_rtti ]
      [ run config_info.cpp : : : <test-info>always_show_run_output <exception-handling>off 
      		<target-os>vxworks:<build>no      
      		: config_info_no_except ]
