@@ -419,9 +419,6 @@ Although you can run the configuration regression tests as individual test
 files, there are rather a lot of them, so there are a couple of shortcuts to
 help you out:
 
-If you have built the __BOOST_REGRESSION_TEST_DRIVER__, then you can use this to
-produce a nice html formatted report of the results using the supplied test file.
-
 Alternatively you can run the configure script like this:
 
 [: `./configure --enable-test`]

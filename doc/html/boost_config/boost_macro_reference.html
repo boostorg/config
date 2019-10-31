@@ -43,6 +43,8 @@
       that allow use of C++14 features with C++11 or earlier compilers</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__17_features_not_supported">Macros
       that describe C++17 features not supported</a></span></dt>
+<dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_allow_use_of_c__17_features_with_c__14_or_earlier_compilers">Macros
+      that allow use of C++17 features with C++14 or earlier compilers</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_features_that_have_been_removed_from_the_standard_">Macros
       that describe features that have been removed from the standard.</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.boost_helper_macros">Boost
@@ -2758,6 +2760,19 @@
 <tr>
 <td>
                 <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_HDR_EXCEPTION</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The standard library does not provide a C++11 compatible version
+                  of &lt;exception&gt;.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_HDR_FORWARD_LIST</span></code>
                 </p>
               </td>
@@ -3546,6 +3561,20 @@
 <tr>
 <td>
                 <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_FINAL</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  If <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_FINAL</span></code>
+                  is not defined (i.e. C++11 compliant compilers), expands to <code class="computeroutput"><span class="identifier">final</span></code> keyword, otherwise expands
+                  to nothing.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <code class="computeroutput"><span class="identifier">BOOST_MSVC_ENABLE_2012_NOV_CTP</span></code>
                 </p>
               </td>
@@ -3785,8 +3814,10 @@
               </td>
 <td>
                 <p>
-                  This macro works similar to BOOST_CONSTEXPR, but expands to <code class="computeroutput"><span class="keyword">constexpr</span></code> only if the C++14 "relaxed"
-                  <code class="computeroutput"><span class="keyword">constexpr</span></code> is available.
+                  This macro works similar to <code class="computeroutput"><span class="identifier">BOOST_CONSTEXPR</span></code>,
+                  but expands to <code class="computeroutput"><span class="keyword">constexpr</span></code>
+                  only if the C++14 "relaxed" <code class="computeroutput"><span class="keyword">constexpr</span></code>
+                  is available.
                 </p>
               </td>
 </tr></tbody>
@@ -3828,6 +3859,18 @@
 <td>
                 <p>
                   The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">optional</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX17_HDR_VARIANT</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">variant</span><span class="special">&gt;</span></code>.
                 </p>
               </td>
 </tr>
@@ -3892,7 +3935,63 @@
                 </p>
               </td>
 </tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX17_INLINE_VARIABLES</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support <code class="computeroutput"><span class="keyword">inline</span></code>
+                  variables.
+                </p>
+              </td>
+</tr>
 </tbody>
+</table></div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="boost_config.boost_macro_reference.macros_that_allow_use_of_c__17_features_with_c__14_or_earlier_compilers"></a><a name="config_17_for_14"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_allow_use_of_c__17_features_with_c__14_or_earlier_compilers" title="Macros that allow use of C++17 features with C++14 or earlier compilers">Macros
+      that allow use of C++17 features with C++14 or earlier compilers</a>
+</h3></div></div></div>
+<p>
+        The following macros allow use of C++17 features even with compilers that
+        do not yet provide compliant C++17 support.
+      </p>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Macro
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_INLINE_VARIABLE</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  This macro expands to <code class="computeroutput"><span class="keyword">inline</span></code>
+                  on compilers that support C++17 inline variables and to nothing
+                  otherwise. Users may need to check for <code class="computeroutput"><span class="identifier">BOOST_NO_CXX17_INLINE_VARIABLES</span></code>
+                  for further adjustments to the code.
+                </p>
+              </td>
+</tr></tbody>
 </table></div>
 </div>
 <div class="section">
@@ -4563,6 +4662,33 @@
                   Expands to <code class="computeroutput"><span class="identifier">__attribute__</span><span class="special">((</span><span class="identifier">unused</span><span class="special">))</span></code> when this is available - can
                   be used to disable compiler warnings relating to unused types or
                   variables.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_ATTRIBUTE_NODISCARD</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Expands to <code class="computeroutput"><span class="special">[[</span><span class="identifier">nodiscard</span><span class="special">]]</span></code> when this is available - can
+                  be used to create a warning when a type or variable is unused.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Expands to <code class="computeroutput"><span class="special">[[</span><span class="identifier">no_unique_address</span><span class="special">]]</span></code> when this is available - can
+                  be used to indicate that a non-static data member need not have
+                  a unique address (for example empty classes).
                 </p>
               </td>
 </tr>

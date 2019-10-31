@@ -38,3 +38,5 @@ You can either run all the tests listed in `Jamfile.v2` or run a single test:
     ../../../b2                        <- run all tests
     ../../../b2 config_info            <- single test
 
+### For developers ###
+Please check the [Guidelines for Boost Authors](http://www.boost.org/doc/libs/release/libs/config/doc/html/boost_config/guidelines_for_boost_authors.html). from the full documentation.

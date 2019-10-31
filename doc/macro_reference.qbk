@@ -647,6 +647,7 @@ default template arguments for function templates.
 [[`BOOST_NO_CXX11_HDR_CHRONO`][The standard library does not provide header <chrono>.]]
 [[`BOOST_NO_CXX11_HDR_CODECVT`][The standard library does not provide header <codecvt>.]]
 [[`BOOST_NO_CXX11_HDR_CONDITION_VARIABLE`][The standard library does not provide header <condition_variable>.]]
+[[`BOOST_NO_CXX11_HDR_EXCEPTION`][The standard library does not provide a C++11 compatible version of <exception>.]]
 [[`BOOST_NO_CXX11_HDR_FORWARD_LIST`][The standard library does not provide header <forward_list>.]]
 [[`BOOST_NO_CXX11_HDR_FUNCTIONAL`][The standard library does not provide a C++11 compatible version of <functional>.]]
 [[`BOOST_NO_CXX11_HDR_FUTURE`][The standard library does not provide header <future>.]]
@@ -880,6 +881,10 @@ If `BOOST_NO_CXX11_NOEXCEPT` is not defined (i.e. C++11 compliant compilers) the
 ``
 ]
 ]]
+[[`BOOST_FINAL`][
+If `BOOST_NO_CXX11_FINAL` is not defined (i.e. C++11 compliant compilers), expands to `final` keyword,
+otherwise expands to nothing.
+]]
 [[`BOOST_MSVC_ENABLE_2012_NOV_CTP`][
 For Microsoft Visual C++ 2012, enable the C++11 features supplied by the
 November 2012 Community Technology Preview. These features are not automatically
@@ -935,7 +940,7 @@ provide compliant C++14 support.
 
 [table
 [[Macro ][ Description ]]
-[[`BOOST_CXX14_CONSTEXPR`][This macro works similar to BOOST_CONSTEXPR, but expands to `constexpr` only if the C++14 "relaxed" `constexpr` is available.]]
+[[`BOOST_CXX14_CONSTEXPR`][This macro works similar to `BOOST_CONSTEXPR`, but expands to `constexpr` only if the C++14 "relaxed" `constexpr` is available.]]
 ]
 
 [endsect]
@@ -954,6 +959,21 @@ that are not yet supported by a particular compiler or library.
 [[`BOOST_NO_CXX17_STD_INVOKE`][The compiler does not support `std::invoke()`.]]
 [[`BOOST_NO_CXX17_ITERATOR_TRAITS`][The compiler does not support SFINAE-friendly `std::iterator_traits`.]]
 [[`BOOST_NO_CXX17_IF_CONSTEXPR`][The compiler does not support `if constexpr`.]]
+[[`BOOST_NO_CXX17_INLINE_VARIABLES`][The compiler does not support `inline` variables.]]
+]
+
+[endsect]
+
+[#config_17_for_14]
+
+[section Macros that allow use of C++17 features with C++14 or earlier compilers]
+
+The following macros allow use of C++17 features even with compilers that do not yet
+provide compliant C++17 support.
+
+[table
+[[Macro ][ Description ]]
+[[`BOOST_INLINE_VARIABLE`][This macro expands to `inline` on compilers that support C++17 inline variables and to nothing otherwise. Users may need to check for `BOOST_NO_CXX17_INLINE_VARIABLES` for further adjustments to the code.]]
 ]
 
 [endsect]

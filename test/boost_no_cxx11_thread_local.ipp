@@ -22,7 +22,7 @@ int check_local(int n)
    if(size != n)
    {
       s = T(n, ' ');
-	  size = n;
+      size = n;
    }
    return size;
 }

@@ -104,7 +104,8 @@
       Notice that multiple arguments can be added to the requires rule, and that
       these are always the same as the Boost.Config macro name, but in lower case
       and with the <span class="emphasis"><em>boost_no_</em></span> or <span class="emphasis"><em>boost_has_</em></span>
-      prefix removed.
+      prefix removed. You can also use any C++ standard feature-macro name with the
+      leading underscores removed (see more below).
     </p>
 <p>
       When building the above example, you will see at the start of the build process
@@ -114,6 +115,36 @@
 <span class="special">-</span> <span class="identifier">Boost</span><span class="special">.</span><span class="identifier">Config</span> <span class="identifier">Feature</span> <span class="identifier">Check</span><span class="special">:</span> <span class="identifier">cxx11_constexpr</span> <span class="special">:</span> <span class="identifier">yes</span>
 <span class="special">-</span> <span class="identifier">Boost</span><span class="special">.</span><span class="identifier">Config</span> <span class="identifier">Feature</span> <span class="identifier">Check</span><span class="special">:</span> <span class="identifier">cxx11_user_defined_literals</span> <span class="special">:</span> <span class="identifier">yes</span>
 </pre>
+<p>
+      If you wish to make a build conditional on a C++ standard feature macro then
+      you can specify these too, just remove the leading underscores from the name.
+      For example:
+    </p>
+<pre class="programlisting"><span class="special">[</span> <span class="identifier">requires</span> <span class="identifier">cpp_constexpr</span> <span class="special">]</span>
+</pre>
+<p>
+      To require C++11 style const-expressions. If you want to specify a macro from
+      a particular standard, then you append an underscore followed by the (2 digit)
+      year of the standard, for example:
+    </p>
+<pre class="programlisting"><span class="special">[</span> <span class="identifier">requires</span> <span class="identifier">cpp_constexpr_17</span> <span class="special">]</span>
+</pre>
+<p>
+      For C++17 constepxr. If you don't specify a standard then you get the first
+      version that introduced the macro. In addition there are only standard-specific
+      rules for each version bump of the macro, so:
+    </p>
+<pre class="programlisting"><span class="special">[</span> <span class="identifier">requires</span> <span class="identifier">cpp_if_constexpr_17</span> <span class="special">]</span>
+</pre>
+<p>
+      Is fine since the macro was introduced in C++17 and is the same as the un-versioned
+      name, but:
+    </p>
+<pre class="programlisting"><span class="special">[</span> <span class="identifier">requires</span> <span class="identifier">cpp_if_constexpr_20</span> <span class="special">]</span>
+</pre>
+<p>
+      Will result in a build error since there is no C++20 version bump for <code class="computeroutput"><span class="identifier">__cpp_if_constexpr</span></code>.
+    </p>
 <p>
       That's all there is to this handy feature, should at any time you be unsure
       of the feature-test names you can pass to the "requires" rule, then
