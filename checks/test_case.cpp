@@ -1,4 +1,4 @@
-//  This file was automatically generated on Fri Aug 23 11:11:12 2019
+//  This file was automatically generated on Mon Dec 09 09:47:38 2019
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -964,6 +964,11 @@
 #ifdef TEST_BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX
 #  ifdef BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX
 #     error "Defect macro BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX11_UNION_STATIC_DATA
+#  ifdef BOOST_NO_CXX11_UNION_STATIC_DATA
+#     error "Defect macro BOOST_NO_CXX11_UNION_STATIC_DATA is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_FUNCTION_SCOPE_USING_DECLARATION_BREAKS_ADL
