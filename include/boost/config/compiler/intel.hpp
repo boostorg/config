@@ -505,9 +505,9 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #  undef BOOST_NO_CXX11_FINAL
 #endif
 
-// BOOST_NO_CXX11_UNION_STATIC_DATA
+// BOOST_NO_CXX11_UNRESTRICTED_UNION
 #if (BOOST_INTEL_CXX_VERSION >= 1400) && (!defined(BOOST_INTEL_GCC_VERSION) || (BOOST_INTEL_GCC_VERSION >= 50100)) && (!defined(_MSC_VER))
-#  undef BOOST_NO_CXX11_UNION_STATIC_DATA
+#  undef BOOST_NO_CXX11_UNRESTRICTED_UNION
 #endif
 
 #endif // defined(BOOST_INTEL_STDCXX0X)

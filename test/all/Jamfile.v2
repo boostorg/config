@@ -595,9 +595,9 @@ test-suite "BOOST_NO_CXX11_UNICODE_LITERALS" :
 test-suite "BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX" : 
 [ run ../no_unified_init_pass.cpp ]
 [ compile-fail ../no_unified_init_fail.cpp ] ;
-test-suite "BOOST_NO_CXX11_UNION_STATIC_DATA" : 
-[ run ../no_union_static_data_pass.cpp ]
-[ compile-fail ../no_union_static_data_fail.cpp ] ;
+test-suite "BOOST_NO_CXX11_UNRESTRICTED_UNION" : 
+[ run ../no_cxx11_unrestricted_union_pass.cpp ]
+[ compile-fail ../no_cxx11_unrestricted_union_fail.cpp ] ;
 test-suite "BOOST_FUNCTION_SCOPE_USING_DECLARATION_BREAKS_ADL" : 
 [ run ../no_using_breaks_adl_pass.cpp ]
 [ compile-fail ../no_using_breaks_adl_fail.cpp ] ;

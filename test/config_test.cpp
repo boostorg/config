@@ -792,10 +792,10 @@ namespace boost_no_cxx11_unicode_literals = empty_boost;
 #else
 namespace boost_no_cxx11_unified_initialization_syntax = empty_boost;
 #endif
-#ifndef BOOST_NO_CXX11_UNION_STATIC_DATA
-#include "boost_no_union_static_data.ipp"
+#ifndef BOOST_NO_CXX11_UNRESTRICTED_UNION
+#include "boost_no_cxx11_unrestricted_union.ipp"
 #else
-namespace boost_no_cxx11_union_static_data = empty_boost;
+namespace boost_no_cxx11_unrestricted_union = empty_boost;
 #endif
 #ifndef BOOST_FUNCTION_SCOPE_USING_DECLARATION_BREAKS_ADL
 #include "boost_no_using_breaks_adl.ipp"
@@ -1976,9 +1976,9 @@ int main( int, char *[] )
       std::cerr << "Failed test for BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
-   if(0 != boost_no_cxx11_union_static_data::test())
+   if(0 != boost_no_cxx11_unrestricted_union::test())
    {
-      std::cerr << "Failed test for BOOST_NO_CXX11_UNION_STATIC_DATA at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      std::cerr << "Failed test for BOOST_NO_CXX11_UNRESTRICTED_UNION at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_function_scope_using_declaration_breaks_adl::test())

@@ -201,7 +201,7 @@ obj typeid : test_case.cpp : <define>TEST_BOOST_NO_TYPEID ;
 obj typename_with_ctor : test_case.cpp : <define>TEST_BOOST_NO_TYPENAME_WITH_CTOR ;
 obj cxx11_unicode_literals : test_case.cpp : <define>TEST_BOOST_NO_CXX11_UNICODE_LITERALS ;
 obj cxx11_unified_initialization_syntax : test_case.cpp : <define>TEST_BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX ;
-obj cxx11_union_static_data : test_case.cpp : <define>TEST_BOOST_NO_CXX11_UNION_STATIC_DATA ;
+obj cxx11_unrestricted_union : test_case.cpp : <define>TEST_BOOST_NO_CXX11_UNRESTRICTED_UNION ;
 obj boost_function_scope_using_declaration_breaks_adl : test_case.cpp : <define>TEST_BOOST_FUNCTION_SCOPE_USING_DECLARATION_BREAKS_ADL ;
 obj using_declaration_overloads_from_typename_base : test_case.cpp : <define>TEST_BOOST_NO_USING_DECLARATION_OVERLOADS_FROM_TYPENAME_BASE ;
 obj using_template : test_case.cpp : <define>TEST_BOOST_NO_USING_TEMPLATE ;

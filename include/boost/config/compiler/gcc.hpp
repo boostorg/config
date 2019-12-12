@@ -270,7 +270,7 @@
 // C++0x features in 5.1 and later
 //
 #if (BOOST_GCC_VERSION < 50100) || !defined(BOOST_GCC_CXX11)
-#  define BOOST_NO_CXX11_UNION_STATIC_DATA
+#  define BOOST_NO_CXX11_UNRESTRICTED_UNION
 #endif
 
 // C++14 features in 4.9.0 and later

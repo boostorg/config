@@ -89,7 +89,7 @@
 #  define BOOST_NO_CXX11_REF_QUALIFIERS
 #  define BOOST_NO_CXX11_FINAL
 #  define BOOST_NO_CXX11_THREAD_LOCAL
-#  define BOOST_NO_CXX11_UNION_STATIC_DATA
+#  define BOOST_NO_CXX11_UNRESTRICTED_UNION
 
 // C++ 14:
 #if !defined(__cpp_aggregate_nsdmi) || (__cpp_aggregate_nsdmi < 201304)

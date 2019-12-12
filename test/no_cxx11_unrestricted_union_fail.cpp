@@ -10,10 +10,10 @@
 //
 
 
-// Test file for macro BOOST_NO_CXX11_UNION_STATIC_DATA
-// This file should compile, if it does not then
-// BOOST_NO_CXX11_UNION_STATIC_DATA should be defined.
-// See file boost_no_union_static_data.ipp for details
+// Test file for macro BOOST_NO_CXX11_UNRESTRICTED_UNION
+// This file should not compile, if it does then
+// BOOST_NO_CXX11_UNRESTRICTED_UNION should not be defined.
+// See file boost_no_cxx11_unrestricted_union.ipp for details
 
 // Must not have BOOST_ASSERT_CONFIG set; it defeats
 // the objective of this file:
@@ -24,14 +24,14 @@
 #include <boost/config.hpp>
 #include "test.hpp"
 
-#ifndef BOOST_NO_CXX11_UNION_STATIC_DATA
-#include "boost_no_union_static_data.ipp"
+#ifdef BOOST_NO_CXX11_UNRESTRICTED_UNION
+#include "boost_no_cxx11_unrestricted_union.ipp"
 #else
-namespace boost_no_cxx11_union_static_data = empty_boost;
+#error "this file should not compile"
 #endif
 
 int main( int, char *[] )
 {
-   return boost_no_cxx11_union_static_data::test();
+   return boost_no_cxx11_unrestricted_union::test();
 }
 
