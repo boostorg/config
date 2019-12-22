@@ -9,13 +9,27 @@
 #
 # IT IS HIGHLY LIKELY THAT THIS FILE WILL CHANGE WITHOUT NOTICE!!!
 #
-# DO NOT REPLY ON THE CONTENTS OF THIS FILE!!!
+# DO NOT RELY ON THE CONTENTS OF THIS FILE!!!
 #
 
-cmake_minimum_required(VERSION 3.5)
-project(BoostConfig LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.5...3.16)
+project(boost_config VERSION "${BOOST_SUPERPROJECT_VERSION}" LANGUAGES CXX)
 
 add_library(boost_config INTERFACE)
 add_library(Boost::config ALIAS boost_config)
 
-target_include_directories(boost_config INTERFACE include)
+set_property(TARGET boost_config PROPERTY EXPORT_NAME config)
+
+target_include_directories(boost_config
+    INTERFACE
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+)
+
+include(BoostInstall OPTIONAL RESULT_VARIABLE HAVE_BOOST_INSTALL)
+
+if(HAVE_BOOST_INSTALL)
+
+    boost_install(boost_config)
+
+endif()
