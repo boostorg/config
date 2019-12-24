@@ -1,4 +1,4 @@
-//  This file was automatically generated on Fri Aug 23 11:11:12 2019
+//  This file was automatically generated on Mon Dec 09 09:47:37 2019
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -791,6 +791,11 @@ namespace boost_no_cxx11_unicode_literals = empty_boost;
 #include "boost_no_unified_init.ipp"
 #else
 namespace boost_no_cxx11_unified_initialization_syntax = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX11_UNRESTRICTED_UNION
+#include "boost_no_cxx11_unrestricted_union.ipp"
+#else
+namespace boost_no_cxx11_unrestricted_union = empty_boost;
 #endif
 #ifndef BOOST_FUNCTION_SCOPE_USING_DECLARATION_BREAKS_ADL
 #include "boost_no_using_breaks_adl.ipp"
@@ -1969,6 +1974,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx11_unified_initialization_syntax::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx11_unrestricted_union::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX11_UNRESTRICTED_UNION at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_function_scope_using_declaration_breaks_adl::test())
