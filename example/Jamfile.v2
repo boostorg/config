@@ -6,15 +6,6 @@
 # bring in the rules for testing
 import testing ;
 
-test-suite static_assert :
-#	[ run static_assert_example_1.cpp ]
-	[ run static_assert_example_2.cpp ]
-	[ run static_assert_example_3.cpp ]
-;
-
-
-
-
-
-
-
+#run static_assert_example_1.cpp ;
+run static_assert_example_2.cpp ;
+run static_assert_example_3.cpp ;
