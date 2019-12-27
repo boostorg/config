@@ -13,7 +13,9 @@
 # DO NOT RELY ON THE CONTENTS OF THIS FILE!!!
 #
 
+# We support CMake 3.5, but prefer 3.16 policies and behavior
 cmake_minimum_required(VERSION 3.5...3.16)
+
 project(boost_config VERSION "${BOOST_SUPERPROJECT_VERSION}" LANGUAGES CXX)
 
 add_library(boost_config INTERFACE)
@@ -21,10 +23,12 @@ add_library(Boost::config ALIAS boost_config)
 
 target_include_directories(boost_config INTERFACE include)
 
-include(BoostInstall OPTIONAL RESULT_VARIABLE HAVE_BOOST_INSTALL)
+# boost_install requires PROJECT_VERSION
+# Without the superproject, we don't have any, so skip installation
 
-if(HAVE_BOOST_INSTALL)
+if(BOOST_SUPERPROJECT_VERSION)
 
-    boost_install(TARGETS boost_config HEADER_DIRECTORY include/)
+  include(BoostInstall)
+  boost_install(TARGETS boost_config HEADER_DIRECTORY include/)
 
 endif()
