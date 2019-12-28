@@ -1,4 +1,5 @@
 # Copyright 2018 Mike Dev
+# Copyright 2019 Peter Dimov
 # Distributed under the Boost Software License, Version 1.0.
 # See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt
 #
@@ -12,26 +13,22 @@
 # DO NOT RELY ON THE CONTENTS OF THIS FILE!!!
 #
 
+# We support CMake 3.5, but prefer 3.16 policies and behavior
 cmake_minimum_required(VERSION 3.5...3.16)
+
 project(boost_config VERSION "${BOOST_SUPERPROJECT_VERSION}" LANGUAGES CXX)
 
 add_library(boost_config INTERFACE)
 add_library(Boost::config ALIAS boost_config)
 
-set_property(TARGET boost_config PROPERTY EXPORT_NAME config)
+target_include_directories(boost_config INTERFACE include)
 
-target_include_directories(boost_config
-    INTERFACE
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:include>
-)
+# boost_install requires PROJECT_VERSION
+# Without the superproject, we don't have any, so skip installation
 
-include(BoostInstall OPTIONAL RESULT_VARIABLE HAVE_BOOST_INSTALL)
+if(BOOST_SUPERPROJECT_VERSION)
 
-if(HAVE_BOOST_INSTALL)
-
-    install(DIRECTORY include/ DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
-
-    boost_install(boost_config)
+  include(BoostInstall)
+  boost_install(TARGETS boost_config HEADER_DIRECTORY include/)
 
 endif()
