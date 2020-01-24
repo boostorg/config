@@ -528,12 +528,6 @@ namespace boost {
 #  define BOOST_APPEND_EXPLICIT_TEMPLATE_NON_TYPE(t, v)
 #  define BOOST_APPEND_EXPLICIT_TEMPLATE_NON_TYPE_SPEC(t, v)
 
-// When BOOST_NO_STD_TYPEINFO is defined, we can just import
-// the global definition into std namespace:
-#if defined(BOOST_NO_STD_TYPEINFO) && defined(__cplusplus)
-#include <typeinfo>
-namespace std{ using ::type_info; }
-#endif
 
 // ---------------------------------------------------------------------------//
 
