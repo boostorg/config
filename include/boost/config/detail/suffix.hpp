@@ -1011,6 +1011,8 @@ namespace std{ using ::type_info; }
 #  define BOOST_IF_CONSTEXPR if
 #endif
 
+#define BOOST_INLINE_CONSTEXPR  BOOST_INLINE_VARIABLE BOOST_CONSTEXPR_OR_CONST
+
 //
 // Unused variable/typedef workarounds:
 //

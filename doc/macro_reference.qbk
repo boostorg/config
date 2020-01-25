@@ -979,6 +979,7 @@ provide compliant C++17 support.
 [[Macro ][ Description ]]
 [[`BOOST_INLINE_VARIABLE`][This macro expands to `inline` on compilers that support C++17 inline variables and to nothing otherwise. Users may need to check for `BOOST_NO_CXX17_INLINE_VARIABLES` for further adjustments to the code.]]
 [[`BOOST_IF_CONSTEXPR`][Expands to `if constexpr` when supported, or `if` otherwise.]]
+[[`BOOST_INLINE_CONSTEXPR`][This is a shortcut for `BOOST_INLINE_VARIABLE BOOST_CONSTEXPR_OR_CONST`.]]
 ]
 
 [endsect]
