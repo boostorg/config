@@ -51,6 +51,12 @@ struct no_unique
    BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS empty b;
 };
 
+template <bool b>
+struct trait
+{
+   enum { value = b };
+};
+
 
 int main()
 {
@@ -66,6 +72,11 @@ int main()
          always_throw();
       nodiscard_struct s;
       no_unique no_un;
+
+      BOOST_IF_CONSTEXPR(trait<true>::value)
+      {
+         result += 2;
+      }
    }
    catch(int)
    {

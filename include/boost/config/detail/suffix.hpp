@@ -1002,6 +1002,14 @@ namespace std{ using ::type_info; }
 #else
 #define BOOST_INLINE_VARIABLE
 #endif
+//
+// C++17 if constexpr
+//
+#if !defined(BOOST_NO_CXX17_IF_CONSTEXPR)
+#  define BOOST_IF_CONSTEXPR if constexpr
+#else
+#  define BOOST_IF_CONSTEXPR if
+#endif
 
 #define BOOST_INLINE_CONSTEXPR  BOOST_INLINE_VARIABLE BOOST_CONSTEXPR_OR_CONST
 
