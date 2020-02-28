@@ -1406,6 +1406,11 @@ library in use. Mainly for debugging the configuration.
 Defined as a string describing the name of the platform. Mainly for debugging
 the configuration.
 ]]
+[[`BOOST_LIBSTDCXX_VERSION`][`<boost/config.hpp>`][
+Defined if the libstdc++ standard library is in use.
+Has the value of normalised 5 digit integer of the form VVMMM where
+VV is the major version number, MM is the minor version number.
+]]
 ]
 
 [endsect]
