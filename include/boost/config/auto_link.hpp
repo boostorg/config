@@ -415,7 +415,12 @@ BOOST_LIB_VERSION:    The Boost version, in the form x_y, for Boost version x.y.
       && defined(BOOST_LIB_ARCH_AND_MODEL_OPT) \
       && defined(BOOST_LIB_VERSION)
 
-#ifdef BOOST_AUTO_LINK_TAGGED
+#ifdef BOOST_AUTO_LINK_NOMANGLE
+#  pragma comment(lib, BOOST_STRINGIZE(BOOST_LIB_NAME) ".lib")
+#  ifdef BOOST_LIB_DIAGNOSTIC
+#     pragma message ("Linking to lib file: " BOOST_STRINGIZE(BOOST_LIB_NAME) ".lib")
+#  endif
+#elif defined(BOOST_AUTO_LINK_TAGGED)
 #  pragma comment(lib, BOOST_LIB_PREFIX BOOST_STRINGIZE(BOOST_LIB_NAME) BOOST_LIB_THREAD_OPT BOOST_LIB_RT_OPT BOOST_LIB_ARCH_AND_MODEL_OPT ".lib")
 #  ifdef BOOST_LIB_DIAGNOSTIC
 #     pragma message ("Linking to lib file: " BOOST_LIB_PREFIX BOOST_STRINGIZE(BOOST_LIB_NAME) BOOST_LIB_THREAD_OPT BOOST_LIB_RT_OPT BOOST_LIB_ARCH_AND_MODEL_OPT ".lib")
@@ -424,11 +429,6 @@ BOOST_LIB_VERSION:    The Boost version, in the form x_y, for Boost version x.y.
 #  pragma comment(lib, BOOST_LIB_PREFIX BOOST_STRINGIZE(BOOST_LIB_NAME) ".lib")
 #  ifdef BOOST_LIB_DIAGNOSTIC
 #     pragma message ("Linking to lib file: " BOOST_LIB_PREFIX BOOST_STRINGIZE(BOOST_LIB_NAME) ".lib")
-#  endif
-#elif defined(BOOST_AUTO_LINK_NOMANGLE)
-#  pragma comment(lib, BOOST_STRINGIZE(BOOST_LIB_NAME) ".lib")
-#  ifdef BOOST_LIB_DIAGNOSTIC
-#     pragma message ("Linking to lib file: " BOOST_STRINGIZE(BOOST_LIB_NAME) ".lib")
 #  endif
 #elif defined(BOOST_LIB_BUILDID)
 #  pragma comment(lib, BOOST_LIB_PREFIX BOOST_STRINGIZE(BOOST_LIB_NAME) "-" BOOST_LIB_TOOLSET BOOST_LIB_THREAD_OPT BOOST_LIB_RT_OPT BOOST_LIB_ARCH_AND_MODEL_OPT "-" BOOST_LIB_VERSION "-" BOOST_STRINGIZE(BOOST_LIB_BUILDID) ".lib")
