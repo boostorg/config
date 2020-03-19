@@ -333,4 +333,5 @@
 // (Niels Dekker, LKEB, April 2010)
 #define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
 
-#define BOOST_COMPILER "Borland C++ version " BOOST_STRINGIZE(__BORLANDC__)
+#define BOOST_BORLANDC __BORLANDC__
+#define BOOST_COMPILER "Classic Borland C++ version " BOOST_STRINGIZE(__BORLANDC__)

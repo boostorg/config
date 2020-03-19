@@ -9,6 +9,137 @@
 
 //  CodeGear C++ compiler setup:
 
+#ifdef __clang__ // Clang enhanced Windows compiler
+
+#  include "clang.hpp"
+#  define BOOST_NO_CXX11_THREAD_LOCAL
+#  define BOOST_NO_CXX11_ATOMIC_SMART_PTR
+
+#  ifndef __MT__  /* If compiling in single-threaded mode, assume there is no CXX11_HDR_ATOMIC */
+#    define BOOST_NO_CXX11_HDR_ATOMIC
+#  endif
+
+#define BOOST_NO_FENV_H  /* temporarily disable this until we can link against fegetround fesetround feholdexcept */
+
+/*
+
+// On non-Win32 platforms let the platform config figure this out:
+#ifdef _WIN32
+#  define BOOST_HAS_STDINT_H
+#endif
+
+//
+// __int64:
+//
+#if !defined(__STRICT_ANSI__)
+#  define BOOST_HAS_MS_INT64
+#endif
+//
+// check for exception handling support:
+//
+#if !defined(_CPPUNWIND) && !defined(BOOST_CPPUNWIND) && !defined(__EXCEPTIONS) && !defined(BOOST_NO_EXCEPTIONS)
+#  define BOOST_NO_EXCEPTIONS
+#endif
+//
+// all versions have a <dirent.h>:
+//
+#if !defined(__STRICT_ANSI__)
+#  define BOOST_HAS_DIRENT_H
+#endif
+//
+// Disable Win32 support in ANSI mode:
+//
+#  pragma defineonoption BOOST_DISABLE_WIN32 -A
+//
+// MSVC compatibility mode does some nasty things:
+// TODO: look up if this doesn't apply to the whole 12xx range
+//
+#if defined(_MSC_VER) && (_MSC_VER <= 1200)
+#  define BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
+#  define BOOST_NO_VOID_RETURNS
+#endif
+//
+
+*/
+
+// Specific settings for Embarcadero drivers
+#  define BOOST_EMBTC          __CODEGEARC__
+#  define BOOST_EMBTC_FULL_VER ((__clang_major__      << 16) | \
+                                (__clang_minor__      <<  8) | \
+                                 __clang_patchlevel__         )
+
+// Detecting which Embarcadero driver is being used
+#if defined(BOOST_EMBTC)
+#  if defined(_WIN64)
+#    define BOOST_EMBTC_WIN64
+#    define BOOST_EMBTC_WINDOWS
+#    ifndef BOOST_USE_WINDOWS_H
+#      define BOOST_USE_WINDOWS_H
+#    endif
+#  elif defined(_WIN32)
+#    define BOOST_EMBTC_WIN32C
+#    define BOOST_EMBTC_WINDOWS
+#    ifndef BOOST_USE_WINDOWS_H
+#      define BOOST_USE_WINDOWS_H
+#    endif
+#  elif defined(__APPLE__) && defined(__arm__)
+#    define BOOST_EMBTC_IOSARM
+#    define BOOST_EMBTC_IOS
+#  elif defined(__APPLE__) && defined(__aarch64__)
+#    define BOOST_EMBTC_IOSARM64
+#    define BOOST_EMBTC_IOS
+#  elif defined(__ANDROID__) && defined(__arm__)
+#    define BOOST_EMBTC_AARM
+#    define BOOST_EMBTC_ANDROID
+#  elif
+#    if defined(BOOST_ASSERT_CONFIG)
+#       error "Unknown Embarcadero driver"
+#    else
+#       warning "Unknown Embarcadero driver"
+#    endif /* defined(BOOST_ASSERT_CONFIG) */
+#  endif
+#endif /* defined(BOOST_EMBTC) */
+
+#if defined(BOOST_EMBTC_WINDOWS)
+   // About TR1 headers and features:
+   // BOOST_HAS_TR1_*-style definitions are placed in "boost\tr1\detail\config.hpp",
+   // because there, they will always be found, but here, they may be not check.
+
+   //   // This is needed to allow 64-bit integers in cstdint.hpp
+   //#  define BOOST_HAS_MS_INT64
+
+   //#  define BOOST_HAS_RVALUE_REFS
+
+   //   // Boost.Fusion should not use its preprocessed templates,
+   //   // due to we can use its variadic cpp11 templates. If that
+   //   // macro is not defined it tries to use both at the same time
+   //   // giving a redefinition error.
+   //#  define BOOST_FUSION_DONT_USE_PREPROCESSED_FILES
+
+   //   // Bcc64 don't have this <fenv.h> header
+   //#  define BOOST_NO_FENV_H
+
+   //   // This is not necessary with the last versions of bcc64
+   //#  if !defined(__FUNC__)
+   //#    define __FUNC__ __func__
+   //#  endif
+
+   // FVTODO: This was uncommended with 1_55 - prolly worth testing this by uncommenting it.
+   // Dinkumware on Win32 and Win64 platforms has <cstdint>
+   // #  define BOOST_HAS_STDINT_H
+#endif /* BOOST_EMBTC_WINDOWS */
+
+#  undef BOOST_COMPILER
+#  define BOOST_COMPILER "Embarcadero-Clang C++ version " BOOST_STRINGIZE(__CODEGEARC__) " clang: " __clang_version__
+// #  define __CODEGEARC_CLANG__ __CODEGEARC__
+// #  define __EMBARCADERO_CLANG__ __CODEGEARC__
+// #  define __BORLANDC_CLANG__ __BORLANDC__
+
+#else // #if !defined(__clang__)
+
+# define BOOST_CODEGEARC  __CODEGEARC__
+# define BOOST_BORLANDC   __BORLANDC__
+
 #if !defined( BOOST_WITH_CODEGEAR_WARNINGS )
 // these warnings occur frequently in optimized template code
 # pragma warn -8004 // var assigned value, but never used
@@ -238,3 +369,4 @@
 
 #define BOOST_COMPILER "CodeGear C++ version " BOOST_STRINGIZE(__CODEGEARC__)
 
+#endif // #if !defined(__clang__)
