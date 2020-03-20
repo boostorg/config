@@ -17,7 +17,7 @@
 #endif
 
 // last known compiler version:
-#if (__BORLANDC__ > 0x613)
+#if (__BORLANDC__ > 0x740)
 //#  if defined(BOOST_ASSERT_CONFIG)
 #     error "boost: Unknown compiler version - please run the configure tests and report the results"
 //#  else

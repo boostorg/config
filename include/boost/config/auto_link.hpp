@@ -485,7 +485,7 @@ BOOST_LIB_SUFFIX:     Static/import libraries extension (".lib", ".a") for the c
 #endif
 
 
-#endif // _MSC_VER || __BORLANDC__
+#endif // _MSC_VER || BOOST_BORLANDC
 
 //
 // finally undef any macros we may have set:

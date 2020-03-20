@@ -20,6 +20,7 @@
 #  endif
 
 #define BOOST_NO_FENV_H  /* temporarily disable this until we can link against fegetround fesetround feholdexcept */
+#define BOOST_NO_CXX11_HDR_EXCEPTION /* Reported this bug to Embarcadero with the latest C++ Builder Rio release */
 
 /*
 
@@ -33,12 +34,6 @@
 //
 #if !defined(__STRICT_ANSI__)
 #  define BOOST_HAS_MS_INT64
-#endif
-//
-// check for exception handling support:
-//
-#if !defined(_CPPUNWIND) && !defined(BOOST_CPPUNWIND) && !defined(__EXCEPTIONS) && !defined(BOOST_NO_EXCEPTIONS)
-#  define BOOST_NO_EXCEPTIONS
 #endif
 //
 // all versions have a <dirent.h>:
@@ -151,7 +146,7 @@
 //
 // versions check:
 // last known and checked version is 0x621
-#if (__CODEGEARC__ > 0x621)
+#if (__CODEGEARC__ > 0x740)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "boost: Unknown compiler version - please run the configure tests and report the results"
 #  else
@@ -209,6 +204,8 @@
 #  define BOOST_HAS_PRAGMA_ONCE
 #endif
 
+#define BOOST_NO_FENV_H
+
 //
 // C++0x macros:
 //
@@ -255,6 +252,7 @@
 #define BOOST_NO_CXX11_REF_QUALIFIERS
 #define BOOST_NO_CXX11_FINAL
 #define BOOST_NO_CXX11_THREAD_LOCAL
+#define BOOST_NO_CXX11_DECLTYPE_N3276
 #define BOOST_NO_CXX11_UNRESTRICTED_UNION
 
 // C++ 14:
