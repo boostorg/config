@@ -22,6 +22,13 @@
 #define BOOST_NO_FENV_H  /* temporarily disable this until we can link against fegetround fesetround feholdexcept */
 #define BOOST_NO_CXX11_HDR_EXCEPTION /* Reported this bug to Embarcadero with the latest C++ Builder Rio release */
 
+//
+// check for exception handling support:
+//
+#if !defined(_CPPUNWIND) && !defined(__EXCEPTIONS) && !defined(BOOST_NO_EXCEPTIONS)
+#  define BOOST_NO_EXCEPTIONS
+#endif
+
 /*
 
 // On non-Win32 platforms let the platform config figure this out:

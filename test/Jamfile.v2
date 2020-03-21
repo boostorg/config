@@ -92,6 +92,7 @@ test-suite config
           : #input-files
           : #requirements
           <runtime-link>shared
+          <threading>single
           <define>BOOST_DYN_LINK=1
           <define>BOOST_CONFIG_NO_LIB=1
           <target-os>vxworks:<link>shared  
