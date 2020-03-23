@@ -160,7 +160,7 @@ not require, follow the convention for adding a new defect macro (above), but
 call the macro `BOOST_HAS_FOO`, and name the test file "`boost_has_foo.ipp`".
 Try not to add feature test macros unnecessarily, if there is a platform
 specific macro that can already be used (for example `_WIN32`, `__BEOS__`, or
-`__linux`) to identify the feature then use that. Try to keep the macro to a
+`__linux__`) to identify the feature then use that. Try to keep the macro to a
 feature group, or header name, rather than one specific API (for example
 `BOOST_HAS_NL_TYPES_H` rather than `BOOST_HAS_CATOPEN`). If the macro
 describes a POSIX feature group, then add boilerplate code to

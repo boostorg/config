@@ -3252,6 +3252,20 @@
 <tr>
 <td>
                 <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_UNRESTRICTED_UNION</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support an unrestricted union. This is a
+                  union that may contain static data as well as user-defined member
+                  data with non-trivial special member functions.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_USER_DEFINED_LITERALS</span></code>
                 </p>
               </td>
@@ -3977,7 +3991,8 @@
                 </p>
               </th>
 </tr></thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>
                 <p>
                   <code class="computeroutput"><span class="identifier">BOOST_INLINE_VARIABLE</span></code>
@@ -3991,7 +4006,35 @@
                   for further adjustments to the code.
                 </p>
               </td>
-</tr></tbody>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_IF_CONSTEXPR</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Expands to <code class="computeroutput"><span class="keyword">if</span> <span class="keyword">constexpr</span></code>
+                  when supported, or <code class="computeroutput"><span class="keyword">if</span></code>
+                  otherwise.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_INLINE_CONSTEXPR</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  This is a shortcut for <code class="computeroutput"><span class="identifier">BOOST_INLINE_VARIABLE</span>
+                  <span class="identifier">BOOST_CONSTEXPR_OR_CONST</span></code>.
+                </p>
+              </td>
+</tr>
+</tbody>
 </table></div>
 </div>
 <div class="section">

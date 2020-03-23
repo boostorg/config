@@ -89,6 +89,15 @@ matrix:
             - ubuntu-toolchain-r-test
 
     - os: linux
+      env: TOOLSET=gcc COMPILER=g++-5 CXXSTD=03,11,14,1z CXXSTD_DIALECT=cxxstd-dialect=gnu
+      addons:
+        apt:
+          packages:
+            - g++-5
+          sources:
+            - ubuntu-toolchain-r-test
+
+    - os: linux
       env: TOOLSET=gcc COMPILER=g++-6 CXXSTD=03,11,14,1z
       addons:
         apt:

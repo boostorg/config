@@ -728,6 +728,10 @@ Unicode (`u8`, `u`, `U`) literals.
 [[`BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX`][The compiler does not support
 the [@http://en.wikipedia.org/wiki/C%2B%2B0x#Uniform_initialization C++11 Unified Initialization Syntax].
 ]]
+[[`BOOST_NO_CXX11_UNRESTRICTED_UNION`][The compiler does not support an unrestricted union. This is
+a union that may contain static data as well as user-defined member data with non-trivial special
+member functions.
+]]
 [[`BOOST_NO_CXX11_USER_DEFINED_LITERALS`][The compiler does not support user defined literals. 
 ]]
 [[`BOOST_NO_CXX11_VARIADIC_TEMPLATES`][The compiler does not support
@@ -974,6 +978,8 @@ provide compliant C++17 support.
 [table
 [[Macro ][ Description ]]
 [[`BOOST_INLINE_VARIABLE`][This macro expands to `inline` on compilers that support C++17 inline variables and to nothing otherwise. Users may need to check for `BOOST_NO_CXX17_INLINE_VARIABLES` for further adjustments to the code.]]
+[[`BOOST_IF_CONSTEXPR`][Expands to `if constexpr` when supported, or `if` otherwise.]]
+[[`BOOST_INLINE_CONSTEXPR`][This is a shortcut for `BOOST_INLINE_VARIABLE BOOST_CONSTEXPR_OR_CONST`.]]
 ]
 
 [endsect]
