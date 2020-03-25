@@ -436,6 +436,12 @@ BOOST_LIB_SUFFIX:     Static/import libraries extension (".lib", ".a") for the c
 #  define BOOST_LIB_PREFIX "lib"
 #endif
 
+#if defined(BOOST_EMBTC_WIN64)
+#  define BOOST_LIB_SUFFIX ".a"
+#else
+#  define BOOST_LIB_SUFFIX ".lib"
+#endif
+
 //
 // now include the lib:
 //
@@ -446,12 +452,6 @@ BOOST_LIB_SUFFIX:     Static/import libraries extension (".lib", ".a") for the c
       && defined(BOOST_LIB_RT_OPT) \
       && defined(BOOST_LIB_ARCH_AND_MODEL_OPT) \
       && defined(BOOST_LIB_VERSION)
-
-#if defined(BOOST_EMBTC_WIN64)
-#  define BOOST_LIB_SUFFIX ".a"
-#else
-#  define BOOST_LIB_SUFFIX ".lib"
-#endif
 
 #ifdef BOOST_AUTO_LINK_NOMANGLE
 #  pragma comment(lib, BOOST_STRINGIZE(BOOST_LIB_NAME) BOOST_LIB_SUFFIX)
