@@ -1,4 +1,4 @@
-//  (C) Copyright Andrey Semashev 2013
+//  (C) Copyright Andrey Semashev 2013, 2020
 
 //  Use, modification and distribution are subject to the
 //  Boost Software License, Version 1.0. (See accompanying file
@@ -12,6 +12,12 @@
 
 namespace boost_no_cxx11_alignas {
 
+template< unsigned int Alignment >
+struct alignment
+{
+    static const unsigned int value = Alignment;
+};
+
 struct alignas(16) my_data1
 {
     char data[10];
@@ -22,10 +28,17 @@ struct alignas(double) my_data2
     char data[16];
 };
 
+struct alignas(alignment< 16u >::value) my_data3
+{
+    char data[16];
+};
+
 my_data1 dummy1[2];
 my_data2 dummy2;
-alignas(16) char dummy3[10];
-alignas(double) char dummy4[32];
+my_data3 dummy3;
+alignas(16) char dummy4[10];
+alignas(double) char dummy5[32];
+alignas(alignment< 16u >::value) char dummy6[32];
 
 int test()
 {
