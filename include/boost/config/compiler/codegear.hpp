@@ -15,12 +15,21 @@
 #  define BOOST_NO_CXX11_THREAD_LOCAL
 #  define BOOST_NO_CXX11_ATOMIC_SMART_PTR
 
+// 32 functions are missing from the current RTL in cwchar, so it really can not be used even if it exists
+
+#  define BOOST_NO_CWCHAR
+
 #  ifndef __MT__  /* If compiling in single-threaded mode, assume there is no CXX11_HDR_ATOMIC */
 #    define BOOST_NO_CXX11_HDR_ATOMIC
 #  endif
 
-#define BOOST_NO_FENV_H  /* temporarily disable this until we can link against fegetround fesetround feholdexcept */
-#define BOOST_NO_CXX11_HDR_EXCEPTION /* Reported this bug to Embarcadero with the latest C++ Builder Rio release */
+/* temporarily disable this until we can link against fegetround fesetround feholdexcept */
+
+#define BOOST_NO_FENV_H
+
+/* Reported this bug to Embarcadero with the latest C++ Builder Rio release */
+
+#define BOOST_NO_CXX11_HDR_EXCEPTION
 
 //
 // check for exception handling support:
@@ -103,33 +112,28 @@
 #endif /* defined(BOOST_EMBTC) */
 
 #if defined(BOOST_EMBTC_WINDOWS)
-   // About TR1 headers and features:
-   // BOOST_HAS_TR1_*-style definitions are placed in "boost\tr1\detail\config.hpp",
-   // because there, they will always be found, but here, they may be not check.
 
-   //   // This is needed to allow 64-bit integers in cstdint.hpp
-   //#  define BOOST_HAS_MS_INT64
+/* The Windows SDK for Embarcadero has the deprecated 'chdir' function for _chdir
+   so make sure any call to _chdir becomes a call to chdir */
+   
+#  define _chdir chdir
 
-   //#  define BOOST_HAS_RVALUE_REFS
+/* Undefine the symbols and the Windows platform will automatically define them for us
+   as appropriate */
+   
+#if defined(BOOST_SYMBOL_EXPORT)
+#undef BOOST_SYMBOL_EXPORT
+#endif
 
-   //   // Boost.Fusion should not use its preprocessed templates,
-   //   // due to we can use its variadic cpp11 templates. If that
-   //   // macro is not defined it tries to use both at the same time
-   //   // giving a redefinition error.
-   //#  define BOOST_FUSION_DONT_USE_PREPROCESSED_FILES
+#if defined(BOOST_SYMBOL_IMPORT)
+#undef BOOST_SYMBOL_IMPORT
+#endif
 
-   //   // Bcc64 don't have this <fenv.h> header
-   //#  define BOOST_NO_FENV_H
+#if defined(BOOST_SYMBOL_VISIBLE)
+#undef BOOST_SYMBOL_VISIBLE
+#endif
 
-   //   // This is not necessary with the last versions of bcc64
-   //#  if !defined(__FUNC__)
-   //#    define __FUNC__ __func__
-   //#  endif
-
-   // FVTODO: This was uncommended with 1_55 - prolly worth testing this by uncommenting it.
-   // Dinkumware on Win32 and Win64 platforms has <cstdint>
-   // #  define BOOST_HAS_STDINT_H
-#endif /* BOOST_EMBTC_WINDOWS */
+#endif
 
 #  undef BOOST_COMPILER
 #  define BOOST_COMPILER "Embarcadero-Clang C++ version " BOOST_STRINGIZE(__CODEGEARC__) " clang: " __clang_version__
