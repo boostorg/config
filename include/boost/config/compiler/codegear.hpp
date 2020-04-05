@@ -9,6 +9,17 @@
 
 //  CodeGear C++ compiler setup:
 
+//
+// versions check:
+// last known and checked version is 0x740
+#if (__CODEGEARC__ > 0x740)
+#  if defined(BOOST_ASSERT_CONFIG)
+#     error "boost: Unknown compiler version - please run the configure tests and report the results"
+#  else
+#     pragma message( "boost: Unknown compiler version - please run the configure tests and report the results")
+#  endif
+#endif
+
 #ifdef __clang__ // Clang enhanced Windows compiler
 
 #  include "clang.hpp"
@@ -141,16 +152,6 @@
 # pragma warn -8066 // dead code can never execute
 # pragma warn -8104 // static members with ctors not threadsafe
 # pragma warn -8105 // reference member in class without ctors
-#endif
-//
-// versions check:
-// last known and checked version is 0x621
-#if (__CODEGEARC__ > 0x740)
-#  if defined(BOOST_ASSERT_CONFIG)
-#     error "boost: Unknown compiler version - please run the configure tests and report the results"
-#  else
-#     pragma message( "boost: Unknown compiler version - please run the configure tests and report the results")
-#  endif
 #endif
 
 // CodeGear C++ Builder 2009
