@@ -35,7 +35,7 @@
 #endif
 
 //
-// ensure that visibility macros are always defined, thus symplifying use
+// ensure that visibility macros are always defined, thus simplifying use
 //
 #ifndef BOOST_SYMBOL_EXPORT
 # define BOOST_SYMBOL_EXPORT

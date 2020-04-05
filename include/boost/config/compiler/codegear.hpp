@@ -111,30 +111,6 @@
 #  endif
 #endif /* defined(BOOST_EMBTC) */
 
-#if defined(BOOST_EMBTC_WINDOWS)
-
-/* The Windows SDK for Embarcadero has the deprecated 'chdir' function for _chdir
-   so make sure any call to _chdir becomes a call to chdir */
-   
-#  define _chdir chdir
-
-/* Undefine the symbols and the Windows platform will automatically define them for us
-   as appropriate */
-   
-#if defined(BOOST_SYMBOL_EXPORT)
-#undef BOOST_SYMBOL_EXPORT
-#endif
-
-#if defined(BOOST_SYMBOL_IMPORT)
-#undef BOOST_SYMBOL_IMPORT
-#endif
-
-#if defined(BOOST_SYMBOL_VISIBLE)
-#undef BOOST_SYMBOL_VISIBLE
-#endif
-
-#endif
-
 #  undef BOOST_COMPILER
 #  define BOOST_COMPILER "Embarcadero-Clang C++ version " BOOST_STRINGIZE(__CODEGEARC__) " clang: " __clang_version__
 // #  define __CODEGEARC_CLANG__ __CODEGEARC__
