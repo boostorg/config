@@ -111,6 +111,18 @@
 #  endif
 #endif /* defined(BOOST_EMBTC) */
 
+#if defined(BOOST_EMBTC_WINDOWS)
+
+#if !defined(_chdir)
+#define _chdir(x) chdir(x)
+#endif
+
+#if !defined(_dup2)
+#define _dup2(x,y) dup2(x,y)
+#endif
+
+#endif
+
 #  undef BOOST_COMPILER
 #  define BOOST_COMPILER "Embarcadero-Clang C++ version " BOOST_STRINGIZE(__CODEGEARC__) " clang: " __clang_version__
 // #  define __CODEGEARC_CLANG__ __CODEGEARC__
