@@ -421,6 +421,11 @@
 #     error "Defect macro BOOST_NO_CXX11_NUMERIC_LIMITS is defined."
 #  endif
 #endif
+#ifdef TEST_BOOST_NO_CXX11_OVERRIDE
+#  ifdef BOOST_NO_CXX11_OVERRIDE
+#     error "Defect macro BOOST_NO_CXX11_OVERRIDE is defined."
+#  endif
+#endif
 #ifdef TEST_BOOST_NO_CXX11_POINTER_TRAITS
 #  ifdef BOOST_NO_CXX11_POINTER_TRAITS
 #     error "Defect macro BOOST_NO_CXX11_POINTER_TRAITS is defined."

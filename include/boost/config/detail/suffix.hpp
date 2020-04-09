@@ -667,6 +667,12 @@ namespace std{ using ::type_info; }
 #  define BOOST_UNLIKELY(x) x
 #endif
 
+#if !defined(BOOST_NO_CXX11_OVERRIDE)
+#  define BOOST_OVERRIDE override
+#else
+#  define BOOST_OVERRIDE
+#endif
+
 // Type and data alignment specification
 //
 #if !defined(BOOST_ALIGNMENT)
