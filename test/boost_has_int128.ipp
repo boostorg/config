@@ -63,6 +63,9 @@ int test()
       fputs("Incorrect computation result.", stderr);
       return 1;
    }
+   
+   my_uint128_t i(2), j(1), k;
+   k = i / j;
 
    return 0;
 }
