@@ -31,6 +31,9 @@
 #if defined(BOOST_HAS_INT128)
 #undef BOOST_HAS_INT128
 #endif
+#if defined(BOOST_HAS_FLOAT128)
+#undef BOOST_HAS_FLOAT128
+#endif
 
 // 32 functions are missing from the current RTL in cwchar, so it really can not be used even if it exists
 
