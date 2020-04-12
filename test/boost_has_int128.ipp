@@ -64,8 +64,8 @@ int test()
       return 1;
    }
    
-   my_uint128_t i(2), j(1), k;
-   k = i / j;
+   my_uint128_t ii(2), jj(1), kk;
+   kk = ii / jj;
 
    return 0;
 }
