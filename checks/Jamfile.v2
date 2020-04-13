@@ -93,6 +93,7 @@ obj cxx11_hdr_unordered_set : test_case.cpp : <define>TEST_BOOST_NO_CXX11_HDR_UN
 obj cxx11_inline_namespaces : test_case.cpp : <define>TEST_BOOST_NO_CXX11_INLINE_NAMESPACES ;
 obj cxx11_non_public_defaulted_functions : test_case.cpp : <define>TEST_BOOST_NO_CXX11_NON_PUBLIC_DEFAULTED_FUNCTIONS ;
 obj cxx11_numeric_limits : test_case.cpp : <define>TEST_BOOST_NO_CXX11_NUMERIC_LIMITS ;
+obj cxx11_override : test_case.cpp : <define>TEST_BOOST_NO_CXX11_OVERRIDE ;
 obj cxx11_pointer_traits : test_case.cpp : <define>TEST_BOOST_NO_CXX11_POINTER_TRAITS ;
 obj cxx11_ref_qualifiers : test_case.cpp : <define>TEST_BOOST_NO_CXX11_REF_QUALIFIERS ;
 obj cxx11_sfinae_expr : test_case.cpp : <define>TEST_BOOST_NO_CXX11_SFINAE_EXPR ;

@@ -110,6 +110,7 @@ test-suite config
     [ run helper_macros_test.cpp ]
     [ compile pragma_message_test.cpp ]
     [ compile header_deprecated_test.cpp ]
+    [ compile boost_override_test.cpp ]
   ;
 
 obj has_clang_implicit_fallthrough : cmd_line_check.cpp :
