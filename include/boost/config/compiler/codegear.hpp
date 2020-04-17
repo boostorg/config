@@ -35,6 +35,10 @@
 #undef BOOST_HAS_FLOAT128
 #endif
 
+// The clang-based compilers can not do 128 atomic exchanges
+
+#define BOOST_ATOMIC_NO_CMPXCHG16B
+
 // 32 functions are missing from the current RTL in cwchar, so it really can not be used even if it exists
 
 #  define BOOST_NO_CWCHAR
