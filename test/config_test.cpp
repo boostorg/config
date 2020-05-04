@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon Dec 09 09:47:37 2019
+//  This file was automatically generated on Thu Apr  9 14:27:07 2020
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -246,6 +246,11 @@ namespace boost_no_cxx11_non_public_defaulted_functions = empty_boost;
 #include "boost_no_cxx11_numeric_limits.ipp"
 #else
 namespace boost_no_cxx11_numeric_limits = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX11_OVERRIDE
+#include "boost_no_cxx11_override.ipp"
+#else
+namespace boost_no_cxx11_override = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX11_POINTER_TRAITS
 #include "boost_no_cxx11_pointer_traits.ipp"
@@ -1429,6 +1434,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx11_numeric_limits::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX11_NUMERIC_LIMITS at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx11_override::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX11_OVERRIDE at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx11_pointer_traits::test())

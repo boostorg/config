@@ -61,6 +61,7 @@ test-suite config
           : #requirements
           <rtti>off
           <toolset>gcc-4.4.7,<cxxstd>0x:<build>no # <memory> does not compile with -fno-rtti
+          <toolset>embarcadero:<build>no          # <memory> does not compile with -fno-rtti
           [ check-target-builds has_atomic_lib : <source>atomic ]
           [ check-target-builds has_pthread_lib : <source>pthread ]
           [ check-target-builds has_rt_lib : <source>rt ]
@@ -91,6 +92,7 @@ test-suite config
           : #input-files
           : #requirements
           <runtime-link>shared
+          <threading>single
           <define>BOOST_DYN_LINK=1
           <define>BOOST_CONFIG_NO_LIB=1
           <target-os>vxworks:<link>shared  
@@ -108,6 +110,7 @@ test-suite config
     [ run helper_macros_test.cpp ]
     [ compile pragma_message_test.cpp ]
     [ compile header_deprecated_test.cpp ]
+    [ compile boost_override_test.cpp ]
   ;
 
 obj has_clang_implicit_fallthrough : cmd_line_check.cpp :

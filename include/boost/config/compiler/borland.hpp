@@ -17,7 +17,7 @@
 #endif
 
 // last known compiler version:
-#if (__BORLANDC__ > 0x613)
+#if (__BORLANDC__ > 0x740)
 //#  if defined(BOOST_ASSERT_CONFIG)
 #     error "boost: Unknown compiler version - please run the configure tests and report the results"
 //#  else
@@ -198,6 +198,7 @@
 #define BOOST_NO_CXX11_INLINE_NAMESPACES
 #define BOOST_NO_CXX11_REF_QUALIFIERS
 #define BOOST_NO_CXX11_FINAL
+#define BOOST_NO_CXX11_OVERRIDE
 #define BOOST_NO_CXX11_THREAD_LOCAL
 #define BOOST_NO_CXX11_UNRESTRICTED_UNION
 
@@ -333,4 +334,5 @@
 // (Niels Dekker, LKEB, April 2010)
 #define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
 
-#define BOOST_COMPILER "Borland C++ version " BOOST_STRINGIZE(__BORLANDC__)
+#define BOOST_BORLANDC __BORLANDC__
+#define BOOST_COMPILER "Classic Borland C++ version " BOOST_STRINGIZE(__BORLANDC__)

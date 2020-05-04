@@ -12,7 +12,7 @@
 
 namespace boost_no_is_abstract{
 
-#if defined(__CODEGEARC__)
+#if defined(BOOST_CODEGEARC)
 template<class T>
 struct is_abstract_test
 {

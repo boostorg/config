@@ -22,6 +22,10 @@ int test()
    __float128 big_float = 0.0Q;
 #endif
    (void)&big_float;
+   
+   __float128 i(2.00), j(1.00), k;
+   k = i / j;
+   
    return 0;
 }
 

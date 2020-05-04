@@ -685,6 +685,8 @@ compilers implementing an early draft of the C++11 standard (in particular, inco
 [[`BOOST_NO_CXX11_NUMERIC_LIMITS`][The standard library `<limits>` header does
 not support the C++11 version of `numeric_limits`. 
 ]]
+[[`BOOST_NO_CXX11_OVERRIDE`][The compiler does not support `override`.
+]]
 [[`BOOST_NO_CXX11_POINTER_TRAITS`][The standard library does not provide a
 C++11 version of `std::pointer_traits` in <memory>.]]
 [[`BOOST_NO_CXX11_RANGE_BASED_FOR`][The compiler does not support
@@ -792,6 +794,10 @@ with:
 ``
   static BOOST_CONSTEXPR_OR_CONST UIntType xor_mask = a;
 ``
+]]
+[[`BOOST_OVERRIDE`][
+If `BOOST_NO_CXX11_OVERRIDE` is not defined (i.e. C++11 compliant compilers),
+expands to `override` keyword, otherwise expands to nothing.
 ]]
 [[`BOOST_STATIC_CONSTEXPR`][
 This is a shortcut for `static BOOST_CONSTEXPR_OR_CONST`. For example, when defining const expr variables replace:
@@ -1405,6 +1411,11 @@ library in use. Mainly for debugging the configuration.
 [[`BOOST_PLATFORM`][`<boost/config.hpp>`][
 Defined as a string describing the name of the platform. Mainly for debugging
 the configuration.
+]]
+[[`BOOST_LIBSTDCXX_VERSION`][`<boost/config.hpp>`][
+Defined if the libstdc++ standard library is in use.
+Has the value of normalised 5 digit integer of the form VVMMM where
+VV is the major version number, MM is the minor version number.
 ]]
 ]
 
