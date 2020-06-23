@@ -1389,6 +1389,18 @@ compiler version macro.
 [[`BOOST_CLANG`][`<boost/config.hpp>`][
 Defined to 1 if the compiler is the Clang compiler.
 ]]
+[[`BOOST_BORLANDC`][`<boost/config.hpp>`][
+Defined to the value of __BORLANDC__ if the compiler is the Embarcadero
+non-clang based compiler.
+]]
+[[`BOOST_CODEGEARC`][`<boost/config.hpp>`][
+Defined to the value of __CODEGEARC__ if the compiler is the Embarcadero
+non-clang based compiler.
+]]
+[[`BOOST_EMBTC`][`<boost/config.hpp>`][
+Defined to the value of __CODEGEARC__ if the compiler is the Embarcadero
+clang based compiler.
+]]
 [[`BOOST_WINDOWS`][`<boost/config.hpp>`][
 Defined if the Windows platform API is available.
 ]]

@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Boost Macro Reference</title>
 <link rel="stylesheet" href="../../../../../doc/src/boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
@@ -3048,6 +3048,18 @@
 <tr>
 <td>
                 <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_OVERRIDE</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support <code class="computeroutput"><span class="identifier">override</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_POINTER_TRAITS</span></code>
                 </p>
               </td>
@@ -3416,6 +3428,20 @@
 <pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">static</span> <span class="identifier">BOOST_CONSTEXPR_OR_CONST</span> <span class="identifier">UIntType</span> <span class="identifier">xor_mask</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>
 </pre>
 <p>
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_OVERRIDE</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  If <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_OVERRIDE</span></code>
+                  is not defined (i.e. C++11 compliant compilers), expands to <code class="computeroutput"><span class="identifier">override</span></code> keyword, otherwise expands
+                  to nothing.
                 </p>
               </td>
 </tr>
@@ -5007,6 +5033,60 @@
 <tr>
 <td>
                 <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_BORLANDC</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Defined to the value of __BORLANDC__ if the compiler is the Embarcadero
+                  non-clang based compiler.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_CODEGEARC</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Defined to the value of __CODEGEARC__ if the compiler is the Embarcadero
+                  non-clang based compiler.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_EMBTC</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Defined to the value of __CODEGEARC__ if the compiler is the Embarcadero
+                  clang based compiler.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <code class="computeroutput"><span class="identifier">BOOST_WINDOWS</span></code>
                 </p>
               </td>
@@ -5109,6 +5189,25 @@
                 <p>
                   Defined as a string describing the name of the platform. Mainly
                   for debugging the configuration.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_LIBSTDCXX_VERSION</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Defined if the libstdc++ standard library is in use. Has the value
+                  of normalised 5 digit integer of the form VVMMM where VV is the
+                  major version number, MM is the minor version number.
                 </p>
               </td>
 </tr>
@@ -6519,7 +6618,7 @@
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2001-2007 Beman Dawes, Vesa Karvonen, John
+<td align="right"><div class="copyright-footer">Copyright © 2001-2007 Beman Dawes, Vesa Karvonen, John
       Maddock<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)

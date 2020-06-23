@@ -106,26 +106,26 @@
 // Detecting which Embarcadero driver is being used
 #if defined(BOOST_EMBTC)
 #  if defined(_WIN64)
-#    define BOOST_EMBTC_WIN64
-#    define BOOST_EMBTC_WINDOWS
+#    define BOOST_EMBTC_WIN64 1
+#    define BOOST_EMBTC_WINDOWS 1
 #    ifndef BOOST_USE_WINDOWS_H
 #      define BOOST_USE_WINDOWS_H
 #    endif
 #  elif defined(_WIN32)
-#    define BOOST_EMBTC_WIN32C
-#    define BOOST_EMBTC_WINDOWS
+#    define BOOST_EMBTC_WIN32C 1
+#    define BOOST_EMBTC_WINDOWS 1
 #    ifndef BOOST_USE_WINDOWS_H
 #      define BOOST_USE_WINDOWS_H
 #    endif
 #  elif defined(__APPLE__) && defined(__arm__)
-#    define BOOST_EMBTC_IOSARM
-#    define BOOST_EMBTC_IOS
+#    define BOOST_EMBTC_IOSARM 1
+#    define BOOST_EMBTC_IOS 1
 #  elif defined(__APPLE__) && defined(__aarch64__)
-#    define BOOST_EMBTC_IOSARM64
-#    define BOOST_EMBTC_IOS
+#    define BOOST_EMBTC_IOSARM64 1
+#    define BOOST_EMBTC_IOS 1
 #  elif defined(__ANDROID__) && defined(__arm__)
-#    define BOOST_EMBTC_AARM
-#    define BOOST_EMBTC_ANDROID
+#    define BOOST_EMBTC_AARM 1
+#    define BOOST_EMBTC_ANDROID 1
 #  elif
 #    if defined(BOOST_ASSERT_CONFIG)
 #       error "Unknown Embarcadero driver"
