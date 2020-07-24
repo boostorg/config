@@ -376,3 +376,5 @@
 #if (BOOST_GCC_VERSION >= 40800)
 #  define BOOST_ATTRIBUTE_TARGET(isa) __attribute__ ((target(isa)))
 #endif
+
+#define BOOST_ATTRIBUTE_MALLOC_FUNCTION __attribute__ ((malloc))

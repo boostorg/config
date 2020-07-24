@@ -365,3 +365,8 @@
       // BOOST_PRAGMA_MESSAGE("Info: Boost.Config is older than your compiler version - probably nothing bad will happen - but you may wish to look for an updated Boost version. Define BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE to suppress this message.")
 #  endif
 #endif
+
+
+#if defined(_MSC_VER)
+#  define BOOST_ATTRIBUTE_MALLOC_FUNCTION __declspec(restrict)
+#endif
