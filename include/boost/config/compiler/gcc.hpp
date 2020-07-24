@@ -378,3 +378,4 @@
 #endif
 
 #define BOOST_ATTRIBUTE_MALLOC_FUNCTION __attribute__ ((malloc))
+

@@ -358,3 +358,4 @@
 #if defined(__clang__) && !defined(_MSC_VER)
 #  define BOOST_ATTRIBUTE_MALLOC_FUNCTION __attribute__ ((malloc))
 #endif
+
