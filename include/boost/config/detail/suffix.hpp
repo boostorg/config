@@ -1090,6 +1090,11 @@ namespace std{ using ::type_info; }
 #  define BOOST_NO_CXX17_HDR_OPTIONAL
 #  define BOOST_NO_CXX17_HDR_STRING_VIEW
 #  define BOOST_NO_CXX17_HDR_VARIANT
+#  define BOOST_NO_CXX17_HDR_ANY
+#  define BOOST_NO_CXX17_HDR_MEMORY_RESOURCE
+#  define BOOST_NO_CXX17_HDR_CHARCONV
+#  define BOOST_NO_CXX17_HDR_EXECUTION
+#  define BOOST_NO_CXX17_HDR_FILESYSTEM
 #else
 #if !__has_include(<optional>)
 #  define BOOST_NO_CXX17_HDR_OPTIONAL
@@ -1099,6 +1104,21 @@ namespace std{ using ::type_info; }
 #endif
 #if !__has_include(<variant>)
 #  define BOOST_NO_CXX17_HDR_VARIANT
+#endif
+#if !__has_include(<any>)
+#  define BOOST_NO_CXX17_HDR_ANY
+#endif
+#if !__has_include(<memory_resource>)
+#  define BOOST_NO_CXX17_HDR_MEMORY_RESOURCE
+#endif
+#if !__has_include(<charconv>)
+#  define BOOST_NO_CXX17_HDR_CHARCONV
+#endif
+#if !__has_include(<execution>)
+#  define BOOST_NO_CXX17_HDR_EXECUTION
+#endif
+#if !__has_include(<filesystem>)
+#  define BOOST_NO_CXX17_HDR_FILESYSTEM
 #endif
 #endif
 #endif
