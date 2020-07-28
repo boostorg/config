@@ -323,6 +323,13 @@ extern "C" char *gets (char *__s);
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
 #endif
 
+#if BOOST_LIBSTDCXX_VERSION < 100100
+//
+// The header may be present but is incomplete:
+//
+#  define BOOST_NO_CXX17_HDR_CHARCONV
+#endif
+
 //
 // Headers not present on Solaris with the Oracle compiler:
 #if defined(__SUNPRO_CC) && (__SUNPRO_CC < 0x5140)
