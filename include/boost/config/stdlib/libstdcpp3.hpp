@@ -324,8 +324,10 @@ extern "C" char *gets (char *__s);
 // unless these are installed seperately, including <execution> leads
 // to inscrutable errors inside libstdc++'s own headers.
 //
-#if !__has_include(<execution>) || (!__has_include(<tbb/blocked_range.h>) && !defined(_GLIBCXX_USE_TBB_PAR_BACKEND))
+#if (BOOST_LIBSTDCXX_VERSION < 100100)
+#if !__has_include(<tbb/tbb.h>)
 #define BOOST_NO_CXX17_HDR_EXECUTION
+#endif
 #endif
 #elif __cplusplus < 201402 || (BOOST_LIBSTDCXX_VERSION < 40900) || !defined(BOOST_LIBSTDCXX11)
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
