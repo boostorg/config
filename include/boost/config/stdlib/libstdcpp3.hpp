@@ -319,6 +319,14 @@ extern "C" char *gets (char *__s);
 #elif __cplusplus <= 201103
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
 #endif
+//
+// <execution> has a dependency to Intel's thread building blocks:
+// unless these are installed seperately, including <execution> leads
+// to inscrutable errors inside libstdc++'s own headers.
+//
+#if !__has_include(<execution>) || (!__has_include(<tbb/blocked_range.h>) && !defined(_GLIBCXX_USE_TBB_PAR_BACKEND))
+#define BOOST_NO_CXX17_HDR_EXECUTION
+#endif
 #elif __cplusplus < 201402 || (BOOST_LIBSTDCXX_VERSION < 40900) || !defined(BOOST_LIBSTDCXX11)
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
 #endif
