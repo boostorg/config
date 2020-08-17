@@ -12,9 +12,7 @@ rule requires ( names + )
    local result ;
    for name in $(names)
    {
-      local msg = "Boost.Config Feature Check: " ;
-      msg += $(name) ;
-      result += [ check-target-builds $(config-binding:D)//$(name) $(msg:J=) : : <build>no ] ;
+      result += [ check-target-builds $(config-binding:D)//$(name) $(name) : : <build>no ] ;
    }
    return $(result) ;
 }
