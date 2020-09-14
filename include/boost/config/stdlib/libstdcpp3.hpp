@@ -216,6 +216,7 @@ extern "C" char *gets (char *__s);
 #     endif
 #  elif !_GLIBCXX_USE_DEPRECATED
 #     define BOOST_NO_AUTO_PTR
+#     define BOOST_NO_CXX98_BINDERS
 #  endif
 #endif
 
