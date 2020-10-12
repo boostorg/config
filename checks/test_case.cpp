@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon Dec 09 09:47:38 2019
+//  This file was automatically generated on Sun Jul 26 20:34:45 2020
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -461,6 +461,11 @@
 #     error "Defect macro BOOST_NO_CXX11_TRAILING_RESULT_TYPES is defined."
 #  endif
 #endif
+#ifdef TEST_BOOST_NO_CXX11_UNRESTRICTED_UNION
+#  ifdef BOOST_NO_CXX11_UNRESTRICTED_UNION
+#     error "Defect macro BOOST_NO_CXX11_UNRESTRICTED_UNION is defined."
+#  endif
+#endif
 #ifdef TEST_BOOST_NO_CXX11_USER_DEFINED_LITERALS
 #  ifdef BOOST_NO_CXX11_USER_DEFINED_LITERALS
 #     error "Defect macro BOOST_NO_CXX11_USER_DEFINED_LITERALS is defined."
@@ -524,6 +529,31 @@
 #ifdef TEST_BOOST_NO_CXX17_FOLD_EXPRESSIONS
 #  ifdef BOOST_NO_CXX17_FOLD_EXPRESSIONS
 #     error "Defect macro BOOST_NO_CXX17_FOLD_EXPRESSIONS is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX17_HDR_ANY
+#  ifdef BOOST_NO_CXX17_HDR_ANY
+#     error "Defect macro BOOST_NO_CXX17_HDR_ANY is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX17_HDR_CHARCONV
+#  ifdef BOOST_NO_CXX17_HDR_CHARCONV
+#     error "Defect macro BOOST_NO_CXX17_HDR_CHARCONV is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX17_HDR_EXECUTION
+#  ifdef BOOST_NO_CXX17_HDR_EXECUTION
+#     error "Defect macro BOOST_NO_CXX17_HDR_EXECUTION is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX17_HDR_FILESYSTEM
+#  ifdef BOOST_NO_CXX17_HDR_FILESYSTEM
+#     error "Defect macro BOOST_NO_CXX17_HDR_FILESYSTEM is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX17_HDR_MEMORY_RESOURCE
+#  ifdef BOOST_NO_CXX17_HDR_MEMORY_RESOURCE
+#     error "Defect macro BOOST_NO_CXX17_HDR_MEMORY_RESOURCE is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX17_HDR_OPTIONAL
@@ -969,11 +999,6 @@
 #ifdef TEST_BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX
 #  ifdef BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX
 #     error "Defect macro BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX is defined."
-#  endif
-#endif
-#ifdef TEST_BOOST_NO_CXX11_UNRESTRICTED_UNION
-#  ifdef BOOST_NO_CXX11_UNRESTRICTED_UNION
-#     error "Defect macro BOOST_NO_CXX11_UNRESTRICTED_UNION is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_FUNCTION_SCOPE_USING_DECLARATION_BREAKS_ADL

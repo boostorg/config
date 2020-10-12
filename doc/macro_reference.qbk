@@ -962,9 +962,14 @@ that are not yet supported by a particular compiler or library.
 
 [table
 [[Macro ][Description ]]
+[[`BOOST_NO_CXX17_HDR_ANY`][The compiler does not support the header `<any>`.]]
+[[`BOOST_NO_CXX17_HDR_CHARCONV`][The compiler does not support the header `<charconv>`.]]
+[[`BOOST_NO_CXX17_HDR_EXECUTION`][The compiler does not support the header `<execution>`.]]
+[[`BOOST_NO_CXX17_HDR_FILESYSTEM`][The compiler does not support the header `<filesystem>`.]]
+[[`BOOST_NO_CXX17_HDR_MEMORY_RESOURCE`][The compiler does not support the header `<memory_resource>`.]]
 [[`BOOST_NO_CXX17_HDR_OPTIONAL`][The compiler does not support the header `<optional>`.]]
-[[`BOOST_NO_CXX17_HDR_VARIANT`][The compiler does not support the header `<variant>`.]]
 [[`BOOST_NO_CXX17_HDR_STRING_VIEW`][The compiler does not support the header `<string_view>`.]]
+[[`BOOST_NO_CXX17_HDR_VARIANT`][The compiler does not support the header `<variant>`.]]
 [[`BOOST_NO_CXX17_STD_APPLY`][The compiler does not support `std::apply()`.]]
 [[`BOOST_NO_CXX17_STD_INVOKE`][The compiler does not support `std::invoke()`.]]
 [[`BOOST_NO_CXX17_ITERATOR_TRAITS`][The compiler does not support SFINAE-friendly `std::iterator_traits`.]]

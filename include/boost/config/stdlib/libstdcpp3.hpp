@@ -320,8 +320,25 @@ extern "C" char *gets (char *__s);
 #elif __cplusplus <= 201103
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
 #endif
+//
+// <execution> has a dependency to Intel's thread building blocks:
+// unless these are installed seperately, including <execution> leads
+// to inscrutable errors inside libstdc++'s own headers.
+//
+#if (BOOST_LIBSTDCXX_VERSION < 100100)
+#if !__has_include(<tbb/tbb.h>)
+#define BOOST_NO_CXX17_HDR_EXECUTION
+#endif
+#endif
 #elif __cplusplus < 201402 || (BOOST_LIBSTDCXX_VERSION < 40900) || !defined(BOOST_LIBSTDCXX11)
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#endif
+
+#if BOOST_LIBSTDCXX_VERSION < 100100
+//
+// The header may be present but is incomplete:
+//
+#  define BOOST_NO_CXX17_HDR_CHARCONV
 #endif
 
 //
