@@ -190,7 +190,7 @@ BOOST_LIB_SUFFIX:     Static/import libraries extension (".lib", ".a") for the c
 #  elif defined(BOOST_EMBTC_WINDOWS)
 
      // Embarcadero Clang based compilers:
-#    define BOOST_LIB_TOOLSET "bcb"
+#    define BOOST_LIB_TOOLSET "embtc"
 
 #  elif defined(BOOST_BORLANDC)
 
