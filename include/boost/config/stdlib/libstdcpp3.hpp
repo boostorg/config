@@ -94,6 +94,20 @@
 #endif
 #endif
 
+#if defined(__has_include)
+#if defined(BOOST_HAS_HASH)
+#if !__has_include(BOOST_HASH_SET_HEADER)
+#undef BOOST_HAS_HAS
+#undef BOOST_HAS_SET_HEADER
+#undef BOOST_HAS_MAP_HEADER
+#endif
+#if !__has_include(BOOST_SLIST_HEADER)
+#undef BOOST_HAS_SLIST
+#undef BOOST_HAS_SLIST_HEADER
+#endif
+#endif
+#endif
+
 //
 // Decide whether we have C++11 support turned on:
 //
