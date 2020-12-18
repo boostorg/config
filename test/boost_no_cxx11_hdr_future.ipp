@@ -22,8 +22,6 @@ int test()
   using std::future_category;
   using std::future_error;
   using std::promise;
-  using std::promise;
-  using std::promise;
   using std::future;
   using std::shared_future;
   using std::packaged_task; // undefined
