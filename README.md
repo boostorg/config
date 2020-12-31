@@ -7,6 +7,7 @@ The full documentation is available on [boost.org](http://www.boost.org/doc/libs
 
 |                  |  Master  |   Develop   |
 |------------------|----------|-------------|
+| Drone            |  [![Build Status](https://drone.cpp.al/api/badges/boostorg/config/status.svg?ref=refs/heads/master)](https://drone.cpp.al/boostorg/config) | [![Build Status](https://drone.cpp.al/api/badges/boostorg/config/status.svg)](https://drone.cpp.al/boostorg/config) |
 | Travis           | [![Build Status](https://travis-ci.org/boostorg/config.svg?branch=master)](https://travis-ci.org/boostorg/config)  |  [![Build Status](https://travis-ci.org/boostorg/config.png)](https://travis-ci.org/boostorg/config) |
 | Appveyor         | [![Build status](https://ci.appveyor.com/api/projects/status/wo2n2mhoy8vegmuo/branch/master?svg=true)](https://ci.appveyor.com/project/jzmaddock/config/branch/master) | [![Build status](https://ci.appveyor.com/api/projects/status/wo2n2mhoy8vegmuo/branch/develop?svg=true)](https://ci.appveyor.com/project/jzmaddock/config/branch/develop) |
 
