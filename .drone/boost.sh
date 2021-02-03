@@ -37,7 +37,7 @@ echo '==================================> SCRIPT'
 
 if [ $TEST_INTEL ]; then source ~/.bashrc; fi
 echo "using $TOOLSET : : $COMPILER : <cxxflags>$EXTRA_FLAGS <linkflags>$EXTRA_FLAGS ;" > ~/user-config.jam
-./b2 libs/config/test//print_config_info toolset=$TOOLSET cxxstd=$CXXSTD $CXXSTD_DIALECT
+./b2 libs/config/test//print_config_info libs/config/test//print_math_info toolset=$TOOLSET cxxstd=$CXXSTD $CXXSTD_DIALECT
 ./b2 -j3 libs/config/test toolset=$TOOLSET cxxstd=$CXXSTD $CXXSTD_DIALECT
 
 echo '==================================> AFTER_SUCCESS'

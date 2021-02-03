@@ -120,6 +120,8 @@ explicit has_clang_implicit_fallthrough ;
 
 exe config_info_printer : config_info.cpp ;
 explicit config_info_printer ;
+exe math_info_printer : math_info.cpp ;
+explicit math_info_printer ;
 
 actions print-run
 {
@@ -135,6 +137,8 @@ rule print-run ( target : sources * : properties * )
 
 notfile print_config_info : @print-run : config_info_printer ;
 explicit print_config_info ;
+notfile print_math_info : @print-run : math_info_printer ;
+explicit print_math_info ;
 
 # Backwards compatibility:
 exe config_info_travis : config_info.cpp ;
