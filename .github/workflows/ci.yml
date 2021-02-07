@@ -210,13 +210,15 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
+      matrix:
+        qemu_arch: [ armv7, aarch64, s390x, ppc64le ]
     steps:
       - uses: actions/checkout@v2.1.0
       - uses: uraimo/run-on-arch-action@v2.0.5
         name: Run commands
         id: runcmd
         with:
-          arch: ppc64le
+          arch: ${{ matrix.qemu_arch }}
           distro: ubuntu20.04
 
           # Not required, but speeds up builds by storing container images in
@@ -239,4 +241,4 @@ jobs:
             ./bootstrap.sh
             ./b2 headers
             ./b2 libs/config/test//print_config_info libs/config/test//print_math_info
-            ./b2 libs/math/test
+            cd libs/config/test && ../../../b2 toolset=gcc cxxstd=03,11,14,17
