@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sun Jul 26 20:34:45 2020
+//  This file was automatically generated on Wed Mar  3 12:23:02 2021
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -101,6 +101,16 @@ namespace boost_no_cwchar = empty_boost;
 #include "boost_no_cwctype.ipp"
 #else
 namespace boost_no_cwctype = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX03
+#include "boost_no_cxx03.ipp"
+#else
+namespace boost_no_cxx03 = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX11
+#include "boost_no_cxx11.ipp"
+#else
+namespace boost_no_cxx11 = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX11_ADDRESSOF
 #include "boost_no_cxx11_addressof.ipp"
@@ -297,6 +307,11 @@ namespace boost_no_cxx11_unrestricted_union = empty_boost;
 #else
 namespace boost_no_cxx11_user_defined_literals = empty_boost;
 #endif
+#ifndef BOOST_NO_CXX14
+#include "boost_no_cxx14.ipp"
+#else
+namespace boost_no_cxx14 = empty_boost;
+#endif
 #ifndef BOOST_NO_CXX14_BINARY_LITERALS
 #include "boost_no_cxx14_binary_literals.ipp"
 #else
@@ -351,6 +366,11 @@ namespace boost_no_cxx14_std_exchange = empty_boost;
 #include "boost_no_cxx14_var_templ.ipp"
 #else
 namespace boost_no_cxx14_variable_templates = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX17
+#include "boost_no_cxx17.ipp"
+#else
+namespace boost_no_cxx17 = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX17_FOLD_EXPRESSIONS
 #include "boost_no_cxx17_fold_expressions.ipp"
@@ -1316,6 +1336,16 @@ int main( int, char *[] )
       std::cerr << "Failed test for BOOST_NO_CWCTYPE at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
+   if(0 != boost_no_cxx03::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX03 at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx11::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX11 at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
    if(0 != boost_no_cxx11_addressof::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX11_ADDRESSOF at: " << __FILE__ << ":" << __LINE__ << std::endl;
@@ -1511,6 +1541,11 @@ int main( int, char *[] )
       std::cerr << "Failed test for BOOST_NO_CXX11_USER_DEFINED_LITERALS at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
+   if(0 != boost_no_cxx14::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX14 at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
    if(0 != boost_no_cxx14_binary_literals::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX14_BINARY_LITERALS at: " << __FILE__ << ":" << __LINE__ << std::endl;
@@ -1564,6 +1599,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx14_variable_templates::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX14_VARIABLE_TEMPLATES at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx17::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX17 at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx17_fold_expressions::test())

@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sun Jul 26 20:34:45 2020
+//  This file was automatically generated on Wed Mar  3 12:23:03 2021
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-4.
 //  Use, modification and distribution are subject to the 
@@ -276,6 +276,16 @@
 #     error "Defect macro BOOST_NO_CWCTYPE is defined."
 #  endif
 #endif
+#ifdef TEST_BOOST_NO_CXX03
+#  ifdef BOOST_NO_CXX03
+#     error "Defect macro BOOST_NO_CXX03 is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX11
+#  ifdef BOOST_NO_CXX11
+#     error "Defect macro BOOST_NO_CXX11 is defined."
+#  endif
+#endif
 #ifdef TEST_BOOST_NO_CXX11_ADDRESSOF
 #  ifdef BOOST_NO_CXX11_ADDRESSOF
 #     error "Defect macro BOOST_NO_CXX11_ADDRESSOF is defined."
@@ -471,6 +481,11 @@
 #     error "Defect macro BOOST_NO_CXX11_USER_DEFINED_LITERALS is defined."
 #  endif
 #endif
+#ifdef TEST_BOOST_NO_CXX14
+#  ifdef BOOST_NO_CXX14
+#     error "Defect macro BOOST_NO_CXX14 is defined."
+#  endif
+#endif
 #ifdef TEST_BOOST_NO_CXX14_BINARY_LITERALS
 #  ifdef BOOST_NO_CXX14_BINARY_LITERALS
 #     error "Defect macro BOOST_NO_CXX14_BINARY_LITERALS is defined."
@@ -524,6 +539,11 @@
 #ifdef TEST_BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #  ifdef BOOST_NO_CXX14_VARIABLE_TEMPLATES
 #     error "Defect macro BOOST_NO_CXX14_VARIABLE_TEMPLATES is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX17
+#  ifdef BOOST_NO_CXX17
+#     error "Defect macro BOOST_NO_CXX17 is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX17_FOLD_EXPRESSIONS

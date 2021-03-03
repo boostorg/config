@@ -27,6 +27,8 @@
 <a name="boost_config.boost_macro_reference"></a><a class="link" href="boost_macro_reference.html" title="Boost Macro Reference">Boost Macro Reference</a>
 </h2></div></div></div>
 <div class="toc"><dl class="toc">
+<dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.broad_c___standard_level_checks">Broad
+      C++ Standard Level Checks</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__03_defects">Macros
       that describe C++03 defects</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_optional_features">Macros
@@ -58,7 +60,177 @@
 </dl></div>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
-<a name="boost_config.boost_macro_reference.macros_that_describe_c__03_defects"></a><a name="config_defects"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__03_defects" title="Macros that describe C++03 defects">Macros
+<a name="boost_config.boost_macro_reference.broad_c___standard_level_checks"></a><a name="config_defects"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.broad_c___standard_level_checks" title="Broad C++ Standard Level Checks">Broad
+      C++ Standard Level Checks</a>
+</h3></div></div></div>
+<p>
+        These are for the times when you just want to check "does this compiler
+        conform to C++11" or some such.
+      </p>
+<h5>
+<a name="boost_config.boost_macro_reference.broad_c___standard_level_checks.h0"></a>
+        <span class="phrase"><a name="boost_config.boost_macro_reference.broad_c___standard_level_checks.c___standard_level"></a></span><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.broad_c___standard_level_checks.c___standard_level">C++
+        Standard Level</a>
+      </h5>
+<p>
+        The macro <code class="computeroutput"><span class="identifier">BOOST_CXX_VERSION</span></code>
+        is set to the C++ standard version - it has the same value as <code class="computeroutput"><span class="identifier">__cplusplus</span></code> if <code class="computeroutput"><span class="identifier">__cplusplus</span></code>
+        is set to a sensible value, otherwise the current C++ standard level in effect
+        (for example for MSVC this is set to the value of <code class="computeroutput"><span class="identifier">_MSVC_LANG</span></code>).
+      </p>
+<p>
+        Available standard values are:
+      </p>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  standard
+                </p>
+              </th>
+<th>
+                <p>
+                  value
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  2003
+                </p>
+              </td>
+<td>
+                <p>
+                  199711L
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  2011
+                </p>
+              </td>
+<td>
+                <p>
+                  201103L
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  2014
+                </p>
+              </td>
+<td>
+                <p>
+                  201402L
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  2017
+                </p>
+              </td>
+<td>
+                <p>
+                  201703L
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  2020
+                </p>
+              </td>
+<td>
+                <p>
+                  202002L
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+        You should use this macro as a basic sanity check that the compiler is minimally
+        at the required standard level - there may still be bugs, unimplemented features,
+        and/or missing headers. The individual feature checks should be used for
+        those.
+      </p>
+<h5>
+<a name="boost_config.boost_macro_reference.broad_c___standard_level_checks.h1"></a>
+        <span class="phrase"><a name="boost_config.boost_macro_reference.broad_c___standard_level_checks.strict_standard_level_checks"></a></span><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.broad_c___standard_level_checks.strict_standard_level_checks">Strict
+        Standard Level Checks</a>
+      </h5>
+<p>
+        The following macros:
+      </p>
+<pre class="programlisting"><span class="identifier">BOOST_NO_CXX03</span>
+<span class="identifier">BOOST_NO_CXX11</span>
+<span class="identifier">BOOST_NO_CXX14</span>
+<span class="identifier">BOOST_NO_CXX17</span>
+</pre>
+<p>
+        Are set if <span class="bold"><strong>any</strong></span> of our defect macros are
+        set for that standard level, .
+      </p>
+<p>
+        Note that these are therefore very strict checks and as a result, other than
+        very recent gcc/clang releases, many compilers will end up defining <span class="emphasis"><em>all</em></span>
+        of these macros: even when <code class="computeroutput"><span class="identifier">BOOST_CXX_VERSION</span></code>
+        indicates a much more recent standard is in effect.
+      </p>
+<h5>
+<a name="boost_config.boost_macro_reference.broad_c___standard_level_checks.h2"></a>
+        <span class="phrase"><a name="boost_config.boost_macro_reference.broad_c___standard_level_checks.strict_standard_check_headers"></a></span><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.broad_c___standard_level_checks.strict_standard_check_headers">Strict
+        Standard Check Headers</a>
+      </h5>
+<p>
+        The following headers:
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">/</span><span class="identifier">assert_cxx03</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">/</span><span class="identifier">assert_cxx11</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">/</span><span class="identifier">assert_cxx14</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">/</span><span class="identifier">assert_cxx17</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+</pre>
+<p>
+        Can be used to assert that none of our defect macros are set for that standard
+        (or any older standards).
+      </p>
+<p>
+        The headers will provide a slightly more useful error message than just checking
+        on <code class="computeroutput"><span class="identifier">BOOST_NO_CXX03</span></code> for example,
+        as they will indicate which defect macro produced the error.
+      </p>
+<p>
+        As noted abovem these are very strict checks, and therefore other than recent
+        gcc/clang releases, many compilers will genrate a <code class="computeroutput"><span class="preprocessor">#error</span></code>
+        on including <span class="emphasis"><em>any</em></span> of these headers.
+      </p>
+<h5>
+<a name="boost_config.boost_macro_reference.broad_c___standard_level_checks.h3"></a>
+        <span class="phrase"><a name="boost_config.boost_macro_reference.broad_c___standard_level_checks.sd6_feature_test_macros"></a></span><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.broad_c___standard_level_checks.sd6_feature_test_macros">SD6
+        Feature Test Macros</a>
+      </h5>
+<p>
+        Note that none of the above checks take into account any standard library
+        SD6 feature test macros, as doing so would require <code class="computeroutput"><span class="preprocessor">#include</span></code>ing
+        almost the whole standard library.
+      </p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="boost_config.boost_macro_reference.macros_that_describe_c__03_defects"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__03_defects" title="Macros that describe C++03 defects">Macros
       that describe C++03 defects</a>
 </h3></div></div></div>
 <p>
