@@ -9,6 +9,8 @@
 // along with config_test.cpp and a Jamfile.
 //
 
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <boost/regex.hpp>
 #include <boost/filesystem/path.hpp>
 #include <boost/filesystem/operations.hpp>
@@ -211,6 +213,24 @@ void write_build_check_jamfile()
    ofs << build_config_jamfile.str() << std::endl;
 }
 
+std::map<std::string, std::set<std::string>> std_version_macros;
+
+
+void categorize_macro(const std::string& name)
+{
+   boost::regex cxxNN("BOOST_NO_CXX(\\d\\d).+");
+   boost::regex cxx03("BOOST_NO_.+");
+   boost::smatch what;
+   if (regex_match(name, what, cxxNN))
+   {
+      std_version_macros[what[1]].insert(name);
+   }
+   else if (regex_match(name, what, cxx03))
+   {
+      std_version_macros["03"].insert(name);
+   }
+}
+
 void process_ipp_file(const fs::path& file, bool positive_test)
 {
    std::cout << "Info: Scanning file: " << file.string() << std::endl;
@@ -233,6 +253,7 @@ void process_ipp_file(const fs::path& file, bool positive_test)
    {
       macro_name = macro_match[1];
       macro_list.insert(macro_name);
+      categorize_macro(macro_name);
       namespace_name = boost::regex_replace(file_text, macro_regex, "\\L$1", boost::format_first_only | boost::format_no_copy);
    }
    if(macro_name.empty())
@@ -295,6 +316,85 @@ void process_ipp_file(const fs::path& file, bool positive_test)
    if(feature_list.find(feature_name) == feature_list.end())
       build_config_jamfile << "obj " << feature_name << " : test_case.cpp : <define>TEST_" << macro_name << " ;\n";
    feature_list.insert(feature_name);
+}
+
+void fixup_cxxNN()
+{
+   std_version_macros.erase("98");
+   std_version_macros["03"].erase("BOOST_NO_MS_INT64_NUMERIC_LIMITS");
+   std_version_macros["03"].erase("BOOST_NO_SWPRINTF");
+   std_version_macros["03"].erase("BOOST_NO_CXX03");
+   std_version_macros["03"].erase("BOOST_NO_CXX11");
+   std_version_macros["03"].erase("BOOST_NO_CXX14");
+   std_version_macros["03"].erase("BOOST_NO_CXX17");
+   //
+   // Since these can be turned off via compiler switches we
+   // exclude them for now:
+   //
+   //std_version_macros["03"].erase("BOOST_NO_EXCEPTIONS");
+   //std_version_macros["03"].erase("BOOST_NO_RTTI");
+}
+
+void write_cxxNN_asserts()
+{
+   std::string previous_filename;
+   for (auto std = std_version_macros.begin(); std != std_version_macros.end(); ++std)
+   {
+      std::string filename = "assert_cxx";
+      filename += std->first;
+      filename += ".hpp";
+      fs::ofstream ofs(config_path / ".." / "include" / "boost" / "config" / filename);
+      time_t t = std::time(0);
+      ofs << "//  This file was automatically generated on " << std::ctime(&t);
+      ofs << "//  by libs/config/tools/generate.cpp\n" << copyright << std::endl;
+      ofs << "#include <boost/config.hpp>\n";
+      if (previous_filename.size())
+         ofs << "#include <boost/config/" << previous_filename << ">\n\n";
+      else
+         ofs << "\n";
+
+      for (auto macro = std->second.begin(); macro != std->second.end(); ++macro)
+      {
+         ofs << "#ifdef " << *macro << "\n#  error \"Your compiler appears not to be fully C++" << std->first << " compliant.  Detected via defect macro " << *macro << ".\"\n#endif\n";
+      }
+
+      previous_filename = filename;
+   }
+}
+
+void write_cxxNN_composite()
+{
+   fs::ofstream ofs(config_path / ".." / "include" / "boost" / "config" / "detail" / "cxx_composite.hpp");
+   time_t t = std::time(0);
+   ofs << "//  This file was automatically generated on " << std::ctime(&t);
+   ofs << "//  by libs/config/tools/generate.cpp\n" << copyright << std::endl;
+
+   std::string previous_macro;
+   for (auto std = std_version_macros.begin(); std != std_version_macros.end(); ++std)
+   {
+      std::string macro = "BOOST_NO_CXX";
+      macro += std->first;
+
+      bool done_first = false;
+      ofs << "#if ";
+
+      if (previous_macro.size())
+      {
+         ofs << "defined(" << previous_macro << ")";
+         done_first = true;
+      }
+
+      for (auto macro = std->second.begin(); macro != std->second.end(); ++macro)
+      {
+         if (done_first)
+            ofs << "\\\n   || ";
+         ofs << "defined(" << *macro << ")";
+         done_first = true;
+      }
+      ofs << "\n#    define " << macro << "\n#endif\n\n";
+
+      previous_macro = macro;
+   }
 }
 
 void write_std_check(std::string macroname, int min_value, std::string header, int std_version, bool primary = true)
@@ -511,6 +611,9 @@ int cpp_main(int argc, char* argv[])
    {
       process_ipp_file(pos->first, pos->second);
    }
+   fixup_cxxNN();
+   write_cxxNN_asserts();
+   write_cxxNN_composite();
    write_config_test();
    write_jamfile_v2();
    write_config_info();
