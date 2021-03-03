@@ -303,10 +303,6 @@ extern "C" char *gets (char *__s);
 #  define BOOST_NO_CXX14_STD_EXCHANGE
 #endif
 
-#if defined(__clang_major__) && ((__clang_major__ < 3) || ((__clang_major__ == 3) && (__clang_minor__ < 7)))
-// As of clang-3.6, libstdc++ header <atomic> throws up errors with clang:
-#  define BOOST_NO_CXX11_HDR_ATOMIC
-#endif
 //
 //  C++0x features in GCC 5.1 and later
 //
