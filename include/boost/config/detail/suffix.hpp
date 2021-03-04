@@ -1123,6 +1123,68 @@ namespace std{ using ::type_info; }
 #endif
 #endif
 
+#if !defined(_YVALS) && !defined(_CPPLIB_VER)  // msvc std lib already configured
+#if (!defined(__has_include) || (__cplusplus < 201703))
+#  define BOOST_NO_CXX20_HDR_BARRIER
+#  define BOOST_NO_CXX20_HDR_FORMAT
+#  define BOOST_NO_CXX20_HDR_SOURCE_LOCATION
+#  define BOOST_NO_CXX20_HDR_BIT
+#  define BOOST_NO_CXX20_HDR_LATCH
+#  define BOOST_NO_CXX20_HDR_SPAN
+#  define BOOST_NO_CXX20_HDR_COMPARE
+#  define BOOST_NO_CXX20_HDR_NUMBERS
+#  define BOOST_NO_CXX20_HDR_STOP_TOKEN
+#  define BOOST_NO_CXX20_HDR_CONCEPTS
+#  define BOOST_NO_CXX20_HDR_RANGES
+#  define BOOST_NO_CXX20_HDR_SYNCSTREAM
+#  define BOOST_NO_CXX20_HDR_COROUTINE
+#  define BOOST_NO_CXX20_HDR_SEMAPHORE
+#else
+#if !__has_include(<barrier>)
+#  define BOOST_NO_CXX20_HDR_BARRIER
+#endif
+#if !__has_include(<format>)
+#  define BOOST_NO_CXX20_HDR_FORMAT
+#endif
+#if !__has_include(<source_Location>)
+#  define BOOST_NO_CXX20_HDR_SOURCE_LOCATION
+#endif
+#if !__has_include(<bit>)
+#  define BOOST_NO_CXX20_HDR_BIT
+#endif
+#if !__has_include(<latch>)
+#  define BOOST_NO_CXX20_HDR_LATCH
+#endif
+#if !__has_include(<span>)
+#  define BOOST_NO_CXX20_HDR_SPAN
+#endif
+#if !__has_include(<compare>)
+#  define BOOST_NO_CXX20_HDR_COMPARE
+#endif
+#if !__has_include(<numbers>)
+#  define BOOST_NO_CXX20_HDR_NUMBERS
+#endif
+#if !__has_include(<stop_token>)
+#  define BOOST_NO_CXX20_HDR_STOP_TOKEN
+#endif
+#if !__has_include(<concepts>)
+#  define BOOST_NO_CXX20_HDR_CONCEPTS
+#endif
+#if !__has_include(<range>)
+#  define BOOST_NO_CXX20_HDR_RANGES
+#endif
+#if !__has_include(<syncstream>)
+#  define BOOST_NO_CXX20_HDR_SYNCSTREAM
+#endif
+#if !__has_include(<coroutine>)
+#  define BOOST_NO_CXX20_HDR_COROUTINE
+#endif
+#if !__has_include(<semaphore>)
+#  define BOOST_NO_CXX20_HDR_SEMAPHORE
+#endif
+#endif
+#endif
+
 //
 // Finish off with checks for macros that are depricated / no longer supported,
 // if any of these are set then it's very likely that much of Boost will no
