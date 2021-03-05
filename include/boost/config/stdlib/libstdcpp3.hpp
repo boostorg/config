@@ -363,6 +363,18 @@ extern "C" char *gets (char *__s);
 #endif
 
 //
+// These next defines are mostly for older clang versions with a newer libstdc++ :
+//
+#if !defined(__cpp_lib_concepts)
+#if !defined(BOOST_NO_CXX20_HDR_COMPARE)
+#  define BOOST_NO_CXX20_HDR_COMPARE
+#endif
+#if !defined(BOOST_NO_CXX20_HDR_CONCEPTS)
+#  define BOOST_NO_CXX20_HDR_CONCEPTS
+#endif
+#endif
+
+//
 // Headers not present on Solaris with the Oracle compiler:
 #if defined(__SUNPRO_CC) && (__SUNPRO_CC < 0x5140)
 #define BOOST_NO_CXX11_HDR_FUTURE
