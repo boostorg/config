@@ -158,9 +158,9 @@
 #  define BOOST_NO_CXX20_HDR_SEMAPHORE
 #endif
 
-# if(_LIBCPP_VERSION < 9000) && !defined(BOOST_NO_CXX20_HDR_SOURCE_SPAN)
+#if(_LIBCPP_VERSION < 9000) && !defined(BOOST_NO_CXX20_HDR_SPAN)
 // as_writable_bytes is missing.
-#  define BOOST_NO_CXX20_HDR_SOURCE_SPAN
+#  define BOOST_NO_CXX20_HDR_SPAN
 #endif
 
 #else
