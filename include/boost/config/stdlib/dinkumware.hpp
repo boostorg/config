@@ -193,7 +193,7 @@
 #endif
 
 // C++20 features
-#if !defined(_MSVC_STL_UPDATE) || (_MSVC_STL_UPDATE < 202008L)
+#if !defined(_MSVC_STL_UPDATE) || (_MSVC_STL_UPDATE < 202008L) || !defined(_HAS_CXX20) || (_HAS_CXX20 == 0)
 #  define BOOST_NO_CXX20_HDR_BARRIER
 #  define BOOST_NO_CXX20_HDR_BIT
 #  define BOOST_NO_CXX20_HDR_LATCH

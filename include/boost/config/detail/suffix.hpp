@@ -1124,7 +1124,7 @@ namespace std{ using ::type_info; }
 #endif
 
 #if !defined(_YVALS) && !defined(_CPPLIB_VER)  // msvc std lib already configured
-#if (!defined(__has_include) || (__cplusplus < 201703))
+#if (!defined(__has_include) || (__cplusplus < 201704))
 #  define BOOST_NO_CXX20_HDR_BARRIER
 #  define BOOST_NO_CXX20_HDR_FORMAT
 #  define BOOST_NO_CXX20_HDR_SOURCE_LOCATION
