@@ -372,6 +372,12 @@ extern "C" char *gets (char *__s);
 #if !defined(BOOST_NO_CXX20_HDR_CONCEPTS)
 #  define BOOST_NO_CXX20_HDR_CONCEPTS
 #endif
+#if !defined(BOOST_NO_CXX20_HDR_SPAN)
+#  define BOOST_NO_CXX20_HDR_SPAN
+#endif
+#if !defined(BOOST_NO_CXX20_HDR_RANGES)
+#  define BOOST_NO_CXX20_HDR_RANGES
+#endif
 #endif
 
 //
