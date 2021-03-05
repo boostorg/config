@@ -995,6 +995,31 @@ provide compliant C++17 support.
 
 [endsect]
 
+[section Macros that describe C++20 features not supported]
+
+The following macros describe features in the 2020 ISO C++ standard, formerly known as C++2a,
+that are not yet supported by a particular compiler or library.
+
+[table
+[[Macro ][Description ]]
+[[`BOOST_NO_CXX20_HDR_BARRIER`][The compiler does not support the header `<barrier>`.]]
+[[`BOOST_NO_CXX20_HDR_FORMAT`][The compiler does not support the header `<format>`.]]
+[[`BOOST_NO_CXX20_HDR_SOURCE_LOCATION`][The compiler does not support the header `<format>`.]]
+[[`BOOST_NO_CXX20_HDR_BIT`][The compiler does not support the header `<bit>`.]]
+[[`BOOST_NO_CXX20_HDR_LATCH`][The compiler does not support the header `<latch>`.]]
+[[`BOOST_NO_CXX20_HDR_SPAN`][The compiler does not support the header `<span>`.]]
+[[`BOOST_NO_CXX20_HDR_COMPARE`][The compiler does not support the header `<compare>`.]]
+[[`BOOST_NO_CXX20_HDR_NUMBERS`][The compiler does not support the header `<numbers>`.]]
+[[`BOOST_NO_CXX20_HDR_STOP_TOKEN`][The compiler does not support the header `<stop_token>`.]]
+[[`BOOST_NO_CXX20_HDR_CONCEPTS`][The compiler does not support the header `<concepts>`.]]
+[[`BOOST_NO_CXX20_HDR_RANGES`][The compiler does not support the header `<range>`.]]
+[[`BOOST_NO_CXX20_HDR_SYNCSTREAM`][The compiler does not support the header `<syncstream>`.]]
+[[`BOOST_NO_CXX20_HDR_COROUTINE`][The compiler does not support the header `<coroutine>`.]]
+[[`BOOST_NO_CXX20_HDR_SEMAPHORE`][The compiler does not support the header `<semaphore>`.]]
+]
+
+[endsect]
+
 [section Macros that describe features that have been removed from the standard.]
 
 The following macros describe features which were required by one version of the standard, but have been removed by later versions.
