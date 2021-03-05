@@ -351,6 +351,35 @@ extern "C" char *gets (char *__s);
 #  define BOOST_NO_CXX17_HDR_CHARCONV
 #endif
 
+#if BOOST_LIBSTDCXX_VERSION < 110000
+//
+// Header <bit> may be present but lacks std::bit_cast:
+//
+#define BOOST_NO_CXX20_HDR_BIT
+#endif
+
+#ifndef __cpp_impl_coroutine
+#  define BOOST_NO_CXX20_HDR_COROUTINE
+#endif
+
+//
+// These next defines are mostly for older clang versions with a newer libstdc++ :
+//
+#if !defined(__cpp_lib_concepts)
+#if !defined(BOOST_NO_CXX20_HDR_COMPARE)
+#  define BOOST_NO_CXX20_HDR_COMPARE
+#endif
+#if !defined(BOOST_NO_CXX20_HDR_CONCEPTS)
+#  define BOOST_NO_CXX20_HDR_CONCEPTS
+#endif
+#if !defined(BOOST_NO_CXX20_HDR_SPAN)
+#  define BOOST_NO_CXX20_HDR_SPAN
+#endif
+#if !defined(BOOST_NO_CXX20_HDR_RANGES)
+#  define BOOST_NO_CXX20_HDR_RANGES
+#endif
+#endif
+
 //
 // Headers not present on Solaris with the Oracle compiler:
 #if defined(__SUNPRO_CC) && (__SUNPRO_CC < 0x5140)
