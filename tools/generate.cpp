@@ -27,7 +27,7 @@ namespace fs = boost::filesystem;
 fs::path config_path;
 
 std::string copyright(
-"//  Copyright John Maddock 2002-4.\n"
+"//  Copyright John Maddock 2002-21.\n"
 "//  Use, modification and distribution are subject to the \n"
 "//  Boost Software License, Version 1.0. (See accompanying file \n"
 "//  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)\n"
@@ -328,11 +328,10 @@ void fixup_cxxNN()
    std_version_macros["03"].erase("BOOST_NO_CXX14");
    std_version_macros["03"].erase("BOOST_NO_CXX17");
    //
-   // Since these can be turned off via compiler switches we
-   // exclude them for now:
+   // These are removed from later standard versions so we don't check them here:
    //
-   //std_version_macros["03"].erase("BOOST_NO_EXCEPTIONS");
-   //std_version_macros["03"].erase("BOOST_NO_RTTI");
+   std_version_macros["03"].erase("BOOST_NO_AUTO_PTR");
+   std_version_macros["11"].erase("BOOST_NO_CXX11_ATOMIC_SMART_PTR");
 }
 
 void write_cxxNN_asserts()

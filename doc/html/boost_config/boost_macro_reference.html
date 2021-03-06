@@ -47,6 +47,8 @@
       that describe C++17 features not supported</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_allow_use_of_c__17_features_with_c__14_or_earlier_compilers">Macros
       that allow use of C++17 features with C++14 or earlier compilers</a></span></dt>
+<dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__20_features_not_supported">Macros
+      that describe C++20 features not supported</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_features_that_have_been_removed_from_the_standard_">Macros
       that describe features that have been removed from the standard.</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.boost_helper_macros">Boost
@@ -4297,6 +4299,204 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
+<a name="boost_config.boost_macro_reference.macros_that_describe_c__20_features_not_supported"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__20_features_not_supported" title="Macros that describe C++20 features not supported">Macros
+      that describe C++20 features not supported</a>
+</h3></div></div></div>
+<p>
+        The following macros describe features in the 2020 ISO C++ standard, formerly
+        known as C++2a, that are not yet supported by a particular compiler or library.
+      </p>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Macro
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_HDR_BARRIER</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">barrier</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_HDR_FORMAT</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">format</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_HDR_SOURCE_LOCATION</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">format</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_HDR_BIT</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">bit</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_HDR_LATCH</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">latch</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_HDR_SPAN</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">span</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_HDR_COMPARE</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">compare</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_HDR_NUMBERS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">numbers</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_HDR_STOP_TOKEN</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">stop_token</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_HDR_CONCEPTS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">concepts</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_HDR_RANGES</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">range</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_HDR_SYNCSTREAM</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">syncstream</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_HDR_COROUTINE</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">coroutine</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_HDR_SEMAPHORE</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">semaphore</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
 <a name="boost_config.boost_macro_reference.macros_that_describe_features_that_have_been_removed_from_the_standard_"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_features_that_have_been_removed_from_the_standard_" title="Macros that describe features that have been removed from the standard.">Macros
       that describe features that have been removed from the standard.</a>
 </h3></div></div></div>
@@ -4374,6 +4574,19 @@
                   <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">bind2nd</span></code>, <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">ptr_fun</span></code>
                   and <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">mem_fun</span></code>. They were deprecated
                   in C++11 and is removed from C++14.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_ATOMIC_SMART_PTR</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The standard library no longer supports atomic overloads for <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span></code>: use <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">atomic</span><span class="special">&lt;</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;&gt;</span></code>
+                  instead.
                 </p>
               </td>
 </tr>
