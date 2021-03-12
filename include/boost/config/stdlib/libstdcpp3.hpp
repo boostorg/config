@@ -167,6 +167,15 @@
 #  define BOOST_LIBSTDCXX_VERSION 40300
 #endif
 
+#if (BOOST_LIBSTDCXX_VERSION >= 100000) && defined(BOOST_HAS_HASH)
+//
+// hash_set/hash_map deprecated and have terminal bugs:
+//
+#undef BOOST_HAS_HAS
+#undef BOOST_HAS_SET_HEADER
+#undef BOOST_HAS_MAP_HEADER
+#endif
+
 #if (BOOST_LIBSTDCXX_VERSION < 50100)
 // libstdc++ does not define this function as it's deprecated in C++11, but clang still looks for it,
 // defining it here is a terrible cludge, but should get things working:
