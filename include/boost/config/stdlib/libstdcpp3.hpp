@@ -96,7 +96,7 @@
 
 #if defined(__has_include)
 #if defined(BOOST_HAS_HASH)
-#if !__has_include(BOOST_HASH_SET_HEADER)
+#if !__has_include(BOOST_HASH_SET_HEADER) || (__GNUC__ >= 10)
 #undef BOOST_HAS_HASH
 #undef BOOST_HAS_SET_HEADER
 #undef BOOST_HAS_MAP_HEADER
@@ -175,6 +175,7 @@
 #undef BOOST_HAS_SET_HEADER
 #undef BOOST_HAS_MAP_HEADER
 #endif
+
 
 #if (BOOST_LIBSTDCXX_VERSION < 50100)
 // libstdc++ does not define this function as it's deprecated in C++11, but clang still looks for it,
