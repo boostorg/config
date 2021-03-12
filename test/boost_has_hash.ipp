@@ -26,6 +26,11 @@ void foo(const BOOST_STD_EXTENSION_NAMESPACE::hash_set<Key,Eq,Hash,Alloc>& )
 {
 }
 
+template <class Key, class Eq, class Hash, class Alloc>
+void foo(const BOOST_STD_EXTENSION_NAMESPACE::hash_multiset<Key,Eq,Hash,Alloc>& )
+{
+}
+
 template <class Key, class T, class Eq, class Hash, class Alloc>
 void foo(const BOOST_STD_EXTENSION_NAMESPACE::hash_map<Key,T,Eq,Hash,Alloc>& )
 {
@@ -37,9 +42,15 @@ int test()
 {
 #ifndef DISABLE_BOOST_HAS_HASH_TEST
    BOOST_STD_EXTENSION_NAMESPACE::hash_set<int> hs;
+   hs.insert(2);
    foo(hs);
    BOOST_STD_EXTENSION_NAMESPACE::hash_map<int, long> hm;
+   hm[3] = 2;
    foo(hm);
+   BOOST_STD_EXTENSION_NAMESPACE::hash_multiset<int> hs2;
+   hs2.insert(2);
+   hs2.insert(2);
+   foo(hs2);
 #endif
    return 0;
 }
