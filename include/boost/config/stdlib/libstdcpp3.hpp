@@ -97,7 +97,7 @@
 #if defined(__has_include)
 #if defined(BOOST_HAS_HASH)
 #if !__has_include(BOOST_HASH_SET_HEADER)
-#undef BOOST_HAS_HAS
+#undef BOOST_HAS_HASH
 #undef BOOST_HAS_SET_HEADER
 #undef BOOST_HAS_MAP_HEADER
 #endif
@@ -171,7 +171,7 @@
 //
 // hash_set/hash_map deprecated and have terminal bugs:
 //
-#undef BOOST_HAS_HAS
+#undef BOOST_HAS_HASH
 #undef BOOST_HAS_SET_HEADER
 #undef BOOST_HAS_MAP_HEADER
 #endif
