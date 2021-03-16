@@ -87,7 +87,7 @@ namespace boost_no_cxx20_hdr_ranges {
    using std::ranges::crend;
    using std::ranges::size;
    using std::ranges::ssize;
-   using std::ranges::empty;
+   constexpr auto dummy = std::ranges::empty; // Would conflict with std::views::empty
    using std::ranges::data;
    using std::ranges::cdata;
    using std::ranges::subrange_kind;
