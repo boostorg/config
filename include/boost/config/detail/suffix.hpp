@@ -1170,7 +1170,7 @@ namespace std{ using ::type_info; }
 #if !__has_include(<concepts>)
 #  define BOOST_NO_CXX20_HDR_CONCEPTS
 #endif
-#if !__has_include(<range>)
+#if !__has_include(<ranges>)
 #  define BOOST_NO_CXX20_HDR_RANGES
 #endif
 #if !__has_include(<syncstream>)
