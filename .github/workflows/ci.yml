@@ -206,7 +206,7 @@ jobs:
       - name: Test
         run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,20 toolset=msvc-14.2
         working-directory: ../boost-root/libs/config/test
-  ppc64le_ubuntu_20_04:
+  non_intel_ubuntu_20_04:
     runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
