@@ -211,7 +211,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        qemu_arch: [ armv7, aarch64, s390x, ppc64le ]
+        qemu_arch: [ aarch64, s390x, ppc64le ]
     steps:
       - uses: actions/checkout@v2.1.0
       - uses: uraimo/run-on-arch-action@v2.0.5
@@ -229,7 +229,7 @@ jobs:
           run: |
             uname -a
             apt update
-            apt -y install gcc g++ git python
+            apt -y install clang gcc g++ git python
             echo $PWD
             config=$PWD
             cd ..
@@ -240,5 +240,7 @@ jobs:
             git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits
             ./bootstrap.sh
             ./b2 headers
-            ./b2 libs/config/test//print_config_info libs/config/test//print_math_info
+            ./b2 toolset=gcc libs/config/test//print_config_info libs/config/test//print_math_info
             cd libs/config/test && ../../../b2 toolset=gcc cxxstd=03,11,14,17
+            ../../../b2 toolset=clang ../../config/test//print_config_info ../../config/test//print_math_info
+            ../../../b2 toolset=clang cxxstd=03,11,14,17
