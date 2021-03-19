@@ -96,8 +96,8 @@
 
 #if defined(__has_include)
 #if defined(BOOST_HAS_HASH)
-#if !__has_include(BOOST_HASH_SET_HEADER)
-#undef BOOST_HAS_HAS
+#if !__has_include(BOOST_HASH_SET_HEADER) || (__GNUC__ >= 10)
+#undef BOOST_HAS_HASH
 #undef BOOST_HAS_SET_HEADER
 #undef BOOST_HAS_MAP_HEADER
 #endif
@@ -166,6 +166,16 @@
 #elif __has_include(<array>)
 #  define BOOST_LIBSTDCXX_VERSION 40300
 #endif
+
+#if (BOOST_LIBSTDCXX_VERSION >= 100000) && defined(BOOST_HAS_HASH)
+//
+// hash_set/hash_map deprecated and have terminal bugs:
+//
+#undef BOOST_HAS_HASH
+#undef BOOST_HAS_SET_HEADER
+#undef BOOST_HAS_MAP_HEADER
+#endif
+
 
 #if (BOOST_LIBSTDCXX_VERSION < 50100)
 // libstdc++ does not define this function as it's deprecated in C++11, but clang still looks for it,
@@ -303,10 +313,6 @@ extern "C" char *gets (char *__s);
 #  define BOOST_NO_CXX14_STD_EXCHANGE
 #endif
 
-#if defined(__clang_major__) && ((__clang_major__ < 3) || ((__clang_major__ == 3) && (__clang_minor__ < 7)))
-// As of clang-3.6, libstdc++ header <atomic> throws up errors with clang:
-#  define BOOST_NO_CXX11_HDR_ATOMIC
-#endif
 //
 //  C++0x features in GCC 5.1 and later
 //
@@ -353,6 +359,35 @@ extern "C" char *gets (char *__s);
 // The header may be present but is incomplete:
 //
 #  define BOOST_NO_CXX17_HDR_CHARCONV
+#endif
+
+#if BOOST_LIBSTDCXX_VERSION < 110000
+//
+// Header <bit> may be present but lacks std::bit_cast:
+//
+#define BOOST_NO_CXX20_HDR_BIT
+#endif
+
+#ifndef __cpp_impl_coroutine
+#  define BOOST_NO_CXX20_HDR_COROUTINE
+#endif
+
+//
+// These next defines are mostly for older clang versions with a newer libstdc++ :
+//
+#if !defined(__cpp_lib_concepts)
+#if !defined(BOOST_NO_CXX20_HDR_COMPARE)
+#  define BOOST_NO_CXX20_HDR_COMPARE
+#endif
+#if !defined(BOOST_NO_CXX20_HDR_CONCEPTS)
+#  define BOOST_NO_CXX20_HDR_CONCEPTS
+#endif
+#if !defined(BOOST_NO_CXX20_HDR_SPAN)
+#  define BOOST_NO_CXX20_HDR_SPAN
+#endif
+#if !defined(BOOST_NO_CXX20_HDR_RANGES)
+#  define BOOST_NO_CXX20_HDR_RANGES
+#endif
 #endif
 
 //

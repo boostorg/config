@@ -12,10 +12,10 @@
 
 namespace boost_no_cxx11_alignas {
 
-template< unsigned int Alignment >
-struct alignment
+template< typename T >
+struct alignment_of
 {
-    static const unsigned int value = Alignment;
+    static const unsigned int value = sizeof(T);
 };
 
 struct alignas(16) my_data1
@@ -28,17 +28,18 @@ struct alignas(double) my_data2
     char data[16];
 };
 
-struct alignas(alignment< 16u >::value) my_data3
+template< typename T >
+struct alignas(alignment_of< T >::value) my_data3
 {
     char data[16];
 };
 
 my_data1 dummy1[2];
 my_data2 dummy2;
-my_data3 dummy3;
+my_data3< int > dummy3;
 alignas(16) char dummy4[10];
 alignas(double) char dummy5[32];
-alignas(alignment< 16u >::value) char dummy6[32];
+alignas(alignment_of< int >::value) char dummy6[32];
 
 int test()
 {

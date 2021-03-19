@@ -1,6 +1,6 @@
-//  This file was automatically generated on Sun Jul 26 20:34:45 2020
+//  This file was automatically generated on Sat Mar  6 19:55:52 2021
 //  by libs/config/tools/generate.cpp
-//  Copyright John Maddock 2002-4.
+//  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
 //  Boost Software License, Version 1.0. (See accompanying file 
 //  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -101,6 +101,16 @@ namespace boost_no_cwchar = empty_boost;
 #include "boost_no_cwctype.ipp"
 #else
 namespace boost_no_cwctype = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX03
+#include "boost_no_cxx03.ipp"
+#else
+namespace boost_no_cxx03 = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX11
+#include "boost_no_cxx11.ipp"
+#else
+namespace boost_no_cxx11 = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX11_ADDRESSOF
 #include "boost_no_cxx11_addressof.ipp"
@@ -297,6 +307,11 @@ namespace boost_no_cxx11_unrestricted_union = empty_boost;
 #else
 namespace boost_no_cxx11_user_defined_literals = empty_boost;
 #endif
+#ifndef BOOST_NO_CXX14
+#include "boost_no_cxx14.ipp"
+#else
+namespace boost_no_cxx14 = empty_boost;
+#endif
 #ifndef BOOST_NO_CXX14_BINARY_LITERALS
 #include "boost_no_cxx14_binary_literals.ipp"
 #else
@@ -351,6 +366,11 @@ namespace boost_no_cxx14_std_exchange = empty_boost;
 #include "boost_no_cxx14_var_templ.ipp"
 #else
 namespace boost_no_cxx14_variable_templates = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX17
+#include "boost_no_cxx17.ipp"
+#else
+namespace boost_no_cxx17 = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX17_FOLD_EXPRESSIONS
 #include "boost_no_cxx17_fold_expressions.ipp"
@@ -426,6 +446,76 @@ namespace boost_no_cxx17_std_invoke = empty_boost;
 #include "boost_no_cxx17_structured_bindings.ipp"
 #else
 namespace boost_no_cxx17_structured_bindings = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_HDR_BARRIER
+#include "boost_no_cxx20_hdr_barrier.ipp"
+#else
+namespace boost_no_cxx20_hdr_barrier = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_HDR_BIT
+#include "boost_no_cxx20_hdr_bit.ipp"
+#else
+namespace boost_no_cxx20_hdr_bit = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_HDR_COMPARE
+#include "boost_no_cxx20_hdr_compare.ipp"
+#else
+namespace boost_no_cxx20_hdr_compare = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_HDR_CONCEPTS
+#include "boost_no_cxx20_hdr_concepts.ipp"
+#else
+namespace boost_no_cxx20_hdr_concepts = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_HDR_COROUTINE
+#include "boost_no_cxx20_hdr_coroutine.ipp"
+#else
+namespace boost_no_cxx20_hdr_coroutine = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_HDR_FORMAT
+#include "boost_no_cxx20_hdr_format.ipp"
+#else
+namespace boost_no_cxx20_hdr_format = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_HDR_LATCH
+#include "boost_no_cxx20_hdr_latch.ipp"
+#else
+namespace boost_no_cxx20_hdr_latch = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_HDR_NUMBERS
+#include "boost_no_cxx20_hdr_numbers.ipp"
+#else
+namespace boost_no_cxx20_hdr_numbers = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_HDR_RANGES
+#include "boost_no_cxx20_hdr_ranges.ipp"
+#else
+namespace boost_no_cxx20_hdr_ranges = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_HDR_SEMAPHORE
+#include "boost_no_cxx20_hdr_semaphore.ipp"
+#else
+namespace boost_no_cxx20_hdr_semaphore = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_HDR_SOURCE_LOCATION
+#include "boost_no_cxx20_hdr_source_location.ipp"
+#else
+namespace boost_no_cxx20_hdr_source_location = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_HDR_SPAN
+#include "boost_no_cxx20_hdr_span.ipp"
+#else
+namespace boost_no_cxx20_hdr_span = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_HDR_STOP_TOKEN
+#include "boost_no_cxx20_hdr_stop_token.ipp"
+#else
+namespace boost_no_cxx20_hdr_stop_token = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_HDR_SYNCSTREAM
+#include "boost_no_cxx20_hdr_syncstream.ipp"
+#else
+namespace boost_no_cxx20_hdr_syncstream = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX98_BINDERS
 #include "boost_no_cxx98_binders.ipp"
@@ -1316,6 +1406,16 @@ int main( int, char *[] )
       std::cerr << "Failed test for BOOST_NO_CWCTYPE at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
+   if(0 != boost_no_cxx03::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX03 at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx11::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX11 at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
    if(0 != boost_no_cxx11_addressof::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX11_ADDRESSOF at: " << __FILE__ << ":" << __LINE__ << std::endl;
@@ -1511,6 +1611,11 @@ int main( int, char *[] )
       std::cerr << "Failed test for BOOST_NO_CXX11_USER_DEFINED_LITERALS at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
+   if(0 != boost_no_cxx14::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX14 at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
    if(0 != boost_no_cxx14_binary_literals::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX14_BINARY_LITERALS at: " << __FILE__ << ":" << __LINE__ << std::endl;
@@ -1564,6 +1669,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx14_variable_templates::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX14_VARIABLE_TEMPLATES at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx17::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX17 at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx17_fold_expressions::test())
@@ -1639,6 +1749,76 @@ int main( int, char *[] )
    if(0 != boost_no_cxx17_structured_bindings::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX17_STRUCTURED_BINDINGS at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_hdr_barrier::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_HDR_BARRIER at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_hdr_bit::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_HDR_BIT at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_hdr_compare::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_HDR_COMPARE at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_hdr_concepts::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_HDR_CONCEPTS at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_hdr_coroutine::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_HDR_COROUTINE at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_hdr_format::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_HDR_FORMAT at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_hdr_latch::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_HDR_LATCH at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_hdr_numbers::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_HDR_NUMBERS at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_hdr_ranges::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_HDR_RANGES at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_hdr_semaphore::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_HDR_SEMAPHORE at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_hdr_source_location::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_HDR_SOURCE_LOCATION at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_hdr_span::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_HDR_SPAN at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_hdr_stop_token::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_HDR_STOP_TOKEN at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_hdr_syncstream::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_HDR_SYNCSTREAM at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx98_binders::test())
