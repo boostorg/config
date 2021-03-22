@@ -166,6 +166,13 @@
 #elif __has_include(<array>)
 #  define BOOST_LIBSTDCXX_VERSION 40300
 #endif
+//
+// If BOOST_HAS_FLOAT128 is set, now that we know the std lib is libstdc++3, check to see if the std lib is
+// configured to support this type.  If not disable it:
+//
+#if defined(BOOST_HAS_FLOAT128) && !defined(_GLIBCXX_USE_FLOAT128)
+#  undef BOOST_HAS_FLOAT128
+#endif
 
 #if (BOOST_LIBSTDCXX_VERSION >= 100000) && defined(BOOST_HAS_HASH)
 //
