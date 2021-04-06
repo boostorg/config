@@ -475,6 +475,13 @@ namespace std {
 #  define BOOST_CTOR_TYPENAME
 #endif
 
+//
+// If we're on a CUDA device (note DEVICE not HOST, irrespective of compiler) then disable __float128 support if present:
+//
+#if defined(__CUDA_ARCH__) && defined(BOOST_HAS_FLOAT128)
+#  undef BOOST_HAS_FLOAT128
+#endif
+
 // long long workaround ------------------------------------------//
 // On gcc (and maybe other compilers?) long long is alway supported
 // but it's use may generate either warnings (with -ansi), or errors
