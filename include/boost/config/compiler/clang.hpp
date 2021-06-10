@@ -351,3 +351,11 @@
 // Macro used to identify the Clang compiler.
 #define BOOST_CLANG 1
 
+#if (__clang_major__ >= 4 || (__clang_major__ >= 3 && __clang_minor__ >= 8))
+#  define BOOST_ATTRIBUTE_TARGET(isa) __attribute__ ((target(isa)))
+#endif
+
+#if defined(__clang__) && !defined(_MSC_VER)
+#  define BOOST_ATTRIBUTE_MALLOC_FUNCTION __attribute__ ((malloc))
+#endif
+
