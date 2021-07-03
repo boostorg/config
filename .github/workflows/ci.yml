@@ -206,3 +206,76 @@ jobs:
       - name: Test
         run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,20 toolset=msvc-14.2
         working-directory: ../boost-root/libs/config/test
+  non_intel_ubuntu_20_04_gcc:
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        qemu_arch: [ aarch64, s390x, ppc64le ]
+    steps:
+      - uses: actions/checkout@v2.1.0
+      - uses: uraimo/run-on-arch-action@v2.0.5
+        name: Run commands
+        id: runcmd
+        with:
+          arch: ${{ matrix.qemu_arch }}
+          distro: ubuntu20.04
+
+          # Not required, but speeds up builds by storing container images in
+          # a GitHub package registry.
+          #githubToken: ${{ github.token }}
+
+          # Set an output parameter `uname` for use in subsequent steps
+          run: |
+            uname -a
+            apt update
+            apt -y install gcc g++ git python
+            echo $PWD
+            config=$PWD
+            cd ..
+            git clone -b develop --depth 1 https://github.com/boostorg/boost.git boost-root
+            cd boost-root
+            rm -rf libs/config/*
+            cp -r $config/* libs/config
+            git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits
+            ./bootstrap.sh
+            ./b2 headers
+            ./b2 toolset=gcc libs/config/test//print_config_info libs/config/test//print_math_info
+            cd libs/config/test && ../../../b2 toolset=gcc cxxstd=03,11,14,17
+  non_intel_ubuntu_20_04_clang:
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        qemu_arch: [ aarch64, ppc64le ]
+    steps:
+      - uses: actions/checkout@v2.1.0
+      - uses: uraimo/run-on-arch-action@v2.0.5
+        name: Run commands
+        id: runcmd
+        with:
+          arch: ${{ matrix.qemu_arch }}
+          distro: ubuntu20.04
+
+          # Not required, but speeds up builds by storing container images in
+          # a GitHub package registry.
+          #githubToken: ${{ github.token }}
+
+          # Set an output parameter `uname` for use in subsequent steps
+          run: |
+            uname -a
+            apt update
+            apt -y install clang gcc g++ git python
+            echo $PWD
+            config=$PWD
+            cd ..
+            git clone -b develop --depth 1 https://github.com/boostorg/boost.git boost-root
+            cd boost-root
+            rm -rf libs/config/*
+            cp -r $config/* libs/config
+            git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits
+            ./bootstrap.sh
+            ./b2 headers
+            ./b2 toolset=clang libs/config/test//print_config_info libs/config/test//print_math_info
+            cd libs/config/test
+            ../../../b2 toolset=clang cxxstd=03,11,14,17

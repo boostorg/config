@@ -1,6 +1,6 @@
-//  This file was automatically generated on Wed Mar  3 12:23:03 2021
+//  This file was automatically generated on Sat Mar  6 19:55:52 2021
 //  by libs/config/tools/generate.cpp
-//  Copyright John Maddock 2002-4.
+//  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
 //  Boost Software License, Version 1.0. (See accompanying file 
 //  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -619,6 +619,76 @@
 #ifdef TEST_BOOST_NO_CXX17_STRUCTURED_BINDINGS
 #  ifdef BOOST_NO_CXX17_STRUCTURED_BINDINGS
 #     error "Defect macro BOOST_NO_CXX17_STRUCTURED_BINDINGS is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX20_HDR_BARRIER
+#  ifdef BOOST_NO_CXX20_HDR_BARRIER
+#     error "Defect macro BOOST_NO_CXX20_HDR_BARRIER is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX20_HDR_BIT
+#  ifdef BOOST_NO_CXX20_HDR_BIT
+#     error "Defect macro BOOST_NO_CXX20_HDR_BIT is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX20_HDR_COMPARE
+#  ifdef BOOST_NO_CXX20_HDR_COMPARE
+#     error "Defect macro BOOST_NO_CXX20_HDR_COMPARE is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX20_HDR_CONCEPTS
+#  ifdef BOOST_NO_CXX20_HDR_CONCEPTS
+#     error "Defect macro BOOST_NO_CXX20_HDR_CONCEPTS is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX20_HDR_COROUTINE
+#  ifdef BOOST_NO_CXX20_HDR_COROUTINE
+#     error "Defect macro BOOST_NO_CXX20_HDR_COROUTINE is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX20_HDR_FORMAT
+#  ifdef BOOST_NO_CXX20_HDR_FORMAT
+#     error "Defect macro BOOST_NO_CXX20_HDR_FORMAT is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX20_HDR_LATCH
+#  ifdef BOOST_NO_CXX20_HDR_LATCH
+#     error "Defect macro BOOST_NO_CXX20_HDR_LATCH is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX20_HDR_NUMBERS
+#  ifdef BOOST_NO_CXX20_HDR_NUMBERS
+#     error "Defect macro BOOST_NO_CXX20_HDR_NUMBERS is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX20_HDR_RANGES
+#  ifdef BOOST_NO_CXX20_HDR_RANGES
+#     error "Defect macro BOOST_NO_CXX20_HDR_RANGES is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX20_HDR_SEMAPHORE
+#  ifdef BOOST_NO_CXX20_HDR_SEMAPHORE
+#     error "Defect macro BOOST_NO_CXX20_HDR_SEMAPHORE is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX20_HDR_SOURCE_LOCATION
+#  ifdef BOOST_NO_CXX20_HDR_SOURCE_LOCATION
+#     error "Defect macro BOOST_NO_CXX20_HDR_SOURCE_LOCATION is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX20_HDR_SPAN
+#  ifdef BOOST_NO_CXX20_HDR_SPAN
+#     error "Defect macro BOOST_NO_CXX20_HDR_SPAN is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX20_HDR_STOP_TOKEN
+#  ifdef BOOST_NO_CXX20_HDR_STOP_TOKEN
+#     error "Defect macro BOOST_NO_CXX20_HDR_STOP_TOKEN is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX20_HDR_SYNCSTREAM
+#  ifdef BOOST_NO_CXX20_HDR_SYNCSTREAM
+#     error "Defect macro BOOST_NO_CXX20_HDR_SYNCSTREAM is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX98_BINDERS
