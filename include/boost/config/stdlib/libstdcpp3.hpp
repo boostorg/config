@@ -277,6 +277,11 @@ extern "C" char *gets (char *__s);
 #  define BOOST_HAS_TR1_COMPLEX_OVERLOADS 
 #endif
 
+#if (BOOST_LIBSTDCXX_VERSION >= 40400) && (BOOST_LIBSTDCXX_VERSION < 40500) && !defined(__GXX_RTTI)
+// GCC 4.4 fails CI when RTTI is not present and we try and use std::shared_ptr:
+#  define BOOST_NO_CXX11_SMART_PTR
+#endif
+
 //  C++0x features in GCC 4.5.0 and later
 //
 #if (BOOST_LIBSTDCXX_VERSION < 40500) || !defined(BOOST_LIBSTDCXX11)
