@@ -1481,6 +1481,12 @@ compiler version macro.
 [[`BOOST_CLANG`][`<boost/config.hpp>`][
 Defined to 1 if the compiler is the Clang compiler.
 ]]
+[[`BOOST_CLANG_VERSION`][`<boost/config.hpp>`][
+Defined to the version of the Clang compiler, usually
+`__clang_major__ * 10000 + __clang_minor__ * 100 + __clang_patchlevel__`. On
+Apple Clang, has a best-effort value reflecting the upstream version, rather
+than the Apple version.
+]]
 [[`BOOST_BORLANDC`][`<boost/config.hpp>`][
 Defined to the value of __BORLANDC__ if the compiler is the Embarcadero
 non-clang based compiler.
