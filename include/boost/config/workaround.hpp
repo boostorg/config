@@ -192,6 +192,11 @@
 #else
 #define _COMPILER_VERSION_WORKAROUND_GUARD 0
 #endif
+#ifndef __clang_major__
+#define __clang_major___WORKAROUND_GUARD 1
+#else
+#define __clang_major___WORKAROUND_GUARD 0
+#endif
 
 #ifndef _RWSTD_VER
 #define _RWSTD_VER_WORKAROUND_GUARD 1
