@@ -380,6 +380,7 @@ void print_compiler_macros()
   PRINT_MACRO(__clang_minor__);
   PRINT_MACRO(__clang_version__);
   PRINT_MACRO(__clang_patchlevel__);
+  PRINT_MACRO(__apple_build_version__);
 
   // misc compilers not covered so far:
   PRINT_MACRO(__USLC__);
