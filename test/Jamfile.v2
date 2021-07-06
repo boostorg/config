@@ -32,6 +32,8 @@ exe has_pthread_lib : config_info.cpp pthread ;
 explicit has_pthread_lib ;
 exe has_rt_lib : config_info.cpp rt ;
 explicit has_rt_lib ;
+obj check_memory : check_memory.cpp ;
+explicit check_memory ;
 
 test-suite config
   :
@@ -65,6 +67,7 @@ test-suite config
           [ check-target-builds has_atomic_lib : <source>atomic ]
           [ check-target-builds has_pthread_lib : <source>pthread ]
           [ check-target-builds has_rt_lib : <source>rt ]
+          [ check-target-builds check_memory : : <build>no ]
           : config_test_no_rtti
     ]
     [ run config_test.cpp
