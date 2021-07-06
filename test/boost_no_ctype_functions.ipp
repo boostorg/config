@@ -12,32 +12,40 @@
 //                 macros and don't provide functions. Under C++ it's an error
 //                 to provide the macros at all, but that's a separate issue.
 
-#include <ctype.h>
+#include <cctype>
 
 namespace boost_no_ctype_functions {
 
-extern "C" {
-  typedef int (* character_classify_function)(int);
-}
-
-void pass_function(character_classify_function)
-{
-}
-
 int test()
 {
-   pass_function(isalpha);
-   pass_function(isalnum);
-   pass_function(iscntrl);
-   pass_function(isdigit);
-   pass_function(isgraph);
-   pass_function(islower);
-   pass_function(isprint);
-   pass_function(ispunct);
-   pass_function(isspace);
-   pass_function(isupper);
-   pass_function(isxdigit);
-   return 0;
+   using std::isalpha;
+   using std::isalnum;
+   using std::iscntrl;
+   using std::isdigit;
+   using std::isgraph;
+   using std::islower;
+   using std::isprint;
+   using std::ispunct;
+   using std::isspace;
+   using std::isupper;
+   using std::isxdigit;
+
+   int r = 0;
+   char c = 'a';
+
+   r |= (isalpha)(c);
+   r |= (isalnum)(c);
+   r |= (iscntrl)(c);
+   r |= (isdigit)(c);
+   r |= (isgraph)(c);
+   r |= (islower)(c);
+   r |= (isprint)(c);
+   r |= (ispunct)(c);
+   r |= (isspace)(c);
+   r |= (isupper)(c);
+   r |= (isxdigit)(c);
+
+   return r == 0 ? 1 : 0;
 }
 
 }
