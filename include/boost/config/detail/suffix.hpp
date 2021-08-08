@@ -1091,7 +1091,7 @@ namespace std{ using ::type_info; }
 #elif defined(BOOST_CONFIG_HAS_BUILTIN_IS_CONSTANT_EVALUATED)
 #  define BOOST_IS_CONSTANT_EVALUATED_INT(integer) __builtin_is_constant_evaluated()
 #elif defined(BOOST_CONFIG_IS_CONST_EVALUATED_INT)
-#  define BOOST_IS_CONSTANT_EVALUATED_INT(integer) BOOST_IS_CONSTANT_EVALUATED_INT(integer)
+#  define BOOST_IS_CONSTANT_EVALUATED_INT(integer) BOOST_CONFIG_IS_CONST_EVALUATED_INT(integer)
 #  define BOOST_IS_CONSTANT_EVALUATED_VERSION 1
 #else
 #  define BOOST_IS_CONSTANT_EVALUATED false
