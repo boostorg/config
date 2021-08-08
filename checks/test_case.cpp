@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sat Mar  6 19:55:52 2021
+//  This file was automatically generated on Sun Aug  8 13:43:49 2021
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -689,6 +689,11 @@
 #ifdef TEST_BOOST_NO_CXX20_HDR_SYNCSTREAM
 #  ifdef BOOST_NO_CXX20_HDR_SYNCSTREAM
 #     error "Defect macro BOOST_NO_CXX20_HDR_SYNCSTREAM is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX20_IS_CONSTANT_EVALUATED
+#  ifdef BOOST_NO_CXX20_IS_CONSTANT_EVALUATED
+#     error "Defect macro BOOST_NO_CXX20_IS_CONSTANT_EVALUATED is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX98_BINDERS

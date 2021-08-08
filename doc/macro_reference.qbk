@@ -1063,6 +1063,7 @@ that are not yet supported by a particular compiler or library.
 
 [table
 [[Macro ][Description ]]
+[[`BOOST_NO_CXX20_IS_CONSTANT_EVALUATED`][The standard library has no `std::is_constant_evaluated()`.]]
 [[`BOOST_NO_CXX20_HDR_BARRIER`][The compiler does not support the header `<barrier>`.]]
 [[`BOOST_NO_CXX20_HDR_FORMAT`][The compiler does not support the header `<format>`.]]
 [[`BOOST_NO_CXX20_HDR_SOURCE_LOCATION`][The compiler does not support the header `<format>`.]]
@@ -1077,6 +1078,23 @@ that are not yet supported by a particular compiler or library.
 [[`BOOST_NO_CXX20_HDR_SYNCSTREAM`][The compiler does not support the header `<syncstream>`.]]
 [[`BOOST_NO_CXX20_HDR_COROUTINE`][The compiler does not support the header `<coroutine>`.]]
 [[`BOOST_NO_CXX20_HDR_SEMAPHORE`][The compiler does not support the header `<semaphore>`.]]
+]
+
+[endsect]
+
+[section Macros that allow C++20 features to be used in previous standard versions]
+
+[table
+[[macro][Description]]
+[[`BOOST_IS_CONSTANT_EVALUATED()`][Evaluated to `true` when the current context is `constexpr` and false otherwise.
+                                 This macro may be functional in C++14 onwards if the compiler has a suitable intrinsic we recognise (MSVC/Clang/GCC are currently supported).
+                                 The macro always evaluates to `false` on unsupported/old compilers.]]
+[[`BOOST_IS_CONSTANT_EVALUATED_INT(integer-expression)`][Evaluates to `true` when `integer-expression` is `constexpr`.
+                                 The macro may be functional in C++14 onwards if the compiler has a suitable intrinsic, in particular this macro is functional for gcc-6 and onwards
+                                 as well as for compilers which have direct support for `std::is_constant_evaluated`.
+                                 The macro always evaluates to `false` on unsupported/old compilers.]]
+[[BOOST_IS_CONSTANT_EVALUATED_VERSION][Evaluates to 0 if there is no support for this feature, 1 if `BOOST_IS_CONSTANT_EVALUATED_INT` is fully functional, and 2 if both
+                                 BOOST_IS_CONSTANT_EVALUATED_INT and BOOST_IS_CONSTANT_EVALUATED are fully functional.]]
 ]
 
 [endsect]

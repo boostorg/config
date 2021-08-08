@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sat Mar  6 19:55:52 2021
+//  This file was automatically generated on Sun Aug  8 13:43:48 2021
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -516,6 +516,11 @@ namespace boost_no_cxx20_hdr_stop_token = empty_boost;
 #include "boost_no_cxx20_hdr_syncstream.ipp"
 #else
 namespace boost_no_cxx20_hdr_syncstream = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_IS_CONSTANT_EVALUATED
+#include "boost_no_cxx20_is_constant_evaluated.ipp"
+#else
+namespace boost_no_cxx20_is_constant_evaluated = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX98_BINDERS
 #include "boost_no_cxx98_binders.ipp"
@@ -1819,6 +1824,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx20_hdr_syncstream::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX20_HDR_SYNCSTREAM at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_is_constant_evaluated::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_IS_CONSTANT_EVALUATED at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx98_binders::test())

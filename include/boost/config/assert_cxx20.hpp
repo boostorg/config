@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sat Mar  6 19:55:50 2021
+//  This file was automatically generated on Sun Aug  8 13:43:46 2021
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -53,4 +53,7 @@
 #endif
 #ifdef BOOST_NO_CXX20_HDR_SYNCSTREAM
 #  error "Your compiler appears not to be fully C++20 compliant.  Detected via defect macro BOOST_NO_CXX20_HDR_SYNCSTREAM."
+#endif
+#ifdef BOOST_NO_CXX20_IS_CONSTANT_EVALUATED
+#  error "Your compiler appears not to be fully C++20 compliant.  Detected via defect macro BOOST_NO_CXX20_IS_CONSTANT_EVALUATED."
 #endif
