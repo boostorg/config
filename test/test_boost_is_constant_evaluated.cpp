@@ -4,6 +4,8 @@
 //  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 #include <boost/config.hpp>
+
+#ifndef BOOST_NO_CXX11_HDR_TYPE_TRAITS
 #include <type_traits>
 
 #if BOOST_IS_CONSTANT_EVALUATED_VERSION >= 2
@@ -35,6 +37,7 @@ inline constexpr int factorial2(int i)
    else
       return i * factorial2(i - 1);
 }
+#endif
 #endif
 
 int main()
