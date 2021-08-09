@@ -4544,7 +4544,14 @@
                   when the current context is <code class="computeroutput"><span class="keyword">constexpr</span></code>
                   and false otherwise. This macro may be functional in C++14 onwards
                   if the compiler has a suitable intrinsic we recognise (MSVC/Clang/GCC
-                  are currently supported). The macro always evaluates to <code class="computeroutput"><span class="keyword">false</span></code> on unsupported/old compilers.
+                  are currently supported).
+                </p>
+                <p>
+                  Note that before using this macro, the program must include <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">type_traits</span><span class="special">&gt;</span></code>.
+                </p>
+                <p>
+                  The macro always evaluates to <code class="computeroutput"><span class="keyword">false</span></code>
+                  on unsupported/old compilers.
                 </p>
               </td>
 </tr>
@@ -4561,8 +4568,20 @@
                   The macro may be functional in C++14 onwards if the compiler has
                   a suitable intrinsic, in particular this macro is functional for
                   gcc-6 and onwards as well as for compilers which have direct support
-                  for <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">is_constant_evaluated</span></code>. The macro
-                  always evaluates to <code class="computeroutput"><span class="keyword">false</span></code>
+                  for <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">is_constant_evaluated</span></code>.
+                </p>
+                <p>
+                  Note that before using this macro, the program must include <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">type_traits</span><span class="special">&gt;</span></code>.
+                </p>
+                <p>
+                  Note that this macro may behave subtly different from <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">is_constant_evaluated</span><span class="special">()</span></code>
+                  in that it may evaluate to <code class="computeroutput"><span class="keyword">true</span></code>
+                  when code is evaluated in a non-constexpr context, but is none
+                  the less evaluated at "compile time" as a result of program
+                  optimisation.
+                </p>
+                <p>
+                  The macro always evaluates to <code class="computeroutput"><span class="keyword">false</span></code>
                   on unsupported/old compilers.
                 </p>
               </td>

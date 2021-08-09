@@ -7,6 +7,7 @@
 
 #ifndef BOOST_NO_CXX11_HDR_TYPE_TRAITS
 #include <type_traits>
+#include <cstdlib>
 
 #if BOOST_IS_CONSTANT_EVALUATED_VERSION >= 2
 inline constexpr int factorial1(int i)

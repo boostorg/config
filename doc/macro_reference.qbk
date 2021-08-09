@@ -1088,10 +1088,20 @@ that are not yet supported by a particular compiler or library.
 [[macro][Description]]
 [[`BOOST_IS_CONSTANT_EVALUATED()`][Evaluated to `true` when the current context is `constexpr` and false otherwise.
                                  This macro may be functional in C++14 onwards if the compiler has a suitable intrinsic we recognise (MSVC/Clang/GCC are currently supported).
+
+                                 Note that before using this macro, the program must include `<type_traits>`.
+
                                  The macro always evaluates to `false` on unsupported/old compilers.]]
 [[`BOOST_IS_CONSTANT_EVALUATED_INT(integer-expression)`][Evaluates to `true` when `integer-expression` is `constexpr`.
                                  The macro may be functional in C++14 onwards if the compiler has a suitable intrinsic, in particular this macro is functional for gcc-6 and onwards
                                  as well as for compilers which have direct support for `std::is_constant_evaluated`.
+
+                                 Note that before using this macro, the program must include `<type_traits>`.
+
+                                 Note that this macro may behave subtly different from `std::is_constant_evaluated()` in that it may evaluate to
+                                 `true` when code is evaluated in a non-constexpr context, but is none the less evaluated at "compile time" as a result
+                                 of program optimisation.
+
                                  The macro always evaluates to `false` on unsupported/old compilers.]]
 [[BOOST_IS_CONSTANT_EVALUATED_VERSION][Evaluates to 0 if there is no support for this feature, 1 if `BOOST_IS_CONSTANT_EVALUATED_INT` is fully functional, and 2 if both
                                  BOOST_IS_CONSTANT_EVALUATED_INT and BOOST_IS_CONSTANT_EVALUATED are fully functional.]]

@@ -1094,7 +1094,7 @@ namespace std{ using ::type_info; }
 #  define BOOST_IS_CONSTANT_EVALUATED_INT(integer) BOOST_CONFIG_IS_CONST_EVALUATED_INT(integer)
 #  define BOOST_IS_CONSTANT_EVALUATED_VERSION 1
 #else
-#  define BOOST_IS_CONSTANT_EVALUATED false
+#  define BOOST_IS_CONSTANT_EVALUATED_INT(i) false
 #endif
 
 #ifndef BOOST_IS_CONSTANT_EVALUATED_VERSION
