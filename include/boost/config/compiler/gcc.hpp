@@ -331,6 +331,14 @@
 #define BOOST_NO_CXX11_THREAD_LOCAL
 #endif
 
+#if !defined(BOOST_NO_CXX14_CONSTEXPR) && (__GNUC__ >= 9) && !defined(BOOST_CONFIG_HAS_BUILTIN_IS_CONSTANT_EVALUATED)
+#  define BOOST_CONFIG_HAS_BUILTIN_IS_CONSTANT_EVALUATED
+#endif
+#if !defined(BOOST_NO_CXX14_CONSTEXPR) && (__GNUC__ >= 6)
+#  define BOOST_CONFIG_IS_CONST_EVALUATED_INT(x) __builtin_constant_p(x)
+#endif
+
+
 //
 // Unused attribute:
 #if __GNUC__ >= 4

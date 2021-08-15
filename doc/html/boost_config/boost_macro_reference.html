@@ -49,6 +49,8 @@
       that allow use of C++17 features with C++14 or earlier compilers</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__20_features_not_supported">Macros
       that describe C++20 features not supported</a></span></dt>
+<dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_allow_c__20_features_to_be_used_in_previous_standard_versions">Macros
+      that allow C++20 features to be used in previous standard versions</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_features_that_have_been_removed_from_the_standard_">Macros
       that describe features that have been removed from the standard.</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.boost_helper_macros">Boost
@@ -4327,6 +4329,18 @@
 <tr>
 <td>
                 <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_IS_CONSTANT_EVALUATED</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The standard library has no <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">is_constant_evaluated</span><span class="special">()</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_HDR_BARRIER</span></code>
                 </p>
               </td>
@@ -4489,6 +4503,100 @@
 <td>
                 <p>
                   The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">semaphore</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="boost_config.boost_macro_reference.macros_that_allow_c__20_features_to_be_used_in_previous_standard_versions"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_allow_c__20_features_to_be_used_in_previous_standard_versions" title="Macros that allow C++20 features to be used in previous standard versions">Macros
+      that allow C++20 features to be used in previous standard versions</a>
+</h3></div></div></div>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  macro
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_IS_CONSTANT_EVALUATED</span><span class="special">()</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Evaluated to <code class="computeroutput"><span class="keyword">true</span></code>
+                  when the current context is <code class="computeroutput"><span class="keyword">constexpr</span></code>
+                  and false otherwise. This macro may be functional in C++14 onwards
+                  if the compiler has a suitable intrinsic we recognise (MSVC/Clang/GCC
+                  are currently supported).
+                </p>
+                <p>
+                  Note that before using this macro, the program must include <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">type_traits</span><span class="special">&gt;</span></code>.
+                </p>
+                <p>
+                  The macro always evaluates to <code class="computeroutput"><span class="keyword">false</span></code>
+                  on unsupported/old compilers.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_IS_CONSTANT_EVALUATED_INT</span><span class="special">(</span><span class="identifier">integer</span><span class="special">-</span><span class="identifier">expression</span><span class="special">)</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Evaluates to <code class="computeroutput"><span class="keyword">true</span></code>
+                  when <code class="computeroutput"><span class="identifier">integer</span><span class="special">-</span><span class="identifier">expression</span></code> is <code class="computeroutput"><span class="keyword">constexpr</span></code>.
+                  The macro may be functional in C++14 onwards if the compiler has
+                  a suitable intrinsic, in particular this macro is functional for
+                  gcc-6 and onwards as well as for compilers which have direct support
+                  for <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">is_constant_evaluated</span></code>.
+                </p>
+                <p>
+                  Note that before using this macro, the program must include <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">type_traits</span><span class="special">&gt;</span></code>.
+                </p>
+                <p>
+                  Note that this macro may behave subtly different from <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">is_constant_evaluated</span><span class="special">()</span></code>
+                  in that it may evaluate to <code class="computeroutput"><span class="keyword">true</span></code>
+                  when code is evaluated in a non-constexpr context, but is none
+                  the less evaluated at "compile time" as a result of program
+                  optimisation.
+                </p>
+                <p>
+                  The macro always evaluates to <code class="computeroutput"><span class="keyword">false</span></code>
+                  on unsupported/old compilers.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  BOOST_IS_CONSTANT_EVALUATED_VERSION
+                </p>
+              </td>
+<td>
+                <p>
+                  Evaluates to 0 if there is no support for this feature, 1 if <code class="computeroutput"><span class="identifier">BOOST_IS_CONSTANT_EVALUATED_INT</span></code>
+                  is fully functional, and 2 if both BOOST_IS_CONSTANT_EVALUATED_INT
+                  and BOOST_IS_CONSTANT_EVALUATED are fully functional.
                 </p>
               </td>
 </tr>
@@ -5472,6 +5580,29 @@
 <td>
                 <p>
                   Defined to 1 if the compiler is the Clang compiler.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_CLANG_VERSION</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Defined to the version of the Clang compiler, usually <code class="computeroutput"><span class="identifier">__clang_major__</span> <span class="special">*</span>
+                  <span class="number">10000</span> <span class="special">+</span>
+                  <span class="identifier">__clang_minor__</span> <span class="special">*</span>
+                  <span class="number">100</span> <span class="special">+</span>
+                  <span class="identifier">__clang_patchlevel__</span></code>.
+                  On Apple Clang, has a best-effort value reflecting the upstream
+                  version, rather than the Apple version.
                 </p>
               </td>
 </tr>

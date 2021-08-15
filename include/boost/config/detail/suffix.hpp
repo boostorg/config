@@ -1064,6 +1064,46 @@ namespace std{ using ::type_info; }
 # define BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS
 #endif
 
+//
+// std::is_constant_evaluated and associated workarounds:
+//
+#if defined(__cplusplus) && defined(__has_include)
+#  if __has_include(<version>)
+// It should be safe to include `<version>` when it is present without checking
+// the actual C++ language version as it consists solely of macro definitions.
+#    include <version>
+#  endif
+#endif
+#ifdef __cpp_lib_is_constant_evaluated
+#  define BOOST_IS_CONSTANT_EVALUATED_VERSION 2
+#else
+#  define BOOST_NO_CXX20_IS_CONSTANT_EVALUATED
+#endif
+
+#ifndef BOOST_NO_CXX20_IS_CONSTANT_EVALUATED
+#  define BOOST_IS_CONSTANT_EVALUATED() std::is_constant_evaluated()
+#elif defined(BOOST_CONFIG_HAS_BUILTIN_IS_CONSTANT_EVALUATED)
+#  define BOOST_IS_CONSTANT_EVALUATED() __builtin_is_constant_evaluated()
+#  define BOOST_IS_CONSTANT_EVALUATED_VERSION 2
+#else
+#  define BOOST_IS_CONSTANT_EVALUATED() false
+#endif
+
+#ifndef BOOST_NO_CXX20_IS_CONSTANT_EVALUATED
+#  define BOOST_IS_CONSTANT_EVALUATED_INT(integer) std::is_constant_evaluated()
+#elif defined(BOOST_CONFIG_HAS_BUILTIN_IS_CONSTANT_EVALUATED)
+#  define BOOST_IS_CONSTANT_EVALUATED_INT(integer) __builtin_is_constant_evaluated()
+#elif defined(BOOST_CONFIG_IS_CONST_EVALUATED_INT)
+#  define BOOST_IS_CONSTANT_EVALUATED_INT(integer) BOOST_CONFIG_IS_CONST_EVALUATED_INT(integer)
+#  define BOOST_IS_CONSTANT_EVALUATED_VERSION 1
+#else
+#  define BOOST_IS_CONSTANT_EVALUATED_INT(i) false
+#endif
+
+#ifndef BOOST_IS_CONSTANT_EVALUATED_VERSION
+#  define BOOST_IS_CONSTANT_EVALUATED_VERSION 0
+#endif
+
 #define BOOST_STATIC_CONSTEXPR  static BOOST_CONSTEXPR_OR_CONST
 
 //

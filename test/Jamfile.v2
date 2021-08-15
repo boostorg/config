@@ -114,6 +114,7 @@ test-suite config
     [ compile pragma_message_test.cpp ]
     [ compile header_deprecated_test.cpp ]
     [ compile boost_override_test.cpp ]
+    [ run test_boost_is_constant_evaluated.cpp ]
   ;
 
 obj has_clang_implicit_fallthrough : cmd_line_check.cpp :

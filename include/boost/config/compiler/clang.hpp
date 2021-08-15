@@ -331,6 +331,13 @@
 #define BOOST_UNREACHABLE_RETURN(x) __builtin_unreachable();
 #endif
 
+// is_constant_evaluated:
+#ifdef __has_builtin
+#if __has_builtin(__builtin_is_constant_evaluated) && !defined(BOOST_NO_CXX14_CONSTEXPR) && !defined(BOOST_NO_CXX11_UNIFIED_INITIALIZATION_SYNTAX)
+#define BOOST_CONFIG_HAS_BUILTIN_IS_CONSTANT_EVALUATED
+#endif
+#endif
+
 #if (__clang_major__ == 3) && (__clang_minor__ == 0)
 // Apparently a clang bug:
 #  define BOOST_NO_CXX11_FIXED_LENGTH_VARIADIC_TEMPLATE_EXPANSION_PACKS

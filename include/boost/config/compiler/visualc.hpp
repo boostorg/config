@@ -252,6 +252,11 @@
 #define BOOST_NO_CXX17_INLINE_VARIABLES
 #define BOOST_NO_CXX17_FOLD_EXPRESSIONS
 #endif
+//C++20:
+#if (_MSC_FULL_VER >= 192528326)
+#  define BOOST_CONFIG_HAS_BUILTIN_IS_CONSTANT_EVALUATED
+#endif
+
 
 //
 // Things that don't work in clr mode:
