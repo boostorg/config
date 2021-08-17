@@ -332,6 +332,7 @@ void fixup_cxxNN()
    //
    std_version_macros["03"].erase("BOOST_NO_AUTO_PTR");
    std_version_macros["11"].erase("BOOST_NO_CXX11_ATOMIC_SMART_PTR");
+   std_version_macros["11"].erase("BOOST_NO_CXX11_HDR_CODECVT");
 }
 
 void write_cxxNN_asserts()
