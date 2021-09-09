@@ -281,10 +281,6 @@ jobs:
             ../../../b2 toolset=clang cxxstd=03,11,14,17
   emscripten_wasm:
     runs-on: ubuntu-20.04
-    strategy:
-      fail-fast: false
-      matrix:
-        #qemu_arch: [ aarch64, s390x, ppc64le ]
     steps:
       - uses: actions/checkout@v2.1.0
         name: Run commands
