@@ -281,16 +281,20 @@ jobs:
             ../../../b2 toolset=clang cxxstd=03,11,14,17
   emscripten_wasm:
     runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [ emcc ]
     steps:
-      - uses: actions/checkout@v2.1.0
-        name: Run commands
-        id: runcmd
+      - uses: actions/checkout@v2
         with:
-          distro: ubuntu20.04
-        # Not required, but speeds up builds by storing container images in
-        # a GitHub package registry.
-        #githubToken: ${{ github.token }}
-        # Set an output parameter `uname` for use in subsequent steps
+          fetch-depth: '0'
+      - uses: mstachniuk/ci-skip@v1
+        with:
+          commit-filter: '[skip ci];[ci skip];[CI SKIP];[SKIP CI];***CI SKIP***;***SKIP CI***;[windows];[Windows];[WINDOWS];[apple];[Apple];[APPLE]'
+          commit-filter-separator: ';'
+          fail-fast: true
+      - name: Set TOOLSET
         run: |
          uname -a
          echo $PWD
