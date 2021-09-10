@@ -342,7 +342,7 @@ jobs:
         working-directory: ../boost-root
         run: |
          source ../emsdk/emsdk_env.sh
-         emcc -s EXIT_RUNTIME=1 -fno-exceptions -s DISABLE_EXCEPTION_CATCHING=0 -I. -O3 -o config_test libs/config/test/config_test.cpp
+         emcc -s EXIT_RUNTIME=1 -fno-exceptions -I. -O3 -o config_test libs/config/test/config_test.cpp
          node config_test
       - name: Test config_info (pthread)
         working-directory: ../boost-root
