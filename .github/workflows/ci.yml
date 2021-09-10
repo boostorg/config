@@ -308,7 +308,6 @@ jobs:
          source ./emsdk_env.sh
       - name: Install Boost
         run: |
-         cd ..
          git clone -b develop --depth 1 https://github.com/boostorg/boost.git boost-root
          cd boost-root
          rm -rf libs/config/*
@@ -317,26 +316,32 @@ jobs:
          ./bootstrap.sh
          ./b2 headers
       - name: Test config_info (default)
+        working-directory: ../boost-root
         run: |
          emcc -I. -O3 -o config_info libs/config/test/config_info.cpp
          node config_info
       - name: Test config_test (default)
+        working-directory: ../boost-root
         run: |
          emcc -s EXIT_RUNTIME=1 -s DISABLE_EXCEPTION_CATCHING=0 -I. -O3 -o config_test libs/config/test/config_test.cpp
          node config_test
       - name: Test config_info (-fno-exceptions)
+        working-directory: ../boost-root
         run: |
          emcc -I. -O3 -fno-exceptions -o config_info libs/config/test/config_info.cpp
          node config_info
       - name: Test config_test (-fno-exceptions)
+        working-directory: ../boost-root
         run: |
          emcc -s EXIT_RUNTIME=1 -fno-exceptions -s DISABLE_EXCEPTION_CATCHING=0 -I. -O3 -o config_test libs/config/test/config_test.cpp
          node config_test
       - name: Test config_info (pthread)
+        working-directory: ../boost-root
         run: |
          emcc -pthread -s EXIT_RUNTIME=1 -s PTHREAD_POOL_SIZE=32 -I. -O3 -o config_info_pthread libs/config/test/config_info.cpp
          node --experimental-wasm-threads --experimental-wasm-bulk-memory config_info_pthread
       - name: Test config_test (pthread)
+        working-directory: ../boost-root
         run: |
          emcc -pthread -s EXIT_RUNTIME=1 -s PTHREAD_POOL_SIZE=32 -s DISABLE_EXCEPTION_CATCHING=0 -I. -O3 -o config_test_pthread libs/config/test/config_test.cpp
          node --experimental-wasm-threads --experimental-wasm-bulk-memory config_test_pthread
