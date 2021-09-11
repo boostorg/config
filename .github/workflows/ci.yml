@@ -279,3 +279,80 @@ jobs:
             ./b2 toolset=clang libs/config/test//print_config_info libs/config/test//print_math_info
             cd libs/config/test
             ../../../b2 toolset=clang cxxstd=03,11,14,17
+  emscripten_wasm:
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [ emcc ]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+      - uses: mstachniuk/ci-skip@v1
+        with:
+          commit-filter: '[skip ci];[ci skip];[CI SKIP];[SKIP CI];***CI SKIP***;***SKIP CI***;[windows];[Windows];[WINDOWS];[apple];[Apple];[APPLE]'
+          commit-filter-separator: ';'
+          fail-fast: true
+      - name: Install Emscripten
+        run: |
+         uname -a
+         echo $PWD
+         config=$PWD
+         cd ..
+         git clone https://github.com/emscripten-core/emsdk.git
+         cd emsdk
+         git pull
+         ./emsdk install latest
+         ./emsdk activate latest
+         source ./emsdk_env.sh
+      - name: Checkout main boost
+        run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
+      - name: Update Dependencies
+        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits
+        working-directory: ../boost-root
+      - name: Copy files
+        run: cp -r $GITHUB_WORKSPACE/* libs/config
+        working-directory: ../boost-root
+      - name: Bootstrap
+        run: ./bootstrap.sh
+        working-directory: ../boost-root
+      - name: Generate headers
+        run: ./b2 headers
+        working-directory: ../boost-root
+      - name: Test config_info (default)
+        working-directory: ../boost-root
+        run: |
+         source ../emsdk/emsdk_env.sh
+         emcc -I. -O3 -o config_info libs/config/test/config_info.cpp
+         node config_info
+      - name: Test config_test (default)
+        working-directory: ../boost-root
+        run: |
+         source ../emsdk/emsdk_env.sh
+         emcc -s EXIT_RUNTIME=1 -s DISABLE_EXCEPTION_CATCHING=0 -I. -O3 -o config_test libs/config/test/config_test.cpp
+         node config_test
+      - name: Test config_info (-fno-exceptions)
+        working-directory: ../boost-root
+        run: |
+         source ../emsdk/emsdk_env.sh
+         emcc -I. -O3 -fno-exceptions -o config_info libs/config/test/config_info.cpp
+         node config_info
+      - name: Test config_test (-fno-exceptions)
+        working-directory: ../boost-root
+        run: |
+         source ../emsdk/emsdk_env.sh
+         emcc -s EXIT_RUNTIME=1 -fno-exceptions -I. -O3 -o config_test libs/config/test/config_test.cpp
+         node config_test
+      - name: Test config_info (pthread)
+        working-directory: ../boost-root
+        run: |
+         source ../emsdk/emsdk_env.sh
+         emcc -pthread -s EXIT_RUNTIME=1 -s PTHREAD_POOL_SIZE=32 -I. -O3 -o config_info_pthread libs/config/test/config_info.cpp
+         node --experimental-wasm-threads --experimental-wasm-bulk-memory config_info_pthread
+      - name: Test config_test (pthread)
+        working-directory: ../boost-root
+        run: |
+         source ../emsdk/emsdk_env.sh
+         emcc -pthread -s EXIT_RUNTIME=1 -s PTHREAD_POOL_SIZE=32 -s DISABLE_EXCEPTION_CATCHING=0 -I. -O3 -o config_test_pthread libs/config/test/config_test.cpp
+         node --experimental-wasm-threads --experimental-wasm-bulk-memory config_test_pthread

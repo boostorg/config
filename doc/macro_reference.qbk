@@ -706,7 +706,8 @@ default template arguments for function templates.
 [[`BOOST_NO_CXX11_HDR_ATOMIC`][The standard library does not provide header <atomic>.]]
 [[`BOOST_NO_CXX11_HDR_ARRAY`][The standard library does not provide header <array>.]]
 [[`BOOST_NO_CXX11_HDR_CHRONO`][The standard library does not provide header <chrono>.]]
-[[`BOOST_NO_CXX11_HDR_CODECVT`][The standard library does not provide header <codecvt>.]]
+[[`BOOST_NO_CXX11_HDR_CODECVT`][The standard library does not provide header <codecvt>.  Note that this header 
+                  is deprecated post C++17, and therefore the macro may be set as a result of the feature being deliberately removed.]]
 [[`BOOST_NO_CXX11_HDR_CONDITION_VARIABLE`][The standard library does not provide header <condition_variable>.]]
 [[`BOOST_NO_CXX11_HDR_EXCEPTION`][The standard library does not provide a C++11 compatible version of <exception>.]]
 [[`BOOST_NO_CXX11_HDR_FORWARD_LIST`][The standard library does not provide header <forward_list>.]]
@@ -1092,6 +1093,7 @@ The following macros describe features which were required by one version of the
 [[`BOOST_NO_CXX98_FUNCTION_BASE`][The standard library no longer supports `std::unary_function` and `std::binary_function`. They were deprecated in C++11 and is removed from C++14.]]
 [[`BOOST_NO_CXX98_BINDERS`][The standard library no longer supports `std::bind1st`, `std::bind2nd`, `std::ptr_fun` and `std::mem_fun`. They were deprecated in C++11 and is removed from C++14.]]
 [[`BOOST_NO_CXX11_ATOMIC_SMART_PTR`][The standard library no longer supports atomic overloads for `std::shared_ptr`: use `std::atomic<shared_ptr<T>>` instead.]]
+[[`BOOST_NO_CXX11_HDR_CODECVT`][The standard library no longer supports `<codecvt>`, there is as yet no replacement.]]
 ]
 
 [endsect]
@@ -1480,6 +1482,12 @@ compiler version macro.
 ]]
 [[`BOOST_CLANG`][`<boost/config.hpp>`][
 Defined to 1 if the compiler is the Clang compiler.
+]]
+[[`BOOST_CLANG_VERSION`][`<boost/config.hpp>`][
+Defined to the version of the Clang compiler, usually
+`__clang_major__ * 10000 + __clang_minor__ * 100 + __clang_patchlevel__`. On
+Apple Clang, has a best-effort value reflecting the upstream version, rather
+than the Apple version.
 ]]
 [[`BOOST_BORLANDC`][`<boost/config.hpp>`][
 Defined to the value of __BORLANDC__ if the compiler is the Embarcadero
