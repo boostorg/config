@@ -411,3 +411,6 @@ jobs:
       - name: Config_test nvcc-cuda+clang
         run: nvcc -c -std=c++${{ matrix.std }} --compiler-bindir=clang++ -I../../.. config_test.cu
         working-directory: ../boost-root/libs/config/test
+      - name: Config_test clang-cuda
+        run: clang++ -nocudalib --no-cuda-version-check -c -std=c++${{ matrix.std }} -I../../.. config_test.cu
+        working-directory: ../boost-root/libs/config/test
