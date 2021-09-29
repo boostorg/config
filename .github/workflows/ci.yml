@@ -358,6 +358,10 @@ jobs:
          node --experimental-wasm-threads --experimental-wasm-bulk-memory config_test_pthread
   ubuntu-cuda:
     runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        std: [ 11, 14, 17 ]
     steps:
       - uses: actions/checkout@v2
         with:
@@ -390,8 +394,11 @@ jobs:
         run: nvcc --version
         working-directory: ../boost-root/libs/config/test
       - name: Config info nvcc
-        run: nvcc -o config_info -I../../.. config_info.cpp && ./config_info
+        run: nvcc -std=c++${{ matrix.std }} -o config_info -I../../.. config_info.cpp && ./config_info
         working-directory: ../boost-root/libs/config/test
       - name: Config_test nvcc
-        run: nvcc -o config_test -I../../.. config_test.cpp && ./config_test
+        run: nvcc -std=c++${{ matrix.std }} -o config_test -I../../.. config_test.cpp && ./config_test
+        working-directory: ../boost-root/libs/config/test
+      - name: Config_test nvcc-cuda
+        run: nvcc -c -std=c++${{ matrix.std }} -I../../.. config_test.cu
         working-directory: ../boost-root/libs/config/test
