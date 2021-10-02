@@ -476,10 +476,13 @@ namespace std {
 #endif
 
 //
-// If we're on a CUDA device (note DEVICE not HOST, irrespective of compiler) then disable __float128 support if present:
+// If we're on a CUDA device (note DEVICE not HOST, irrespective of compiler) then disable __int128 and __float128 support if present:
 //
 #if defined(__CUDA_ARCH__) && defined(BOOST_HAS_FLOAT128)
 #  undef BOOST_HAS_FLOAT128
+#endif
+#if defined(__CUDA_ARCH__) && defined(BOOST_HAS_INT128)
+#  undef BOOST_HAS_INT128
 #endif
 
 // long long workaround ------------------------------------------//
