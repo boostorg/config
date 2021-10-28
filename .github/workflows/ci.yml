@@ -201,10 +201,10 @@ jobs:
         run: b2 headers
         working-directory: ../boost-root
       - name: Config info
-        run: ..\..\..\b2 print_config_info cxxstd=14,17,20 address-model=64 toolset=msvc-14.2
+        run: ..\..\..\b2 print_config_info cxxstd=14,17,latest address-model=64 toolset=msvc-14.2
         working-directory: ../boost-root/libs/config/test
       - name: Test
-        run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,20 toolset=msvc-14.2
+        run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,latest toolset=msvc-14.2
         working-directory: ../boost-root/libs/config/test
   windows_msvc_14_3:
     runs-on: windows-2022
@@ -239,10 +239,10 @@ jobs:
         run: b2 headers
         working-directory: ../boost-root
       - name: Config info
-        run: ..\..\..\b2 print_config_info cxxstd=14,17,20 address-model=64 toolset=msvc-14.3
+        run: ..\..\..\b2 print_config_info cxxstd=14,17,latest address-model=64 toolset=msvc-14.3
         working-directory: ../boost-root/libs/config/test
       - name: Test
-        run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,20 toolset=msvc-14.3
+        run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,latest toolset=msvc-14.3
         working-directory: ../boost-root/libs/config/test
   non_intel_ubuntu_20_04_gcc:
     runs-on: ubuntu-20.04
