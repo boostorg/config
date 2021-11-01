@@ -1294,6 +1294,9 @@ void print_boost_macros()
 #if __has_include(<version>)
 #  include <version>
 #endif
+#if __has_include(<atomic>) && (BOOST_CXX_VERSION > 201100)
+#  include <atomic>
+#endif
 #endif
 
 void print_sd6_macros()
@@ -1494,6 +1497,18 @@ void print_sd6_macros()
     // C++98:
     PRINT_MACRO(__cpp_rtti);
     PRINT_MACRO(__cpp_exceptions);
+
+    // <atomic>:
+    PRINT_MACRO(ATOMIC_INT_LOCK_FREE);
+    PRINT_MACRO(ATOMIC_SHORT_LOCK_FREE);
+    PRINT_MACRO(ATOMIC_LONG_LOCK_FREE);
+    PRINT_MACRO(ATOMIC_LLONG_LOCK_FREE);
+    PRINT_MACRO(ATOMIC_POINTER_LOCK_FREE);
+    PRINT_MACRO(ATOMIC_CHAR_LOCK_FREE);
+    PRINT_MACRO(ATOMIC_WCHAR_T_LOCK_FREE);
+    PRINT_MACRO(ATOMIC_CHAR8_T_LOCK_FREE);
+    PRINT_MACRO(ATOMIC_CHAR16_T_LOCK_FREE);
+    PRINT_MACRO(ATOMIC_CHAR32_T_LOCK_FREE);
 }
 
 void print_separator()

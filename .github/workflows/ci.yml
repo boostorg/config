@@ -169,7 +169,7 @@ jobs:
         run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17 toolset=msvc-14.0
         working-directory: ../boost-root/libs/config/test
   windows_msvc_14_2:
-    runs-on: windows-latest
+    runs-on: windows-2019
     defaults:
       run:
         shell: cmd
@@ -201,10 +201,48 @@ jobs:
         run: b2 headers
         working-directory: ../boost-root
       - name: Config info
-        run: ..\..\..\b2 print_config_info cxxstd=14,17,20 address-model=64 toolset=msvc-14.2
+        run: ..\..\..\b2 print_config_info cxxstd=14,17,latest address-model=64 toolset=msvc-14.2
         working-directory: ../boost-root/libs/config/test
       - name: Test
-        run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,20 toolset=msvc-14.2
+        run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,latest toolset=msvc-14.2
+        working-directory: ../boost-root/libs/config/test
+  windows_msvc_14_3:
+    runs-on: windows-2022
+    defaults:
+      run:
+        shell: cmd
+    strategy:
+      fail-fast: false
+      matrix:
+        toolset: [ msvc-14.3 ]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+      - uses: mstachniuk/ci-skip@v1
+        with:
+          commit-filter: '[skip ci];[ci skip];[CI SKIP];[SKIP CI];***CI SKIP***;***SKIP CI***;[apple];[Apple];[APPLE];[linux];[Linux];[LINUX]'
+          commit-filter-separator: ';'
+          fail-fast: true
+      - name: Checkout main boost
+        run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
+      - name: Update Dependencies
+        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits
+        working-directory: ../boost-root
+      - name: Copy files
+        run: xcopy /s /e /q %GITHUB_WORKSPACE% libs\config
+        working-directory: ../boost-root
+      - name: Bootstrap
+        run: bootstrap
+        working-directory: ../boost-root
+      - name: Generate headers
+        run: b2 headers
+        working-directory: ../boost-root
+      - name: Config info
+        run: ..\..\..\b2 print_config_info cxxstd=14,17,latest address-model=64 toolset=msvc-14.3
+        working-directory: ../boost-root/libs/config/test
+      - name: Test
+        run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,latest toolset=msvc-14.3
         working-directory: ../boost-root/libs/config/test
   non_intel_ubuntu_20_04_gcc:
     runs-on: ubuntu-20.04
@@ -356,3 +394,61 @@ jobs:
          source ../emsdk/emsdk_env.sh
          emcc -pthread -s EXIT_RUNTIME=1 -s PTHREAD_POOL_SIZE=32 -s DISABLE_EXCEPTION_CATCHING=0 -I. -O3 -o config_test_pthread libs/config/test/config_test.cpp
          node --experimental-wasm-threads --experimental-wasm-bulk-memory config_test_pthread
+  ubuntu-cuda:
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        std: [ 11, 14, 17 ]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+      - uses: mstachniuk/ci-skip@v1
+        with:
+          commit-filter: '[skip ci];[ci skip];[CI SKIP];[SKIP CI];***CI SKIP***;***SKIP CI***;[windows];[Windows];[WINDOWS];[apple];[Apple];[APPLE]'
+          commit-filter-separator: ';'
+          fail-fast: true
+      - uses: Jimver/cuda-toolkit@v0.2.4
+      - name: Add repository
+        run: sudo apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
+      - name: Install packages
+        run: sudo apt install g++-11 clang-11
+      - name: Checkout main boost
+        run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
+      - name: Update Dependencies
+        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits
+        working-directory: ../boost-root
+      - name: Copy files
+        run: cp -r $GITHUB_WORKSPACE/* libs/config
+        working-directory: ../boost-root
+      - name: Bootstrap
+        run: ./bootstrap.sh
+        working-directory: ../boost-root
+      - name: Generate headers
+        run: ./b2 headers
+        working-directory: ../boost-root
+      - name: nvcc version
+        run: nvcc --version
+        working-directory: ../boost-root/libs/config/test
+      - name: Config info nvcc
+        run: nvcc -std=c++${{ matrix.std }} -o config_info -I../../.. config_info.cpp && ./config_info
+        working-directory: ../boost-root/libs/config/test
+      - name: Config_test nvcc
+        run: nvcc -std=c++${{ matrix.std }} -o config_test -I../../.. config_test.cpp && ./config_test
+        working-directory: ../boost-root/libs/config/test
+      - name: Config_test nvcc-cuda
+        run: nvcc -c -std=c++${{ matrix.std }} -I../../.. config_test.cu
+        working-directory: ../boost-root/libs/config/test
+      - name: Config info nvcc+clang
+        run: nvcc -std=c++${{ matrix.std }} --compiler-bindir=clang++ -o config_info -I../../.. config_info.cpp && ./config_info
+        working-directory: ../boost-root/libs/config/test
+      - name: Config_test nvcc+clang
+        run: nvcc -std=c++${{ matrix.std }} --compiler-bindir=clang++ -o config_test -I../../.. config_test.cpp  -latomic && ./config_test
+        working-directory: ../boost-root/libs/config/test
+      - name: Config_test nvcc-cuda+clang
+        run: nvcc -c -std=c++${{ matrix.std }} --compiler-bindir=clang++ -I../../.. config_test.cu
+        working-directory: ../boost-root/libs/config/test
+      - name: Config_test clang-cuda
+        run: clang++ -nocudalib --no-cuda-version-check -c --cuda-gpu-arch=sm_75 -std=c++${{ matrix.std }} -I../../.. config_test.cu
+        working-directory: ../boost-root/libs/config/test
