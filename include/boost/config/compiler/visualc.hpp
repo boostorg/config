@@ -236,7 +236,7 @@
 // if this is in effect or not, in any case nothing in Boost is currently using this, so we'll just go
 // on defining it for now:
 //
-#if _MSC_FULL_VER < 193030705
+#if (_MSC_FULL_VER < 193030705)  || (_MSVC_LANG < 202004)
 #  define BOOST_NO_TWO_PHASE_NAME_LOOKUP
 #endif
 
