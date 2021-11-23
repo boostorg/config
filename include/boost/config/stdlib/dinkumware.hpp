@@ -209,8 +209,10 @@
 #endif
 // C++20 features not yet implemented:
 #  define BOOST_NO_CXX20_HDR_FORMAT
+#if !defined(_MSVC_STL_UPDATE) || (_MSVC_STL_UPDATE < 202108L) || !defined(_HAS_CXX20) || (_HAS_CXX20 == 0)
 #  define BOOST_NO_CXX20_HDR_SOURCE_LOCATION
 #  define BOOST_NO_CXX20_HDR_SYNCSTREAM
+#endif
 // Incomplete:
 #  define BOOST_NO_CXX20_HDR_RANGES
 
