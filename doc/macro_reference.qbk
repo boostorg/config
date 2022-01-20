@@ -1037,6 +1037,7 @@ that are not yet supported by a particular compiler or library.
 [[`BOOST_NO_CXX17_ITERATOR_TRAITS`][The compiler does not support SFINAE-friendly `std::iterator_traits`.]]
 [[`BOOST_NO_CXX17_IF_CONSTEXPR`][The compiler does not support `if constexpr`.]]
 [[`BOOST_NO_CXX17_INLINE_VARIABLES`][The compiler does not support `inline` variables.]]
+[[`BOOST_NO_CXX17_DEDUCTION_GUIDES`][The compiler does not class template argument deduction (CTAD) guides.]]
 ]
 
 [endsect]

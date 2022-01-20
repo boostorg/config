@@ -156,6 +156,7 @@
 #define BOOST_NO_CXX17_INLINE_VARIABLES
 #define BOOST_NO_CXX17_FOLD_EXPRESSIONS
 #define BOOST_NO_CXX17_IF_CONSTEXPR
+#define BOOST_NO_CXX17_DEDUCTION_GUIDES
 
 // -------------------------------------
 

@@ -1,4 +1,4 @@
-//  This file was automatically generated on Tue Aug 17 16:27:31 2021
+//  This file was automatically generated on Fri Jan 21 00:08:35 2022
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -371,6 +371,11 @@ namespace boost_no_cxx14_variable_templates = empty_boost;
 #include "boost_no_cxx17.ipp"
 #else
 namespace boost_no_cxx17 = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX17_DEDUCTION_GUIDES
+#include "boost_no_cxx17_deduction_guides.ipp"
+#else
+namespace boost_no_cxx17_deduction_guides = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX17_FOLD_EXPRESSIONS
 #include "boost_no_cxx17_fold_expressions.ipp"
@@ -1674,6 +1679,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx17::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX17 at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx17_deduction_guides::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX17_DEDUCTION_GUIDES at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx17_fold_expressions::test())

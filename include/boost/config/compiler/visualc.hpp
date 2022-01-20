@@ -212,6 +212,12 @@
 //#  define BOOST_NO_CXX17_HDR_STRING_VIEW
 #endif
 
+// C++17 features supported by VC++ 14.1 (Visual Studio 2017) Update 7
+//
+#if (_MSC_VER < 1914) || (_MSVC_LANG < 201703)
+#  define BOOST_NO_CXX17_DEDUCTION_GUIDES
+#endif
+
 // MSVC including version 14 has not yet completely
 // implemented value-initialization, as is reported:
 // "VC++ does not value-initialize members of derived classes without
@@ -317,11 +323,11 @@
 #     define BOOST_COMPILER_VERSION evc9
 #   elif _MSC_VER < 1700
 #     define BOOST_COMPILER_VERSION evc10
-#   elif _MSC_VER < 1800 
-#     define BOOST_COMPILER_VERSION evc11 
-#   elif _MSC_VER < 1900 
+#   elif _MSC_VER < 1800
+#     define BOOST_COMPILER_VERSION evc11
+#   elif _MSC_VER < 1900
 #     define BOOST_COMPILER_VERSION evc12
-#   elif _MSC_VER < 2000  
+#   elif _MSC_VER < 2000
 #     define BOOST_COMPILER_VERSION evc14
 #   else
 #      if defined(BOOST_ASSERT_CONFIG)
@@ -346,7 +352,7 @@
 #     define BOOST_COMPILER_VERSION 9.0
 #   elif _MSC_VER < 1700
 #     define BOOST_COMPILER_VERSION 10.0
-#   elif _MSC_VER < 1800 
+#   elif _MSC_VER < 1800
 #     define BOOST_COMPILER_VERSION 11.0
 #   elif _MSC_VER < 1900
 #     define BOOST_COMPILER_VERSION 12.0

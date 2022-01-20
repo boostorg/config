@@ -129,6 +129,9 @@
 #if !defined(__cpp_if_constexpr) || (__cpp_if_constexpr < 201606)
 #  define BOOST_NO_CXX17_IF_CONSTEXPR
 #endif
+#if !defined(__cpp_deduction_guides) || (__cpp_deduction_guides < 201606)
+#  define BOOST_NO_CXX17_DEDUCTION_GUIDES
+#endif
 
 #if (__DMC__ <= 0x840)
 #error "Compiler not supported or configured - please reconfigure"

@@ -136,6 +136,10 @@
   #define BOOST_NO_CXX11_VARIADIC_MACROS
 #endif
 
+#if !defined(__cpp_deduction_guides) || (__cpp_deduction_guides < 201606)
+#  define BOOST_NO_CXX17_DEDUCTION_GUIDES
+#endif
+
 #endif
 
 //

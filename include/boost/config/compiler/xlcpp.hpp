@@ -255,6 +255,10 @@
 #  define BOOST_NO_CXX17_IF_CONSTEXPR
 #endif
 
+#if !defined(__cpp_deduction_guides) || (__cpp_deduction_guides < 201606)
+#  define BOOST_NO_CXX17_DEDUCTION_GUIDES
+#endif
+
 // Clang 3.9+ in c++1z
 #if !__has_cpp_attribute(fallthrough) || __cplusplus < 201406L
 #  define BOOST_NO_CXX17_INLINE_VARIABLES
