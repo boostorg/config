@@ -1159,7 +1159,7 @@ namespace std{ using ::type_info; }
 #if !__has_include(<format>)
 #  define BOOST_NO_CXX20_HDR_FORMAT
 #endif
-#if !__has_include(<source_Location>)
+#if !__has_include(<source_location>)
 #  define BOOST_NO_CXX20_HDR_SOURCE_LOCATION
 #endif
 #if !__has_include(<bit>)
