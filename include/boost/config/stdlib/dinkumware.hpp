@@ -176,7 +176,9 @@
 #endif
 
 // C++17 features
-#if !defined(_CPPLIB_VER) || (_CPPLIB_VER < 650) || !defined(BOOST_MSVC) || (BOOST_MSVC < 1910) || !defined(_HAS_CXX17) || (_HAS_CXX17 == 0)
+#if !defined(_CPPLIB_VER) || (_CPPLIB_VER < 650) \
+ || ((!defined(BOOST_MSVC) || (BOOST_MSVC < 1910))) && (!defined(__clang__) || !defined(_MSC_VER) || (_MSC_VER < 1929))\
+ || !defined(_HAS_CXX17) || (_HAS_CXX17 == 0)
 #  define BOOST_NO_CXX17_STD_APPLY
 #  define BOOST_NO_CXX17_ITERATOR_TRAITS
 #  define BOOST_NO_CXX17_HDR_STRING_VIEW
@@ -212,6 +214,12 @@
 #if !defined(_MSVC_STL_UPDATE) || (_MSVC_STL_UPDATE < 202108L) || !defined(_HAS_CXX20) || (_HAS_CXX20 == 0)
 #  define BOOST_NO_CXX20_HDR_SOURCE_LOCATION
 #  define BOOST_NO_CXX20_HDR_SYNCSTREAM
+#endif
+#if !defined(BOOST_NO_CXX20_HDR_COROUTINE) && !defined(__cpp_lib_coroutine)
+#  define BOOST_NO_CXX20_HDR_COROUTINE
+#endif
+#if !defined(BOOST_NO_CXX20_HDR_SOURCE_LOCATION) && !defined(__cpp_consteval)
+#  define BOOST_NO_CXX20_HDR_SOURCE_LOCATION
 #endif
 // Incomplete:
 #  define BOOST_NO_CXX20_HDR_RANGES
