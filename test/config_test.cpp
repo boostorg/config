@@ -1,4 +1,4 @@
-//  This file was automatically generated on Tue Aug 17 16:27:31 2021
+//  This file was automatically generated on Thu Feb  3 18:10:41 2022
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -516,6 +516,11 @@ namespace boost_no_cxx20_hdr_stop_token = empty_boost;
 #include "boost_no_cxx20_hdr_syncstream.ipp"
 #else
 namespace boost_no_cxx20_hdr_syncstream = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_HDR_VERSION
+#include "boost_no_cxx20_hdr_version.ipp"
+#else
+namespace boost_no_cxx20_hdr_version = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX98_BINDERS
 #include "boost_no_cxx98_binders.ipp"
@@ -1819,6 +1824,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx20_hdr_syncstream::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX20_HDR_SYNCSTREAM at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_hdr_version::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_HDR_VERSION at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx98_binders::test())

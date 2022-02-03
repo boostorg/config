@@ -134,19 +134,19 @@
 #  define BOOST_NO_CXX20_HDR_SOURCE_LOCATION
 #endif
 #if !defined(__cpp_lib_latch) || (__cpp_lib_latch < 201907L)
-#  define BOOST_NO_CXX20_HDR_SOURCE_LATCH
+#  define BOOST_NO_CXX20_HDR_LATCH
 #endif
 #if !defined(__cpp_lib_span) || (__cpp_lib_span < 202002L)
-#  define BOOST_NO_CXX20_HDR_SOURCE_SPAN
+#  define BOOST_NO_CXX20_HDR_SPAN
 #endif
 #if !defined(__cpp_lib_math_constants) || (__cpp_lib_math_constants < 201907L)
-#  define BOOST_NO_CXX20_HDR_SOURCE_NUMBERS
+#  define BOOST_NO_CXX20_HDR_NUMBERS
 #endif
 #if !defined(__cpp_lib_jthread) || (__cpp_lib_jthread < 201911L)
-#  define BOOST_NO_CXX20_HDR_SOURCE_STOP_TOKEN
+#  define BOOST_NO_CXX20_HDR_STOP_TOKEN
 #endif
 #if !defined(__cpp_lib_concepts) || (__cpp_lib_concepts < 202002L)
-#  define BOOST_NO_CXX20_HDR_SOURCE_STOP_CONCEPTS
+#  define BOOST_NO_CXX20_HDR_STOP_CONCEPTS
 #endif
 #if !defined(__cpp_lib_syncbuf) || (__cpp_lib_syncbuf < 201803L)
 #  define BOOST_NO_CXX20_HDR_SYNCSTREAM
