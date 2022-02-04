@@ -194,35 +194,10 @@
 #  define BOOST_NO_CXX17_STD_INVOKE
 #endif
 
-// C++20 features
+// C++20 features which aren't configured in suffix.hpp correctly:
 #if !defined(_MSVC_STL_UPDATE) || (_MSVC_STL_UPDATE < 202008L) || !defined(_HAS_CXX20) || (_HAS_CXX20 == 0)
-#  define BOOST_NO_CXX20_HDR_BARRIER
-#  define BOOST_NO_CXX20_HDR_BIT
-#  define BOOST_NO_CXX20_HDR_LATCH
-#  define BOOST_NO_CXX20_HDR_SPAN
-#  define BOOST_NO_CXX20_HDR_COMPARE
-#  define BOOST_NO_CXX20_HDR_NUMBERS
 #  define BOOST_NO_CXX20_HDR_CONCEPTS
-#  define BOOST_NO_CXX20_HDR_COROUTINE
-#  define BOOST_NO_CXX20_HDR_SEMAPHORE
 #endif
-#if !defined(_MSVC_STL_UPDATE) || (_MSVC_STL_UPDATE < 202011L) || !defined(_HAS_CXX20) || (_HAS_CXX20 == 0)
-#  define BOOST_NO_CXX20_HDR_STOP_TOKEN
-#endif
-// C++20 features not yet implemented:
-#  define BOOST_NO_CXX20_HDR_FORMAT
-#if !defined(_MSVC_STL_UPDATE) || (_MSVC_STL_UPDATE < 202108L) || !defined(_HAS_CXX20) || (_HAS_CXX20 == 0)
-#  define BOOST_NO_CXX20_HDR_SOURCE_LOCATION
-#  define BOOST_NO_CXX20_HDR_SYNCSTREAM
-#endif
-#if !defined(BOOST_NO_CXX20_HDR_COROUTINE) && !defined(__cpp_lib_coroutine)
-#  define BOOST_NO_CXX20_HDR_COROUTINE
-#endif
-#if !defined(BOOST_NO_CXX20_HDR_SOURCE_LOCATION) && !defined(__cpp_consteval)
-#  define BOOST_NO_CXX20_HDR_SOURCE_LOCATION
-#endif
-// Incomplete:
-#  define BOOST_NO_CXX20_HDR_RANGES
 
 #if !(!defined(_CPPLIB_VER) || (_CPPLIB_VER < 650) || !defined(BOOST_MSVC) || (BOOST_MSVC < 1912) || !defined(_HAS_CXX17) || (_HAS_CXX17 == 0))
 // Deprecated std::iterator:

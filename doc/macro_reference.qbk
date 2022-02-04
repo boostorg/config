@@ -1078,6 +1078,7 @@ that are not yet supported by a particular compiler or library.
 [[`BOOST_NO_CXX20_HDR_SYNCSTREAM`][The compiler does not support the header `<syncstream>`.]]
 [[`BOOST_NO_CXX20_HDR_COROUTINE`][The compiler does not support the header `<coroutine>`.]]
 [[`BOOST_NO_CXX20_HDR_SEMAPHORE`][The compiler does not support the header `<semaphore>`.]]
+[[`BOOST_NO_CXX20_HDR_VERSION`][The compiler does not support the header `<version>`.]]
 ]
 
 [endsect]

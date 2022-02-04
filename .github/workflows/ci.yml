@@ -244,6 +244,44 @@ jobs:
       - name: Test
         run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,latest toolset=msvc-14.3
         working-directory: ../boost-root/libs/config/test
+  windows_clang_msvc_14_3:
+    runs-on: windows-2022
+    defaults:
+      run:
+        shell: cmd
+    strategy:
+      fail-fast: false
+      matrix:
+        toolset: [ clang-msvc-14.3 ]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+      - uses: mstachniuk/ci-skip@v1
+        with:
+          commit-filter: '[skip ci];[ci skip];[CI SKIP];[SKIP CI];***CI SKIP***;***SKIP CI***;[apple];[Apple];[APPLE];[linux];[Linux];[LINUX]'
+          commit-filter-separator: ';'
+          fail-fast: true
+      - name: Checkout main boost
+        run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
+      - name: Update Dependencies
+        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits
+        working-directory: ../boost-root
+      - name: Copy files
+        run: xcopy /s /e /q %GITHUB_WORKSPACE% libs\config
+        working-directory: ../boost-root
+      - name: Bootstrap
+        run: bootstrap
+        working-directory: ../boost-root
+      - name: Generate headers
+        run: b2 headers
+        working-directory: ../boost-root
+      - name: Config info
+        run: ..\..\..\b2 print_config_info cxxstd=14,17,latest address-model=64 toolset=clang-win embed-manifest-via=linker
+        working-directory: ../boost-root/libs/config/test
+      - name: Test
+        run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,latest toolset=clang-win embed-manifest-via=linker
+        working-directory: ../boost-root/libs/config/test
   non_intel_ubuntu_20_04_gcc:
     runs-on: ubuntu-20.04
     strategy:
