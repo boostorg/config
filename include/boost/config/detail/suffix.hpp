@@ -1205,6 +1205,9 @@ namespace std{ using ::type_info; }
 #ifdef __has_include
 #if !__has_include(<version>)
 #  define BOOST_NO_CXX20_HDR_VERSION
+#else
+// For convenience, this is always included:
+#  include <version>
 #endif
 #else
 #  define BOOST_NO_CXX20_HDR_VERSION
