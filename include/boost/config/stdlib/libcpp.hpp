@@ -104,7 +104,7 @@
 #  define BOOST_NO_CXX98_BINDERS
 #endif
 
-#ifdef __has_include
+#if defined(__cplusplus) && defined(__has_include)
 #if __has_include(<version>)
 #include <version>
 

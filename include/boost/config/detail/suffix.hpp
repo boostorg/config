@@ -1202,7 +1202,7 @@ namespace std{ using ::type_info; }
 #endif
 #endif
 
-#ifdef __has_include
+#if defined(__cplusplus) && defined(__has_include)
 #if !__has_include(<version>)
 #  define BOOST_NO_CXX20_HDR_VERSION
 #else
