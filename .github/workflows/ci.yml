@@ -131,7 +131,7 @@ jobs:
         run: ../../../b2 toolset=${{ matrix.toolset }} cxxstd=03,11,14,17,2a
         working-directory: ../boost-root/libs/config/test
   windows_msvc_14_0:
-    runs-on: windows-latest
+    runs-on: windows-2019
     defaults:
       run:
         shell: cmd
