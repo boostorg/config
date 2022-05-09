@@ -31,7 +31,7 @@ struct is_abstract_test
    template<class U>
    static char check_sig(...);
 
-#ifdef __GNUC__
+#if defined(__GNUC__) && (__GNUC__ < 10)
    enum{ s1 = sizeof(is_abstract_test<T>::template check_sig<T>(0)) };
 #else
    enum{ s1 = sizeof(check_sig<T>(0)) };
