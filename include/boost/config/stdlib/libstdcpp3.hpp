@@ -409,6 +409,12 @@ extern "C" char *gets (char *__s);
 #endif
 #endif
 
+#if defined(__clang__)
+#if (__clang_major__ < 11) && !defined(BOOST_NO_CXX20_HDR_RANGES)
+#  define BOOST_NO_CXX20_HDR_RANGES
+#endif
+#endif
+
 //
 // Headers not present on Solaris with the Oracle compiler:
 #if defined(__SUNPRO_CC) && (__SUNPRO_CC < 0x5140)
