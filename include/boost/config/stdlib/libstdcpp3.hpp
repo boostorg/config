@@ -387,6 +387,15 @@ extern "C" char *gets (char *__s);
 #define BOOST_NO_CXX20_HDR_BIT
 #endif
 
+#if BOOST_LIBSTDCXX_VERSION >= 120000
+//
+// Unary function is now deprecated in C++17 and later:
+//
+#if __cplusplus >= 201703L
+#define BOOST_NO_CXX98_FUNCTION_BASE
+#endif
+#endif
+
 #ifndef __cpp_impl_coroutine
 #  define BOOST_NO_CXX20_HDR_COROUTINE
 #endif
