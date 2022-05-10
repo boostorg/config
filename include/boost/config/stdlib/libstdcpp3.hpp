@@ -413,6 +413,10 @@ extern "C" char *gets (char *__s);
 #if (__clang_major__ < 11) && !defined(BOOST_NO_CXX20_HDR_RANGES)
 #  define BOOST_NO_CXX20_HDR_RANGES
 #endif
+#if (__clang_major__ < 10) && (BOOST_LIBSTDCXX_VERSION >= 110000) && !defined(BOOST_NO_CXX11_HDR_CHRONO)
+// Old clang can't parse <chrono>:
+#  define BOOST_NO_CXX11_HDR_CHRONO
+#endif
 #endif
 
 //
