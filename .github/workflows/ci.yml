@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        compiler: [ g++-11, clang++-11 ]
+        compiler: [ g++-11, g++12, clang++-11, clang++-12, clang++-13, clang++-14 ]
     steps:
       - uses: actions/checkout@v2
         with:
@@ -27,7 +27,7 @@ jobs:
       - name: Add repository
         run: sudo apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
       - name: Install packages
-        run: sudo apt install g++-11 clang-11
+        run: sudo apt install g++-11 g++-12 clang-11 clang-12 clang-12 clang-14
       - name: Checkout main boost
         run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
       - name: Update Dependencies
