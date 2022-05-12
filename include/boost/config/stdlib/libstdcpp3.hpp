@@ -389,9 +389,9 @@ extern "C" char *gets (char *__s);
 
 #if BOOST_LIBSTDCXX_VERSION >= 120000
 //
-// Unary function is now deprecated in C++17 and later:
+// Unary function is now deprecated in C++11 and later:
 //
-#if __cplusplus >= 201703L
+#if __cplusplus >= 201103L
 #define BOOST_NO_CXX98_FUNCTION_BASE
 #endif
 #endif
