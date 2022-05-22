@@ -966,6 +966,10 @@ and must be defined for all translation units in the program, including Boost li
 This macro will no longer have any effect once an official Microsoft
 release supports the CTP features.
 ]]
+[[`BOOST_NULLPTR`][
+If `BOOST_NO_CXX11_NULLPTR` is not defined (i.e. C++11 compliant compilers), expands to `nullptr`,
+otherwise expands to `0`.
+]]
 ]
 
 [endsect]
