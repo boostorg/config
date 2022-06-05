@@ -632,7 +632,7 @@ namespace std{ using ::type_info; }
        // nvcc doesn't always parse __noinline__,
        // see: https://svn.boost.org/trac/boost/ticket/9392
 #      define BOOST_NOINLINE __attribute__ ((noinline))
-#    elif defined(HIP_VERSION)
+#    elif defined(__HIP__)
        // See https://github.com/boostorg/config/issues/392
 #      define BOOST_NOINLINE __attribute__ ((noinline))
 #    else
