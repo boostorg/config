@@ -1069,6 +1069,12 @@ namespace std{ using ::type_info; }
 
 #define BOOST_STATIC_CONSTEXPR  static BOOST_CONSTEXPR_OR_CONST
 
+#if !defined(BOOST_NO_CXX11_NULLPTR)
+# define BOOST_NULLPTR nullptr
+#else
+# define BOOST_NULLPTR 0
+#endif
+
 //
 // Set BOOST_HAS_STATIC_ASSERT when BOOST_NO_CXX11_STATIC_ASSERT is not defined
 //
