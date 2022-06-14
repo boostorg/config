@@ -1219,7 +1219,11 @@ namespace std{ using ::type_info; }
 #  define BOOST_NO_CXX20_HDR_VERSION
 #endif
 
-#if !defined(__cpp_deduction_guides) || (__cpp_deduction_guides < 201606)
+#if defined(BOOST_MSVC)
+#if (BOOST_MSVC < 1914) || (_MSVC_LANG < 201703)
+#  define BOOST_NO_CXX17_DEDUCTION_GUIDES
+#endif
+#elif !defined(__cpp_deduction_guides) || (__cpp_deduction_guides < 201606)
 #  define BOOST_NO_CXX17_DEDUCTION_GUIDES
 #endif
 
