@@ -1673,6 +1673,7 @@ It is however advisable when statically-linking against Boost to prevent Boost s
 for instance because you are building a plug-in for a software which may itself use Boost which could cause 
 ODR conflicts.
 ]]
+]
 
 Typical usage:
 
