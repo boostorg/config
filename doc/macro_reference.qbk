@@ -1664,6 +1664,15 @@ export/import of symbols from shared libraries.
 ['Deprecated. This macro is no longer necessary since BOOST_SYMBOL_EXPORT and BOOST_SYMBOL_IMPORT
 are now supplied. It is provided to support legacy code.]
 ]]
+[[`BOOST_DISABLE_EXPLICIT_SYMBOL_VISIBILITY`][
+Disables the effect of the BOOST_SYMBOL_EXPORT, BOOST_SYMBOL_IMPORT and BOOST_SYMBOL_VISIBLE macros, 
+in order to revert to the default compiler behaviour.
+Note that this option should never be used if Boost libraries are being linking against dynamically, 
+or if you are building a shared library that exposes Boost types in its public API. 
+It is however advisable when statically-linking against Boost to prevent Boost symbols from leaking from the binary: 
+for instance because you are building a plug-in for a software which may itself use Boost which could cause 
+ODR conflicts.
+]]
 ]
 
 Typical usage:
