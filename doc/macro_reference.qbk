@@ -1322,11 +1322,11 @@ used to create a mangled name in combination with a predefined macro such a
 \_\_LINE__.
 ]]
 [[`BOOST_RESTRICT`][
-This macro can be used in place of the compiler specific variant of the C99 `restrict` keyword to
+This macro can be used in place of the compiler-specific variant of the C99 `restrict` keyword to
 notify the compiler that, for the lifetime of the qualified pointer variable, only it and its
-derivative value will be used to gain access to the object it references. This limits the effect of
-pointer aliasing and helps the optimizers in generating better code. However, i this condition is
-violated, undefined behavior may occurs.
+derivative values will be used to access the object it references. This limits the effect of
+pointer aliasing and helps optimizers in generating better code. However, if this condition is
+violated, undefined behavior may occur.
 
 Usage example:
 ``
