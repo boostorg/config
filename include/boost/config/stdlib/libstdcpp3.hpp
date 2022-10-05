@@ -139,7 +139,9 @@
 //
 #ifdef __clang__
 
-#if __has_include(<source_location>)
+#if __has_include(<expected>)
+#  define BOOST_LIBSTDCXX_VERSION 120100
+#elif __has_include(<source_location>)
 #  define BOOST_LIBSTDCXX_VERSION 110100
 #elif __has_include(<compare>)
 #  define BOOST_LIBSTDCXX_VERSION 100100
