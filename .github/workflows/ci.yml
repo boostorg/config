@@ -21,7 +21,7 @@ jobs:
       matrix:
         compiler: [ g++-11, g++-12, clang++-14 ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
@@ -65,7 +65,7 @@ jobs:
       matrix:
         compiler: [ clang++-11, clang++-12, clang++-13 ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
@@ -109,7 +109,7 @@ jobs:
       matrix:
         compiler: [ g++-9, g++-10, clang++-9, clang++-10 ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
@@ -153,7 +153,7 @@ jobs:
       matrix:
         toolset: [ clang ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
@@ -191,7 +191,7 @@ jobs:
       matrix:
         toolset: [ msvc-14.0 ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
@@ -229,7 +229,7 @@ jobs:
       matrix:
         toolset: [ msvc-14.2 ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
@@ -267,7 +267,7 @@ jobs:
       matrix:
         toolset: [ msvc-14.3 ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
@@ -305,7 +305,7 @@ jobs:
       matrix:
         toolset: [ clang-msvc-14.3 ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
@@ -340,7 +340,7 @@ jobs:
       matrix:
         qemu_arch: [ aarch64, s390x, ppc64le ]
     steps:
-      - uses: actions/checkout@v2.1.0
+      - uses: actions/checkout@v3.1.0
       - uses: uraimo/run-on-arch-action@v2.0.5
         name: Run commands
         id: runcmd
@@ -376,7 +376,7 @@ jobs:
       matrix:
         qemu_arch: [ aarch64, ppc64le ]
     steps:
-      - uses: actions/checkout@v2.1.0
+      - uses: actions/checkout@v3.1.0
       - uses: uraimo/run-on-arch-action@v2.0.5
         name: Run commands
         id: runcmd
@@ -413,7 +413,7 @@ jobs:
       matrix:
         compiler: [ emcc ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
@@ -490,7 +490,7 @@ jobs:
       matrix:
         std: [ 11, 14, 17 ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
