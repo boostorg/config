@@ -151,7 +151,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        toolset: [ clang gcc ]
+        toolset: [ clang, gcc ]
     steps:
       - uses: actions/checkout@v2
         with:
