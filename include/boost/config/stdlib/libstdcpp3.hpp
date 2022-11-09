@@ -459,7 +459,7 @@ extern "C" char *gets (char *__s);
 #  endif
 #endif
 
-#if (!defined(_GTHREAD_USE_MUTEX_TIMEDLOCK) || (_GTHREAD_USE_MUTEX_TIMEDLOCK == 0)) && !defined(BOOST_NO_CXX11_HDR_MUTEX)
+#if (!defined(_GTHREAD_USE_MUTEX_TIMEDLOCK) || (_GTHREAD_USE_MUTEX_TIMEDLOCK == 0)) && !defined(BOOST_NO_CXX11_HDR_MUTEX) && (__GNUC__ < 6)
 // Timed mutexes are not always available:
 #  define BOOST_NO_CXX11_HDR_MUTEX
 #endif
