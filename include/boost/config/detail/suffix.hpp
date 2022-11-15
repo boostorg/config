@@ -1039,7 +1039,11 @@ namespace std{ using ::type_info; }
 // Unused variable/typedef workarounds:
 //
 #ifndef BOOST_ATTRIBUTE_UNUSED
-#  define BOOST_ATTRIBUTE_UNUSED
+#  if __cplusplus < 201703L
+#    define BOOST_ATTRIBUTE_UNUSED
+#  else
+#    define BOOST_ATTRIBUTE_UNUSED [[maybe_unused]]
+#  endif
 #endif
 //
 // [[nodiscard]]:
