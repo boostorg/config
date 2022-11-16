@@ -1072,8 +1072,21 @@ namespace std{ using ::type_info; }
 // Unused variable/typedef workarounds:
 //
 #ifndef BOOST_ATTRIBUTE_UNUSED
+#  if defined(__has_attribute) && defined(__SUNPRO_CC) && (__SUNPRO_CC > 0x5130)
+#    if __has_attribute(maybe_unused)
+#       define BOOST_ATTRIBUTE_UNUSED [[maybe_unused]]
+#    endif
+#  elif defined(__has_cpp_attribute)
+#    if __has_cpp_attribute(maybe_unused)
+#      define BOOST_ATTRIBUTE_UNUSED [[maybe_unused]]
+#    endif
+#  endif
+#endif
+
+#ifndef BOOST_ATTRIBUTE_UNUSED
 #  define BOOST_ATTRIBUTE_UNUSED
 #endif
+
 //
 // [[nodiscard]]:
 //
