@@ -139,6 +139,13 @@
 //
 #ifdef __clang__
 
+#ifdef _GLIBCXX_RELEASE
+#  define BOOST_LIBSTDCXX_VERSION (_GLIBCXX_RELEASE * 10000 + 100)
+#else
+//
+// We figure out which gcc version issued this std lib
+// by checking which headers are available:
+//
 #if __has_include(<expected>)
 #  define BOOST_LIBSTDCXX_VERSION 120100
 #elif __has_include(<source_location>)
@@ -169,6 +176,7 @@
 #  define BOOST_LIBSTDCXX_VERSION 40400
 #elif __has_include(<array>)
 #  define BOOST_LIBSTDCXX_VERSION 40300
+#endif
 #endif
 //
 // If BOOST_HAS_FLOAT128 is set, now that we know the std lib is libstdc++3, check to see if the std lib is
