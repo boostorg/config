@@ -1542,10 +1542,6 @@ value of the same format otherwise. Example values are 143 for
 VS2022/msvc-14.3, 142 for VS2019/msvc-14.2, 141 for VS2017/msvc-14.1,
 140 for VS2015/msvc-14.0, 120 for VS2013/msvc-12.0, and so on.
 ]]
-[[`BOOST_NO_WREGEX`][`<boost/regex.hpp>`][
-Defined if the regex library does not support wide character regular
-expressions.
-]]
 [[`BOOST_COMPILER`][`<boost/config.hpp>`][
 Defined as a string describing the name and version number of the compiler
 in use. Mainly for debugging the configuration.
