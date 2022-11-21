@@ -193,6 +193,9 @@ test-suite "BOOST_NO_CXX11_ADDRESSOF" :
 test-suite "BOOST_NO_CXX11_ALIGNAS" : 
 [ run ../no_cxx11_alignas_pass.cpp ]
 [ compile-fail ../no_cxx11_alignas_fail.cpp ] ;
+test-suite "BOOST_NO_CXX11_ALIGNOF" : 
+[ run ../no_cxx11_alignof_pass.cpp ]
+[ compile-fail ../no_cxx11_alignof_fail.cpp ] ;
 test-suite "BOOST_NO_CXX11_ALLOCATOR" : 
 [ run ../no_cxx11_allocator_pass.cpp ]
 [ compile-fail ../no_cxx11_allocator_fail.cpp ] ;
