@@ -34,7 +34,7 @@ struct IdString
 {
    std::string name;
    int identifier;
-   bool operator == (const IdString& other)
+   bool operator == (const IdString& other)const
    {
       return identifier == other.identifier && name == other.name;
    }
