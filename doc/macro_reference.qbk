@@ -656,6 +656,7 @@ that are not yet supported by a particular compiler or library.
 
 [[`BOOST_NO_CXX11_ADDRESSOF`][The standard library header <memory> has no working std::addressof.]]
 [[`BOOST_NO_CXX11_ALIGNAS`][The compiler does not support the `alignas` keyword.]]
+[[`BOOST_NO_CXX11_ALIGNOF`][The compiler does not support the `alignof` keyword.]]
 [[`BOOST_NO_CXX11_ALLOCATOR`][The standard library does not provide a C++11 version of `std::allocator` in <memory>.]]
 [[`BOOST_NO_CXX11_ATOMIC_SMART_PTR`][The standard library <memory> does not support atomic smart pointer operations.]]
 [[`BOOST_NO_CXX11_AUTO_DECLARATIONS`][The compiler does not support
