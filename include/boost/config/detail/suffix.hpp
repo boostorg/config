@@ -1048,6 +1048,9 @@ namespace std{ using ::type_info; }
 #else
 #define BOOST_CXX14_CONSTEXPR constexpr
 #endif
+#if !defined(BOOST_NO_CXX17_STRUCTURED_BINDINGS) && defined(BOOST_NO_CXX11_HDR_TUPLE)
+#  define BOOST_NO_CXX17_STRUCTURED_BINDINGS
+#endif
 
 //
 // C++17 inline variables
