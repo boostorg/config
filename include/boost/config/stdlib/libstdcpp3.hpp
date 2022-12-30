@@ -439,6 +439,13 @@ extern "C" char *gets (char *__s);
 #endif
 #endif
 
+#if defined(__clang__) && (BOOST_LIBSTDCXX_VERSION < 40300) && !defined(BOOST_NO_CXX11_NULLPTR)
+#  define BOOST_NO_CXX11_NULLPTR
+#endif
+#if defined(__clang__) && (BOOST_LIBSTDCXX_VERSION < 40300) && defined(BOOST_HAS_INT128) && defined(__APPLE_CC__)
+#undef BOOST_HAS_INT128
+#endif
+
 //
 // Headers not present on Solaris with the Oracle compiler:
 #if defined(__SUNPRO_CC) && (__SUNPRO_CC < 0x5140)
