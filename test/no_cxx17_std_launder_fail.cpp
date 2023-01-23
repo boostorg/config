@@ -35,4 +35,3 @@ int main( int, char *[] )
    return boost_no_cxx17_std_launder::test();
 }
 
- 
