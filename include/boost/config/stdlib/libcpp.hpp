@@ -94,6 +94,9 @@
 #  define BOOST_NO_CXX17_HDR_STRING_VIEW
 #  define BOOST_NO_CXX17_HDR_VARIANT
 #endif
+#if (_LIBCPP_VERSION < 6000) || (__cplusplus <= 201402L)
+#  define BOOST_NO_CXX17_STD_LAUNDER
+#endif
 #if (_LIBCPP_VERSION > 4000) && (__cplusplus > 201402L) && !defined(_LIBCPP_ENABLE_CXX17_REMOVED_AUTO_PTR)
 #  define BOOST_NO_AUTO_PTR
 #endif

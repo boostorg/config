@@ -10,10 +10,10 @@
 //
 
 
-// Test file for macro BOOST_NO_CXX17_STD_APPLY
+// Test file for macro BOOST_NO_CXX14_STD_EXCHANGE
 // This file should compile, if it does not then
 // BOOST_NO_CXX!/_STD_APPLY should be defined.
-// See file boost_no_cxx17_std_apply.ipp for details
+// See file boost_no_cxx14_std_exchange.ipp for details
 
 // Must not have BOOST_ASSERT_CONFIG set; it defeats
 // the objective of this file:

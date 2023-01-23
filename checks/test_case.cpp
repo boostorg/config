@@ -621,6 +621,11 @@
 #     error "Defect macro BOOST_NO_CXX17_STD_INVOKE is defined."
 #  endif
 #endif
+#ifdef TEST_BOOST_NO_CXX17_STD_LAUNDER
+#  ifdef BOOST_NO_CXX17_STD_LAUNDER
+#     error "Defect macro BOOST_NO_CXX17_STD_LAUNDER is defined."
+#  endif
+#endif
 #ifdef TEST_BOOST_NO_CXX17_STRUCTURED_BINDINGS
 #  ifdef BOOST_NO_CXX17_STRUCTURED_BINDINGS
 #     error "Defect macro BOOST_NO_CXX17_STRUCTURED_BINDINGS is defined."

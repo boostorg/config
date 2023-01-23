@@ -60,3 +60,6 @@
 #ifdef BOOST_NO_CXX17_STRUCTURED_BINDINGS
 #  error "Your compiler appears not to be fully C++17 compliant.  Detected via defect macro BOOST_NO_CXX17_STRUCTURED_BINDINGS."
 #endif
+#ifdef BOOST_NO_CXX17_STD_LAUNDER
+#  error "Your compiler appears not to be fully C++17 compliant.  Detected via defect macro BOOST_NO_CXX17_STD_LAUNDER."
+#endif
