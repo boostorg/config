@@ -362,6 +362,10 @@ extern "C" char *gets (char *__s);
 #  define BOOST_NO_CXX17_HDR_OPTIONAL
 #  define BOOST_NO_CXX17_HDR_STRING_VIEW
 #  define BOOST_NO_CXX17_HDR_VARIANT
+#elif !defined(_GLIBCXX_HAVE_BUILTIN_LAUNDER)
+//Older Clang compilers have no builtin, so libstdc++ disables
+//std::launder on those cases
+#  define BOOST_NO_CXX17_STD_LAUNDER
 #endif
 
 #if defined(__has_include)
