@@ -193,7 +193,7 @@
 #if !defined(_CPPLIB_VER) || (_CPPLIB_VER < 650) || !defined(_HAS_CXX17) || (_HAS_CXX17 == 0) || !defined(_MSVC_STL_UPDATE) || (_MSVC_STL_UPDATE < 201709)
 #  define BOOST_NO_CXX17_STD_INVOKE
 #endif
-#if !defined(_CPPLIB_VER) || (_CPPLIB_VER < 650) || !defined(_HAS_CXX17) || (_HAS_CXX17 == 0)
+#if !defined(_CPPLIB_VER) || (_CPPLIB_VER < 650) || !defined(_HAS_CXX17) || (_HAS_CXX17 == 0) || (BOOST_MSVC < 1910)
 #  define BOOST_NO_CXX17_STD_LAUNDER
 #endif
 
