@@ -1276,6 +1276,13 @@ namespace std{ using ::type_info; }
 #  define BOOST_NO_CXX17_DEDUCTION_GUIDES
 #endif
 
+// Generic __builtin_launder intrinsic in case it's not detected by the compiler file
+#if !defined(BOOST_HAS_BUILTIN_LAUNDER) && defined(__has_builtin)
+#  if __has_builtin(__builtin_launder)
+#    define BOOST_HAS_BUILTIN_LAUNDER
+#  endif
+#endif
+
 //
 // Define composite agregate macros:
 //
