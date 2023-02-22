@@ -630,22 +630,6 @@ standard).
 
 [endsect]
 
-[section Macros that describe possible C++ future features]
-
-The following macros describe features that may be included in some future
-ISO C++ standard, but have not yet been approved for inclusion in the language.
-
-
-[table
-[[Macro     ][Description     ]]
-
-[[`BOOST_HAS_CONCEPTS`][
-The compiler supports  concepts.
-]]
-]
-
-[endsect]
-
 [section Macros that describe C++11 features not supported]
 
 The following macros describe features in the 2011 ISO C++ standard, formerly known as C++0x,

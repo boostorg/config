@@ -33,8 +33,6 @@
       that describe C++03 defects</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_optional_features">Macros
       that describe optional features</a></span></dt>
-<dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_possible_c___future_features">Macros
-      that describe possible C++ future features</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__11_features_not_supported">Macros
       that describe C++11 features not supported</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_allow_use_of_c__11_features_with_c__03_compilers">Macros
@@ -2559,46 +2557,6 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
-<a name="boost_config.boost_macro_reference.macros_that_describe_possible_c___future_features"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_possible_c___future_features" title="Macros that describe possible C++ future features">Macros
-      that describe possible C++ future features</a>
-</h3></div></div></div>
-<p>
-        The following macros describe features that may be included in some future
-        ISO C++ standard, but have not yet been approved for inclusion in the language.
-      </p>
-<div class="informaltable"><table class="table">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead><tr>
-<th>
-                <p>
-                  Macro
-                </p>
-              </th>
-<th>
-                <p>
-                  Description
-                </p>
-              </th>
-</tr></thead>
-<tbody><tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_HAS_CONCEPTS</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The compiler supports concepts.
-                </p>
-              </td>
-</tr></tbody>
-</table></div>
-</div>
-<div class="section">
-<div class="titlepage"><div><div><h3 class="title">
 <a name="boost_config.boost_macro_reference.macros_that_describe_c__11_features_not_supported"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__11_features_not_supported" title="Macros that describe C++11 features not supported">Macros
       that describe C++11 features not supported</a>
 </h3></div></div></div>
@@ -2645,6 +2603,19 @@
 <td>
                 <p>
                   The compiler does not support the <code class="computeroutput"><span class="keyword">alignas</span></code>
+                  keyword.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_ALIGNOF</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the <code class="computeroutput"><span class="keyword">alignof</span></code>
                   keyword.
                 </p>
               </td>
@@ -2915,7 +2886,9 @@
               </td>
 <td>
                 <p>
-                  The standard library does not provide header &lt;codecvt&gt;.
+                  The standard library does not provide header &lt;codecvt&gt;. Note
+                  that this header is deprecated post C++17, and therefore the macro
+                  may be set as a result of the feature being deliberately removed.
                 </p>
               </td>
 </tr>
@@ -3805,6 +3778,19 @@
                 </p>
               </td>
 </tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NULLPTR</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  If <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_NULLPTR</span></code>
+                  is not defined (i.e. C++11 compliant compilers), expands to <code class="computeroutput"><span class="keyword">nullptr</span></code>, otherwise expands to <code class="computeroutput"><span class="number">0</span></code>.
+                </p>
+              </td>
+</tr>
 </tbody>
 </table></div>
 </div>
@@ -4222,6 +4208,19 @@
                 </p>
               </td>
 </tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX17_DEDUCTION_GUIDES</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support class template argument deduction
+                  (CTAD) guides.
+                </p>
+              </td>
+</tr>
 </tbody>
 </table></div>
 </div>
@@ -4356,7 +4355,7 @@
               </td>
 <td>
                 <p>
-                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">format</span><span class="special">&gt;</span></code>.
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">source_location</span><span class="special">&gt;</span></code>.
                 </p>
               </td>
 </tr>
@@ -4452,7 +4451,7 @@
               </td>
 <td>
                 <p>
-                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">range</span><span class="special">&gt;</span></code>.
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">ranges</span><span class="special">&gt;</span></code>.
                 </p>
               </td>
 </tr>
@@ -4489,6 +4488,18 @@
 <td>
                 <p>
                   The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">semaphore</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX20_HDR_VERSION</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">version</span><span class="special">&gt;</span></code>.
                 </p>
               </td>
 </tr>
@@ -4587,6 +4598,19 @@
                 <p>
                   The standard library no longer supports atomic overloads for <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span></code>: use <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">atomic</span><span class="special">&lt;</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;&gt;</span></code>
                   instead.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_HDR_CODECVT</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The standard library no longer supports <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">codecvt</span><span class="special">&gt;</span></code>,
+                  there is as yet no replacement.
                 </p>
               </td>
 </tr>
@@ -4824,8 +4848,8 @@
 <span class="keyword">case</span> <span class="number">41</span><span class="special">:</span>
    <span class="keyword">if</span> <span class="special">(</span><span class="identifier">truth_is_out_there</span><span class="special">)</span> <span class="special">{</span>
       <span class="special">++</span><span class="identifier">x</span><span class="special">;</span>
-      <span class="identifier">BOOST_FALLTHROUGH</span><span class="special">;</span>  <span class="comment">// Use instead of/along with annotations in </span>
-      <span class="comment">// comments. </span>
+      <span class="identifier">BOOST_FALLTHROUGH</span><span class="special">;</span>  <span class="comment">// Use instead of/along with annotations in</span>
+      <span class="comment">// comments.</span>
    <span class="special">}</span> <span class="keyword">else</span> <span class="special">{</span>
      <span class="keyword">return</span> <span class="identifier">x</span><span class="special">;</span>
    <span class="special">}</span>
@@ -5017,14 +5041,13 @@
               </td>
 <td>
                 <p>
-                  This macro can be used in place of the compiler specific variant
+                  This macro can be used in place of the compiler-specific variant
                   of the C99 <code class="computeroutput"><span class="identifier">restrict</span></code>
                   keyword to notify the compiler that, for the lifetime of the qualified
-                  pointer variable, only it and its derivative value will be used
-                  to gain access to the object it references. This limits the effect
-                  of pointer aliasing and helps the optimizers in generating better
-                  code. However, i this condition is violated, undefined behavior
-                  may occurs.
+                  pointer variable, only it and its derivative values will be used
+                  to access the object it references. This limits the effect of pointer
+                  aliasing and helps optimizers in generating better code. However,
+                  if this condition is violated, undefined behavior may occur.
                 </p>
                 <p>
                   Usage example:
@@ -5237,6 +5260,45 @@
 <tr>
 <td>
                 <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_DEPRECATED</span><span class="special">(</span><span class="identifier">M</span><span class="special">)</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Expands to an attribute for a symbol that generates warnings when
+                  that symbol is used in code. The warnings may contain a message
+                  <code class="computeroutput"><span class="identifier">M</span></code>, which must be
+                  a string literal. This attribute may be applied to types, functions
+                  or objects and is typically used to mark parts of the API as deprecated
+                  with a recommendation of replacement.
+                </p>
+                <p>
+                  Example:
+</p>
+<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="identifier">BOOST_DEPRECATED</span><span class="special">(</span><span class="string">"Use bar() instead."</span><span class="special">)</span>
+<span class="keyword">void</span> <span class="identifier">foo</span><span class="special">();</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">T</span> <span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">BOOST_DEPRECATED</span><span class="special">(</span><span class="string">"Use std::unique_ptr instead."</span><span class="special">)</span> <span class="identifier">auto_ptr</span>
+<span class="special">{</span>
+<span class="special">};</span>
+
+<span class="identifier">BOOST_DEPRECATED</span><span class="special">(</span><span class="string">"Use std::numeric_limits&lt;int&gt;::max() instead."</span><span class="special">)</span>
+<span class="keyword">const</span> <span class="keyword">int</span> <span class="identifier">max_int</span> <span class="special">=</span> <span class="number">0x7fffffff</span><span class="special">;</span>
+</pre>
+<p>
+                </p>
+                <p>
+                  The warnings issued by <code class="computeroutput"><span class="identifier">BOOST_DEPRECATED</span></code>
+                  can be suppressed by defining <code class="computeroutput"><span class="identifier">BOOST_ALLOW_DEPRECATED_SYMBOLS</span></code>
+                  or <code class="computeroutput"><span class="identifier">BOOST_ALLOW_DEPRECATED</span></code>
+                  macros.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <code class="computeroutput"><span class="identifier">BOOST_PRAGMA_MESSAGE</span><span class="special">(</span><span class="identifier">M</span><span class="special">)</span></code>
                 </p>
               </td>
@@ -5278,7 +5340,9 @@
                 </p>
                 <p>
                   The messages issued by <code class="computeroutput"><span class="identifier">BOOST_HEADER_DEPRECATED</span></code>
-                  can be suppressed by defining the macro <code class="computeroutput"><span class="identifier">BOOST_ALLOW_DEPRECATED_HEADERS</span></code>.
+                  can be suppressed by defining <code class="computeroutput"><span class="identifier">BOOST_ALLOW_DEPRECATED_HEADERS</span></code>
+                  or <code class="computeroutput"><span class="identifier">BOOST_ALLOW_DEPRECATED</span></code>
+                  macros.
                 </p>
               </td>
 </tr>
@@ -5478,6 +5542,29 @@
 <tr>
 <td>
                 <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_CLANG_VERSION</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Defined to the version of the Clang compiler, usually <code class="computeroutput"><span class="identifier">__clang_major__</span> <span class="special">*</span>
+                  <span class="number">10000</span> <span class="special">+</span>
+                  <span class="identifier">__clang_minor__</span> <span class="special">*</span>
+                  <span class="number">100</span> <span class="special">+</span>
+                  <span class="identifier">__clang_patchlevel__</span></code>.
+                  On Apple Clang, has a best-effort value reflecting the upstream
+                  version, rather than the Apple version.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <code class="computeroutput"><span class="identifier">BOOST_BORLANDC</span></code>
                 </p>
               </td>
@@ -5568,18 +5655,22 @@
 <tr>
 <td>
                 <p>
-                  <code class="computeroutput"><span class="identifier">BOOST_NO_WREGEX</span></code>
+                  <code class="computeroutput"><span class="identifier">BOOST_MSSTL_VERSION</span></code>
                 </p>
               </td>
 <td>
                 <p>
-                  <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">regex</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+                  <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
                 </p>
               </td>
 <td>
                 <p>
-                  Defined if the regex library does not support wide character regular
-                  expressions.
+                  Defined if the Microsoft Visual C++ standard library is in use.
+                  Has the value of <code class="computeroutput"><span class="identifier">_MSVC_STL_VERSION</span></code>
+                  when that is defined, and a synthesized value of the same format
+                  otherwise. Example values are 143 for VS2022/msvc-14.3, 142 for
+                  VS2019/msvc-14.2, 141 for VS2017/msvc-14.1, 140 for VS2015/msvc-14.0,
+                  120 for VS2013/msvc-12.0, and so on.
                 </p>
               </td>
 </tr>
@@ -6856,6 +6947,26 @@
                     symbols from shared libraries. <span class="emphasis"><em>Deprecated. This macro
                     is no longer necessary since BOOST_SYMBOL_EXPORT and BOOST_SYMBOL_IMPORT
                     are now supplied. It is provided to support legacy code.</em></span>
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <code class="computeroutput"><span class="identifier">BOOST_DISABLE_EXPLICIT_SYMBOL_VISIBILITY</span></code>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Disables the effect of the BOOST_SYMBOL_EXPORT, BOOST_SYMBOL_IMPORT
+                    and BOOST_SYMBOL_VISIBLE macros, in order to revert to the default
+                    compiler behaviour. Note that this option should never be used
+                    if Boost libraries are being linking against dynamically, or
+                    if you are building a shared library that exposes Boost types
+                    in its public API. It is however advisable when statically-linking
+                    against Boost to prevent Boost symbols from leaking from the
+                    binary: for instance because you are building a plug-in for a
+                    software which may itself use Boost which could cause ODR conflicts.
                   </p>
                 </td>
 </tr>
