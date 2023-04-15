@@ -151,7 +151,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        toolset: [ clang, gcc-11, gcc-10, gcc-9 ]
+        toolset: [ clang, gcc-11, gcc-10 ]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -511,13 +511,13 @@ jobs:
         run: |
          source ../emsdk/emsdk_env.sh
          emcc -pthread -s EXIT_RUNTIME=1 -s PTHREAD_POOL_SIZE=32 -I. -O3 -o config_info_pthread libs/config/test/config_info.cpp
-         node --experimental-wasm-threads --experimental-wasm-bulk-memory config_info_pthread
+         node --experimental-wasm-threads config_info_pthread
       - name: Test config_test (pthread)
         working-directory: ../boost-root
         run: |
          source ../emsdk/emsdk_env.sh
          emcc -pthread -s EXIT_RUNTIME=1 -s PTHREAD_POOL_SIZE=32 -s DISABLE_EXCEPTION_CATCHING=0 -I. -O3 -o config_test_pthread libs/config/test/config_test.cpp
-         node --experimental-wasm-threads --experimental-wasm-bulk-memory config_test_pthread
+         node --experimental-wasm-threads config_test_pthread
   ubuntu-cuda:
     runs-on: ubuntu-20.04
     strategy:
