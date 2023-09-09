@@ -46,7 +46,6 @@ def main(ctx):
   linux_cxx("Ubuntu g++-13", packages="g++-13", buildtype="boost", image="cppalliance/droneubuntu2304:1", environment={'TOOLSET': 'gcc', 'COMPILER': 'g++-13', 'CXXSTD': '14,17,20,23', }, globalenv=globalenv),
   osx_cxx("XCode-11.7 03,11,17,2a", "clang++", packages="", buildtype="boost", xcode_version="11.7", environment={'TOOLSET': 'clang', 'COMPILER': 'clang++', 'CXXSTD': '03,11,14,17,2a', }, globalenv=globalenv),
   osx_cxx("XCode-10.2 03,11,17,2a", "clang++", packages="", buildtype="boost", xcode_version="10.2", environment={'TOOLSET': 'clang', 'COMPILER': 'clang++', 'CXXSTD': '03,11,14,17,2a', }, globalenv=globalenv),
-  osx_cxx("XCode-9.4.1 03,11,14,17", "clang++", packages="", buildtype="boost", xcode_version="9.4.1", environment={'TOOLSET': 'clang', 'COMPILER': 'clang++', 'CXXSTD': '03,11,14,17', }, globalenv=globalenv),
   ]
 
 # from https://github.com/boostorg/boost-ci
