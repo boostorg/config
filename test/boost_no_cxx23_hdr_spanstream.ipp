@@ -23,7 +23,6 @@ int test()
   using std::ispanstream;
   using std::wispanstream;
   using std::basic_ospanstream;
-  using std::basic_ospanstream;
   using std::ospanstream;
   using std::wospanstream;
   using std::basic_spanstream;
