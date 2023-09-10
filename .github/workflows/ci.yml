@@ -328,7 +328,7 @@ jobs:
         run: ..\..\..\b2 print_config_info cxxstd=14,17,latest address-model=64 toolset=msvc-14.3
         working-directory: ../boost-root/libs/config/test
       - name: Test
-        run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,latest toolset=msvc-14.3
+        run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,20,latest toolset=msvc-14.3
         working-directory: ../boost-root/libs/config/test
   windows_clang_msvc_14_3:
     runs-on: windows-2022

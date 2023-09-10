@@ -8,6 +8,7 @@
 <link rel="up" href="../index.html" title="Boost.Config">
 <link rel="prev" href="../index.html" title="Boost.Config">
 <link rel="next" href="build_config.html" title="Build Time Configuration">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -47,6 +48,8 @@
       that allow use of C++17 features with C++14 or earlier compilers</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__20_features_not_supported">Macros
       that describe C++20 features not supported</a></span></dt>
+<dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__23_features_not_supported">Macros
+      that describe C++23 features not supported</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_features_that_have_been_removed_from_the_standard_">Macros
       that describe features that have been removed from the standard.</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.boost_helper_macros">Boost
@@ -501,7 +504,7 @@
                   The compiler fails to compile a nested class that has a dependent
                   base class:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">T</span><span class="special">&gt;</span>
+<pre class="table-programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">T</span><span class="special">&gt;</span>
 <span class="keyword">struct</span> <span class="identifier">foo</span> <span class="special">:</span> <span class="special">{</span>
    <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">U</span><span class="special">&gt;</span>
    <span class="keyword">struct</span> <span class="identifier">bar</span> <span class="special">:</span> <span class="keyword">public</span> <span class="identifier">U</span> <span class="special">{};</span>
@@ -526,7 +529,7 @@
                 <p>
                   Template value parameters cannot have a dependent type, for example:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">T</span><span class="special">::</span><span class="identifier">type</span> <span class="identifier">value</span><span class="special">&gt;</span>
+<pre class="table-programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">T</span><span class="special">::</span><span class="identifier">type</span> <span class="identifier">value</span><span class="special">&gt;</span>
 <span class="keyword">class</span> <span class="identifier">X</span> <span class="special">{</span> <span class="special">...</span> <span class="special">};</span>
 </pre>
 <p>
@@ -589,7 +592,7 @@
                   The compiler does not perform function template ordering or its
                   function template ordering is incorrect.
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="comment">// #1</span>
+<pre class="table-programlisting"><span class="comment">// #1</span>
 <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span> <span class="keyword">void</span> <span class="identifier">f</span><span class="special">(</span><span class="identifier">T</span><span class="special">);</span>
 
 <span class="comment">// #2</span>
@@ -1514,7 +1517,7 @@
                   The compiler does not allow a void function to return the result
                   of calling another void function.
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">void</span> <span class="identifier">f</span><span class="special">()</span> <span class="special">{}</span>
+<pre class="table-programlisting"><span class="keyword">void</span> <span class="identifier">f</span><span class="special">()</span> <span class="special">{}</span>
 <span class="keyword">void</span> <span class="identifier">g</span><span class="special">()</span> <span class="special">{</span> <span class="keyword">return</span> <span class="identifier">f</span><span class="special">();</span> <span class="special">}</span>
 </pre>
 <p>
@@ -3521,7 +3524,7 @@
                   a compile-time integer constant. The macro can be used to specify
                   alignment of types and data:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">BOOST_ALIGNMENT</span><span class="special">(</span><span class="number">16</span><span class="special">)</span> <span class="identifier">my_data</span>
+<pre class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">BOOST_ALIGNMENT</span><span class="special">(</span><span class="number">16</span><span class="special">)</span> <span class="identifier">my_data</span>
 <span class="special">{</span>
     <span class="keyword">char</span> <span class="identifier">c</span><span class="special">[</span><span class="number">16</span><span class="special">];</span>
 <span class="special">};</span>
@@ -3543,12 +3546,12 @@
                   This macro expands to nothing on those compilers, and <code class="computeroutput"><span class="keyword">constexpr</span></code> elsewhere. For example,
                   when defining a constexpr function or constructor replace:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">constexpr</span> <span class="identifier">tuple</span><span class="special">();</span>
+<pre class="table-programlisting"><span class="keyword">constexpr</span> <span class="identifier">tuple</span><span class="special">();</span>
 </pre>
 <p>
                   with:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="identifier">BOOST_CONSTEXPR</span> <span class="identifier">tuple</span><span class="special">();</span>
+<pre class="table-programlisting"><span class="identifier">BOOST_CONSTEXPR</span> <span class="identifier">tuple</span><span class="special">();</span>
 </pre>
 <p>
                 </p>
@@ -3567,12 +3570,12 @@
                   on those compilers, and <code class="computeroutput"><span class="keyword">constexpr</span></code>
                   elsewhere. For example, when defining const expr variables replace:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="identifier">UIntType</span> <span class="identifier">xor_mask</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>
+<pre class="table-programlisting"><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="identifier">UIntType</span> <span class="identifier">xor_mask</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>
 </pre>
 <p>
                   with:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">static</span> <span class="identifier">BOOST_CONSTEXPR_OR_CONST</span> <span class="identifier">UIntType</span> <span class="identifier">xor_mask</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>
+<pre class="table-programlisting"><span class="keyword">static</span> <span class="identifier">BOOST_CONSTEXPR_OR_CONST</span> <span class="identifier">UIntType</span> <span class="identifier">xor_mask</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>
 </pre>
 <p>
                 </p>
@@ -3604,12 +3607,12 @@
                   <span class="identifier">BOOST_CONSTEXPR_OR_CONST</span></code>.
                   For example, when defining const expr variables replace:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="identifier">UIntType</span> <span class="identifier">xor_mask</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>
+<pre class="table-programlisting"><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="identifier">UIntType</span> <span class="identifier">xor_mask</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>
 </pre>
 <p>
                   with:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="identifier">BOOST_STATIC_CONSTEXPR</span> <span class="identifier">UIntType</span> <span class="identifier">xor_mask</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>
+<pre class="table-programlisting"><span class="identifier">BOOST_STATIC_CONSTEXPR</span> <span class="identifier">UIntType</span> <span class="identifier">xor_mask</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>
 </pre>
 <p>
                 </p>
@@ -3629,7 +3632,7 @@
                   an inline function definition with the <code class="computeroutput"><span class="identifier">body</span></code>
                   implementation. For example:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">my_struct</span>
+<pre class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">my_struct</span>
 <span class="special">{</span>
     <span class="identifier">BOOST_DEFAULTED_FUNCTION</span><span class="special">(</span><span class="identifier">my_struct</span><span class="special">(),</span> <span class="special">{})</span>
 <span class="special">};</span>
@@ -3637,7 +3640,7 @@
 <p>
                   is equivalent to:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">my_struct</span>
+<pre class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">my_struct</span>
 <span class="special">{</span>
     <span class="identifier">my_struct</span><span class="special">()</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
 <span class="special">};</span>
@@ -3645,7 +3648,7 @@
 <p>
                   or:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">my_struct</span>
+<pre class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">my_struct</span>
 <span class="special">{</span>
     <span class="identifier">my_struct</span><span class="special">()</span> <span class="special">{}</span>
 <span class="special">};</span>
@@ -3669,7 +3672,7 @@
                   Since the macro may change the access mode, it is recommended to
                   use this macro at the end of the class definition. For example:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">noncopyable</span>
+<pre class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">noncopyable</span>
 <span class="special">{</span>
     <span class="identifier">BOOST_DELETED_FUNCTION</span><span class="special">(</span><span class="identifier">noncopyable</span><span class="special">(</span><span class="identifier">noncopyable</span> <span class="keyword">const</span><span class="special">&amp;))</span>
     <span class="identifier">BOOST_DELETED_FUNCTION</span><span class="special">(</span><span class="identifier">noncopyable</span><span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=</span> <span class="special">(</span><span class="identifier">noncopyable</span> <span class="keyword">const</span><span class="special">&amp;))</span>
@@ -3678,7 +3681,7 @@
 <p>
                   is equivalent to:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">noncopyable</span>
+<pre class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">noncopyable</span>
 <span class="special">{</span>
     <span class="identifier">noncopyable</span><span class="special">(</span><span class="identifier">noncopyable</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="keyword">delete</span><span class="special">;</span>
     <span class="identifier">noncopyable</span><span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=</span> <span class="special">(</span><span class="identifier">noncopyable</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="keyword">delete</span><span class="special">;</span>
@@ -3687,7 +3690,7 @@
 <p>
                   or:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">noncopyable</span>
+<pre class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">noncopyable</span>
 <span class="special">{</span>
 <span class="keyword">private</span><span class="special">:</span>
     <span class="identifier">noncopyable</span><span class="special">(</span><span class="identifier">noncopyable</span> <span class="keyword">const</span><span class="special">&amp;);</span>
@@ -3702,7 +3705,7 @@
 <td>
                 <p>
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="identifier">BOOST_NOEXCEPT</span>
+<pre class="table-programlisting"><span class="identifier">BOOST_NOEXCEPT</span>
 <span class="identifier">BOOST_NOEXCEPT_OR_NOTHROW</span>
 <span class="identifier">BOOST_NOEXCEPT_IF</span><span class="special">(</span><span class="identifier">Predicate</span><span class="special">)</span>
 <span class="identifier">BOOST_NOEXCEPT_EXPR</span><span class="special">(</span><span class="identifier">Expression</span><span class="special">)</span>
@@ -3719,7 +3722,7 @@
                 <div class="blockquote"><blockquote class="blockquote">
 <p>
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_NOEXCEPT</span>
+<pre class="table-programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_NOEXCEPT</span>
 <span class="preprocessor">#define</span> <span class="identifier">BOOST_NOEXCEPT_OR_NOTHROW</span> <span class="keyword">throw</span><span class="special">()</span>
 <span class="preprocessor">#define</span> <span class="identifier">BOOST_NOEXCEPT_IF</span><span class="special">(</span><span class="identifier">Predicate</span><span class="special">)</span>
 <span class="preprocessor">#define</span> <span class="identifier">BOOST_NOEXCEPT_EXPR</span><span class="special">(</span><span class="identifier">Expression</span><span class="special">)</span> <span class="keyword">false</span>
@@ -3735,7 +3738,7 @@
                 <div class="blockquote"><blockquote class="blockquote">
 <p>
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_NOEXCEPT</span> <span class="keyword">noexcept</span>
+<pre class="table-programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_NOEXCEPT</span> <span class="keyword">noexcept</span>
 <span class="preprocessor">#define</span> <span class="identifier">BOOST_NOEXCEPT_OR_NOTHROW</span> <span class="keyword">noexcept</span>
 <span class="preprocessor">#define</span> <span class="identifier">BOOST_NOEXCEPT_IF</span><span class="special">(</span><span class="identifier">Predicate</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">((</span><span class="identifier">Predicate</span><span class="special">))</span>
 <span class="preprocessor">#define</span> <span class="identifier">BOOST_NOEXCEPT_EXPR</span><span class="special">(</span><span class="identifier">Expression</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">((</span><span class="identifier">Expression</span><span class="special">))</span>
@@ -3835,7 +3838,7 @@
                 <div class="blockquote"><blockquote class="blockquote">
 <p>
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">Foo</span>
+<pre class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">Foo</span>
 <span class="special">{</span>
   <span class="keyword">int</span> <span class="identifier">x</span><span class="special">,</span> <span class="identifier">y</span> <span class="special">=</span> <span class="number">42</span><span class="special">;</span>
 <span class="special">};</span>
@@ -4508,6 +4511,144 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
+<a name="boost_config.boost_macro_reference.macros_that_describe_c__23_features_not_supported"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__23_features_not_supported" title="Macros that describe C++23 features not supported">Macros
+      that describe C++23 features not supported</a>
+</h3></div></div></div>
+<p>
+        The following macros describe features in the 2023 ISO C++ standard, formerly
+        known as C++2b, that are not yet supported by a particular compiler or library.
+      </p>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Macro
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX23_HDR_EXPECTED</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">expected</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX23_HDR_FLAT_MAP</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">flat_map</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX23_HDR_FLAT_SET</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">flat_set</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX23_HDR_GENERATOR</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">generator</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX23_HDR_MDSPAN</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">mdspan</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX23_HDR_PRINT</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">print</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX23_HDR_SPANSTREAM</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">spanstream</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX23_HDR_STACKTRACE</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">stacktrace</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX23_HDR_STDFLOAT</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">stdfloat</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
 <a name="boost_config.boost_macro_reference.macros_that_describe_features_that_have_been_removed_from_the_standard_"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_features_that_have_been_removed_from_the_standard_" title="Macros that describe features that have been removed from the standard.">Macros
       that describe features that have been removed from the standard.</a>
 </h3></div></div></div>
@@ -4656,12 +4797,12 @@
                   that is not otherwise described by one of the other Boost.Config
                   macros. To use the macro you must first
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">/</span><span class="identifier">workaround</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<pre class="table-programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">/</span><span class="identifier">workaround</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
 <p>
                   usage is then:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="preprocessor">#if</span> <span class="identifier">BOOST_WORKAROUND</span><span class="special">(</span><span class="identifier">MACRONAME</span><span class="special">,</span> <span class="identifier">CONDITION</span><span class="special">)</span>
+<pre class="table-programlisting"><span class="preprocessor">#if</span> <span class="identifier">BOOST_WORKAROUND</span><span class="special">(</span><span class="identifier">MACRONAME</span><span class="special">,</span> <span class="identifier">CONDITION</span><span class="special">)</span>
    <span class="comment">// workaround code goes here...</span>
 <span class="preprocessor">#else</span>
    <span class="comment">// Standard conforming code goes here...</span>
@@ -4704,12 +4845,12 @@
                   in which case one can prevent the function being expanded as a
                   macro using:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="identifier">someclass</span><span class="special">.</span><span class="identifier">min</span> <span class="identifier">BOOST_PREVENT_MACRO_SUBSTITUTION</span><span class="special">(</span><span class="identifier">arg1</span><span class="special">,</span> <span class="identifier">arg2</span><span class="special">);</span>
+<pre class="table-programlisting"><span class="identifier">someclass</span><span class="special">.</span><span class="identifier">min</span> <span class="identifier">BOOST_PREVENT_MACRO_SUBSTITUTION</span><span class="special">(</span><span class="identifier">arg1</span><span class="special">,</span> <span class="identifier">arg2</span><span class="special">);</span>
 </pre>
 <p>
                   The following also works in most, but not all, contexts:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="special">(</span><span class="identifier">someclass</span><span class="special">.</span><span class="identifier">max</span><span class="special">)(</span><span class="identifier">arg1</span><span class="special">,</span> <span class="identifier">arg2</span><span class="special">);</span>
+<pre class="table-programlisting"><span class="special">(</span><span class="identifier">someclass</span><span class="special">.</span><span class="identifier">max</span><span class="special">)(</span><span class="identifier">arg1</span><span class="special">,</span> <span class="identifier">arg2</span><span class="special">);</span>
 </pre>
 <p>
                 </p>
@@ -4804,14 +4945,14 @@
                   gives us a convenient way to declare such constants. For example
                   instead of:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">foo</span><span class="special">{</span>
+<pre class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">foo</span><span class="special">{</span>
    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> <span class="identifier">value</span> <span class="special">=</span> <span class="number">2</span><span class="special">;</span>
 <span class="special">};</span>
 </pre>
 <p>
                   use:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">foo</span><span class="special">{</span>
+<pre class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">foo</span><span class="special">{</span>
    <span class="identifier">BOOST_STATIC_CONSTANT</span><span class="special">(</span><span class="keyword">int</span><span class="special">,</span> <span class="identifier">value</span> <span class="special">=</span> <span class="number">2</span><span class="special">);</span>
 <span class="special">};</span>
 </pre>
@@ -4843,7 +4984,7 @@
                   The BOOST_FALLTHROUGH macro can be used to annotate implicit fall-through
                   between switch labels:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">switch</span> <span class="special">(</span><span class="identifier">x</span><span class="special">)</span> <span class="special">{</span>
+<pre class="table-programlisting"><span class="keyword">switch</span> <span class="special">(</span><span class="identifier">x</span><span class="special">)</span> <span class="special">{</span>
 <span class="keyword">case</span> <span class="number">40</span><span class="special">:</span>
 <span class="keyword">case</span> <span class="number">41</span><span class="special">:</span>
    <span class="keyword">if</span> <span class="special">(</span><span class="identifier">truth_is_out_there</span><span class="special">)</span> <span class="special">{</span>
@@ -4901,7 +5042,7 @@
                   instantiations if some of the template parameters don't appear
                   in the function parameter list. For instance:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<pre class="table-programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">ostream</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">typeinfo</span><span class="special">&gt;</span>
 
@@ -4925,7 +5066,7 @@
                   the problem without effects on the calling syntax. For instance,
                   in the case above write:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">int</span> <span class="identifier">n</span><span class="special">&gt;</span>
+<pre class="table-programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">int</span> <span class="identifier">n</span><span class="special">&gt;</span>
 <span class="keyword">void</span> <span class="identifier">f</span><span class="special">(</span><span class="identifier">BOOST_EXPLICIT_TEMPLATE_NON_TYPE</span><span class="special">(</span><span class="keyword">int</span><span class="special">,</span> <span class="identifier">n</span><span class="special">))</span> <span class="special">{</span> <span class="special">...</span> <span class="special">}</span>
 
 <span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">T</span><span class="special">&gt;</span>
@@ -5052,7 +5193,7 @@
                 <p>
                   Usage example:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">void</span> <span class="identifier">perform_computation</span><span class="special">(</span> <span class="keyword">float</span><span class="special">*</span> <span class="identifier">BOOST_RESTRICT</span> <span class="identifier">in</span><span class="special">,</span> <span class="keyword">float</span><span class="special">*</span> <span class="identifier">BOOST_RESTRICT</span> <span class="identifier">out</span> <span class="special">)</span>
+<pre class="table-programlisting"><span class="keyword">void</span> <span class="identifier">perform_computation</span><span class="special">(</span> <span class="keyword">float</span><span class="special">*</span> <span class="identifier">BOOST_RESTRICT</span> <span class="identifier">in</span><span class="special">,</span> <span class="keyword">float</span><span class="special">*</span> <span class="identifier">BOOST_RESTRICT</span> <span class="identifier">out</span> <span class="special">)</span>
 <span class="special">{</span>
   <span class="special">*</span><span class="identifier">out</span> <span class="special">=</span> <span class="special">*</span><span class="identifier">in</span> <span class="special">*</span> <span class="number">0.5f</span><span class="special">;</span>
 <span class="special">}</span>
@@ -5079,7 +5220,7 @@
                 <p>
                   Usage example:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
+<pre class="table-programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
 <span class="identifier">BOOST_FORCEINLINE</span> <span class="identifier">T</span><span class="special">&amp;</span> <span class="identifier">f</span><span class="special">(</span><span class="identifier">T</span><span class="special">&amp;</span> <span class="identifier">t</span><span class="special">)</span>
 <span class="special">{</span>
     <span class="keyword">return</span> <span class="identifier">t</span><span class="special">;</span>
@@ -5111,7 +5252,7 @@
                 <p>
                   Usage example:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="identifier">BOOST_NOINLINE</span> <span class="keyword">void</span> <span class="identifier">handle_error</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">char</span><span class="special">*</span> <span class="identifier">descr</span><span class="special">)</span>
+<pre class="table-programlisting"><span class="identifier">BOOST_NOINLINE</span> <span class="keyword">void</span> <span class="identifier">handle_error</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">char</span><span class="special">*</span> <span class="identifier">descr</span><span class="special">)</span>
 <span class="special">{</span>
     <span class="comment">// ...</span>
 <span class="special">}</span>
@@ -5142,7 +5283,7 @@
                 <p>
                   Usage example:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="identifier">BOOST_NORETURN</span> <span class="keyword">void</span> <span class="identifier">on_error_occurred</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">char</span><span class="special">*</span> <span class="identifier">descr</span><span class="special">)</span>
+<pre class="table-programlisting"><span class="identifier">BOOST_NORETURN</span> <span class="keyword">void</span> <span class="identifier">on_error_occurred</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">char</span><span class="special">*</span> <span class="identifier">descr</span><span class="special">)</span>
 <span class="special">{</span>
     <span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">(</span><span class="identifier">descr</span><span class="special">);</span>
 <span class="special">}</span>
@@ -5181,7 +5322,7 @@
                 <p>
                   Usage example:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">if</span> <span class="special">(</span><span class="identifier">BOOST_UNLIKELY</span><span class="special">(</span><span class="identifier">ptr</span> <span class="special">==</span> <span class="identifier">NULL</span><span class="special">))</span>
+<pre class="table-programlisting"><span class="keyword">if</span> <span class="special">(</span><span class="identifier">BOOST_UNLIKELY</span><span class="special">(</span><span class="identifier">ptr</span> <span class="special">==</span> <span class="identifier">NULL</span><span class="special">))</span>
   <span class="identifier">handle_error</span><span class="special">(</span><span class="string">"ptr is NULL"</span><span class="special">);</span>
 </pre>
 <p>
@@ -5250,7 +5391,7 @@
                 <p>
                   Usage example:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">BOOST_MAY_ALIAS</span> <span class="identifier">aliasing_struct</span><span class="special">;</span>
+<pre class="table-programlisting"><span class="keyword">struct</span> <span class="identifier">BOOST_MAY_ALIAS</span> <span class="identifier">aliasing_struct</span><span class="special">;</span>
 <span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="identifier">BOOST_MAY_ALIAS</span> <span class="identifier">aliasing_uint</span><span class="special">;</span>
 </pre>
 <p>
@@ -5275,7 +5416,7 @@
                 <p>
                   Example:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="identifier">BOOST_DEPRECATED</span><span class="special">(</span><span class="string">"Use bar() instead."</span><span class="special">)</span>
+<pre class="table-programlisting"><span class="identifier">BOOST_DEPRECATED</span><span class="special">(</span><span class="string">"Use bar() instead."</span><span class="special">)</span>
 <span class="keyword">void</span> <span class="identifier">foo</span><span class="special">();</span>
 
 <span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">T</span> <span class="special">&gt;</span>
@@ -6926,7 +7067,7 @@
                     boundaries. For example, a header-only exception class might
                     look like this:
 </p>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">class</span> <span class="identifier">BOOST_SYMBOL_VISIBLE</span> <span class="identifier">my_exception</span> <span class="special">:</span> <span class="keyword">public</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span> <span class="special">{</span> <span class="special">...</span> <span class="special">};</span>
+<pre class="table-programlisting"><span class="keyword">class</span> <span class="identifier">BOOST_SYMBOL_VISIBLE</span> <span class="identifier">my_exception</span> <span class="special">:</span> <span class="keyword">public</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span> <span class="special">{</span> <span class="special">...</span> <span class="special">};</span>
 </pre>
 <p>
                     Without BOOST_SYMBOL_VISIBLE, it would be impossible to catch
@@ -7172,15 +7313,12 @@
 </div>
 </div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright © 2001-2007 Beman Dawes, Vesa Karvonen, John
+<div class="copyright-footer">Copyright © 2001-2007 Beman Dawes, Vesa Karvonen, John
       Maddock<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../index.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="build_config.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
