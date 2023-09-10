@@ -1073,6 +1073,26 @@ that are not yet supported by a particular compiler or library.
 
 [endsect]
 
+[section Macros that describe C++23 features not supported]
+
+The following macros describe features in the 2023 ISO C++ standard, formerly known as C++2b,
+that are not yet supported by a particular compiler or library.
+
+[table
+[[Macro ][Description ]]
+[[`BOOST_NO_CXX23_HDR_EXPECTED`][The compiler does not support the header `<expected>`.]]
+[[`BOOST_NO_CXX23_HDR_FLAT_MAP`][The compiler does not support the header `<flat_map>`.]]
+[[`BOOST_NO_CXX23_HDR_FLAT_SET`][The compiler does not support the header `<flat_set>`.]]
+[[`BOOST_NO_CXX23_HDR_GENERATOR`][The compiler does not support the header `<generator>`.]]
+[[`BOOST_NO_CXX23_HDR_MDSPAN`][The compiler does not support the header `<mdspan>`.]]
+[[`BOOST_NO_CXX23_HDR_PRINT`][The compiler does not support the header `<print>`.]]
+[[`BOOST_NO_CXX23_HDR_SPANSTREAM`][The compiler does not support the header `<spanstream>`.]]
+[[`BOOST_NO_CXX23_HDR_STACKTRACE`][The compiler does not support the header `<stacktrace>`.]]
+[[`BOOST_NO_CXX23_HDR_STDFLOAT`][The compiler does not support the header `<stdfloat>`.]]
+]
+
+[endsect]
+
 [section Macros that describe features that have been removed from the standard.]
 
 The following macros describe features which were required by one version of the standard, but have been removed by later versions.
