@@ -426,6 +426,16 @@ void write_std_check(std::string macroname, int min_value, std::string header, i
 
 void write_std_config_checks()
 {
+   // C++23
+   write_std_check("__cpp_consteval", 202211, "", 23);
+   write_std_check("__cpp_explicit_this_parameter", 202110, "", 23);
+   write_std_check("__cpp_if_consteval", 202106, "", 23);
+   write_std_check("__cpp_implicit_move", 202207, "", 23);
+   write_std_check("__cpp_multidimensional_subscript", 202211, "", 23);
+   write_std_check("__cpp_named_character_escapes", 202207, "", 23);
+   write_std_check("__cpp_range_based_for", 202211, "", 23);
+   write_std_check("__cpp_size_t_suffix", 202011, "", 23);
+   write_std_check("__cpp_static_call_operator", 202207, "", 23);
    // C++20
    write_std_check("__cpp_impl_destroying_delete", 201806, "", 20);
    write_std_check("__cpp_lib_destroying_delete", 201806, "new", 20);
