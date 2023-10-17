@@ -437,6 +437,7 @@ void write_std_config_checks()
    write_std_check("__cpp_size_t_suffix", 202011, "", 23);
    write_std_check("__cpp_static_call_operator", 202207, "", 23);
    // C++20
+   write_std_check("__cpp_lib_coroutine", 201902, "coroutine", 20);
    write_std_check("__cpp_impl_destroying_delete", 201806, "", 20);
    write_std_check("__cpp_lib_destroying_delete", 201806, "new", 20);
    write_std_check("__cpp_char8_t", 201811, "", 20);
@@ -446,6 +447,7 @@ void write_std_config_checks()
    write_std_check("__cpp_nontype_template_parameter_class", 201806, "", 20);
    write_std_check("__cpp_lib_char8_t", 201811, "atomic", 20); 
    write_std_check("__cpp_lib_concepts", 201806, "concepts", 20);
+   write_std_check("__cpp_concepts", 201907, "", 20);
    write_std_check("__cpp_lib_constexpr_swap_algorithms", 201806, "algorithm", 20);
    write_std_check("__cpp_lib_constexpr_misc", 201811, "array", 20);
    write_std_check("__cpp_lib_bind_front", 201811, "functional", 20);
