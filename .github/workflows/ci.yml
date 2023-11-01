@@ -63,7 +63,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        compiler: [ clang++-13, cland++-15 ]
+        compiler: [ clang++-13, clang++-15 ]
     steps:
       - uses: actions/checkout@v3
         with:
