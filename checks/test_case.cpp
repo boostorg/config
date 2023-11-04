@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sun Jun  5 16:50:18 2022
+//  This file was automatically generated on Fri Oct 13 19:09:38 2023
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -294,6 +294,11 @@
 #ifdef TEST_BOOST_NO_CXX11_ALIGNAS
 #  ifdef BOOST_NO_CXX11_ALIGNAS
 #     error "Defect macro BOOST_NO_CXX11_ALIGNAS is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX11_ALIGNOF
+#  ifdef BOOST_NO_CXX11_ALIGNOF
+#     error "Defect macro BOOST_NO_CXX11_ALIGNOF is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX11_ALLOCATOR
@@ -699,6 +704,51 @@
 #ifdef TEST_BOOST_NO_CXX20_HDR_VERSION
 #  ifdef BOOST_NO_CXX20_HDR_VERSION
 #     error "Defect macro BOOST_NO_CXX20_HDR_VERSION is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX23_HDR_EXPECTED
+#  ifdef BOOST_NO_CXX23_HDR_EXPECTED
+#     error "Defect macro BOOST_NO_CXX23_HDR_EXPECTED is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX23_HDR_FLAT_MAP
+#  ifdef BOOST_NO_CXX23_HDR_FLAT_MAP
+#     error "Defect macro BOOST_NO_CXX23_HDR_FLAT_MAP is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX23_HDR_FLAT_SET
+#  ifdef BOOST_NO_CXX23_HDR_FLAT_SET
+#     error "Defect macro BOOST_NO_CXX23_HDR_FLAT_SET is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX23_HDR_GENERATOR
+#  ifdef BOOST_NO_CXX23_HDR_GENERATOR
+#     error "Defect macro BOOST_NO_CXX23_HDR_GENERATOR is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX23_HDR_MDSPAN
+#  ifdef BOOST_NO_CXX23_HDR_MDSPAN
+#     error "Defect macro BOOST_NO_CXX23_HDR_MDSPAN is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX23_HDR_PRINT
+#  ifdef BOOST_NO_CXX23_HDR_PRINT
+#     error "Defect macro BOOST_NO_CXX23_HDR_PRINT is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX23_HDR_SPANSTREAM
+#  ifdef BOOST_NO_CXX23_HDR_SPANSTREAM
+#     error "Defect macro BOOST_NO_CXX23_HDR_SPANSTREAM is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX23_HDR_STACKTRACE
+#  ifdef BOOST_NO_CXX23_HDR_STACKTRACE
+#     error "Defect macro BOOST_NO_CXX23_HDR_STACKTRACE is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX23_HDR_STDFLOAT
+#  ifdef BOOST_NO_CXX23_HDR_STDFLOAT
+#     error "Defect macro BOOST_NO_CXX23_HDR_STDFLOAT is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX98_BINDERS
