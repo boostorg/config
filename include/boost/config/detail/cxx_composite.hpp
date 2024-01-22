@@ -1,4 +1,4 @@
-//  This file was automatically generated on Fri Oct 13 19:09:38 2023
+//  This file was automatically generated on Mon Jan 22 16:16:53 2024
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -164,6 +164,7 @@
 #endif
 
 #if defined(BOOST_NO_CXX14)\
+   || defined(BOOST_NO_CXX17_AUTO_NONTYPE_TEMPLATE_PARAMS)\
    || defined(BOOST_NO_CXX17_DEDUCTION_GUIDES)\
    || defined(BOOST_NO_CXX17_FOLD_EXPRESSIONS)\
    || defined(BOOST_NO_CXX17_HDR_ANY)\

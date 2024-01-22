@@ -1,4 +1,4 @@
-//  This file was automatically generated on Fri Oct 13 19:09:38 2023
+//  This file was automatically generated on Mon Jan 22 16:16:53 2024
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -549,6 +549,11 @@
 #ifdef TEST_BOOST_NO_CXX17
 #  ifdef BOOST_NO_CXX17
 #     error "Defect macro BOOST_NO_CXX17 is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX17_AUTO_NONTYPE_TEMPLATE_PARAMS
+#  ifdef BOOST_NO_CXX17_AUTO_NONTYPE_TEMPLATE_PARAMS
+#     error "Defect macro BOOST_NO_CXX17_AUTO_NONTYPE_TEMPLATE_PARAMS is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX17_DEDUCTION_GUIDES

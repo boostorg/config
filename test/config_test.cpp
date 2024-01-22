@@ -1,4 +1,4 @@
-//  This file was automatically generated on Fri Oct 13 19:09:38 2023
+//  This file was automatically generated on Mon Jan 22 16:16:53 2024
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -376,6 +376,11 @@ namespace boost_no_cxx14_variable_templates = empty_boost;
 #include "boost_no_cxx17.ipp"
 #else
 namespace boost_no_cxx17 = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX17_AUTO_NONTYPE_TEMPLATE_PARAMS
+#include "boost_no_cxx17_auto_nontype_template_params.ipp"
+#else
+namespace boost_no_cxx17_auto_nontype_template_params = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX17_DEDUCTION_GUIDES
 #include "boost_no_cxx17_deduction_guides.ipp"
@@ -1739,6 +1744,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx17::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX17 at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx17_auto_nontype_template_params::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX17_AUTO_NONTYPE_TEMPLATE_PARAMS at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx17_deduction_guides::test())
