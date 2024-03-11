@@ -10,15 +10,19 @@
 
 import feature ;
 import testing ;
+import notfile ;
 
 project
     : requirements
       <toolset>gcc:<cxxflags>-Wno-deprecated-declarations
+      <source>/boost/core//boost_core
+      <source>/boost/detail//boost_detail
+      <source>/boost/type_traits//boost_type_traits
 ;
 
 
 import modules ;
-import ../checks/config : requires ;
+import config : requires ;
 
 local is_unix = [ modules.peek : UNIX ] ;
 
