@@ -6,6 +6,10 @@
 # bring in the rules for testing
 import testing ;
 
+project : requirements
+    <source>/boost/type_traits//boost_type_traits
+    ;
+
 #run static_assert_example_1.cpp ;
 run static_assert_example_2.cpp ;
 run static_assert_example_3.cpp ;
