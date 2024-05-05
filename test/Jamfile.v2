@@ -22,6 +22,7 @@ project
 
 
 import modules ;
+import-search /boost/config/checks ;
 import config : requires ;
 
 local is_unix = [ modules.peek : UNIX ] ;
@@ -102,7 +103,7 @@ test-suite config
           <threading>single
           <define>BOOST_DYN_LINK=1
           <define>BOOST_CONFIG_NO_LIB=1
-          <target-os>vxworks:<link>shared  
+          <target-os>vxworks:<link>shared
           :
           config_link_test
     ]
