@@ -3,12 +3,7 @@
 # (See accompanying file LICENSE_1_0.txt or copy at
 # http://www.boost.org/LICENSE_1_0.txt)
 
-require-b2 5.1 ;
-
-require-b2 5 ;
-
-import project ;
-import modules ;
+require-b2 5.2 ;
 
 path-constant BOOST_CONFIG_ROOT : . ;
 import-search $(BOOST_CONFIG_ROOT)/checks ;
