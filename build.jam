@@ -14,7 +14,7 @@ project /boost/config
     ;
 
 explicit
-    [ alias boost_config ]
+    [ alias boost_config : : : : <library>$(boost_dependencies) ]
     [ alias all : boost_config test ]
     [ alias testing
         : # sources
@@ -29,3 +29,4 @@ call-if : boost-library config
     ;
 
 use-project /boost/architecture : checks/architecture ;
+
