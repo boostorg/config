@@ -168,6 +168,11 @@
 #  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
 #endif
 
+// libc++ < 18 requires experimental support enabled, e.g. `-fexperimental-library`
+#if (_LIBCPP_VERSION < 180000) && !defined(_LIBCPP_ENABLE_EXPERIMENTAL)
+#  define BOOST_NO_CXX20_HDR_RANGES
+#endif
+
 #if _LIBCPP_VERSION >= 15000
 //
 // Unary function is now deprecated in C++11 and later:
