@@ -190,12 +190,12 @@ jobs:
       - name: Test
         run: ../../../b2 toolset=$TOOLSET cxxstd=03,11,14,17,2a
         working-directory: ../boost-root/libs/config/test
-  macos_11:
-    runs-on: macos-11
+  macos_12:
+    runs-on: macos-12
     strategy:
       fail-fast: false
       matrix:
-        toolset: [ clang, gcc-11, gcc-10 ]
+        toolset: [ clang, gcc-14, gcc-12 ]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -225,8 +225,8 @@ jobs:
       - name: Test
         run: ../../../b2 toolset=${{ matrix.toolset }} cxxstd=03,11,14,17,2a
         working-directory: ../boost-root/libs/config/test
-  macos_12:
-    runs-on: macos-12
+  macos_13:
+    runs-on: macos-13
     strategy:
       fail-fast: false
       matrix:
