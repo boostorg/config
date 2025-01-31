@@ -10,6 +10,7 @@
 //
 
 #include <boost/config.hpp>
+#include <boost/config/assert_cxx98.hpp>
 
 #ifdef BOOST_NO_ADL_BARRIER
 #  error "Your compiler appears not to be fully C++03 compliant.  Detected via defect macro BOOST_NO_ADL_BARRIER."
