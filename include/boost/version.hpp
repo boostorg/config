@@ -19,7 +19,7 @@
 //  BOOST_VERSION / 100 % 1000 is the minor version
 //  BOOST_VERSION / 100000 is the major version
 
-#define BOOST_VERSION 108800
+#define BOOST_VERSION 108900
 
 //
 //  BOOST_LIB_VERSION must be defined to be the same as BOOST_VERSION
