@@ -190,43 +190,8 @@ jobs:
       - name: Test
         run: ../../../b2 toolset=$TOOLSET cxxstd=03,11,14,17,2a
         working-directory: ../boost-root/libs/config/test
-  macos_11:
-    runs-on: macos-11
-    strategy:
-      fail-fast: false
-      matrix:
-        toolset: [ clang, gcc-11, gcc-10 ]
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: '0'
-      - uses: mstachniuk/ci-skip@v1
-        with:
-          commit-filter: '[skip ci];[ci skip];[CI SKIP];[SKIP CI];***CI SKIP***;***SKIP CI***;[windows];[Windows];[WINDOWS];[linux];[Linux];[LINUX]'
-          commit-filter-separator: ';'
-          fail-fast: true
-      - name: Checkout main boost
-        run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
-      - name: Update Dependencies
-        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits libs/static_assert
-        working-directory: ../boost-root
-      - name: Copy files
-        run: cp -r $GITHUB_WORKSPACE/* libs/config
-        working-directory: ../boost-root
-      - name: Bootstrap
-        run: ./bootstrap.sh
-        working-directory: ../boost-root
-      - name: Generate headers
-        run: ./b2 headers
-        working-directory: ../boost-root
-      - name: Config info
-        run: ../../../b2 print_config_info toolset=${{ matrix.toolset }} cxxstd=03,11,14,17,2a
-        working-directory: ../boost-root/libs/config/test
-      - name: Test
-        run: ../../../b2 toolset=${{ matrix.toolset }} cxxstd=03,11,14,17,2a
-        working-directory: ../boost-root/libs/config/test
-  macos_12:
-    runs-on: macos-12
+  macos:
+    runs-on: macos-latest
     strategy:
       fail-fast: false
       matrix:
