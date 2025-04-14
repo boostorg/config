@@ -38,7 +38,7 @@ jobs:
       - name: Checkout main boost
         run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
       - name: Update Dependencies
-        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits libs/static_assert libs/throw_exception libs/preprocessor
+        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits 
         working-directory: ../boost-root
       - name: Copy files
         run: cp -r $GITHUB_WORKSPACE/* libs/config
@@ -82,7 +82,7 @@ jobs:
       - name: Checkout main boost
         run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
       - name: Update Dependencies
-        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits libs/static_assert libs/throw_exception libs/preprocessor
+        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits 
         working-directory: ../boost-root
       - name: Copy files
         run: cp -r $GITHUB_WORKSPACE/* libs/config
@@ -126,7 +126,7 @@ jobs:
       - name: Checkout main boost
         run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
       - name: Update Dependencies
-        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits libs/static_assert libs/throw_exception libs/preprocessor
+        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits 
         working-directory: ../boost-root
       - name: Copy files
         run: cp -r $GITHUB_WORKSPACE/* libs/config
@@ -170,7 +170,7 @@ jobs:
       - name: Checkout main boost
         run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
       - name: Update Dependencies
-        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits libs/static_assert libs/throw_exception libs/preprocessor
+        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits 
         working-directory: ../boost-root
       - name: Copy files
         run: cp -r $GITHUB_WORKSPACE/* libs/config
@@ -208,7 +208,7 @@ jobs:
       - name: Checkout main boost
         run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
       - name: Update Dependencies
-        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits libs/static_assert libs/throw_exception libs/preprocessor
+        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits 
         working-directory: ../boost-root
       - name: Copy files
         run: cp -r $GITHUB_WORKSPACE/* libs/config
@@ -246,7 +246,7 @@ jobs:
       - name: Checkout main boost
         run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
       - name: Update Dependencies
-        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits libs/static_assert libs/throw_exception libs/preprocessor
+        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits 
         working-directory: ../boost-root
       - name: Copy files
         run: xcopy /s /e /q %GITHUB_WORKSPACE% libs\config
@@ -284,7 +284,7 @@ jobs:
       - name: Checkout main boost
         run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
       - name: Update Dependencies
-        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits libs/static_assert libs/throw_exception libs/preprocessor
+        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits 
         working-directory: ../boost-root
       - name: Copy files
         run: xcopy /s /e /q %GITHUB_WORKSPACE% libs\config
@@ -322,7 +322,7 @@ jobs:
       - name: Checkout main boost
         run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
       - name: Update Dependencies
-        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits libs/static_assert libs/throw_exception libs/preprocessor
+        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits 
         working-directory: ../boost-root
       - name: Copy files
         run: xcopy /s /e /q %GITHUB_WORKSPACE% libs\config
@@ -360,7 +360,7 @@ jobs:
       - name: Checkout main boost
         run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
       - name: Update Dependencies
-        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits libs/static_assert libs/throw_exception libs/preprocessor
+        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits 
         working-directory: ../boost-root
       - name: Copy files
         run: xcopy /s /e /q %GITHUB_WORKSPACE% libs\config
@@ -377,8 +377,8 @@ jobs:
       - name: Test
         run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,latest toolset=clang-win embed-manifest-via=linker
         working-directory: ../boost-root/libs/config/test
-  non_intel_ubuntu_20_04_gcc:
-    runs-on: ubuntu-20.04
+  non_intel_ubuntu_22_04_gcc:
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
@@ -408,13 +408,13 @@ jobs:
             cd boost-root
             rm -rf libs/config/*
             cp -r $config/* libs/config
-            git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits libs/static_assert libs/throw_exception libs/preprocessor
+            git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits 
             ./bootstrap.sh
             ./b2 headers
             ./b2 toolset=gcc libs/config/test//print_config_info libs/config/test//print_math_info
             cd libs/config/test && ../../../b2 toolset=gcc cxxstd=03,11,14,17
-  non_intel_ubuntu_20_04_clang:
-    runs-on: ubuntu-20.04
+  non_intel_ubuntu_22_04_clang:
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
@@ -444,14 +444,14 @@ jobs:
             cd boost-root
             rm -rf libs/config/*
             cp -r $config/* libs/config
-            git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits libs/static_assert libs/throw_exception libs/preprocessor
+            git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits 
             ./bootstrap.sh
             ./b2 headers
             ./b2 toolset=clang libs/config/test//print_config_info libs/config/test//print_math_info
             cd libs/config/test
             ../../../b2 toolset=clang cxxstd=03,11,14,17
   emscripten_wasm:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
@@ -480,7 +480,7 @@ jobs:
       - name: Checkout main boost
         run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
       - name: Update Dependencies
-        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits libs/static_assert libs/throw_exception libs/preprocessor
+        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits 
         working-directory: ../boost-root
       - name: Copy files
         run: cp -r $GITHUB_WORKSPACE/* libs/config
@@ -528,7 +528,7 @@ jobs:
          emcc -pthread -s EXIT_RUNTIME=1 -s PTHREAD_POOL_SIZE=32 -s DISABLE_EXCEPTION_CATCHING=0 -I. -O3 -o config_test_pthread libs/config/test/config_test.cpp
          node --experimental-wasm-threads config_test_pthread
   ubuntu-cuda:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
@@ -550,7 +550,7 @@ jobs:
       - name: Checkout main boost
         run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
       - name: Update Dependencies
-        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits libs/static_assert libs/throw_exception libs/preprocessor
+        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits 
         working-directory: ../boost-root
       - name: Copy files
         run: cp -r $GITHUB_WORKSPACE/* libs/config
