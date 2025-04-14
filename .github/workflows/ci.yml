@@ -400,7 +400,7 @@ jobs:
           run: |
             uname -a
             apt update
-            apt -y install gcc g++ git python
+            apt -y install gcc g++ git python3
             echo $PWD
             config=$PWD
             cd ..
@@ -436,7 +436,7 @@ jobs:
           run: |
             uname -a
             apt update
-            apt -y install clang gcc g++ git python
+            apt -y install clang gcc g++ git python3
             echo $PWD
             config=$PWD
             cd ..
@@ -543,8 +543,10 @@ jobs:
           commit-filter-separator: ';'
           fail-fast: true
       - uses: Jimver/cuda-toolkit@v0.2.4
+        id: cuda-toolkit
         with:
           cuda: '12.5.0'
+          log-file-suffix: '${{matrix.std}}.txt'
       - name: Add repository
         run: sudo apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
       - name: Install packages
