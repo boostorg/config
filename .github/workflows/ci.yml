@@ -390,7 +390,7 @@ jobs:
         id: runcmd
         with:
           arch: ${{ matrix.qemu_arch }}
-          distro: ubuntu20.04
+          distro: ubuntu22.04
 
           # Not required, but speeds up builds by storing container images in
           # a GitHub package registry.
@@ -426,7 +426,7 @@ jobs:
         id: runcmd
         with:
           arch: ${{ matrix.qemu_arch }}
-          distro: ubuntu20.04
+          distro: ubuntu22.04
 
           # Not required, but speeds up builds by storing container images in
           # a GitHub package registry.
@@ -543,6 +543,8 @@ jobs:
           commit-filter-separator: ';'
           fail-fast: true
       - uses: Jimver/cuda-toolkit@v0.2.4
+        with:
+          cuda: '12.8.0'
       - name: Add repository
         run: sudo apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
       - name: Install packages
