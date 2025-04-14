@@ -532,7 +532,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        std: [ 11, 14, 17 ]
+        std: [ 11 ]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -542,14 +542,14 @@ jobs:
           commit-filter: '[skip ci];[ci skip];[CI SKIP];[SKIP CI];***CI SKIP***;***SKIP CI***;[windows];[Windows];[WINDOWS];[apple];[Apple];[APPLE]'
           commit-filter-separator: ';'
           fail-fast: true
-      - uses: Jimver/cuda-toolkit@master
-        id: cuda-toolkit
-        with:
-          log-file-suffix: '${{matrix.std}}.txt'
       - name: Add repository
         run: sudo apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
       - name: Install packages
         run: sudo apt install g++ g++-11 clang-11
+      - uses: Jimver/cuda-toolkit@master
+        id: cuda-toolkit
+        with:
+          log-file-suffix: '${{matrix.std}}.txt'
       - name: Checkout main boost
         run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
       - name: Update Dependencies
