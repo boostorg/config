@@ -542,7 +542,7 @@ jobs:
           commit-filter: '[skip ci];[ci skip];[CI SKIP];[SKIP CI];***CI SKIP***;***SKIP CI***;[windows];[Windows];[WINDOWS];[apple];[Apple];[APPLE]'
           commit-filter-separator: ';'
           fail-fast: true
-      - uses: Jimver/cuda-toolkit@v0.2.4
+      - uses: Jimver/cuda-toolkit@master
         id: cuda-toolkit
         with:
           log-file-suffix: '${{matrix.std}}.txt'
