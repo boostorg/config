@@ -220,7 +220,7 @@ jobs:
         run: ./b2 headers
         working-directory: ../boost-root
       - name: Config info
-        run: ../../../b2 print_config_info toolset=${{ matrix.toolset }} cxxstd=03,11,14,17,2a
+        run: ../../../b2 print_config_info toolset=${{ matrix.toolset }} cxxstd=03,11,14,17,20
         working-directory: ../boost-root/libs/config/test
       - name: Test
         run: ../../../b2 toolset=${{ matrix.toolset }} cxxstd=03,11,14,17,2a
@@ -528,7 +528,7 @@ jobs:
          emcc -pthread -s EXIT_RUNTIME=1 -s PTHREAD_POOL_SIZE=32 -s DISABLE_EXCEPTION_CATCHING=0 -I. -O3 -o config_test_pthread libs/config/test/config_test.cpp
          node --experimental-wasm-threads config_test_pthread
   ubuntu-cuda:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
@@ -545,7 +545,7 @@ jobs:
       - name: Add repository
         run: sudo apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
       - name: Install packages
-        run: sudo apt install g++ g++-11 clang-11
+        run: sudo apt install g++ clang
       - uses: Jimver/cuda-toolkit@master
         id: cuda-toolkit
         with:
