@@ -528,7 +528,7 @@ jobs:
          emcc -pthread -s EXIT_RUNTIME=1 -s PTHREAD_POOL_SIZE=32 -s DISABLE_EXCEPTION_CATCHING=0 -I. -O3 -o config_test_pthread libs/config/test/config_test.cpp
          node --experimental-wasm-threads config_test_pthread
   ubuntu-cuda:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
       matrix:
@@ -545,12 +545,11 @@ jobs:
       - uses: Jimver/cuda-toolkit@v0.2.4
         id: cuda-toolkit
         with:
-          cuda: '12.5.0'
           log-file-suffix: '${{matrix.std}}.txt'
       - name: Add repository
         run: sudo apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
       - name: Install packages
-        run: sudo apt install g++-11 clang-11
+        run: sudo apt install g++ g++-11 clang-11
       - name: Checkout main boost
         run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
       - name: Update Dependencies
