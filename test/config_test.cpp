@@ -457,6 +457,11 @@ namespace boost_no_cxx17_std_apply = empty_boost;
 #else
 namespace boost_no_cxx17_std_invoke = empty_boost;
 #endif
+#ifndef BOOST_NO_CXX17_STD_LAUNDER
+#include "boost_no_cxx17_std_launder.ipp"
+#else
+namespace boost_no_cxx17_std_launder = empty_boost;
+#endif
 #ifndef BOOST_NO_CXX17_STRUCTURED_BINDINGS
 #include "boost_no_cxx17_structured_bindings.ipp"
 #else
