@@ -21,7 +21,7 @@ jobs:
       matrix:
         compiler: [ g++-13, g++-14 ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
@@ -65,7 +65,7 @@ jobs:
       matrix:
         compiler: [ g++-11, g++-12, g++-13 ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
@@ -109,7 +109,7 @@ jobs:
       matrix:
         compiler: [ clang++-15 ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
@@ -153,7 +153,7 @@ jobs:
       matrix:
         toolset: [ clang ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
@@ -191,7 +191,7 @@ jobs:
       matrix:
         toolset: [ msvc-14.3 ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
@@ -229,7 +229,7 @@ jobs:
       matrix:
         toolset: [ clang-msvc-14.3 ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
@@ -264,7 +264,7 @@ jobs:
       matrix:
         qemu_arch: [ aarch64, s390x, ppc64le ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - uses: uraimo/run-on-arch-action@v3
         name: Run commands
         id: runcmd
@@ -300,7 +300,7 @@ jobs:
       matrix:
         qemu_arch: [ aarch64, ppc64le ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - uses: uraimo/run-on-arch-action@v3
         name: Run commands
         id: runcmd
@@ -337,7 +337,7 @@ jobs:
       matrix:
         compiler: [ emcc ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
         with:
           fetch-depth: '0'
       - uses: mstachniuk/ci-skip@v1
