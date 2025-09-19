@@ -62,6 +62,7 @@ install:
   - git submodule update --init libs/core
   - git submodule update --init libs/assert
   - git submodule update --init libs/type_traits
+  - git submodule update --init libs/static_assert
   - bootstrap
   - b2 headers
   
