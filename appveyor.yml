@@ -34,7 +34,6 @@ environment:
     - ARGS: --toolset=msvc-14.0 address-model=32
     - ARGS: --toolset=msvc-14.0 address-model=64
     - ARGS: --toolset=msvc-14.0 address-model=64 cxxflags=-std:c++latest
-    - ARGS: --toolset=msvc-14.1 address-model=64
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
       ARGS: --toolset=msvc-14.2 address-model=32
       CXXSTD: 14,17,20,latest
