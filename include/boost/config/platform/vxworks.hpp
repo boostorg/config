@@ -343,8 +343,9 @@ namespace std {
 #include <signal.h>
 
 #if (_WRS_VXWORKS_MAJOR < 7)
+#  include <sys/stat.h>
 #  define getpagesize()    sysconf(_SC_PAGESIZE)         // getpagesize is deprecated anyway!
-inline int lstat(p, b) { return stat(p, b); }  // lstat() == stat(), as vxWorks has no symlinks!
+inline int lstat(const char* p, struct stat* b) { return stat(p, b); }  // lstat() == stat(), as vxWorks has no symlinks!
 #endif
 
 #ifndef S_ISSOCK
