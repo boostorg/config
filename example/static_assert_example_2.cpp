@@ -6,7 +6,7 @@
 //  See http://www.boost.org for most recent version including documentation.
 
 #include <boost/static_assert.hpp>
-#include <boost/type_traits.hpp>
+#include <boost/type_traits/is_convertible.hpp>
 #include <iterator>
 #include <list>
 #include <deque>
