@@ -8,7 +8,7 @@ template <int N>
 int foo()
 {
     BOOST_STATIC_ASSERT( N < 2 );
-    
+
     return N;
 }
 

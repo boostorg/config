@@ -1,6 +1,6 @@
 //  (C) Copyright Steve Cleary & John Maddock 2000.
-//  Use, modification and distribution are subject to the 
-//  Boost Software License, Version 1.0. (See accompanying file 
+//  Use, modification and distribution are subject to the
+//  Boost Software License, Version 1.0. (See accompanying file
 //  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 //  See http://www.boost.org for most recent version including documentation.
@@ -88,7 +88,7 @@ void test_Bill() // BOOST_STATIC_ASSERTs are not triggerred until instantiated
 }
 
 int main()
-{ 
+{
    test_Bill();
    //
    // Test variadic macro support:
@@ -99,9 +99,5 @@ int main()
    BOOST_STATIC_ASSERT_MSG(Bill<int, char>::value, "This is a message");
 #endif
 #endif
-   return 0; 
+   return 0;
 }
-
-
-
-
