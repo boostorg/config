@@ -1023,6 +1023,7 @@ that are not yet supported by a particular compiler or library.
 [[`BOOST_NO_CXX17_HDR_VARIANT`][The compiler does not support the header `<variant>`.]]
 [[`BOOST_NO_CXX17_STD_APPLY`][The compiler does not support `std::apply()`.]]
 [[`BOOST_NO_CXX17_STD_INVOKE`][The compiler does not support `std::invoke()`.]]
+[[`BOOST_NO_CXX17_STD_LAUNDER`][The compiler does not support `std::launder()`.]]
 [[`BOOST_NO_CXX17_ITERATOR_TRAITS`][The compiler does not support SFINAE-friendly `std::iterator_traits`.]]
 [[`BOOST_NO_CXX17_IF_CONSTEXPR`][The compiler does not support `if constexpr`.]]
 [[`BOOST_NO_CXX17_INLINE_VARIABLES`][The compiler does not support `inline` variables.]]
