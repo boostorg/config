@@ -356,6 +356,11 @@
 #define BOOST_DEPRECATED(msg) __attribute__((deprecated))
 #endif
 
+// __builtin_launder intrinsic
+#if BOOST_GCC_VERSION >= 70000
+#  define BOOST_HAS_BUILTIN_LAUNDER
+#endif
+
 #ifndef BOOST_COMPILER
 #  define BOOST_COMPILER "GNU C++ version " __VERSION__
 #endif
