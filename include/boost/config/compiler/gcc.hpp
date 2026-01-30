@@ -162,9 +162,13 @@
 // See https://svn.boost.org/trac/boost/ticket/11852
 //
 #ifdef __cplusplus
-#include <cstddef>
+#  if defined(__has_include) && __has_include(<version>)
+#    include <version>
+#  else
+#    include <cstddef>
+#  endif
 #else
-#include <stddef.h>
+#  include <stddef.h>
 #endif
 #if defined(_GLIBCXX_USE_FLOAT128) && !defined(__STRICT_ANSI__) && !defined(BOOST_NVCC_CXX03)
 # define BOOST_HAS_FLOAT128
