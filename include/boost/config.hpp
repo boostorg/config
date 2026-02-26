@@ -14,6 +14,11 @@
 //           DO NOT MODIFY THIS FILE!
 //
 
+// Make the header safe to include from libraries supporting modules
+#if defined(BOOST_IN_MODULE_PURVIEW) && !defined(BOOST_CONFIG_HPP)
+#  error "Please #include <boost/config.hpp> in your module global fragment"
+#endif
+
 #ifndef BOOST_CONFIG_HPP
 #define BOOST_CONFIG_HPP
 

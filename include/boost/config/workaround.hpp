@@ -2,6 +2,12 @@
 // Distributed under the Boost Software License, Version 1.0. (See
 // accompanying file LICENSE_1_0.txt or copy at
 // http://www.boost.org/LICENSE_1_0.txt)
+
+// Make the header safe to include from libraries supporting modules
+#if defined(BOOST_IN_MODULE_PURVIEW) && !defined(BOOST_CONFIG_WORKAROUND_HPP)
+#  error "Please #include <boost/config/workaround.hpp> in your module global fragment"
+#endif
+
 #ifndef BOOST_CONFIG_WORKAROUND_HPP
 #define BOOST_CONFIG_WORKAROUND_HPP
 
