@@ -162,8 +162,12 @@
 // See https://svn.boost.org/trac/boost/ticket/11852
 //
 #ifdef __cplusplus
-#  if defined(__has_include) && __has_include(<version>)
-#    include <version>
+#  ifdef __has_include
+#    if __has_include(<version>)
+#      include <version>
+#    else
+#      include <cstddef>
+#    endif
 #  else
 #    include <cstddef>
 #  endif
