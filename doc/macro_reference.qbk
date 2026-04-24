@@ -423,6 +423,9 @@ The platform has the Win32 API type FTIME.
 [[`BOOST_HAS_GETSYSTEMTIMEASFILETIME`][Platform][
 The platform has the Win32 API GetSystemTimeAsFileTime.
 ]]
+[[`BOOST_HAS_GETSYSTEMTIMEPRECISEASFILETIME`][Platform][
+The platform has the Win32 API GetSystemTimePreciseAsFileTime.
+]]
 [[`BOOST_HAS_GETTIMEOFDAY`][Platform][
 The platform has the POSIX API `gettimeofday`.
 ]]
