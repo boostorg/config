@@ -1509,6 +1509,10 @@ Defined if the compiler is really GCC, as opposed to one
 of the many other compilers that also define `__GNUC__`.  Has the value:
 `__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__`.
 ]]
+[[`BOOST_GCC_VERSION`][`<boost/config.hpp>`][
+Defined for GCC and any other compilers that also define `__GNUC__`.  Has the value:
+`__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__`.
+]]
 [[`BOOST_INTEL`][`<boost/config.hpp>`][
 Defined if the compiler is an Intel compiler, takes the same value as the
 compiler version macro.
