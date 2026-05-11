@@ -394,6 +394,9 @@ test-suite "BOOST_NO_CXX17_STD_APPLY" :
 test-suite "BOOST_NO_CXX17_STD_INVOKE" : 
 [ run ../no_cxx17_std_invoke_pass.cpp ]
 [ compile-fail ../no_cxx17_std_invoke_fail.cpp ] ;
+test-suite "BOOST_NO_CXX17_STD_LAUNDER" : 
+[ run ../no_cxx17_std_launder_pass.cpp ]
+[ compile-fail ../no_cxx17_std_launder_fail.cpp ] ;
 test-suite "BOOST_NO_CXX17_STRUCTURED_BINDINGS" : 
 [ run ../no_cxx17_structured_bindings_pass.cpp ]
 [ compile-fail ../no_cxx17_structured_bindings_fail.cpp ] ;

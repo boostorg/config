@@ -180,6 +180,7 @@
    || defined(BOOST_NO_CXX17_ITERATOR_TRAITS)\
    || defined(BOOST_NO_CXX17_STD_APPLY)\
    || defined(BOOST_NO_CXX17_STD_INVOKE)\
+   || defined(BOOST_NO_CXX17_STD_LAUNDER)\
    || defined(BOOST_NO_CXX17_STRUCTURED_BINDINGS)
 #    define BOOST_NO_CXX17
 #endif
