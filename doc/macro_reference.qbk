@@ -405,6 +405,10 @@ standard. The macro is only defined if the feature is present.
 [[`BOOST_HAS_BETHREADS`][Platform][
 The platform supports BeOS style threads.
 ]]
+[[`BOOST_HAS_BUILTIN_LAUNDER`][Compiler][
+The compiler implements the `__builtin_launder()` compiler intrinsic that is needed
+to implement a constexpr pointer laundering function like `std::launder`.
+]]
 [[`BOOST_HAS_CLOCK_GETTIME`][Platform][
 The platform has the POSIX API `clock_gettime`.
 ]]

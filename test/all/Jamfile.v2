@@ -28,6 +28,9 @@ test-suite "BOOST_HAS_TWO_ARG_USE_FACET" :
 test-suite "BOOST_HAS_BETHREADS" : 
 [ run ../has_bethreads_pass.cpp ]
 [ compile-fail ../has_bethreads_fail.cpp ] ;
+test-suite "BOOST_HAS_BUILTIN_LAUNDER" : 
+[ run ../has_builtin_launder_pass.cpp ]
+[ compile-fail ../has_builtin_launder_fail.cpp ] ;
 test-suite "BOOST_HAS_CLOCK_GETTIME" : 
 [ run ../has_clock_gettime_pass.cpp ]
 [ compile-fail ../has_clock_gettime_fail.cpp ] ;

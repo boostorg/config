@@ -115,6 +115,12 @@
 #define BOOST_DEPRECATED(msg) __declspec(deprecated)
 #endif
 
+// __builtin_launder intrinsic
+//The intrinsic is only available in C++17 or later mode
+#if (_MSC_VER >= 1910) && defined(_MSVC_LANG) && (_MSVC_LANG > 201402L)
+# define BOOST_HAS_BUILTIN_LAUNDER
+#endif
+
 //
 // TR1 features:
 //
