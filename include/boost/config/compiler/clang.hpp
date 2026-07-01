@@ -366,5 +366,15 @@
 // Macro used to identify the Clang compiler.
 #define BOOST_CLANG 1
 
+//
+// When targeting MSVC compatibility (clang-cl), wchar_t is only a distinct intrinsic
+// type when _NATIVE_WCHAR_T_DEFINED is defined (i.e. /Zc:wchar_t).  Under /Zc:wchar_t-,
+// wchar_t is an alias for unsigned short, so mirror visualc.hpp here to avoid emitting a
+// duplicate wchar_t specialization that redefines the unsigned short one.
+//
+#if defined(_MSC_VER) && !defined(_NATIVE_WCHAR_T_DEFINED)
+#  define BOOST_NO_INTRINSIC_WCHAR_T
+#endif
+
 // BOOST_CLANG_VERSION
 #include <boost/config/compiler/clang_version.hpp>
