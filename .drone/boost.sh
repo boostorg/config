@@ -38,9 +38,9 @@ echo '==================================> BEFORE_SCRIPT'
 echo '==================================> SCRIPT'
 
 if [ $TEST_INTEL ]; then source ~/.bashrc; fi
-echo "using $TOOLSET : : $COMPILER : <cxxflags>$EXTRA_FLAGS <linkflags>$EXTRA_FLAGS ;" > ~/user-config.jam
-./b2 libs/config/test//print_config_info libs/config/test//print_math_info toolset=$TOOLSET cxxstd=$CXXSTD $CXXSTD_DIALECT
-./b2 -j3 libs/config/test toolset=$TOOLSET cxxstd=$CXXSTD $CXXSTD_DIALECT
+echo "using $B2_TOOLSET : : $B2_COMPILER : <cxxflags>$EXTRA_FLAGS <linkflags>$EXTRA_FLAGS ;" > ~/user-config.jam
+./b2 libs/config/test//print_config_info libs/config/test//print_math_info B2_TOOLSET=$B2_TOOLSET B2_CXXSTD=$B2_CXXSTD $B2_CXXSTD_DIALECT
+./b2 -j3 libs/config/test B2_TOOLSET=$B2_TOOLSET B2_CXXSTD=$B2_CXXSTD $B2_CXXSTD_DIALECT
 
 echo '==================================> AFTER_SUCCESS'
 
