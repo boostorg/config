@@ -73,8 +73,8 @@ def main(ctx):
   osx_cxx("XCode-11.7 03,11,17,2a", "clang++", packages="", buildtype="boost", xcode_version="11.7", environment={'B2_TOOLSET': 'clang', 'B2_COMPILER': 'clang++', 'B2_CXXSTD': '03,11,14,17,2a', }, globalenv=globalenv),
   osx_cxx("XCode-12.5.1 03,11,17,23", "clang++", packages="", buildtype="boost", xcode_version="12.5.1", environment={'B2_TOOLSET': 'clang', 'B2_COMPILER': 'clang++', 'B2_CXXSTD': '03,11,14,17,2a', }, globalenv=globalenv),
   osx_cxx("XCode-13.4.1 03,11,17,23", "clang++", packages="", buildtype="boost", xcode_version="13.4.1", environment={'B2_TOOLSET': 'clang', 'B2_COMPILER': 'clang++', 'B2_CXXSTD': '03,11,14,17,2a', }, globalenv=globalenv),
-  osx_cxx("XCode-14.3.1 03,11,17,23", "clang++", packages="", buildtype="boost", xcode_version="14.3.1", environment={'B2_TOOLSET': 'clang', 'B2_COMPILER': 'clang++', 'B2_CXXSTD': '03,11,14,17,23', }, globalenv=globalenv),
-  osx_cxx("XCode-15.4.0 03,11,17,23", "clang++", packages="", buildtype="boost", xcode_version="15.4.0", environment={'B2_TOOLSET': 'clang', 'B2_COMPILER': 'clang++', 'B2_CXXSTD': '03,11,14,17,23', }, globalenv=globalenv),
+  osx_cxx("XCode-14.3.1 03,11,17,2b", "clang++", packages="", buildtype="boost", xcode_version="14.3.1", environment={'B2_TOOLSET': 'clang', 'B2_COMPILER': 'clang++', 'B2_CXXSTD': '03,11,14,17,2b', }, globalenv=globalenv),
+  osx_cxx("XCode-15.4.0 03,11,17,2b", "clang++", packages="", buildtype="boost", xcode_version="15.4.0", environment={'B2_TOOLSET': 'clang', 'B2_COMPILER': 'clang++', 'B2_CXXSTD': '03,11,14,17,2b', }, globalenv=globalenv),
   osx_cxx("XCode-16.4.0 03,11,17,23", "clang++", packages="", buildtype="boost", xcode_version="16.4.0", environment={'B2_TOOLSET': 'clang', 'B2_COMPILER': 'clang++', 'B2_CXXSTD': '03,11,14,17,23', }, globalenv=globalenv),
   osx_cxx("XCode-26.2.0 03,11,17,23,26", "clang++", packages="", buildtype="boost", xcode_version="26.2.0", environment={'B2_TOOLSET': 'clang', 'B2_COMPILER': 'clang++', 'B2_CXXSTD': '03,11,14,17,23,26', }, globalenv=globalenv),
   ]
