@@ -47,12 +47,12 @@ struct parse_int<base, val, c, Digits...>
 char_value, Digits...>::value };
 };
 
-my_literal operator "" _suf1(unsigned long long v)
+my_literal operator ""_suf1(unsigned long long v)
 {
    return my_literal(v);
 }
 template <char...PACK>
-my_literal operator "" _bin()
+my_literal operator ""_bin()
 {
    return parse_int<2, 0, PACK...>::value;
 }

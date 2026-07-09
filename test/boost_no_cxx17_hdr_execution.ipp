@@ -23,6 +23,11 @@ int test()
   using std::execution::seq;
   using std::execution::par;
   using std::execution::par_unseq;
+
+  (void)seq;
+  (void)par;
+  (void)par_unseq;
+
   return 0;
 }
 

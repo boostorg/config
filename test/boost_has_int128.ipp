@@ -66,6 +66,7 @@ int test()
    
    my_uint128_t ii(2), jj(1), kk;
    kk = ii / jj;
+   (void)kk;
 
    return 0;
 }
