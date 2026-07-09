@@ -45,4 +45,3 @@ echo "using $B2_TOOLSET : : $B2_COMPILER : <cxxflags>$EXTRA_FLAGS <linkflags>$EX
 echo '==================================> AFTER_SUCCESS'
 
 . $DRONE_BUILD_DIR/.drone/after-success.sh
-
