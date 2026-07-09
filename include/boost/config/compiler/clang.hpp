@@ -315,6 +315,12 @@
 #  define BOOST_NO_CXX17_IF_CONSTEXPR
 #endif
 
+#if !defined(__cpp_template_template_args)
+// Clang-18 doesn't seem to cope with this header, which may be an issue with underlying libstdc++ or not.
+// __cpp_template_template_args seems to be introduced in clang-19:
+#  define BOOST_NO_CXX23_HDR_STACKTRACE
+#endif
+
 // Clang 3.9+ in c++1z
 #if !__has_cpp_attribute(fallthrough) || __cplusplus < 201406L
 #  define BOOST_NO_CXX17_INLINE_VARIABLES

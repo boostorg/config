@@ -248,7 +248,6 @@
 #  define BOOST_NO_CXX11_CONSTEXPR
 #  define BOOST_NO_CXX11_FINAL
 #  define BOOST_NO_CXX11_TEMPLATE_ALIASES
-#  define BOOST_NO_CXX11_USER_DEFINED_LITERALS
 #  define BOOST_NO_CXX11_FIXED_LENGTH_VARIADIC_TEMPLATE_EXPANSION_PACKS
 #  define BOOST_NO_CXX11_OVERRIDE
 #endif
@@ -274,6 +273,9 @@
 // Although alignas support is added in gcc 4.8, it does not accept
 // dependent constant expressions as an argument until gcc 4.9.
 #  define BOOST_NO_CXX11_ALIGNAS
+// User defined literals are supported in gcc-4.7 and later, but only in a form
+// that is now deprecated for all recent compilers (as of 2026):
+#  define BOOST_NO_CXX11_USER_DEFINED_LITERALS
 #endif
 
 // C++0x features in 5.1 and later

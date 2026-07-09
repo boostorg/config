@@ -23,7 +23,7 @@ const int &foo(const int &x)
 
 int test()
 {
-    int j;
+    int j = 0;
     decltype(auto) x = foo(j);
     quiet_warning(x);
     return 0;

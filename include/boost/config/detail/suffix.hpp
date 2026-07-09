@@ -1297,6 +1297,11 @@ namespace std{ using ::type_info; }
 #endif
 #endif
 
+#if BOOST_CXX_VERSION >= 202400L
+// deprecated in C++23 removed in 26:
+#  define BOOST_NO_CXX11_HDR_CODECVT
+#endif
+
 #if defined(__cplusplus) && defined(__has_include)
 #if !__has_include(<version>)
 #  define BOOST_NO_CXX20_HDR_VERSION
