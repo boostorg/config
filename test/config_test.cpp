@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon Sep 22 20:16:25 2025
+//  This file was automatically generated on Fri Jul 10 19:11:06 2026
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -1829,6 +1829,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx17_std_invoke::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX17_STD_INVOKE at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx17_std_launder::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX17_STD_LAUNDER at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx17_structured_bindings::test())
