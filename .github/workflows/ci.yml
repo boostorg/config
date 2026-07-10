@@ -228,6 +228,43 @@ jobs:
       - name: Test
         run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,latest toolset=clang-win embed-manifest-via=linker
         working-directory: ../boost-root/libs/config/test
+  windows_cygwin:
+    runs-on: windows-2022
+    defaults:
+      run:
+        shell: cmd
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: '0'
+      - run: git config --global core.autocrlf input
+      - uses: actions/checkout@v6
+      - uses: cygwin/cygwin-install-action@v6
+        with:
+          packages: |
+            g++
+      - name: Checkout main boost
+        run: git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
+      - name: Update Dependencies
+        run: git submodule update --init tools/build tools/boost_install libs/headers libs/detail libs/core libs/assert libs/type_traits libs/throw_exception libs/preprocessor
+        working-directory: ../boost-root
+      - name: Copy files
+        run: xcopy /s /e /q %GITHUB_WORKSPACE% libs\config
+        working-directory: ../boost-root
+      - name: Bootstrap
+        run: bootstrap
+        working-directory: ../boost-root
+      - name: Generate headers
+        run: b2 headers
+        working-directory: ../boost-root
+      - name: Config info
+        run: ..\..\..\b2 print_config_info cxxstd=14,17,20 address-model=64 toolset=gcc
+        working-directory: ../boost-root/libs/config/test
+      - name: Test
+        run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,20 toolset=gcc
+        working-directory: ../boost-root/libs/config/test
   non_intel_ubuntu_22_04_gcc:
     runs-on: ubuntu-22.04
     strategy:
