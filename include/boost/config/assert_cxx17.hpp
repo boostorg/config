@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon Sep 22 20:16:25 2025
+//  This file was automatically generated on Fri Jul 10 19:11:06 2026
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -59,6 +59,9 @@
 #endif
 #ifdef BOOST_NO_CXX17_STD_INVOKE
 #  error "Your compiler appears not to be fully C++17 compliant.  Detected via defect macro BOOST_NO_CXX17_STD_INVOKE."
+#endif
+#ifdef BOOST_NO_CXX17_STD_LAUNDER
+#  error "Your compiler appears not to be fully C++17 compliant.  Detected via defect macro BOOST_NO_CXX17_STD_LAUNDER."
 #endif
 #ifdef BOOST_NO_CXX17_STRUCTURED_BINDINGS
 #  error "Your compiler appears not to be fully C++17 compliant.  Detected via defect macro BOOST_NO_CXX17_STRUCTURED_BINDINGS."
