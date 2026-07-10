@@ -310,6 +310,7 @@
 
 #if BOOST_CXX_VERSION >= 201703L
 #  define BOOST_ATTRIBUTE_UNUSED [[maybe_unused]]
+#  define BOOST_FALLTHROUGH [[fallthrough]]
 #endif
 
 #ifndef BOOST_COMPILER
