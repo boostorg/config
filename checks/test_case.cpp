@@ -1,4 +1,4 @@
-//  This file was automatically generated on Mon Sep 22 20:16:25 2025
+//  This file was automatically generated on Fri Jul 10 19:16:26 2026
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -19,6 +19,11 @@
 #ifdef TEST_BOOST_HAS_BETHREADS
 #  ifndef BOOST_HAS_BETHREADS
 #     error "Feature macro BOOST_HAS_BETHREADS is not defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_HAS_BUILTIN_LAUNDER
+#  ifndef BOOST_HAS_BUILTIN_LAUNDER
+#     error "Feature macro BOOST_HAS_BUILTIN_LAUNDER is not defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_HAS_CLOCK_GETTIME
