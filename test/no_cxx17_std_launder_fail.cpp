@@ -10,10 +10,10 @@
 //
 
 
-// Test file for macro BOOST_NO_CXX14_STD_EXCHANGE
+// Test file for macro BOOST_NO_CXX17_STD_LAUNDER
 // This file should not compile, if it does then
-// BOOST_NO_CXX14_STD_EXCHANGE should not be defined.
-// See file boost_no_cxx17_std_apply.ipp for details
+// BOOST_NO_CXX17_STD_LAUNDER should not be defined.
+// See file boost_no_cxx17_std_launder.ipp for details
 
 // Must not have BOOST_ASSERT_CONFIG set; it defeats
 // the objective of this file:
@@ -24,14 +24,14 @@
 #include <boost/config.hpp>
 #include "test.hpp"
 
-#ifdef BOOST_NO_CXX14_STD_EXCHANGE
-#include "boost_no_cxx14_std_exchange.ipp"
+#ifdef BOOST_NO_CXX17_STD_LAUNDER
+#include "boost_no_cxx17_std_launder.ipp"
 #else
 #error "this file should not compile"
 #endif
 
 int main( int, char *[] )
 {
-   return boost_no_cxx14_std_exchange::test();
+   return boost_no_cxx17_std_launder::test();
 }
 
