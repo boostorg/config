@@ -16,6 +16,8 @@ namespace boost_has_builtin_launder {
 struct X
 {
     const int const_int;
+    X() = delete;
+    X(const int i) : const_int(i) {}
 };
 
 int test()
