@@ -1,4 +1,4 @@
-//  This file was automatically generated on Fri Jul 10 19:11:06 2026
+//  This file was automatically generated on Fri Jul 10 19:16:26 2026
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -456,11 +456,6 @@ namespace boost_no_cxx17_std_apply = empty_boost;
 #include "boost_no_cxx17_std_invoke.ipp"
 #else
 namespace boost_no_cxx17_std_invoke = empty_boost;
-#endif
-#ifndef BOOST_NO_CXX17_STD_LAUNDER
-#include "boost_no_cxx17_std_launder.ipp"
-#else
-namespace boost_no_cxx17_std_launder = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX17_STRUCTURED_BINDINGS
 #include "boost_no_cxx17_structured_bindings.ipp"
@@ -1033,6 +1028,11 @@ namespace boost_has_two_arg_use_facet = empty_boost;
 #else
 namespace boost_has_bethreads = empty_boost;
 #endif
+#ifdef BOOST_HAS_BUILTIN_LAUNDER
+#include "boost_has_builtin_launder.ipp"
+#else
+namespace boost_has_builtin_launder = empty_boost;
+#endif
 #ifdef BOOST_HAS_CLOCK_GETTIME
 #include "boost_has_clock_gettime.ipp"
 #else
@@ -1219,6 +1219,11 @@ int main( int, char *[] )
    if(0 != boost_has_bethreads::test())
    {
       std::cerr << "Failed test for BOOST_HAS_BETHREADS at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_has_builtin_launder::test())
+   {
+      std::cerr << "Failed test for BOOST_HAS_BUILTIN_LAUNDER at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_has_clock_gettime::test())
@@ -1829,11 +1834,6 @@ int main( int, char *[] )
    if(0 != boost_no_cxx17_std_invoke::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX17_STD_INVOKE at: " << __FILE__ << ":" << __LINE__ << std::endl;
-      ++error_count;
-   }
-   if(0 != boost_no_cxx17_std_launder::test())
-   {
-      std::cerr << "Failed test for BOOST_NO_CXX17_STD_LAUNDER at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx17_structured_bindings::test())
