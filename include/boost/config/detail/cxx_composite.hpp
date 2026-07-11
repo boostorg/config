@@ -1,4 +1,4 @@
-//  This file was automatically generated on Fri Jul 10 19:16:26 2026
+//  This file was automatically generated on Sat Jul 11 11:23:56 2026
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -180,6 +180,7 @@
    || defined(BOOST_NO_CXX17_ITERATOR_TRAITS)\
    || defined(BOOST_NO_CXX17_STD_APPLY)\
    || defined(BOOST_NO_CXX17_STD_INVOKE)\
+   || defined(BOOST_NO_CXX17_STD_LAUNDER)\
    || defined(BOOST_NO_CXX17_STRUCTURED_BINDINGS)
 #    define BOOST_NO_CXX17
 #endif

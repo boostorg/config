@@ -69,6 +69,7 @@
 // C++17 features
 #  define BOOST_NO_CXX17_STD_APPLY
 #  define BOOST_NO_CXX17_STD_INVOKE
+#  define BOOST_NO_CXX17_STD_LAUNDER
 #  define BOOST_NO_CXX17_ITERATOR_TRAITS
 
 #define BOOST_STDLIB "Visual Age default standard library"
