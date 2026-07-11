@@ -1099,6 +1099,26 @@ that are not yet supported by a particular compiler or library.
 
 [endsect]
 
+[section Macros that describe C++26 features not supported]
+
+The following macros describe features in the 2026 ISO C++ standard, formerly known as C++2c,
+that are not yet supported by a particular compiler or library.
+
+[table
+[[Macro ][Description ]]
+[[`BOOST_NO_CXX26_HDR_CONTRACTS`][The compiler does not support the header `<contracts>`.]]
+[[`BOOST_NO_CXX26_HDR_DEBUGGING`][The compiler does not support the header `<debugging>`.]]
+[[`BOOST_NO_CXX26_HDR_HAZARD_POINTER`][The compiler does not support the header `<hazard_pointer>`.]]
+[[`BOOST_NO_CXX26_HDR_HIVE`][The compiler does not support the header `<hive>`.]]
+[[`BOOST_NO_CXX26_HDR_INPLACE_VECTOR`][The compiler does not support the header `<inlace_vector>`.]]
+[[`BOOST_NO_CXX26_HDR_LINALG`][The compiler does not support the header `<linalg>`.]]
+[[`BOOST_NO_CXX26_HDR_RCU`][The compiler does not support the header `<rcu>`.]]
+[[`BOOST_NO_CXX26_HDR_SIMD`][The compiler does not support the header `<simd>`.]]
+[[`BOOST_NO_CXX26_HDR_TEXT_ENCODING`][The compiler does not support the header `<text_encoding>`.]]
+]
+
+[endsect]
+
 [section Macros that describe features that have been removed from the standard.]
 
 The following macros describe features which were required by one version of the standard, but have been removed by later versions.

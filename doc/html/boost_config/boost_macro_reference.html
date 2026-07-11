@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Boost Macro Reference</title>
 <link rel="stylesheet" href="../../../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../index.html" title="Boost.Config">
 <link rel="up" href="../index.html" title="Boost.Config">
 <link rel="prev" href="../index.html" title="Boost.Config">
@@ -50,6 +50,8 @@
       that describe C++20 features not supported</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__23_features_not_supported">Macros
       that describe C++23 features not supported</a></span></dt>
+<dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__26_features_not_supported">Macros
+      that describe C++26 features not supported</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_features_that_have_been_removed_from_the_standard_">Macros
       that describe features that have been removed from the standard.</a></span></dt>
 <dt><span class="section"><a href="boost_macro_reference.html#boost_config.boost_macro_reference.boost_helper_macros">Boost
@@ -1578,24 +1580,22 @@
               </td>
 </tr>
 <tr>
-    <td>
-        <p>
-            <code class="computeroutput"><span class="identifier">BOOST_HAS_BUILTIN_LAUNDER</span></code>
-        </p>
-    </td>
-    <td>
-        <p>
-            Compiler
-        </p>
-    </td>
-    <td>
-        <p>
-            The compiler implements the <code class="computeroutput">
-            <span class="identifier">__builtin_launder()</span></code>
-            compiler intrinsic that is needed to implement a constexpr
-            pointer laundering function like <code class="computeroutput">std::launder</code>.
-        </p>
-    </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_HAS_BUILTIN_LAUNDER</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Compiler
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler implements the <code class="computeroutput"><span class="identifier">__builtin_launder</span><span class="special">()</span></code> compiler intrinsic that is needed
+                  to implement a constexpr pointer laundering function like <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">launder</span></code>.
+                </p>
+              </td>
 </tr>
 <tr>
 <td>
@@ -4194,16 +4194,16 @@
               </td>
 </tr>
 <tr>
-    <td>
-        <p>
-            <code class="computeroutput"><span class="identifier">BOOST_NO_CXX17_STD_LAUNDER</span></code>
-        </p>
-    </td>
-    <td>
-        <p>
-            The compiler does not support <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">launder</span><span class="special">()</span></code>.
-        </p>
-    </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX17_STD_LAUNDER</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">launder</span><span class="special">()</span></code>.
+                </p>
+              </td>
 </tr>
 <tr>
 <td>
@@ -4686,6 +4686,144 @@
 <td>
                 <p>
                   The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">stdfloat</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="boost_config.boost_macro_reference.macros_that_describe_c__26_features_not_supported"></a><a class="link" href="boost_macro_reference.html#boost_config.boost_macro_reference.macros_that_describe_c__26_features_not_supported" title="Macros that describe C++26 features not supported">Macros
+      that describe C++26 features not supported</a>
+</h3></div></div></div>
+<p>
+        The following macros describe features in the 2026 ISO C++ standard, formerly
+        known as C++2c, that are not yet supported by a particular compiler or library.
+      </p>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Macro
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX26_HDR_CONTRACTS</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">contracts</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX26_HDR_DEBUGGING</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">debugging</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX26_HDR_HAZARD_POINTER</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">hazard_pointer</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX26_HDR_HIVE</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">hive</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX26_HDR_INPLACE_VECTOR</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">inlace_vector</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX26_HDR_LINALG</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">linalg</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX26_HDR_RCU</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">rcu</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX26_HDR_SIMD</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">simd</span><span class="special">&gt;</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX26_HDR_TEXT_ENCODING</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The compiler does not support the header <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">text_encoding</span><span class="special">&gt;</span></code>.
                 </p>
               </td>
 </tr>
@@ -5687,6 +5825,27 @@
                   <span class="special">+</span> <span class="identifier">__GNUC_MINOR__</span>
                   <span class="special">*</span> <span class="number">100</span>
                   <span class="special">+</span> <span class="identifier">__GNUC_PATCHLEVEL__</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_GCC_VERSION</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Defined for GCC and any other compilers that also define <code class="computeroutput"><span class="identifier">__GNUC__</span></code>. Has the value: <code class="computeroutput"><span class="identifier">__GNUC__</span> <span class="special">*</span>
+                  <span class="number">10000</span> <span class="special">+</span>
+                  <span class="identifier">__GNUC_MINOR__</span> <span class="special">*</span>
+                  <span class="number">100</span> <span class="special">+</span>
+                  <span class="identifier">__GNUC_PATCHLEVEL__</span></code>.
                 </p>
               </td>
 </tr>
