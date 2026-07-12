@@ -283,7 +283,7 @@
 #if !defined(BOOST_NO_SFINAE_EXPR) && !defined(_MSVC_LANG)
 #  define BOOST_NO_SFINAE_EXPR
 #endif
-#ifndef BOOST_NO_CXX11_REF_QUALIFIERS
+#if !defined(BOOST_NO_CXX11_REF_QUALIFIERS) && !defined(_MSVC_LANG)
 #  define BOOST_NO_CXX11_REF_QUALIFIERS
 #endif
 #endif
