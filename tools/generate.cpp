@@ -427,8 +427,27 @@ void write_std_check(std::string macroname, int min_value, std::string header, i
 
 void write_std_config_checks()
 {
+   // C++26
+   write_std_check("__cpp_constexpr", 202406, "", 26);
+   write_std_check("__cpp_constexpr_exceptions", 202411, "", 26);
+   write_std_check("__cpp_constexpr_virtual_inheritance", 202506, "", 26);
+   write_std_check("__cpp_contracts", 202606, "", 26);
+   write_std_check("__cpp_deleted_function", 202403, "", 26);
+   write_std_check("__cpp_expansion_statements", 202506, "", 26);
+   write_std_check("__cpp_fold_expressions", 202406, "", 26);
+   write_std_check("__cpp_impl_reflection", 202506, "", 26);
+   write_std_check("__cpp_pack_indexing", 202311, "", 26);
+   write_std_check("__cpp_placeholder_variables", 202306, "", 26);
+   write_std_check("__cpp_pp_embed", 202502, "", 26);
+   write_std_check("__cpp_static_assert", 202306, "", 26);
+   write_std_check("__cpp_structured_bindings", 202502, "", 26);
+   write_std_check("__cpp_trivial_union", 202603, "", 26);
+   write_std_check("__cpp_variadic_friend", 202403, "", 26);
    // C++23
+   write_std_check("__cpp_auto_cast", 202110, "", 23);
+   write_std_check("__cpp_char8_t", 202207, "", 23);
    write_std_check("__cpp_consteval", 202211, "", 23);
+   write_std_check("__cpp_constexpr", 202211, "", 23);
    write_std_check("__cpp_explicit_this_parameter", 202110, "", 23);
    write_std_check("__cpp_if_consteval", 202106, "", 23);
    write_std_check("__cpp_implicit_move", 202207, "", 23);
