@@ -37,6 +37,8 @@ exe has_rt_lib : config_info.cpp rt ;
 explicit has_rt_lib ;
 obj check_memory : check_memory.cpp ;
 explicit check_memory ;
+obj has_clr : has_clr.cpp ;
+explicit has_clr ;
 
 test-suite config
   :
@@ -59,6 +61,7 @@ test-suite config
           [ check-target-builds has_atomic_lib : <source>atomic ]
           [ check-target-builds has_pthread_lib : <source>pthread ]
           [ check-target-builds has_rt_lib : <source>rt ]
+          [ check-target-builds has_clr : : <build>no ]
     ]
     [ run config_test.cpp
           : #args
@@ -84,9 +87,9 @@ test-suite config
           [ check-target-builds has_rt_lib : <source>rt ]
           : config_test_no_except
     ]
-     [ run config_info.cpp : : : <test-info>always_show_run_output <threading>single <toolset>msvc:<runtime-link>static <toolset>msvc:<link>static <toolset>msvc:<warnings-as-errors>on <toolset>gcc:<warnings-as-errors>on <toolset>clang:<warnings-as-errors>on ]
+     [ run config_info.cpp : : : <test-info>always_show_run_output <threading>single <toolset>msvc:<runtime-link>static <toolset>msvc:<link>static <toolset>msvc:<warnings-as-errors>on <toolset>gcc:<warnings-as-errors>on <toolset>clang:<warnings-as-errors>on [ check-target-builds has_clr : : <build>no ] ]
      [ run config_info.cpp : : : <test-info>always_show_run_output <threading>multi <toolset>msvc:<warnings-as-errors>on <toolset>gcc:<warnings-as-errors>on <toolset>clang:<warnings-as-errors>on : config_info_threaded ]
-     [ run config_info.cpp : : : <test-info>always_show_run_output <rtti>off <toolset>msvc:<warnings-as-errors>on <toolset>gcc:<warnings-as-errors>on <toolset>clang:<warnings-as-errors>on : config_info_no_rtti ]
+     [ run config_info.cpp : : : <test-info>always_show_run_output <rtti>off <toolset>msvc:<warnings-as-errors>on <toolset>gcc:<warnings-as-errors>on <toolset>clang:<warnings-as-errors>on [ check-target-builds has_clr : : <build>no ] : config_info_no_rtti ]
      [ run config_info.cpp : : : <test-info>always_show_run_output <exception-handling>off
           <target-os>vxworks:<build>no
           : config_info_no_except ]

@@ -257,7 +257,7 @@
 
 //
 // Things not supported by the CLR:
-#ifdef _M_CEE
+#if defined(_M_CEE) && (_MSC_VER < 1951)
 #ifndef BOOST_NO_CXX11_HDR_MUTEX
 #  define BOOST_NO_CXX11_HDR_MUTEX
 #endif
@@ -279,10 +279,14 @@
 #ifndef BOOST_NO_CXX14_STD_EXCHANGE
 #  define BOOST_NO_CXX14_STD_EXCHANGE
 #endif
+#endif
+
+#if defined(_M_CEE)
 #ifndef BOOST_NO_FENV_H
 #  define BOOST_NO_FENV_H
 #endif
 #endif
+
 
 #ifdef _CPPLIB_VER
 #  define BOOST_DINKUMWARE_STDLIB _CPPLIB_VER
