@@ -1097,7 +1097,7 @@ namespace std{ using ::type_info; }
 #if __has_attribute(nodiscard)
 # define BOOST_ATTRIBUTE_NODISCARD [[nodiscard]]
 #endif
-#if __has_attribute(no_unique_address)
+#if __has_attribute(no_unique_address)  && !defined(BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS)
 # define BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS [[no_unique_address]]
 #endif
 #elif defined(__has_cpp_attribute)
@@ -1105,7 +1105,7 @@ namespace std{ using ::type_info; }
 #if __has_cpp_attribute(nodiscard) && !(defined(__clang__) && (__cplusplus < 201703L)) && !(defined(__GNUC__) && (__cplusplus < 201100))
 # define BOOST_ATTRIBUTE_NODISCARD [[nodiscard]]
 #endif
-#if __has_cpp_attribute(no_unique_address) && !(defined(__GNUC__) && (__cplusplus < 201100))
+#if __has_cpp_attribute(no_unique_address) && !(defined(__GNUC__) && (__cplusplus < 201100)) && !defined(BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS)
 # define BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS [[no_unique_address]]
 #endif
 #endif

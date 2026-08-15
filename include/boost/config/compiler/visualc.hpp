@@ -273,6 +273,11 @@
 #define BOOST_NO_CXX17_AUTO_NONTYPE_TEMPLATE_PARAMS
 #endif
 
+#if _MSC_FULL_VER >= 192829913
+// Works with /std:c++14 and /std:c++17, and performs optimization
+#define BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS [[msvc::no_unique_address]]
+#endif
+
 //
 // Things that don't work in clr mode:
 //
