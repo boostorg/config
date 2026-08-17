@@ -19,6 +19,10 @@
 //   29 Jun 00  Reimplement to avoid including stdint.h within namespace boost
 //    8 Aug 99  Initial version (Beman Dawes)
 
+// Make the header safe to include from libraries supporting modules
+#if defined(BOOST_IN_MODULE_PURVIEW) && !defined(BOOST_CSTDINT_HPP)
+#  error "Please #include <boost/cstdint.hpp> in your module global fragment"
+#endif
 
 #ifndef BOOST_CSTDINT_HPP
 #define BOOST_CSTDINT_HPP

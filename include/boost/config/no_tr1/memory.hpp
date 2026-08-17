@@ -18,7 +18,7 @@
 #     define BOOST_CONFIG_NO_MEMORY_RECURSION
 #  endif
 
-#  include <memory>
+#  include <boost/config/std/memory.hpp>
 
 #  ifdef BOOST_CONFIG_NO_MEMORY_RECURSION
 #     undef BOOST_TR1_NO_RECURSION
