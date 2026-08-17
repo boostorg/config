@@ -1,4 +1,4 @@
-//  This file was automatically generated on Sat Jul 11 16:20:44 2026
+//  This file was automatically generated on Mon Aug 17 12:06:15 2026
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -466,6 +466,11 @@ namespace boost_no_cxx17_std_launder = empty_boost;
 #include "boost_no_cxx17_structured_bindings.ipp"
 #else
 namespace boost_no_cxx17_structured_bindings = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX20_CHAR8_T
+#include "boost_no_cxx20_char8_t.ipp"
+#else
+namespace boost_no_cxx20_char8_t = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX20_HDR_BARRIER
 #include "boost_no_cxx20_hdr_barrier.ipp"
@@ -1894,6 +1899,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx17_structured_bindings::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX17_STRUCTURED_BINDINGS at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx20_char8_t::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_CHAR8_T at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx20_hdr_barrier::test())

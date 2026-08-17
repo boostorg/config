@@ -1060,6 +1060,7 @@ that are not yet supported by a particular compiler or library.
 
 [table
 [[Macro ][Description ]]
+[[`BOOST_NO_CXX20_CHAR8_T`][The compiler does not support char8_t as a distinct type.]]
 [[`BOOST_NO_CXX20_HDR_BARRIER`][The compiler does not support the header `<barrier>`.]]
 [[`BOOST_NO_CXX20_HDR_FORMAT`][The compiler does not support the header `<format>`.]]
 [[`BOOST_NO_CXX20_HDR_SOURCE_LOCATION`][The compiler does not support the header `<source_location>`.]]
