@@ -1342,6 +1342,10 @@ namespace std{ using ::type_info; }
 #  define BOOST_NO_CXX11_HDR_CODECVT
 #endif
 
+#if !defined(__cpp_char8_t) || (__cpp_char8_t < 201811)
+#  define BOOST_NO_CXX20_CHAR8_T
+#endif
+
 #if defined(__cplusplus) && defined(__has_include)
 #if !__has_include(<version>)
 #  define BOOST_NO_CXX20_HDR_VERSION
