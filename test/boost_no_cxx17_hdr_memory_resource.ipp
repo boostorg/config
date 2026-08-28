@@ -26,6 +26,11 @@ int test()
   using std::pmr::null_memory_resource;
   using std::pmr::get_default_resource;
   using std::pmr::set_default_resource;
+
+  // Some apple versions are missing implementations
+  // see https://github.com/boostorg/config/issues/527
+  std::pmr::set_default_resource(nullptr);
+  std::pmr::memory_resource* mr = std::pmr::get_default_resource();
   return 0;
 }
 
