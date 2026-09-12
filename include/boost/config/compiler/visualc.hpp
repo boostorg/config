@@ -273,8 +273,10 @@
 #define BOOST_NO_CXX17_AUTO_NONTYPE_TEMPLATE_PARAMS
 #endif
 
-#if _MSC_FULL_VER >= 192829913
-// Works with /std:c++14 and /std:c++17, and performs optimization
+#if _MSC_VER >= 1943
+// Even though [[msvc::no_unique_address]] works on earlier versions,
+// it issues a warning with /std:c++14 and /std:c++17, which is a problem
+// https://github.com/boostorg/config/issues/499
 #define BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS [[msvc::no_unique_address]]
 #endif
 
