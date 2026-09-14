@@ -273,9 +273,13 @@
 #define BOOST_NO_CXX17_AUTO_NONTYPE_TEMPLATE_PARAMS
 #endif
 
-#if _MSC_FULL_VER >= 192829913
-// Works with /std:c++14 and /std:c++17, and performs optimization
-#define BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS [[msvc::no_unique_address]]
+#if _MSC_VER >= 1930
+// [[no_unique_address]] is a no-op under MSVC
+// [[msvc::no_unique_address]] applies the optimization, and works with /std:c++14 and /std:c++17
+// Even though it's supported from 19.28 onwards, we only enable it from 19.30, so that a minor
+// compiler update doesn't change ABI
+#define BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS \
+  __pragma(warning(push)) __pragma(warning(disable: 4848)) [[msvc::no_unique_address]] __pragma(warning(pop))
 #endif
 
 //
