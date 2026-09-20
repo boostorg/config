@@ -12,9 +12,17 @@
 
 // make sure we have __GLIBC_PREREQ if available at all
 #ifdef __cplusplus
-#include <cstdlib>
+#  ifdef __has_include
+#    if __has_include(<version>)
+#      include <version> // lightweight and friendly to modules
+#    else
+#      include <cstdlib>
+#    endif
+#  else
+#    include <cstdlib>
+#  endif
 #else
-#include <stdlib.h>
+#  include <stdlib.h>
 #endif
 
 //
