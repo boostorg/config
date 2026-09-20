@@ -16,6 +16,7 @@ project /boost/architecture
 obj 32 : 32.cpp ;
 obj 64 : 64.cpp ;
 
+obj alpha    : alpha.cpp ;
 obj arm      : arm.cpp ;
 obj combined : combined.cpp ;
 obj loongarch : loongarch.cpp ;
