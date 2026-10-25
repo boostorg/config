@@ -365,6 +365,14 @@
 #  define BOOST_MAY_ALIAS __attribute__((__may_alias__))
 #endif
 
+#if defined(_MSC_VER) && _MSC_VER >= 1930
+// In MSVC mode, [[no_unique_address]] is a no-op, matching MSVC,
+// but [[msvc::no_unique_address]] works
+// The condition here must match the one in visualc.hpp, to preserve
+// the ABI compatibility between MSVC and Clang
+#define BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS [[msvc::no_unique_address]]
+#endif
+
 #ifndef BOOST_COMPILER
 #  define BOOST_COMPILER "Clang version " __clang_version__
 #endif
