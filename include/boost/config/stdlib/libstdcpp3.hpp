@@ -267,7 +267,7 @@ extern "C" char *gets (char *__s);
 #     if !_GLIBCXX_DEPRECATED
 #        define BOOST_NO_AUTO_PTR
 #     endif
-#  elif !defined(_GLIBCXX_USE_DEPRECATED) || !_GLIBCXX_USE_DEPRECATED
+#  elif !defined(_GLIBCXX_USE_DEPRECATED) || !_GLIBCXX_USE_DEPRECATED || defined(BOOST_USE_MODULES) // the std module doesn't export deprecated functionality
 #     define BOOST_NO_AUTO_PTR
 #     define BOOST_NO_CXX98_BINDERS
 #  endif

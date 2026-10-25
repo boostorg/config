@@ -16,7 +16,7 @@
 
 #include <boost/config.hpp>
 #include <boost/detail/workaround.hpp>
-#include <cstddef> //for std::size_t
+#include <boost/config/std/cstddef.hpp> //for std::size_t
 
 #if defined(__GNUC__) && !defined(__GXX_EXPERIMENTAL_CXX0X__)
 //
