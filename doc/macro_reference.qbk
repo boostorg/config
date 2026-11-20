@@ -1443,6 +1443,16 @@ can be used to disable compiler warnings relating to unused types or variables.]
 can be used to create a warning when a type or variable is unused.]]
 [[`BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS`][Expands to `[[no_unique_address]]` when this is available -
 can be used to indicate that a non-static data member need not have a unique address (for example empty classes).]]
+[[`BOOST_ATTRIBUTE_INDETERMINATE`][Expands to `[[indeterminate]]` when this is available,
+otherwise to `__attribute__((uninitialized))` when this is available.
+Use it only on the definition of a local variable that has automatic storage duration and no initializer.
+It tells the compiler not to fill the variable with a value (C++26 erroneous behaviour or
+`-ftrivial-auto-var-init`). This fill can be expensive for large buffers. If the program reads the
+variable before it writes a value to it, the behaviour is undefined. Usage example:
+``
+  BOOST_ATTRIBUTE_INDETERMINATE unsigned char buffer[4096];
+``
+]]
 [[`BOOST_MAY_ALIAS`, `BOOST_NO_MAY_ALIAS`][
 `BOOST_MAY_ALIAS` expands to a type attribute that can be used to mark types that may
 alias other types. Pointers or references to such marked types can be used to access objects
