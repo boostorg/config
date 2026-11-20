@@ -1116,6 +1116,25 @@ namespace std{ using ::type_info; }
 # define BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS
 #endif
 
+//
+// [[indeterminate]] (C++26) or __attribute__((uninitialized)):
+// tells the compiler not to fill an uninitialized local variable
+// (C++26 erroneous behaviour, -ftrivial-auto-var-init).
+//
+#if !defined(BOOST_ATTRIBUTE_INDETERMINATE) && defined(__has_cpp_attribute)
+#  if __has_cpp_attribute(indeterminate)
+#    define BOOST_ATTRIBUTE_INDETERMINATE [[indeterminate]]
+#  endif
+#endif
+#if !defined(BOOST_ATTRIBUTE_INDETERMINATE) && defined(__has_attribute)
+#  if __has_attribute(uninitialized)
+#    define BOOST_ATTRIBUTE_INDETERMINATE __attribute__((uninitialized))
+#  endif
+#endif
+#ifndef BOOST_ATTRIBUTE_INDETERMINATE
+#  define BOOST_ATTRIBUTE_INDETERMINATE
+#endif
+
 #define BOOST_STATIC_CONSTEXPR  static BOOST_CONSTEXPR_OR_CONST
 
 #if !defined(BOOST_NO_CXX11_NULLPTR)

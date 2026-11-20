@@ -67,6 +67,13 @@ void* test_nullptr()
    return BOOST_NULLPTR;
 }
 
+int test_indeterminate(int i)
+{
+   BOOST_ATTRIBUTE_INDETERMINATE int buf[64];
+   buf[i] = i;
+   return buf[i];
+}
+
 int main()
 {
    typedef int unused_type BOOST_ATTRIBUTE_UNUSED;
@@ -88,6 +95,7 @@ int main()
       }
 
       test_nullptr();
+      result += test_indeterminate(1);
    }
    catch(int)
    {
